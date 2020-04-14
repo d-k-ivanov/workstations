@@ -1,0 +1,10 @@
+# IDE
+.idea
+.vs
+.vscode
+
+# Temporary modules directory
+.modules/
+
+# DSC
+*.mof

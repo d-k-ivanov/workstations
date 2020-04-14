@@ -1,0 +1,27 @@
+# Perform LF normalization
+* text eol=lf
+*.vim eol=lf
+
+*.a binary
+*.aac binary
+*.ai binary
+*.bin binary
+*.chm binary
+*.class binary
+*.dll binary
+*.exe binary
+*.gif binary
+*.gpg binary
+*.gz binary
+*.hlp binary
+*.ico binary
+*.jar binary
+*.jpg binary
+*.lib binary
+*.mp3 binary
+*.msi binary
+*.ogg binary
+*.png binary
+*.psd binary
+*.spl binary
+*.sys binary
