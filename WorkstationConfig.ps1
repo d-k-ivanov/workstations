@@ -45,7 +45,10 @@ if ($MyInvocation.InvocationName -ne '.')
             # Office Software
             
             # DevSoftware
-            DevTools DevTools{}
+            Python          Python          {}
+            DevTools        DevTools        {}
+            VisualStudio    VisualStudio    {}
+
             AddChocoPackages AddChocoPackages { Packages = 'googlechrome' }
         }
     }
