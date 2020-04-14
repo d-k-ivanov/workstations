@@ -7,24 +7,20 @@ Workstation Configuration.
 #>
 
 
-# ------------------------------------------------------------
-# Init
-# ------------------------------------------------------------
-    # Check invocation
-    if ($MyInvocation.InvocationName -ne '.')
-    {
-        Write-Host `
-            "Error: Bad invocation. $($MyInvocation.MyCommand) supposed to be sourced. Exiting..." `
-            -ForegroundColor Red
-        Exit
-    }
+# Check invocation
+if ($MyInvocation.InvocationName -ne '.')
+{
+    Write-Host `
+        "Error: Bad invocation. $($MyInvocation.MyCommand) supposed to be sourced. Exiting..." `
+        -ForegroundColor Red
+    Exit
+}
 
 
 # ------------------------------------------------------------
 # Base
 # ------------------------------------------------------------
-    . "${PSScriptRoot}\Functions.ps1"
-
+. "${PSScriptRoot}\Functions.ps1"
 
 # ------------------------------------------------------------
 # Workstation Composite Config
@@ -37,30 +33,24 @@ Workstation Configuration.
     {
         # Import-DscResource -ModuleName PSDesiredStateConfiguration
         # Import-DscResource -ModuleName WorkstationComposite
-	Import-DscResource -Module WorkstationComposite
+        Import-DscResource -Module WorkstationComposite
         #Import-DscResource -Name ComputerSettings
         #Import-DscResource -Name InstallChocolateyPackages
 
         Node localhost
         {
+            # System Configuration
             SetComputerName  SetComputerName  { Name = 'divanov-dev' }
-            AddChocoPackages AddChocoPackages
-                             { 
-                                 Packages = 
-                                     'googlechrome',
-                                     'notepadplusplus.install',
-                                     'git'
-                             }
+
+            # Office Software
+            
+            # DevSoftware
+            DevTools DevTools{}
+            AddChocoPackages AddChocoPackages { Packages = 'googlechrome' }
         }
     }
 
-
     WorkstationConfig -OutputPath $PSScriptRoot | Out-Null
-
-
-# ------------------------------------------------------------
-# Region Cleanup
-# ------------------------------------------------------------
 
 # ------------------------------------------------------------
 # End of File

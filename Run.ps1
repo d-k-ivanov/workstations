@@ -6,18 +6,17 @@ Run automated configuration of developer workstation.
 Run automated configuration of developer workstation.
 #>
 
-Begin {
+Begin
+{
     # ------------------------------------------------------------
     # Variables
     # ------------------------------------------------------------
     $PSModulePathSys   = $Env:PSModulePath
     $PSModulePathLoc   = Join-Path $PSScriptRoot '.modules'
-    # $DscResourcesPath  = Join-Path $PSScriptRoot 'DSC'
-
     $Env:PSModulePath  = "${PSScriptRoot}"    + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
+    # $DscResourcesPath  = Join-Path $PSScriptRoot 'DSC'
     # $Env:PSModulePath  = "${PSModulePathLoc}" + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
     # $Env:PSModulePath  = "${PSScriptRoot}"    + "$([System.IO.Path]::PathSeparator)${PSModulePathLoc}" + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
-
 
     # ------------------------------------------------------------
     # Init
@@ -29,17 +28,18 @@ Begin {
 } # Begin block
 
 
-Process {
+Process
+{
     # ------------------------------------------------------------
     # Base
     # ------------------------------------------------------------
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
     # Create local modules directory
-    #if (-Not (Test-Path "${PSModulePathLoc}"))
-    #{
-    #    New-Item -ItemType Directory -Force -Path "${PSModulePathLoc}" | Out-Null
-    #}
+    # if (-Not (Test-Path "${PSModulePathLoc}"))
+    # {
+    #     New-Item -ItemType Directory -Force -Path "${PSModulePathLoc}" | Out-Null
+    # }
 
     # Enable WinRM if needed
     if (-Not (Test-WSMan -ComputerName localhost -ErrorAction SilentlyContinue))
@@ -64,16 +64,15 @@ Process {
     {
         Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
     }
-    
 
     # ------------------------------------------------------------
     # PSDepend
     # ------------------------------------------------------------
     if (-Not (Get-Module -Name PSDepend -ListAvailable))
     {
-         #    Find-Module -Name 'PSDepend' -Repository 'PSGallery' | Save-Module -Path "${PSModulePathLoc}"
-         #    Import-Module -FullyQualifiedName "${PSModulePathLoc}\PSDepend"
-	 Install-Module -Scope AllUsers -Name PSDepend -Force
+        # Find-Module -Name 'PSDepend' -Repository 'PSGallery' | Save-Module -Path "${PSModulePathLoc}"
+        # Import-Module -FullyQualifiedName "${PSModulePathLoc}\PSDepend"
+        Install-Module -Scope AllUsers -Name PSDepend -Force
     }
     Import-Module -Name PSDepend
     Invoke-PSDepend -Path $PSScriptRoot -Force -Import -Install # -Tags 'SampleTag'
@@ -102,7 +101,8 @@ Process {
 } # Process block 
 
 
-End {
+End
+{
     # ------------------------------------------------------------
     # Cleanup
     # ------------------------------------------------------------
