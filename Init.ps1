@@ -38,7 +38,13 @@ if (-Not (Get-PSRepository -Name PSGallery -ErrorAction SilentlyContinue).Instal
 # Enable WinRM if needed
 if (-Not (Test-WSMan -ComputerName localhost -ErrorAction SilentlyContinue))
 {
-    Enable-PSRemoting -SkipNetworkProfileCheck -Force
+    # For public networks
+    # Enable-PSRemoting -SkipNetworkProfileCheck -Force
+
+    Set-NetConnectionProfile -NetworkCategory Private
+    Enable-PSRemoting -Force
+    Set-WSManInstance -ValueSet @{MaxEnvelopeSizekb = "2000"} -ResourceURI winrm/config
+    dir WSMan:\localhost | Format-Table
 }
 
 

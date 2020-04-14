@@ -49,8 +49,7 @@ Workstation Configuration.
                                  Packages = 
                                      'googlechrome',
                                      'notepadplusplus.install',
-                                     'git',
-                                     'git.lfs'
+                                     'git'
                              }
         }
     }
