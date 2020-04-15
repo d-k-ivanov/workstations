@@ -31,11 +31,10 @@ if ($MyInvocation.InvocationName -ne '.')
 
     Configuration WorkstationConfig
     {
+        Import-DscResource -ModuleName WorkstationComposite
+        
         # Import-DscResource -ModuleName PSDesiredStateConfiguration
         # Import-DscResource -ModuleName WorkstationComposite
-        Import-DscResource -Module WorkstationComposite
-        #Import-DscResource -Name ComputerSettings
-        #Import-DscResource -Name InstallChocolateyPackages
 
         Node localhost
         {
@@ -45,9 +44,9 @@ if ($MyInvocation.InvocationName -ne '.')
             # Office Software
             
             # DevSoftware
-            Python          Python          {}
             DevTools        DevTools        {}
-            VisualStudio    VisualStudio    {}
+            DevLangs        DevLangs        {}
+            # VisualStudio    VisualStudio    {}
 
             AddChocoPackages AddChocoPackages { Packages = 'googlechrome' }
         }

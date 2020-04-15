@@ -10,9 +10,10 @@ Configuration VisualStudio
 {
     Param
     (
-        [switch]       $AutoUpgrade = $True
+        [switch] $AutoUpgrade = $True
     )
 
+    Import-DscResource –ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
 
     cChocoinstaller InstallChocolatey {
@@ -86,14 +87,6 @@ Configuration VisualStudio
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
     }
 
-    cChocoPackageInstaller InstallVisualStudioInstaller
-    {
-        Name                    = 'visualstudio-installer'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    }
-
     cChocoPackageInstaller InstallVisualStudioCommunity2019
     {
         Name                    = 'visualstudio2019community'
@@ -116,6 +109,7 @@ Configuration VisualStudio
         TestScript              = { Test-Path "${Env:ProgramFiles(x86)}\Windows Kits\8.1" }
         DependsOn               = '[Script]DownloadWindows81Sdk'
     }
+
 }
 
 

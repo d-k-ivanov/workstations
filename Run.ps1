@@ -25,6 +25,12 @@ Begin
     Skip-FirstLines
     ElevateSession
 
+    Start-Transcript -Path "$PSScriptRoot\Run.log"
+    $StartDateTime = get-date
+    Write-Host "Script started at $StartDateTime"
+
+    Remove-Item -Force ${PSScriptRoot}\*.mof
+
 } # Begin block
 
 
@@ -107,7 +113,8 @@ End
     # Cleanup
     # ------------------------------------------------------------
     $Env:PSModulePath = $PSModulePathSys
-
+    Write-Host "Script finished at $(Get-date) and took $(((get-date) - $StartDateTime).TotalMinutes) Minutes"
+    Stop-Transcript
 
 } # End block
 
