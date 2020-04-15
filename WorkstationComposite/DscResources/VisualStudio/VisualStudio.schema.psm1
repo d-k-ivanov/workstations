@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-Install various development tools.
+Install Visual Stodio environment.
 
 .DESCRIPTION
-Install various development tools.
+Install Visual Stodio environment.
 #>
 
 Configuration VisualStudio

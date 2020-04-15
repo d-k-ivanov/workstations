@@ -40,12 +40,16 @@ if ($MyInvocation.InvocationName -ne '.')
         {
             # System Configuration
             SetComputerName  SetComputerName  { Name = 'divanov-dev' }
+            SystemSoft       SystemSoft     {}
 
             # Office Software
+            OfficeSoft       OfficeSoft     {}
+
             
             # DevSoftware
-            DevTools        DevTools        {}
             DevLangs        DevLangs        {}
+            DevOps          DevOps          {}
+            DevTools        DevTools        {}
             # VisualStudio    VisualStudio    {}
 
             AddChocoPackages AddChocoPackages { Packages = 'googlechrome' }
