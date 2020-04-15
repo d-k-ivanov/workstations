@@ -25,14 +25,12 @@ if ($MyInvocation.InvocationName -ne '.')
 # ------------------------------------------------------------
 # Workstation Composite Config
 # ------------------------------------------------------------
-    # Import-Module WorkstationComposite
-    # Import-Module InstallChocolateyPackages
     # Get-DscResource | Format-Table
 
     Configuration WorkstationConfig
     {
         Import-DscResource -ModuleName WorkstationComposite
-        
+
         # Import-DscResource -ModuleName PSDesiredStateConfiguration
         # Import-DscResource -ModuleName WorkstationComposite
 
@@ -45,14 +43,11 @@ if ($MyInvocation.InvocationName -ne '.')
             # Office Software
             OfficeSoft       OfficeSoft     {}
 
-            
-            # DevSoftware
+            # Development Software
             DevLangs        DevLangs        {}
             DevOps          DevOps          {}
             DevTools        DevTools        {}
             # VisualStudio    VisualStudio    {}
-
-            AddChocoPackages AddChocoPackages { Packages = 'googlechrome' }
         }
     }
 

@@ -10,8 +10,17 @@ Configuration VisualStudio
 {
     Param
     (
-        [switch] $AutoUpgrade = $True
+        [switch] $NoUpgrate
     )
+
+    if ($NoUpgrate)
+    {
+        $AutoUpgrade = $false
+    }
+    else
+    {
+        $AutoUpgrade = $true
+    }
 
     Import-DscResource –ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
@@ -27,7 +36,7 @@ Configuration VisualStudio
     #     Version                 = ''
     #     Params                  = ''
     #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
+    #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 

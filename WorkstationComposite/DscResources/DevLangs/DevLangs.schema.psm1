@@ -10,9 +10,17 @@ Configuration DevLangs
 {
     Param
     (
-        [switch] $AutoUpgrade = $True
+        [switch] $NoUpgrate
     )
 
+    if ($NoUpgrate)
+    {
+        $AutoUpgrade = $false
+    }
+    else
+    {
+        $AutoUpgrade = $true
+    }
     Import-DscResource -ModuleName cChoco
 
     cChocoinstaller InstallChocolatey {
@@ -26,7 +34,7 @@ Configuration DevLangs
     #     Version                 = ''
     #     Params                  = ''
     #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
+    #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 

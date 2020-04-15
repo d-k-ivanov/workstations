@@ -12,9 +12,10 @@ Begin
     # Variables
     # ------------------------------------------------------------
     $PSModulePathSys   = $Env:PSModulePath
-    $PSModulePathLoc   = Join-Path $PSScriptRoot '.modules'
-    $Env:PSModulePath  = "${PSScriptRoot}"    + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
+    # $PSModulePathLoc   = Join-Path $PSScriptRoot '.modules'
     # $DscResourcesPath  = Join-Path $PSScriptRoot 'DSC'
+
+    $Env:PSModulePath  = "${PSScriptRoot}"    + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
     # $Env:PSModulePath  = "${PSModulePathLoc}" + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
     # $Env:PSModulePath  = "${PSScriptRoot}"    + "$([System.IO.Path]::PathSeparator)${PSModulePathLoc}" + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
 
@@ -26,7 +27,7 @@ Begin
     ElevateSession
 
     Remove-Item -Force "$PSScriptRoot\Run.log" -ErrorAction SilentlyContinue
-    Start-Transcript -Path "$PSScriptRoot\Run.log"
+    Start-Transcript -Path "$PSScriptRoot\Run.log" -Force
     $StartDateTime = get-date
     Write-Host "Script started at $StartDateTime"
 
@@ -57,7 +58,7 @@ Process
         Set-NetConnectionProfile -NetworkCategory Private
         Enable-PSRemoting -Force
         Set-WSManInstance -ValueSet @{MaxEnvelopeSizekb = "2000"} -ResourceURI winrm/config
-        dir WSMan:\localhost | Format-Table
+        Get-ChildItem WSMan:\localhost | Format-Table
     }
 
     # Install Nuget package provide if needed
@@ -84,13 +85,13 @@ Process
     Import-Module -Name PSDepend
     Invoke-PSDepend -Path $PSScriptRoot -Force -Import -Install # -Tags 'SampleTag'
     # WriteInfoHighlighted($Env:PSModulePath)
-    
+
 
     # ------------------------------------------------------------
     # Load LCM Config
     # ------------------------------------------------------------
     . "${PSScriptRoot}\LCMConfig.ps1"
-    Set-DscLocalConfigurationManager -Path $PSScriptRoot
+    Set-DscLocalConfigurationManager -Path $PSScriptRoot -Force
 
 
     # ------------------------------------------------------------
@@ -105,7 +106,7 @@ Process
     Start-DscConfiguration -Path $PSScriptRoot -Wait -Verbose -Force
 
 
-} # Process block 
+} # Process block
 
 
 End
@@ -115,7 +116,7 @@ End
     # ------------------------------------------------------------
     $Env:PSModulePath = $PSModulePathSys
     Write-Host "Script finished at $(Get-date) and took $(((get-date) - $StartDateTime).TotalMinutes) Minutes"
-    Stop-Transcript -ErrorAction SilentlyContinue
+    Stop-Transcript
 
 } # End block
 

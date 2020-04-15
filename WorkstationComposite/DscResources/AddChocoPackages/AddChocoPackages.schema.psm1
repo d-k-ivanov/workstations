@@ -1,4 +1,4 @@
-Configuration AddChocoPackages 
+Configuration AddChocoPackages
 {
     Param
     (
@@ -19,11 +19,11 @@ Configuration AddChocoPackages
     #     Version                 = ''
     #     Params                  = ''
     #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
+    #     Ensure                  = 'Present | Absent'
     #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
     # }
 
-    foreach ($p in $Packages) {        
+    foreach ($p in $Packages) {
         cChocoPackageInstaller $p
         {
             Name                    = "$p"

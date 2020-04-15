@@ -10,8 +10,17 @@ Configuration DevTools
 {
     Param
     (
-        [switch] $AutoUpgrade = $True
+        [switch] $NoUpgrate
     )
+
+    if ($NoUpgrate)
+    {
+        $AutoUpgrade = $false
+    }
+    else
+    {
+        $AutoUpgrade = $true
+    }
 
     Import-DscResource -ModuleName cChoco
 
@@ -26,7 +35,7 @@ Configuration DevTools
     #     Version                 = ''
     #     Params                  = ''
     #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
+    #     Ensure                  = 'Present | Absent'
     #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
     # }
 
@@ -63,7 +72,7 @@ Configuration DevTools
     }
 
     cChocoPackageInstaller InstallGit
-    {  
+    {
         Name                    = 'git'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
@@ -71,7 +80,7 @@ Configuration DevTools
     }
 
     cChocoPackageInstaller InstallGitExtensions
-    {  
+    {
         Name                    = 'gitextensions'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
@@ -79,7 +88,7 @@ Configuration DevTools
     }
 
     cChocoPackageInstaller InstallGradle
-    {  
+    {
         Name                    = 'gradle'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
@@ -87,7 +96,7 @@ Configuration DevTools
     }
 
     cChocoPackageInstaller InstallMercurial
-    {  
+    {
         Name                    = 'hg'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
@@ -95,7 +104,7 @@ Configuration DevTools
     }
 
     cChocoPackageInstaller InstallHXD
-    {  
+    {
         Name                    = 'hxd'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
@@ -103,7 +112,7 @@ Configuration DevTools
     }
 
     cChocoPackageInstaller InstallJDK8
-    {  
+    {
         Name                    = 'jdk8'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
@@ -111,7 +120,7 @@ Configuration DevTools
     }
 
     cChocoPackageInstaller InstallOpenJDK #14
-    {  
+    {
         Name                    = 'openjdk'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
@@ -119,7 +128,7 @@ Configuration DevTools
     }
 
     cChocoPackageInstaller InstallJQ
-    {  
+    {
         Name                    = 'jq'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
@@ -127,7 +136,7 @@ Configuration DevTools
     }
 
     cChocoPackageInstaller InstallKDiff3
-    {  
+    {
         Name                    = 'kdiff3'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
@@ -135,7 +144,7 @@ Configuration DevTools
     }
 
     cChocoPackageInstaller InstallLLVM
-    {  
+    {
         Name                    = 'llvm'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'

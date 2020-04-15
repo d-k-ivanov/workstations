@@ -10,8 +10,17 @@ Configuration DevOps
 {
     Param
     (
-        [switch] $AutoUpgrade = $True
+        [switch] $NoUpgrate
     )
+
+    if ($NoUpgrate)
+    {
+        $AutoUpgrade = $false
+    }
+    else
+    {
+        $AutoUpgrade = $true
+    }
 
     Import-DscResource –ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
@@ -28,7 +37,7 @@ Configuration DevOps
     #     Version                 = ''
     #     Params                  = ''
     #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
+    #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 
@@ -58,12 +67,12 @@ Configuration DevOps
 
     Script DownloadBindToolsConfig
     {
-        SetScript               = { 
+        SetScript               = {
             Write-Output 'nameserver 8.8.8.8' > $env:SystemRoot\System32\Drivers\etc\resolv.conf
             Write-Output 'nameserver 77.88.8.8' >> $env:SystemRoot\System32\Drivers\etc\resolv.conf
         }
         GetScript               = { @{} }
-        TestScript              = { 
+        TestScript              = {
             Test-Path $env:SystemRoot\System32\Drivers\etc\resolv.conf
         }
     }
