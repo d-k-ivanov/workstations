@@ -62,9 +62,24 @@ if ($MyInvocation.InvocationName -ne '.')
         Node $Allnodes.Where{$_.Role -eq $Role}.NodeName
         {
             $Credential = Get-SecretDSCCreds
+
             # System Configuration
-            SetComputerName     SetComputerName     { Name = 'divanov-dev' }
+            SystemSettings      SystemSettings
+            {
+                Credential      = $Credential
+                ComputerName    = 'divanov-dev'
+            }
+
+            # System Software
             SystemTools         SystemTools         { Credential = $Credential }
+            Virtualization      Virtualization      { Credential = $Credential }
+
+
+            # Development Software
+            DevLangs            DevLangs            { Credential = $Credential }
+            DevOps              DevOps              { Credential = $Credential }
+            DevTools            DevTools            { Credential = $Credential }
+            # VisualStudio        VisualStudio        { Credential = $Credential }
 
             # Desktop Software
             AudioTools          AudioTools          { Credential = $Credential }
@@ -74,13 +89,8 @@ if ($MyInvocation.InvocationName -ne '.')
             OfficeTools         OfficeTools         { Credential = $Credential }
             StorageTools        StorageTools        { Credential = $Credential }
             VideoTools          VideoTools          { Credential = $Credential }
-
-            # # Development Software
-            DevLangs            DevLangs            { Credential = $Credential }
-            DevOps              DevOps              { Credential = $Credential }
-            DevTools            DevTools            { Credential = $Credential }
-            # VisualStudio        VisualStudio        { Credential = $Credential }
         }
+
     }
 
     WorkstationConfig -Role DSC -ConfigurationData $ConfiguraionData -OutputPath $PSScriptRoot | Out-Null

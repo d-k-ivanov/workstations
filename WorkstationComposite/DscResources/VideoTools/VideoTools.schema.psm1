@@ -51,6 +51,15 @@ Configuration VideoTools
     #     PsDscRunAsCredential    = $Credential
     # }
 
+    cChocoPackageInstaller InstallOBSStudio
+    {
+        Name                    = 'obs-studio'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallOpenshot
     {
         Name                    = 'openshot'

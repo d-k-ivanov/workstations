@@ -78,14 +78,14 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallDoublecmd
-    {
-        Name                    = 'doublecmd'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallDoublecmd
+    # {
+    #     Name                    = 'doublecmd'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallDU
     {
