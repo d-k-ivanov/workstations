@@ -4,12 +4,22 @@ Install various development tools.
 
 .DESCRIPTION
 Install various development tools.
+
+.PARAMETER Credential
+User credental.
+
+.PARAMETER NoUpgrate
+Do not upgrade installed packages to their latest versions.
 #>
 
 Configuration DevTools
 {
     Param
     (
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [pscredential] $Credential,
+
         [switch] $NoUpgrate
     )
 
@@ -45,6 +55,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallCmake
@@ -53,6 +64,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallDependencyWalker
@@ -61,6 +73,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallDrMemory
@@ -69,6 +82,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallGit
@@ -77,6 +91,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallGitExtensions
@@ -85,6 +100,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallGradle
@@ -93,6 +109,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallMercurial
@@ -101,6 +118,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallHXD
@@ -109,6 +127,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallJDK8
@@ -117,6 +136,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallOpenJDK #14
@@ -125,6 +145,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallJQ
@@ -133,6 +154,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallKDiff3
@@ -141,6 +163,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallLLVM
@@ -149,6 +172,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallMake
@@ -157,6 +181,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallMaven
@@ -165,6 +190,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallMeld
@@ -173,6 +199,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallMiniconda3
@@ -182,6 +209,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallNinja
@@ -190,6 +218,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallNotepadPlusPlus
@@ -198,6 +227,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallNPPPluginmanager
@@ -206,6 +236,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallNugetCommandline
@@ -214,6 +245,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallNugetPackageExplorer
@@ -222,6 +254,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallOctopusTools
@@ -230,6 +263,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallOllyDebugger
@@ -238,6 +272,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallPacketPowershell
@@ -246,6 +281,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallResourceHacker
@@ -254,6 +290,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallSVN
@@ -262,6 +299,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallVim
@@ -271,6 +309,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallVSCode
@@ -280,6 +319,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallWinMerge
@@ -288,6 +328,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallWixToolset
@@ -296,6 +337,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallXDebugger
@@ -304,6 +346,7 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallYarn
@@ -312,11 +355,6 @@ Configuration DevTools
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
     }
-
 }
-
-
-
-
-

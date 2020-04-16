@@ -1,9 +1,9 @@
-<#
+﻿<#
 .SYNOPSIS
-Install Visual Stodio environment.
+Install office tools.
 
 .DESCRIPTION
-Install Visual Stodio environment.
+Install office tools.
 
 .PARAMETER Credential
 User credental.
@@ -12,7 +12,7 @@ User credental.
 Do not upgrade installed packages to their latest versions.
 #>
 
-Configuration VisualStudio
+Configuration ImagingTools
 {
     Param
     (
@@ -32,10 +32,10 @@ Configuration VisualStudio
         $AutoUpgrade = $true
     }
 
-    Import-DscResource –ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
 
-    cChocoinstaller InstallChocolatey {
+    cChocoinstaller InstallChocolatey
+    {
         InstallDir              = 'C:\ProgramData\chocolatey'
     }
 
@@ -48,99 +48,113 @@ Configuration VisualStudio
     #     AutoUpgrade             = $AutoUpgrade
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
     # }
 
-    cChocoPackageInstaller InstallVCRedist2008
+    cChocoPackageInstaller InstallFsviewer
     {
-        Name                    = 'vcredist2008'
+        Name                    = 'fsviewer'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVCRedist2010
+    cChocoPackageInstaller InstallGimp
     {
-        Name                    = 'vcredist2010'
+        Name                    = 'gimp'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVCRedist2012
+    cChocoPackageInstaller InstallGraphviz
     {
-        Name                    = 'vcredist2012'
+        Name                    = 'graphviz'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVCRedist2013
+    cChocoPackageInstaller InstallImagemagick
     {
-        Name                    = 'vcredist2013'
+        Name                    = 'imagemagick'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVCRedist2015
+    cChocoPackageInstaller InstallInkscape
     {
-        Name                    = 'vcredist2015'
+        Name                    = 'inkscape'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVCRedist2017
+    cChocoPackageInstaller InstallIrfanview
     {
-        Name                    = 'vcredist2017'
+        Name                    = 'irfanview'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallDotNet461
+    cChocoPackageInstaller InstallIrfanviewPlugins
     {
-        Name                    = 'dotnet4.6.1'
+        Name                    = 'irfanviewplugins'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVisualStudioCommunity2019
+    cChocoPackageInstaller InstallKrita
     {
-        Name                    = 'visualstudio2019community'
+        Name                    = 'krita'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    Script DownloadWindows81Sdk
+    cChocoPackageInstaller InstallLunacy
     {
-        SetScript               = { Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/p/?LinkId=323507' -OutFile 'C:\Windows\Temp\sdksetup.exe' }
-        GetScript               = { @{} }
-        TestScript              = { Test-Path 'C:\Windows\Temp\sdksetup.exe' }
+        Name                    = 'lunacy'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    Script InstallWindows81Sdk
+    cChocoPackageInstaller InstallPaintNet
     {
-        SetScript               = { cmd /c 'C:\Windows\Temp\sdksetup.exe /features + /q' }
-        GetScript               = { @{} }
-        TestScript              = { Test-Path "${Env:ProgramFiles(x86)}\Windows Kits\8.1" }
-        DependsOn               = '[Script]DownloadWindows81Sdk'
+        Name                    = 'paint.net'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallPencil
+    {
+        Name                    = 'pencil'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallXnView
+    {
+        Name                    = 'XnView'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 }
-
-
-
-
-

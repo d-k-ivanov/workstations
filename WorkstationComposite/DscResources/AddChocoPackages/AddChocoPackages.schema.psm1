@@ -1,9 +1,28 @@
+<#
+.SYNOPSIS
+Install chocolatey packages.
+
+.DESCRIPTION
+Install chocolatey packages.
+
+.PARAMETER Packages
+Array of package names.
+
+.PARAMETER Credential
+User credental.
+#>
+
+
 Configuration AddChocoPackages
 {
     Param
     (
         [Parameter(Mandatory)]
-        [string[]] $Packages
+        [string[]] $Packages,
+
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [pscredential] $Credential
     )
 
     Import-DscResource -ModuleName cChoco
@@ -28,6 +47,7 @@ Configuration AddChocoPackages
         {
             Name                    = "$p"
             DependsOn               = "[cChocoInstaller]InstallChocolatey"
+            PsDscRunAsCredential    = $Credential
         }
     }
 }

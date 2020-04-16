@@ -1,9 +1,9 @@
-<#
+﻿<#
 .SYNOPSIS
-Install Visual Stodio environment.
+Install system tools.
 
 .DESCRIPTION
-Install Visual Stodio environment.
+Install system tools.
 
 .PARAMETER Credential
 User credental.
@@ -12,7 +12,7 @@ User credental.
 Do not upgrade installed packages to their latest versions.
 #>
 
-Configuration VisualStudio
+Configuration SystemTools
 {
     Param
     (
@@ -32,10 +32,10 @@ Configuration VisualStudio
         $AutoUpgrade = $true
     }
 
-    Import-DscResource –ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
 
-    cChocoinstaller InstallChocolatey {
+    cChocoinstaller InstallChocolatey
+    {
         InstallDir              = 'C:\ProgramData\chocolatey'
     }
 
@@ -51,96 +51,120 @@ Configuration VisualStudio
     #     PsDscRunAsCredential    = $Credential
     # }
 
-    cChocoPackageInstaller InstallVCRedist2008
+    cChocoPackageInstaller Install7zip
     {
-        Name                    = 'vcredist2008'
+        Name                    = '7zip.install'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVCRedist2010
+    cChocoPackageInstaller InstallCcleaner
     {
-        Name                    = 'vcredist2010'
+        Name                    = 'ccleaner'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVCRedist2012
+    cChocoPackageInstaller InstallChocoCleaner
     {
-        Name                    = 'vcredist2012'
+        Name                    = 'choco-cleaner'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVCRedist2013
+    cChocoPackageInstaller InstallDoublecmd
     {
-        Name                    = 'vcredist2013'
+        Name                    = 'doublecmd'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVCRedist2015
+    cChocoPackageInstaller InstallDU
     {
-        Name                    = 'vcredist2015'
+        Name                    = 'du'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVCRedist2017
+    cChocoPackageInstaller InstallFar
     {
-        Name                    = 'vcredist2017'
+        Name                    = 'far'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallDotNet461
+    cChocoPackageInstaller InstallGreenshot
     {
-        Name                    = 'dotnet4.6.1'
+        Name                    = 'greenshot'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVisualStudioCommunity2019
+    cChocoPackageInstaller InstallImdiskToolkit
     {
-        Name                    = 'visualstudio2019community'
+        Name                    = 'imdisk-toolkit'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    Script DownloadWindows81Sdk
+    cChocoPackageInstaller InstallLockHunter
     {
-        SetScript               = { Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/p/?LinkId=323507' -OutFile 'C:\Windows\Temp\sdksetup.exe' }
-        GetScript               = { @{} }
-        TestScript              = { Test-Path 'C:\Windows\Temp\sdksetup.exe' }
+        Name                    = 'lockhunter'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    Script InstallWindows81Sdk
+    cChocoPackageInstaller InstallSwissFileKnife
     {
-        SetScript               = { cmd /c 'C:\Windows\Temp\sdksetup.exe /features + /q' }
-        GetScript               = { @{} }
-        TestScript              = { Test-Path "${Env:ProgramFiles(x86)}\Windows Kits\8.1" }
-        DependsOn               = '[Script]DownloadWindows81Sdk'
+        Name                    = 'swissfileknife'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallSysInternals
+    {
+        Name                    = 'sysinternals'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallTree
+    {
+        Name                    = 'tree'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallWinDirStat
+    {
+        Name                    = 'windirstat'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 }
-
-
-
-
-

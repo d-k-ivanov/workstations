@@ -1,15 +1,25 @@
 ﻿<#
 .SYNOPSIS
-Install system tools.
+Install office tools.
 
 .DESCRIPTION
-Install system tools.
+Install office tools.
+
+.PARAMETER Credential
+User credental.
+
+.PARAMETER NoUpgrate
+Do not upgrade installed packages to their latest versions.
 #>
 
-Configuration SystemSoft
+Configuration OfficeTools
 {
     Param
     (
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [pscredential] $Credential,
+
         [switch] $NoUpgrate
     )
 
@@ -40,107 +50,112 @@ Configuration SystemSoft
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 
-    cChocoPackageInstaller Install7zip
+    cChocoPackageInstaller InstallAdobereader
     {
-        Name                    = '7zip.install'
+        Name                    = 'adobereader'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallCcleaner
+    cChocoPackageInstaller InstallCalibre
     {
-        Name                    = 'ccleaner'
+        Name                    = 'calibre'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallChocoCleaner
+    cChocoPackageInstaller InstallGhostscript
     {
-        Name                    = 'choco-cleaner'
+        Name                    = 'Ghostscript.app'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallDoublecmd
+    cChocoPackageInstaller InstallGrammarly
     {
-        Name                    = 'doublecmd'
+        Name                    = 'grammarly'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallDU
+    # cChocoPackageInstaller InstallLibrecad
+    # {
+    #     Name                    = 'librecad'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
+
+    cChocoPackageInstaller InstallMiktexInstall
     {
-        Name                    = 'du'
+        Name                    = 'miktex.install'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallFar
+    cChocoPackageInstaller InstallOffice365
     {
-        Name                    = 'far'
+        Name                    = 'office365business'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallGreenshot
+    cChocoPackageInstaller InstallPandoc
     {
-        Name                    = 'greenshot'
+        Name                    = 'pandoc'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallImdiskToolkit
+    cChocoPackageInstaller InstallPdfsam
     {
-        Name                    = 'imdisk-toolkit'
+        Name                    = 'pdfsam'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallLockHunter
+    cChocoPackageInstaller InstallWindjview
     {
-        Name                    = 'lockhunter'
+        Name                    = 'windjview'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallSwissFileKnife
+    cChocoPackageInstaller InstallXpdfUtils
     {
-        Name                    = 'swissfileknife'
+        Name                    = 'xpdf-utils'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallSysInternals
+    cChocoPackageInstaller InstallYed
     {
-        Name                    = 'sysinternals'
+        Name                    = 'yed'
+        Params                  = '/Associate'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    }
-
-    cChocoPackageInstaller InstallTree
-    {
-        Name                    = 'tree'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    }
-
-    cChocoPackageInstaller InstallWinDirStat
-    {
-        Name                    = 'windirstat'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 }

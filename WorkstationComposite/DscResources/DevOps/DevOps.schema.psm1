@@ -4,12 +4,22 @@ Install DevOps and Admin tools.
 
 .DESCRIPTION
 Install DevOps and Admin tools.
+
+.PARAMETER Credential
+User credental.
+
+.PARAMETER NoUpgrate
+Do not upgrade installed packages to their latest versions.
 #>
 
 Configuration DevOps
 {
     Param
     (
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [pscredential] $Credential,
+
         [switch] $NoUpgrate
     )
 
@@ -47,6 +57,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallAzureCli
@@ -55,6 +66,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallBindTools
@@ -63,6 +75,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     Script DownloadBindToolsConfig
@@ -83,6 +96,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallCmderMini
@@ -91,6 +105,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallCurl
@@ -99,6 +114,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallFtpdmin
@@ -107,6 +123,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallGPG4Win
@@ -115,6 +132,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallKeepass
@@ -123,6 +141,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallKeepassFavicon
@@ -131,6 +150,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallKeepassQRCode
@@ -139,6 +159,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallKeystoreExplorer
@@ -147,6 +168,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesCli
@@ -155,6 +177,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesHelm
@@ -163,6 +186,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesKompose
@@ -171,6 +195,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallLdapAdmin
@@ -179,6 +204,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallMinikube
@@ -187,6 +213,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallMremoteng
@@ -195,6 +222,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallMysqlWorkbench
@@ -203,6 +231,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallNmap
@@ -211,6 +240,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallNssm
@@ -219,6 +249,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallOpenSSH
@@ -227,6 +258,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallOpenSslLight
@@ -235,6 +267,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallOpenVPN
@@ -243,6 +276,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallPacker
@@ -251,6 +285,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallPgAdmin4
@@ -259,6 +294,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallPuTTY
@@ -267,6 +303,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallRobo3t
@@ -275,6 +312,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallRufus
@@ -283,6 +321,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallSuperPuTTY
@@ -291,6 +330,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallSQLiteBrowser
@@ -299,6 +339,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallTerraform
@@ -307,6 +348,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallTFTPD32
@@ -315,6 +357,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallTightVNC
@@ -323,6 +366,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallVagrant
@@ -331,6 +375,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallVagrantManager
@@ -339,6 +384,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallVcXsrv
@@ -347,6 +393,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallWget
@@ -355,6 +402,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallWifiInfoView
@@ -363,6 +411,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallWinSCP
@@ -371,6 +420,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallWireshark
@@ -379,6 +429,7 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallWMIExplorer
@@ -387,5 +438,6 @@ Configuration DevOps
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 }

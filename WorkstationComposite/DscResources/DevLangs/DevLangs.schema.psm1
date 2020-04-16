@@ -4,12 +4,22 @@ Install various development tools.
 
 .DESCRIPTION
 Install various development tools.
+
+.PARAMETER Credential
+User credental.
+
+.PARAMETER NoUpgrate
+Do not upgrade installed packages to their latest versions.
 #>
 
 Configuration DevLangs
 {
     Param
     (
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [pscredential] $Credential,
+
         [switch] $NoUpgrate
     )
 
@@ -45,6 +55,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     cChocoPackageInstaller InstallYasm
@@ -53,6 +64,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     # ========================= Clojure ========================
@@ -62,6 +74,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     # ========================= Go =============================
@@ -71,6 +84,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     # ========================= Haskell ========================
@@ -80,6 +94,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     # ========================= Julia ==========================
@@ -89,6 +104,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     # ========================= NodeJS =========================
@@ -98,6 +114,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     # ========================= Perl ===========================
@@ -107,6 +124,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     # ========================= Python =========================
@@ -117,6 +135,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
         cChocoPackageInstaller InstallPython3
@@ -126,6 +145,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
     # ========================= Ruby ===========================
@@ -135,6 +155,7 @@ Configuration DevLangs
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
     }
 
 }
