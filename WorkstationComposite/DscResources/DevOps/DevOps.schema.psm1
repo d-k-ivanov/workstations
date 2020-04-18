@@ -306,6 +306,22 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
+    Script DownloadRDCMan
+    {
+        SetScript               = { Invoke-WebRequest -Uri 'https://github.com/d-k-ivanov/dsc-windows-workstation/blob/master/Installers/rdcman.msi?raw=true' -OutFile 'C:\Windows\Temp\rdcman.msi' }
+        GetScript               = { @{} }
+        TestScript              = { Test-Path 'C:\Windows\Temp\rdcman.msi' }
+    }
+
+    Script InstallRDCMan
+    {
+        SetScript               = { Start-Process -FilePath "msiexec.exe" -ArgumentList "/i C:\Windows\Temp\rdcman.msi /qn" -Wait }
+        GetScript               = { @{} }
+        TestScript              = { Test-Path "${Env:ProgramFiles(x86)}\Remote Desktop Connection Manager" }
+        DependsOn               = '[Script]DownloadRDCMan'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallRobo3t
     {
         Name                    = 'robo3t'
@@ -440,4 +456,5 @@ Configuration DevOps
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
+
 }

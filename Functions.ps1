@@ -21,48 +21,48 @@ if ($MyInvocation.InvocationName -ne '.')
 # ------------------------------------------------------------
 # Region System
 # ------------------------------------------------------------
-function isAdmin() 
+function isAdmin()
 {
     return ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
 }
 
-function ElevateScript() 
+function ElevateScript()
 {
     If (-Not (isAdmin)) {
         Write-Host "-- Restarting as Administrator" -ForegroundColor Cyan
         Start-Sleep -Seconds 1
         if($PSVersionTable.PSEdition -eq "Core") {
             Start-Process pwsh.exe `
-                "-NoProfile -ExecutionPolicy Bypass -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs 
+                "-NoProfile -ExecutionPolicy Bypass -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs
         } else {
             Start-Process powershell.exe `
-                "-NoProfile -ExecutionPolicy Bypass -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs 
+                "-NoProfile -ExecutionPolicy Bypass -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs
         }
         exit
     }
 }
 
-function ElevateSession() 
+function ElevateSession()
 {
     If (-Not (isAdmin)) {
         Write-Host "-- Restarting session as Administrator" -ForegroundColor Cyan
         Start-Sleep -Seconds 1
         if($PSVersionTable.PSEdition -eq "Core") {
             Start-Process pwsh.exe `
-                "-NoProfile -NoExit -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs 
+                "-NoProfile -NoExit -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs
         } else {
             Start-Process powershell.exe `
-                "-NoProfile -NoExit -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs 
+                "-NoProfile -NoExit -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs
         }
         exit
     }
 }
 
 function  Get-WindowsBuildNumber
-{ 
+{
     $os = Get-CimInstance -ClassName Win32_OperatingSystem
-    return [int]($os.BuildNumber) 
-} 
+    return [int]($os.BuildNumber)
+}
 
 
 # ------------------------------------------------------------
@@ -119,7 +119,7 @@ function WriteError($message)
 
 function LogError($message)
 {
-    WriteError "$(Get-Date -UFormat '%Y-%M-%d-%H-%m-%S') $message" 
+    WriteError "$(Get-Date -UFormat '%Y-%M-%d-%H-%m-%S') $message"
 }
 
 ### Critical

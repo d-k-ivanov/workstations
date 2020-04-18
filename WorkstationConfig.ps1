@@ -63,11 +63,14 @@ if ($MyInvocation.InvocationName -ne '.')
         {
             $Credential = Get-SecretDSCCreds
 
+            # TestResource        TestResource        {RepoFolder = $RepoFolder}
+
             # System Configuration
             SystemSettings      SystemSettings
             {
-                Credential      = $Credential
-                ComputerName    = 'divanov-dev'
+                Credential          = $Credential
+                ComputerName        = 'divanov-dev'
+                DisableSearchEngine = $true
             }
 
             # System Software

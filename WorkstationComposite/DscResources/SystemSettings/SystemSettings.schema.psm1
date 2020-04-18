@@ -31,18 +31,23 @@ Configuration SystemSettings
         [ValidateNotNullorEmpty()]
         [string] $ComputerWorkgroup = 'Workgroup',
 
+        [switch] $DisableSearchEngine,
         [switch] $NoUpgrate
     )
 
     Import-DscResource -ModuleName PSDesiredStateConfiguration
     Import-DscResource -Module ComputerManagementDsc -Name Computer
 
+
+    # ============================== Computer ==============================
     Computer SetName
     {
         Name                    = $ComputerName
         WorkGroupName           = $ComputerWorkgroup
     }
 
+
+    # ============================== Internet Explorer =====================
     Registry DisableIEFirstRunCustomization
     {
         Ensure                  = "Present"
@@ -63,12 +68,13 @@ Configuration SystemSettings
         PsDscRunAsCredential    = $Credential
     }
 
+
+    # ============================== Windows Features ======================
     WindowsOptionalFeature  EnableTelnetClientFeature
     {
         Name                 = 'TelnetClient'
         Ensure               = 'Enable'
     }
-
 
     WindowsOptionalFeature  EnableTFTPFeature
     {
@@ -118,5 +124,25 @@ Configuration SystemSettings
         Ensure               = 'Disable'
     }
 
+    WindowsOptionalFeature  DisableWindowsMediaPlayerFeature
+    {
+        Name                 = 'WindowsMediaPlayer'
+        Ensure               = 'Disable'
+    }
+
+    WindowsOptionalFeature  DisableFaxServicesClientPackageFeature
+    {
+        Name                 = 'FaxServicesClientPackage'
+        Ensure               = 'Disable'
+    }
+
+    If($DisableSearchEngine)
+    {
+        WindowsOptionalFeature  DisableSearchEngineFeature
+        {
+            Name                 = 'SearchEngine-Client-Package '
+            Ensure               = 'Disable'
+        }
+    }
 }
 
