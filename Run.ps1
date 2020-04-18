@@ -106,6 +106,11 @@ Process
     Start-DscConfiguration -Path $PSScriptRoot -Wait -Verbose -Force
 
 
+    # ------------------------------------------------------------
+    # Post-Install with Win10-Initial-Setup-Script
+    # ------------------------------------------------------------
+    . "${PSScriptRoot}\PostInstall.ps1"
+
 } # Process block
 
 

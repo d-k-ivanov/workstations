@@ -233,5 +233,5 @@ RemoveFaxPrinter                # AddFaxPrinter
 # UnpinTaskbarIcons
 
 ### Auxiliary Functions ###
-WaitForKey
+# WaitForKey
 # Restart

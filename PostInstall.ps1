@@ -1,4 +1,22 @@
-#requires -version 3
+<#
+.SYNOPSIS
+PostInstall Configuration.
+
+.DESCRIPTION
+PostInstall Configuration.
+#>
+
+
+# Check invocation
+if ($MyInvocation.InvocationName -ne '.')
+{
+    Write-Host `
+        "Error: Bad invocation. $($MyInvocation.MyCommand) supposed to be sourced. Exiting..." `
+        -ForegroundColor Red
+    Exit
+}
+
+
 $ScriptName         = [io.path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name)
 
 # Write-Host ${profileDir}\Modules\W10Init\Win10.ps1 -include "${profileDir}\Modules\W10Init\Win10.psm1" -preset "${PSScriptRoot}\${ScriptName}.preset"
