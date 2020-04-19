@@ -1,5 +1,0 @@
-[submodule "PostInstall"]
-	path = PostInstall
-	url = https://github.com/Disassembler0/Win10-Initial-Setup-Script.git
-    ignore = dirty
-    branch = master
