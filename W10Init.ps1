@@ -8,13 +8,13 @@ PostInstall Configuration.
 
 
 # Check invocation
-if ($MyInvocation.InvocationName -ne '.')
-{
-    Write-Host `
-        "Error: Bad invocation. $($MyInvocation.MyCommand) supposed to be sourced. Exiting..." `
-        -ForegroundColor Red
-    Exit
-}
+# if ($MyInvocation.InvocationName -ne '.')
+# {
+#     Write-Host `
+#         "Error: Bad invocation. $($MyInvocation.MyCommand) supposed to be sourced. Exiting..." `
+#         -ForegroundColor Red
+#     Exit
+# }
 
 
 $ScriptName         = [io.path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name)
