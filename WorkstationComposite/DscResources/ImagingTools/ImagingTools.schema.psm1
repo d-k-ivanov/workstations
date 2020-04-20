@@ -50,6 +50,16 @@ Configuration ImagingTools
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 
+    cChocoPackageInstaller InstallDrawpile
+    {
+        Name                    = 'drawpile'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+
     cChocoPackageInstaller InstallFsviewer
     {
         Name                    = 'fsviewer'
