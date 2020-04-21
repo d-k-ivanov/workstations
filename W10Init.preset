@@ -42,9 +42,9 @@ DisableFirewall                 # EnableFirewall
 # HideDefenderTrayIcon          # ShowDefenderTrayIcon
 DisableDefender                 # EnableDefender
 DisableDefenderCloud            # EnableDefenderCloud
-# EnableCtrldFolderAccess       # DisableCtrldFolderAccess
-# EnableCIMemoryIntegrity       # DisableCIMemoryIntegrity
-# EnableDefenderAppGuard        # DisableDefenderAppGuard
+DisableCtrldFolderAccess        # EnableCtrldFolderAccess
+DisableCIMemoryIntegrity        # EnableCIMemoryIntegrity
+DisableDefenderAppGuard         # EnableDefenderAppGuard
 HideAccountProtectionWarn       # ShowAccountProtectionWarn
 DisableDownloadBlocking         # EnableDownloadBlocking
 DisableScriptHost               # EnableScriptHost
