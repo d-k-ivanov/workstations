@@ -202,6 +202,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallMeshLab
+    {
+        Name                    = 'meshlab'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallMiniconda3
     {
         Name                    = 'miniconda3'
