@@ -95,14 +95,14 @@ Configuration OfficeTools
     #     PsDscRunAsCredential    = $Credential
     # }
 
-    cChocoPackageInstaller InstallMiktexInstall
-    {
-        Name                    = 'miktex.install'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallMiktexInstall
+    # {
+    #     Name                    = 'miktex.install'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallOffice365
     {
