@@ -57,5 +57,14 @@ Configuration GameDev
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
     }
+
+    cChocoPackageInstaller InstallBuckaroo
+    {
+        Name                    = 'blender'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
 }
 
