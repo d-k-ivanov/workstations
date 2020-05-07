@@ -51,7 +51,7 @@ Configuration GameDev
 
     cChocoPackageInstaller InstallBuckaroo
     {
-        Name                    = 'godot'
+        Name                    = 'godot-mono'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
