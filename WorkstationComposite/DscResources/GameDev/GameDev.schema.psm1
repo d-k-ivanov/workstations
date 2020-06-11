@@ -49,7 +49,7 @@ Configuration GameDev
     #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
     # }
 
-    cChocoPackageInstaller InstallBuckaroo
+    cChocoPackageInstaller InstallGodot
     {
         Name                    = 'godot-mono'
         AutoUpgrade             = $AutoUpgrade
@@ -58,7 +58,7 @@ Configuration GameDev
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallBuckaroo
+    cChocoPackageInstaller InstallGodotMono
     {
         Name                    = 'blender'
         AutoUpgrade             = $AutoUpgrade
