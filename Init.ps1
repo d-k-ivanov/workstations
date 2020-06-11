@@ -1,18 +1,18 @@
 
 # Verify Running as Admin
 $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
-If (-not $isAdmin) 
+If (-not $isAdmin)
 {
     Write-Host "-- Restarting as Administrator" -ForegroundColor Cyan
     Start-Sleep -Seconds 1
 
-    If($PSVersionTable.PSEdition -eq "Core") 
+    If($PSVersionTable.PSEdition -eq "Core")
     {
-        Start-Process pwsh.exe "-NoProfile -NoExit -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs 
+        Start-Process pwsh.exe "-NoProfile -NoExit -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
     }
     Else
     {
-        Start-Process powershell.exe "-NoProfile -NoExit -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs 
+        Start-Process powershell.exe "-NoProfile -NoExit -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
     }
 
     exit
@@ -44,7 +44,7 @@ if (-Not (Test-WSMan -ComputerName localhost -ErrorAction SilentlyContinue))
     Set-NetConnectionProfile -NetworkCategory Private
     Enable-PSRemoting -Force
     Set-WSManInstance -ValueSet @{MaxEnvelopeSizekb = "2000"} -ResourceURI winrm/config
-    dir WSMan:\localhost | Format-Table
+    Get-ChildItem WSMan:\localhost | Format-Table
 }
 
 
