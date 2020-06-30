@@ -39,7 +39,7 @@ LCM Configuration.
                 ActionAfterReboot              = 'ContinueConfiguration'
                 ConfigurationMode              = 'ApplyAndAutoCorrect'
                 ConfigurationModeFrequencyMins = 15
-                RebootNodeIfNeeded             = $true
+                RebootNodeIfNeeded             = $false
                 RefreshMode                    = 'Push'
                 RefreshFrequencyMins           = 30
             }
