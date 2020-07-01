@@ -130,12 +130,6 @@ Configuration SystemSettings
         Ensure               = 'Disable'
     }
 
-    WindowsOptionalFeature  DisableFaxServicesClientPackageFeature
-    {
-        Name                 = 'FaxServicesClientPackage'
-        Ensure               = 'Disable'
-    }
-
     If($DisableSearchEngine)
     {
         WindowsOptionalFeature  DisableSearchEngineFeature

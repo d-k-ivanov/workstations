@@ -26,6 +26,7 @@ Begin
     Skip-FirstLines
     ElevateSession
 
+    Stop-Transcript
     Remove-Item -Force "$PSScriptRoot\Run.log" -ErrorAction SilentlyContinue
     Start-Transcript -Path "$PSScriptRoot\Run.log" -Force
     $StartDateTime = get-date
@@ -86,6 +87,10 @@ Process
     Invoke-PSDepend -Path $PSScriptRoot -Force -Import -Install # -Tags 'SampleTag'
     # WriteInfoHighlighted($Env:PSModulePath)
 
+    # ------------------------------------------------------------
+    # Clean up duplicates
+    # ------------------------------------------------------------
+    Uninstall-DuplicatedModules
 
     # ------------------------------------------------------------
     # Win10-Initial-Setup-Script
