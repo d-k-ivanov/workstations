@@ -288,14 +288,14 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallPgAdmin4
-    {
-        Name                    = 'pgadmin4'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallPgAdmin4
+    # {
+    #     Name                    = 'pgadmin4'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller Pulumi
     {
