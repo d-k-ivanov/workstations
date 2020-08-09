@@ -113,15 +113,6 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallPandoc
-    {
-        Name                    = 'pandoc'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
     cChocoPackageInstaller InstallPdfsam
     {
         Name                    = 'pdfsam'

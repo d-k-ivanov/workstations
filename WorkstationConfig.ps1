@@ -77,11 +77,11 @@ if ($MyInvocation.InvocationName -ne '.')
             SystemTools         SystemTools         { Credential = $Credential }
             Virtualization      Virtualization      { Credential = $Credential }
 
-
             # Development Software
             DevLangs            DevLangs            { Credential = $Credential }
             DevOps              DevOps              { Credential = $Credential }
             DevTools            DevTools            { Credential = $Credential }
+            DocTools            DocTools            { Credential = $Credential }
             GameDev             GameDev             { Credential = $Credential }
             # VisualStudio        VisualStudio        { Credential = $Credential }
 
