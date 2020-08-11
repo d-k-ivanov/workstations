@@ -138,10 +138,19 @@ Configuration DevLangs
         PsDscRunAsCredential    = $Credential
     }
 
-        cChocoPackageInstaller InstallPython3
+    cChocoPackageInstaller InstallPython3
     {
         Name                    = 'python3'
         Params                  = '/InstallDir:C:\tools\python3'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallPenvWin
+    {
+        Name                    = 'pyenv-win'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
