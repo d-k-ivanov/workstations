@@ -128,15 +128,15 @@ Configuration DevLangs
     }
 
     # ========================= Python =========================
-    cChocoPackageInstaller InstallPython2
-    {
-        Name                    = 'python2'
-        Params                  = '"/InstallDir:C:\tools\python2"'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallPython2
+    # {
+    #     Name                    = 'python2'
+    #     Params                  = '"/InstallDir:C:\tools\python2"'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallPython3
     {
@@ -148,14 +148,14 @@ Configuration DevLangs
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallPenvWin
-    {
-        Name                    = 'pyenv-win'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallPenvWin
+    # {
+    #     Name                    = 'pyenv-win'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     # ========================= Ruby ===========================
     cChocoPackageInstaller InstallRuby

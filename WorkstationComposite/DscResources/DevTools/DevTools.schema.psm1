@@ -139,14 +139,14 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallJetBrainsToolbox
-    {
-        Name                    = 'jetbrainstoolbox'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallJetBrainsToolbox
+    # {
+    #     Name                    = 'jetbrainstoolbox'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallJQ
     {
