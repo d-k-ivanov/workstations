@@ -128,23 +128,24 @@ Configuration DevLangs
     }
 
     # ========================= Python =========================
-    # cChocoPackageInstaller InstallPython2
-    # {
-    #     Name                    = 'python2'
-    #     Params                  = '"/InstallDir:C:\tools\python2"'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
-
-    cChocoPackageInstaller InstallPython3
+    cChocoPackageInstaller InstallPython
     {
-        Name                    = 'python3'
+        Name                    = 'python'
         Params                  = '/InstallDir:C:\tools\python3'
+        Version                 = '3.8.6'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallMiniconda3
+    {
+        Name                    = 'miniconda3'
+        Params                  = '/InstallationType:AllUsers /AddToPath:0 /RegisterPython:0'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
     }
 
