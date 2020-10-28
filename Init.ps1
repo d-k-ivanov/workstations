@@ -43,6 +43,7 @@ if (-Not (Test-WSMan -ComputerName localhost -ErrorAction SilentlyContinue))
 
     Set-NetConnectionProfile -NetworkCategory Private
     Enable-PSRemoting -Force
+
     Set-WSManInstance -ValueSet @{MaxEnvelopeSizekb = "2000"} -ResourceURI winrm/config
     Get-ChildItem WSMan:\localhost | Format-Table
 }
