@@ -28,13 +28,17 @@ function isAdmin()
 
 function ElevateScript()
 {
-    If (-Not (isAdmin)) {
+    If (-Not (isAdmin))
+    {
         Write-Host "-- Restarting as Administrator" -ForegroundColor Cyan
         Start-Sleep -Seconds 1
-        if($PSVersionTable.PSEdition -eq "Core") {
+        if($PSVersionTable.PSEdition -eq "Core")
+        {
             Start-Process pwsh.exe `
                 "-NoProfile -ExecutionPolicy Bypass -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs
-        } else {
+        }
+        else
+        {
             Start-Process powershell.exe `
                 "-NoProfile -ExecutionPolicy Bypass -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs
         }
@@ -44,13 +48,17 @@ function ElevateScript()
 
 function ElevateSession()
 {
-    If (-Not (isAdmin)) {
+    If (-Not (isAdmin))
+    {
         Write-Host "-- Restarting session as Administrator" -ForegroundColor Cyan
         Start-Sleep -Seconds 1
-        if($PSVersionTable.PSEdition -eq "Core") {
+        if($PSVersionTable.PSEdition -eq "Core")
+        {
             Start-Process pwsh.exe `
                 "-NoProfile -NoExit -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs
-        } else {
+        }
+        else
+        {
             Start-Process powershell.exe `
                 "-NoProfile -NoExit -File `"$($MyInvocation.PSCommandPath)`"" -Verb RunAs
         }
@@ -64,7 +72,8 @@ function  Get-WindowsBuildNumber
     return [int]($os.BuildNumber)
 }
 
-function Uninstall-DuplicatedModules {
+function Uninstall-DuplicatedModules
+{
     Get-InstalledModule | ForEach-Object {
         $latestVersion = $PSItem.Version
 
