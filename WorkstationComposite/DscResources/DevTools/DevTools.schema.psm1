@@ -321,6 +321,16 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallNeoVim
+    {
+        Name                    = 'neovim'
+        Params                  = '/NoNeovimOnPath'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallVSCode
     {
         Name                    = 'vscode'
