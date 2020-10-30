@@ -158,6 +158,16 @@ Configuration DevLangs
     #     PsDscRunAsCredential    = $Credential
     # }
 
+    # ========================= R Project ======================
+    cChocoPackageInstaller InstallRProject
+    {
+        Name                    = 'r'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     # ========================= Ruby ===========================
     cChocoPackageInstaller InstallRuby
     {
