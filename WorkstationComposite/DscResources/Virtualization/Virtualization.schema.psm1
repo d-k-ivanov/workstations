@@ -95,14 +95,14 @@ Configuration Virtualization
     #     PsDscRunAsCredential    = $Credential
     # }
 
-    cChocoPackageInstaller InstallDockerDesktop
-    {
-        Name                    = 'docker-desktop'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallDockerDesktop
+    # {
+    #     Name                    = 'docker-desktop'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
 
 }
