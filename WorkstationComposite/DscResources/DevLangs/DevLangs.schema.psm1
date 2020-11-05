@@ -158,10 +158,19 @@ Configuration DevLangs
     #     PsDscRunAsCredential    = $Credential
     # }
 
-    # ========================= R Project ======================
+    # ========================= R ==============================
     cChocoPackageInstaller InstallRProject
     {
         Name                    = 'r'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallRStudio
+    {
+        Name                    = 'r.studio'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
