@@ -141,6 +141,15 @@ Configuration SystemTools
     #     PsDscRunAsCredential    = $Credential
     # }
 
+    cChocoPackageInstaller InstallRapidee
+    {
+        Name                    = 'rapidee'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallSwissFileKnife
     {
         Name                    = 'swissfileknife'
