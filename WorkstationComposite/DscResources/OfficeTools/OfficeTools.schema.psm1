@@ -122,6 +122,16 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallMiKTeX
+    {
+        Name                    = 'miktex'
+        Params                  = '/Set:complete'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallWindjview
     {
         Name                    = 'windjview'
