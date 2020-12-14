@@ -124,8 +124,8 @@ Configuration OfficeTools
 
     cChocoPackageInstaller InstallMiKTeX
     {
-        Name                    = 'miktex'
-        Params                  = '/Set:complete'
+        Name                    = 'miktex.install'
+        # Params                  = '"/Set:complete /RepoPath:""c:\tools\MiKTeX-Repo"""'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
