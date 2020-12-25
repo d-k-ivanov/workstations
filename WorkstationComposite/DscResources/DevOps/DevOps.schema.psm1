@@ -99,9 +99,9 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallCmderMini
+    cChocoPackageInstaller InstallConEmu
     {
-        Name                    = 'cmdermini'
+        Name                    = 'conemu'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'

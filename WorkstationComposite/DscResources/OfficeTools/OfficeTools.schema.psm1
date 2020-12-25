@@ -55,6 +55,7 @@ Configuration OfficeTools
         Name                    = 'adobereader'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
+        chocoParams             = '--ignore-checksums'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -137,6 +138,7 @@ Configuration OfficeTools
         Name                    = 'windjview'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
+        chocoParams             = '--ignore-checksums'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
