@@ -95,7 +95,7 @@ function Uninstall-DuplicatedModules
 function Skip-FirstLines()
 {
      # Skipping 10 lines because statusbar covers output
-     1..10 |% { Write-Host ""}
+     1..10 | ForEach-Object { Write-Host ""}
 }
 
 
