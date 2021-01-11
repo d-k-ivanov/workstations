@@ -292,6 +292,8 @@ Function DisableLocation {
 	}
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" -Name "DisableLocation" -Type DWord -Value 1
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" -Name "DisableLocationScripting" -Type DWord -Value 1
+	Stop-Service "lfsvc" -WarningAction SilentlyContinue # Geolocation Service
+	Set-Service "lfsvc" -StartupType Disabled
 }
 
 # Enable location feature and scripting for the location feature
@@ -299,18 +301,24 @@ Function EnableLocation {
 	Write-Output "Enabling location services..."
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" -Name "DisableLocation" -ErrorAction SilentlyContinue
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" -Name "DisableLocationScripting" -ErrorAction SilentlyContinue
+	Set-Service "lfsvc" -StartupType Manual
+	Start-Service "lfsvc" -WarningAction SilentlyContinue # Geolocation Service
 }
 
 # Disable automatic Maps updates
 Function DisableMapUpdates {
 	Write-Output "Disabling automatic Maps updates..."
 	Set-ItemProperty -Path "HKLM:\SYSTEM\Maps" -Name "AutoUpdateEnabled" -Type DWord -Value 0
+	Stop-Service "MapsBroker" -WarningAction SilentlyContinue # Downloaded Maps Manager
+	Set-Service "MapsBroker" -StartupType Disabled
 }
 
 # Enable automatic Maps updates
 Function EnableMapUpdates {
 	Write-Output "Enable automatic Maps updates..."
 	Remove-ItemProperty -Path "HKLM:\SYSTEM\Maps" -Name "AutoUpdateEnabled" -ErrorAction SilentlyContinue
+	Set-Service "MapsBroker" -StartupType Automatic
+	Start-Service "MapsBroker" -WarningAction SilentlyContinue # Downloaded Maps Manager
 }
 
 # Disable Feedback
@@ -2704,9 +2712,9 @@ Function ShowQuickAccess {
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "HubMode" -ErrorAction SilentlyContinue
 }
 
-# Hide Recycle Bin shortcut from desktop
+# Hide Recycle Bin shortcut from Desktop
 Function HideRecycleBinFromDesktop {
-	Write-Output "Hiding Recycle Bin shortcut from desktop..."
+	Write-Output "Hiding Recycle Bin shortcut from Desktop..."
 	If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu")) {
 		New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Force | Out-Null
 	}
@@ -2717,16 +2725,16 @@ Function HideRecycleBinFromDesktop {
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{645FF040-5081-101B-9F08-00AA002F954E}" -Type DWord -Value 1
 }
 
-# Show Recycle Bin shortcut on desktop
+# Show Recycle Bin shortcut on Desktop
 Function ShowRecycleBinOnDesktop {
-	Write-Output "Showing Recycle Bin shortcut on desktop..."
+	Write-Output "Showing Recycle Bin shortcut on Desktop..."
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Name "{645FF040-5081-101B-9F08-00AA002F954E}" -ErrorAction SilentlyContinue
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{645FF040-5081-101B-9F08-00AA002F954E}" -ErrorAction SilentlyContinue
 }
 
-# Show This PC shortcut on desktop
+# Show This PC shortcut on Desktop
 Function ShowThisPCOnDesktop {
-	Write-Output "Showing This PC shortcut on desktop..."
+	Write-Output "Showing This PC shortcut on Desktop..."
 	If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu")) {
 		New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Force | Out-Null
 	}
@@ -2737,16 +2745,16 @@ Function ShowThisPCOnDesktop {
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" -Type DWord -Value 0
 }
 
-# Hide This PC shortcut from desktop
+# Hide This PC shortcut from Desktop
 Function HideThisPCFromDesktop {
-	Write-Output "Hiding This PC shortcut from desktop..."
+	Write-Output "Hiding This PC shortcut from Desktop..."
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Name "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" -ErrorAction SilentlyContinue
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" -ErrorAction SilentlyContinue
 }
 
-# Show User Folder shortcut on desktop
+# Show User Folder shortcut on Desktop
 Function ShowUserFolderOnDesktop {
-	Write-Output "Showing User Folder shortcut on desktop..."
+	Write-Output "Showing User Folder shortcut on Desktop..."
 	If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu")) {
 		New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Force | Out-Null
 	}
@@ -2757,16 +2765,16 @@ Function ShowUserFolderOnDesktop {
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" -Type DWord -Value 0
 }
 
-# Hide User Folder shortcut from desktop
+# Hide User Folder shortcut from Desktop
 Function HideUserFolderFromDesktop {
-	Write-Output "Hiding User Folder shortcut from desktop..."
+	Write-Output "Hiding User Folder shortcut from Desktop..."
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Name "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" -ErrorAction SilentlyContinue
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" -ErrorAction SilentlyContinue
 }
 
-# Show Control panel shortcut on desktop
+# Show Control panel shortcut on Desktop
 Function ShowControlPanelOnDesktop {
-	Write-Output "Showing Control panel shortcut on desktop..."
+	Write-Output "Showing Control panel shortcut on Desktop..."
 	If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu")) {
 		New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Force | Out-Null
 	}
@@ -2777,16 +2785,16 @@ Function ShowControlPanelOnDesktop {
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" -Type DWord -Value 0
 }
 
-# Hide Control panel shortcut from desktop
+# Hide Control panel shortcut from Desktop
 Function HideControlPanelFromDesktop {
-	Write-Output "Hiding Control panel shortcut from desktop..."
+	Write-Output "Hiding Control panel shortcut from Desktop..."
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Name "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" -ErrorAction SilentlyContinue
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" -ErrorAction SilentlyContinue
 }
 
-# Show Network shortcut on desktop
+# Show Network shortcut on Desktop
 Function ShowNetworkOnDesktop {
-	Write-Output "Showing Network shortcut on desktop..."
+	Write-Output "Showing Network shortcut on Desktop..."
 	If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" )) {
 		New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu"  -Force | Out-Null
 	}
@@ -2797,34 +2805,52 @@ Function ShowNetworkOnDesktop {
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}" -Type DWord -Value 0
 }
 
-# Hide Network shortcut from desktop
+# Hide Network shortcut from Desktop
 Function HideNetworkFromDesktop {
-	Write-Output "Hiding Network shortcut from desktop..."
+	Write-Output "Hiding Network shortcut from Desktop..."
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Name "{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}" -ErrorAction SilentlyContinue
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}" -ErrorAction SilentlyContinue
 }
 
-# Hide all icons from desktop
+# Hide all icons from Desktop
 Function HideDesktopIcons {
-	Write-Output "Hiding all icons from desktop..."
+	Write-Output "Hiding all icons from Desktop..."
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideIcons" -Value 1
 }
 
-# Show all icons on desktop
+# Show all icons on Desktop
 Function ShowDesktopIcons {
-	Write-Output "Showing all icons on desktop..."
+	Write-Output "Showing all icons on Desktop..."
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideIcons" -Value 0
 }
 
-# Show Windows build number and Windows edition (Home/Pro/Enterprise) from bottom right of desktop
+# Small Desktop Icons
+Function SmallDesktopIcons {
+	Write-Output "Setting small Desktop icons..."
+	Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop -name IconSize -value 24
+}
+
+# Medium Desktop Icons
+Function MediumDesktopIcons {
+	Write-Output "Setting medium Desktop icons..."
+	Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop -name IconSize -value 32
+}
+
+# Large Desktop Icons
+Function LargeDesktopIcons {
+	Write-Output "Setting large Desktop icons..."
+	Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop -name IconSize -value 36
+}
+
+# Show Windows build number and Windows edition (Home/Pro/Enterprise) from bottom right of Desktop
 Function ShowBuildNumberOnDesktop {
-	Write-Output "Showing Windows build number on desktop..."
+	Write-Output "Showing Windows build number on Desktop..."
 	Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "PaintDesktopVersion" -Type DWord -Value 1
 }
 
-# Remove Windows build number and Windows edition (Home/Pro/Enterprise) from bottom right of desktop
+# Remove Windows build number and Windows edition (Home/Pro/Enterprise) from bottom right of Desktop
 Function HideBuildNumberFromDesktop {
-	Write-Output "Hiding Windows build number from desktop..."
+	Write-Output "Hiding Windows build number from Desktop..."
 	Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "PaintDesktopVersion" -Type DWord -Value 0
 }
 
@@ -3504,6 +3530,14 @@ Function DisableXboxFeatures {
 		New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" | Out-Null
 	}
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" -Name "AllowGameDVR" -Type DWord -Value 0
+	Stop-Service "XblAuthManager" -WarningAction SilentlyContinue # Xbox Live Auth Manager
+	Set-Service "XblAuthManager" -StartupType Disabled
+	Stop-Service "XblGameSave" -WarningAction SilentlyContinue # Xbox Live Game Save Service
+	Set-Service "XblGameSave" -StartupType Disabled
+	Stop-Service "XboxNetApiSvc" -WarningAction SilentlyContinue # Xbox Live Networking Service
+	Set-Service "XboxNetApiSvc" -StartupType Disabled
+	Stop-Service "XboxGipSvc" -WarningAction SilentlyContinue # Xbox Accessory Managment Service
+	Set-Service "XboxGipSvc" -StartupType Disabled
 }
 
 # Enable Xbox features - Not applicable to Server
@@ -3518,6 +3552,14 @@ Function EnableXboxFeatures {
 	Remove-ItemProperty -Path "HKCU:\Software\Microsoft\GameBar" -Name "AutoGameModeEnabled" -ErrorAction SilentlyContinue
 	Set-ItemProperty -Path "HKCU:\System\GameConfigStore" -Name "GameDVR_Enabled" -Type DWord -Value 1
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" -Name "AllowGameDVR" -ErrorAction SilentlyContinue
+	Set-Service "XblAuthManager" -StartupType Manual
+	Start-Service "XblAuthManager" -WarningAction SilentlyContinue # Xbox Live Auth Manager
+	Set-Service "XblGameSave" -StartupType Manual
+	Start-Service "XblGameSave" -WarningAction SilentlyContinue # Xbox Live Game Save Service
+	Set-Service "XboxNetApiSvc" -StartupType Manual
+	Start-Service "XboxNetApiSvc" -WarningAction SilentlyContinue # Xbox Live Networking Service
+	Set-Service "XboxGipSvc" -StartupType Manual
+	Start-Service "XboxGipSvc" -WarningAction SilentlyContinue # Xbox Accessory Managment Service
 }
 
 # Disable Fullscreen optimizations
@@ -3578,13 +3620,13 @@ Function EnableEdgePreload {
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\TabPreloader" -Name "AllowTabPreloading" -ErrorAction SilentlyContinue
 }
 
-# Disable Edge desktop shortcut creation after certain Windows updates are applied
+# Disable Edge Desktop shortcut creation after certain Windows updates are applied
 Function DisableEdgeShortcutCreation {
 	Write-Output "Disabling Edge shortcut creation..."
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "DisableEdgeDesktopShortcutCreation" -Type DWord -Value 1
 }
 
-# Enable Edge desktop shortcut creation after certain Windows updates are applied
+# Enable Edge Desktop shortcut creation after certain Windows updates are applied
 Function EnableEdgeShortcutCreation {
 	Write-Output "Enabling Edge shortcut creation..."
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "DisableEdgeDesktopShortcutCreation" -ErrorAction SilentlyContinue
@@ -3624,12 +3666,16 @@ Function DisableMediaSharing {
 		New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" -Force | Out-Null
 	}
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" -Name "PreventLibrarySharing" -Type DWord -Value 1
+	Stop-Service "WMPNetworkSvc" -WarningAction SilentlyContinue # Windows Media Player Network Sharing Service
+	Set-Service "WMPNetworkSvc" -StartupType Disabled
 }
 
 # Enable Windows Media Player's media sharing feature
 Function EnableMediaSharing {
 	Write-Output "Enabling Windows Media Player media sharing..."
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" -Name "PreventLibrarySharing" -ErrorAction SilentlyContinue
+	Set-Service "WMPNetworkSvc" -StartupType Manual
+	Start-Service "WMPNetworkSvc" -WarningAction SilentlyContinue # Windows Media Player Network Sharing Service
 }
 
 # Disable Windows Media Player online access - audio file metadata download, radio presets, DRM.
