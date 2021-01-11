@@ -158,6 +158,7 @@ DisableStartupSound             # EnableStartupSound
 DisableChangingSoundScheme      # EnableChangingSoundScheme
 EnableVerboseStatus             # DisableVerboseStatus
 DisableF1HelpKey                # EnableF1HelpKey
+# DisableLanguageHotKey         # EnableLanguageHotKey
 
 ### Explorer UI Tweaks ###
 ShowExplorerTitleFullPath       # HideExplorerTitleFullPath

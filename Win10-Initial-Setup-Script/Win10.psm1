@@ -2453,6 +2453,21 @@ Function EnableF1HelpKey {
 	Remove-Item "HKCU:\Software\Classes\TypeLib\{8cec5860-07a1-11d9-b15e-000d56bfe6ee}\1.0\0" -Recurse -ErrorAction SilentlyContinue
 }
 
+# Disable default Shift+LeftAlt keyboard language select hotkey
+Function DisableLanguageHotKey {
+	Write-Output "Disabling Language hotkey..."
+	Set-ItemProperty -Path "HKCU:\Keyboard Layout\Toggle" -Name "Hotkey" -Value "3" -Type "String"
+	Set-ItemProperty -Path "HKCU:\Keyboard Layout\Toggle" -Name "Language Hotkey" -Value "3" -Type "String"
+	#Set-ItemProperty -Path "HKCU:\Keyboard Layout\Toggle" -Name "Layout Hotkey" -Value "3" -Type "String"
+}
+
+Function EnableLanguageHotKey {
+	Write-Output "Enabling Language hotkey..."
+	Set-ItemProperty -Path "HKCU:\Keyboard Layout\Toggle" -Name "Hotkey" -Value "1" -Type "String"
+	Set-ItemProperty -Path "HKCU:\Keyboard Layout\Toggle" -Name "Language Hotkey" -Value "1" -Type "String"
+	#Set-ItemProperty -Path "HKCU:\Keyboard Layout\Toggle" -Name "Layout Hotkey" -Value "3" -Type "String"
+}
+
 ##########
 #endregion UI Tweaks
 ##########
