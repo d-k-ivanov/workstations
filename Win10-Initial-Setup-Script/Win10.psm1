@@ -3151,19 +3151,19 @@ Function EnableThumbsDBOnNetwork {
 
 # Disable Automatic Folder Type Discovery
 Function DisableAutoFolderView {
-    Write-Output "Disabling Automatic Folder Type Discovery..."
-    Remove-Item -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\BagMRU" -Recurse -ErrorAction SilentlyContinue
-    Remove-Item -Path "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags" -Recurse -ErrorAction SilentlyContinue
-    New-Item -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags" -ErrorAction SilentlyContinue | Out-Null
-    New-Item -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders" -ErrorAction SilentlyContinue | Out-Null
-    New-Item -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell" -ErrorAction SilentlyContinue | Out-Null
-    New-ItemProperty -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell" -Name "FolderType" -Value "NotSpecified" -PropertyType "String" -ErrorAction SilentlyContinue | Out-Null
+	Write-Output "Disabling Automatic Folder Type Discovery..."
+	Remove-Item -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\BagMRU" -Recurse -ErrorAction SilentlyContinue
+	Remove-Item -Path "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags" -Recurse -ErrorAction SilentlyContinue
+	New-Item -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags" -ErrorAction SilentlyContinue | Out-Null
+	New-Item -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders" -ErrorAction SilentlyContinue | Out-Null
+	New-Item -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell" -ErrorAction SilentlyContinue | Out-Null
+	New-ItemProperty -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell" -Name "FolderType" -Value "NotSpecified" -PropertyType "String" -ErrorAction SilentlyContinue | Out-Null
 }
 
 # Enable Automatic Folder Type Discovery
 Function EnableAutoFolderView {
-    Write-Output "Enable Automatic Folder Type Discovery..."
-    Remove-Item -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders" -Recurse -ErrorAction SilentlyContinue
+	Write-Output "Enable Automatic Folder Type Discovery..."
+	Remove-Item -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders" -Recurse -ErrorAction SilentlyContinue
 }
 
 ##########
