@@ -3666,16 +3666,12 @@ Function DisableMediaSharing {
 		New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" -Force | Out-Null
 	}
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" -Name "PreventLibrarySharing" -Type DWord -Value 1
-	Stop-Service "WMPNetworkSvc" -WarningAction SilentlyContinue # Windows Media Player Network Sharing Service
-	Set-Service "WMPNetworkSvc" -StartupType Disabled
 }
 
 # Enable Windows Media Player's media sharing feature
 Function EnableMediaSharing {
 	Write-Output "Enabling Windows Media Player media sharing..."
 	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" -Name "PreventLibrarySharing" -ErrorAction SilentlyContinue
-	Set-Service "WMPNetworkSvc" -StartupType Manual
-	Start-Service "WMPNetworkSvc" -WarningAction SilentlyContinue # Windows Media Player Network Sharing Service
 }
 
 # Disable Windows Media Player online access - audio file metadata download, radio presets, DRM.
