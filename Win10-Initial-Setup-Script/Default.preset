@@ -206,6 +206,7 @@ Hide3DObjectsFromThisPC         # Show3DObjectsInThisPC
 # DisableThumbnails             # EnableThumbnails
 DisableThumbnailCache           # EnableThumbnailCache
 DisableThumbsDBOnNetwork        # EnableThumbsDBOnNetwork
+# DisableAutoFolderView         # EnableAutoFolderView
 
 ### Application Tweaks ###
 DisableOneDrive                 # EnableOneDrive
