@@ -186,7 +186,7 @@ HideThisPCFromDesktop           # ShowThisPCOnDesktop
 # ShowControlPanelOnDesktop     # HideControlPanelFromDesktop
 # ShowNetworkOnDesktop          # HideNetworkFromDesktop
 # HideDesktopIcons              # ShowDesktopIcons
-SmallDesktopIcons               # MediumDesktopIcons             #LargeDesktopIcons
+MediumDesktopIcons              # SmallDesktopIcons              # LargeDesktopIcons
 # ShowBuildNumberOnDesktop      # HideBuildNumberFromDesktop
 HideDesktopFromThisPC           # ShowDesktopInThisPC
 # HideDesktopFromExplorer       # ShowDesktopInExplorer
