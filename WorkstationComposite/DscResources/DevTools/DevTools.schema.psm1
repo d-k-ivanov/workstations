@@ -67,6 +67,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallCutter
+    {
+        Name                    = 'cutter'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallDependencyWalker
     {
         Name                    = 'dependencywalker'
@@ -79,6 +88,15 @@ Configuration DevTools
     cChocoPackageInstaller InstallDrMemory
     {
         Name                    = 'drmemory'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallGhidra
+    {
+        Name                    = 'ghidra'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"

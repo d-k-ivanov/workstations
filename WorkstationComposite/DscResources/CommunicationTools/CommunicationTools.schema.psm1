@@ -69,14 +69,14 @@ Configuration CommunicationTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallTelegram
-    {
-        Name                    = 'telegram.install'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallTelegram
+    # {
+    #     Name                    = 'telegram.install'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallWhatsapp
     {
