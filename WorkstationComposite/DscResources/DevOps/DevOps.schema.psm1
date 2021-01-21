@@ -90,6 +90,24 @@ Configuration DevOps
         }
     }
 
+    cChocoPackageInstaller InstallBitwarden
+    {
+        Name                    = 'bitwarden'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallBitwardenCli
+    {
+        Name                    = 'bitwarden-cli'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallChefDK
     {
         Name                    = 'chefdk'
