@@ -24,13 +24,9 @@ Configuration SystemSettings
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [Parameter(Mandatory)]
-        [ValidateNotNullOrEmpty()]
-        [System.String] $ComputerName,
-
-        [ValidateNotNullorEmpty()]
+        [string] $ComputerName,
         [string] $ComputerWorkgroup = 'Workgroup',
-
+        [switch] $SetComputerName,
         [switch] $DisableSearchEngine,
         [switch] $NoUpgrate
     )
@@ -40,10 +36,13 @@ Configuration SystemSettings
 
 
     # ============================== Computer ==============================
-    Computer SetName
+    if ($SetComputerName)
     {
-        Name                    = $ComputerName
-        WorkGroupName           = $ComputerWorkgroup
+        Computer SetName
+        {
+            Name                    = $ComputerName
+            WorkGroupName           = $ComputerWorkgroup
+        }
     }
 
 
@@ -134,7 +133,7 @@ Configuration SystemSettings
     {
         WindowsOptionalFeature  DisableSearchEngineFeature
         {
-            Name                 = 'SearchEngine-Client-Package '
+            Name                 = 'SearchEngine-Client-Package'
             Ensure               = 'Disable'
         }
     }

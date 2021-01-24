@@ -6,6 +6,13 @@ Run automated configuration of developer workstation.
 Run automated configuration of developer workstation.
 #>
 
+[CmdletBinding()]
+param
+(
+    [Parameter(Mandatory = $true)]
+    [string] $WorkstationType
+)
+
 Begin
 {
     # ------------------------------------------------------------
@@ -108,7 +115,19 @@ Process
     # ------------------------------------------------------------
     # Load Workstation DSC Composite Config
     # ------------------------------------------------------------
-    . "${PSScriptRoot}\WorkstationConfig.ps1"
+    switch ($WorkstationType)
+    {
+        "Home" {
+            . "${PSScriptRoot}\PC_Config_Home.ps1"
+            break
+        }
+        "Work" {
+            . "${PSScriptRoot}\PC_Config_Work.ps1"
+            break
+        }
+    }
+    $WorkstationType
+
 
 
     # ------------------------------------------------------------

@@ -21,7 +21,7 @@ if ($MyInvocation.InvocationName -ne '.')
 # Base
 # ------------------------------------------------------------
 . "${PSScriptRoot}\Functions.ps1"
-. "${PSScriptRoot}\Secrets.ps1"
+. "${PSScriptRoot}\Secrets.Home.ps1"
 
 
 # ------------------------------------------------------------
@@ -70,6 +70,7 @@ if ($MyInvocation.InvocationName -ne '.')
             {
                 Credential          = $Credential
                 ComputerName        = 'divanov-dev'
+                SetComputerName     = $true
                 DisableSearchEngine = $true
             }
 
