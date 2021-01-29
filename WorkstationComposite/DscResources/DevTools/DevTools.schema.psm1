@@ -311,6 +311,16 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    # https://pmd.github.io/
+    cChocoPackageInstaller InstallPacketPMD
+    {
+        Name                    = 'pmd'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallResourceHacker
     {
         Name                    = 'reshack'
