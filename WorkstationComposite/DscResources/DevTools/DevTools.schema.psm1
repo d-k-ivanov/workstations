@@ -339,15 +339,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVim
-    {
-        Name                    = 'vim'
-        Params                  = '/RestartExplorer /NoDesktopShortcuts /NoDefaultVimrc'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallVim
+    # {
+    #     Name                    = 'vim'
+    #     Params                  = '/RestartExplorer /NoDesktopShortcuts /NoDefaultVimrc'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallVSCode
     {
