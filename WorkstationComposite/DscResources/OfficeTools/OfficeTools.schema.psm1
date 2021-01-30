@@ -105,6 +105,15 @@ Configuration OfficeTools
     #     PsDscRunAsCredential    = $Credential
     # }
 
+    cChocoPackageInstaller InstallMicrosoftTeams
+    {
+        Name                    = 'microsoft-teams'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallOffice365
     {
         Name                    = 'office365business'
