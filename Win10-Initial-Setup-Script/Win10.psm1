@@ -2477,6 +2477,28 @@ Function EnableLanguageHotKey {
 	#Set-ItemProperty -Path "HKCU:\Keyboard Layout\Toggle" -Name "Layout Hotkey" -Value "3" -Type "String"
 }
 
+# Disable option 'Let me set a different input method for each app window'
+Function DisableDifferentInputMethodForEachApp {
+	Write-Output "Disabling `"Let me set a different input method for each app window`" option..."
+	$prefMask = (Get-ItemProperty -Path 'HKCU:\Control Panel\Desktop' -Name 'UserPreferencesMask').UserPreferencesMask
+	if (($prefMask[4] -band 0x80) -eq 128)
+	{
+		$prefMask[4] = ($prefMask[4] -band 0x00)
+		New-ItemProperty -Path 'HKCU:\Control Panel\Desktop' -Name 'UserPreferencesMask' -Value $prefMask -PropertyType ([Microsoft.Win32.RegistryValueKind]::Binary) -Force | Out-Null
+	}
+}
+
+# Enable option 'Let me set a different input method for each app window'
+Function EnableDifferentInputMethod {
+	Write-Output "Enabling `"Let me set a different input method for each app window`" option..."
+	$prefMask = (Get-ItemProperty -Path 'HKCU:\Control Panel\Desktop' -Name 'UserPreferencesMask').UserPreferencesMask
+	if (($prefMask[4] -band 0x80) -eq 0)
+	{
+		$prefMask[4] = ($prefMask[4] -bor 0x80)
+		New-ItemProperty -Path 'HKCU:\Control Panel\Desktop' -Name 'UserPreferencesMask' -Value $prefMask -PropertyType ([Microsoft.Win32.RegistryValueKind]::Binary) -Force | Out-Null
+	}
+}
+
 ##########
 #endregion UI Tweaks
 ##########
