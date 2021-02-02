@@ -148,6 +148,16 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallImHex
+    {
+        Name                    = 'imhex'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        chocoParams             = "--pre --force"
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallJDK8
     {
         Name                    = 'jdk8'
