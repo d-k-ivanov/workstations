@@ -459,7 +459,7 @@ Configuration DevOps
 
     cChocoPackageInstaller InstallWinSCP
     {
-        Name                    = 'winscp'
+        Name                    = 'winscp.install'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
