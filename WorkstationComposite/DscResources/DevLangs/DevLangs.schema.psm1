@@ -132,7 +132,7 @@ Configuration DevLangs
     {
         Name                    = 'python'
         Params                  = '/InstallDir:C:\tools\python3'
-        Version                 = '3.8.6'
+        Version                 = '3.9.2'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
