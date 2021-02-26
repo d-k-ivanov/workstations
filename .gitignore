@@ -6,6 +6,9 @@
 # Temporary modules directory
 .modules/
 
+# Temporary WIP directory
+.tmp/
+
 # DSC
 *.mof
 
