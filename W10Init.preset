@@ -11,7 +11,7 @@ RequireAdmin
 
 ### Privacy Tweaks ###
 DisableTelemetry                # EnableTelemetry
-# EnableCortana                 # DisableCortana
+DisableCortana                  # EnableCortana
 DisableWiFiSense                # EnableWiFiSense
 DisableSmartScreen              # EnableSmartScreen
 DisableWebSearch                # EnableWebSearch
@@ -56,18 +56,18 @@ DisableUWPBackgroundApps        # EnableUWPBackgroundApps
 SetUACLow                       # SetUACHigh
 # EnableSharingMappedDrives     # DisableSharingMappedDrives
 DisableAdminShares              # EnableAdminShares
-EnableFirewall                  # DisableFirewall
+DisableFirewall                 # EnableFirewall
 # HideDefenderTrayIcon          # ShowDefenderTrayIcon
-EnableDefender                  # DisableDefender
-# EnableDefenderCloud           # DisableDefenderCloud
-# EnableCtrldFolderAccess       # DisableCtrldFolderAccess
-# DisableCIMemoryIntegrity      # EnableCIMemoryIntegrity
-# DisableDefenderAppGuard       # EnableDefenderAppGuard
-# HideAccountProtectionWarn     # ShowAccountProtectionWarn
+DisableDefender                 # EnableDefender
+DisableDefenderCloud            # EnableDefenderCloud
+DisableCtrldFolderAccess        # EnableCtrldFolderAccess
+DisableCIMemoryIntegrity        # EnableCIMemoryIntegrity
+DisableDefenderAppGuard         # EnableDefenderAppGuard
+HideAccountProtectionWarn       # ShowAccountProtectionWarn
 DisableDownloadBlocking         # EnableDownloadBlocking
 EnableScriptHost                # DisableScriptHost
 EnableDotNetStrongCrypto        # DisableDotNetStrongCrypto
-# EnableMeltdownCompatFlag      # DisableMeltdownCompatFlag
+DisableMeltdownCompatFlag       # EnableMeltdownCompatFlag      # DisableMeltdownCompatFlag
 EnableF8BootMenu                # DisableF8BootMenu
 DisableBootRecovery             # EnableBootRecovery
 DisableRecoveryAndReset         # EnableRecoveryAndReset
@@ -241,7 +241,7 @@ EnableDeveloperMode             # DisableDeveloperMode
 # InstallSSHServer              # UninstallSSHServer
 # InstallTelnetClient           # UninstallTelnetClient
 # InstallNET23                  # UninstallNET23
-# SetPhotoViewerAssociation       # UnsetPhotoViewerAssociation
+# SetPhotoViewerAssociation     # UnsetPhotoViewerAssociation
 AddPhotoViewerOpenWith          # RemovePhotoViewerOpenWith
 UninstallPDFPrinter             # InstallPDFPrinter
 UninstallXPSPrinter             # InstallXPSPrinter

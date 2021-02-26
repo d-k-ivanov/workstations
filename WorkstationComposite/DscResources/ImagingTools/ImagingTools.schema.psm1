@@ -105,23 +105,23 @@ Configuration ImagingTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallIrfanview
-    # {
-    #     Name                    = 'irfanview'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallIrfanview
+    {
+        Name                    = 'irfanview'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
-    # cChocoPackageInstaller InstallIrfanviewPlugins
-    # {
-    #     Name                    = 'irfanviewplugins'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallIrfanviewPlugins
+    {
+        Name                    = 'irfanviewplugins'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallKrita
     {

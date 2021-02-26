@@ -22,7 +22,7 @@ Begin
     # $PSModulePathLoc   = Join-Path $PSScriptRoot '.modules'
     # $DscResourcesPath  = Join-Path $PSScriptRoot 'DSC'
 
-    $Env:PSModulePath  = "${PSScriptRoot}"    + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
+    $Env:PSModulePath  = "${PSScriptRoot}" + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
     # $Env:PSModulePath  = "${PSModulePathLoc}" + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
     # $Env:PSModulePath  = "${PSScriptRoot}"    + "$([System.IO.Path]::PathSeparator)${PSModulePathLoc}" + "$([System.IO.Path]::PathSeparator)${PSModulePathSys}"
 

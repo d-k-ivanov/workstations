@@ -68,14 +68,14 @@ Configuration InternetTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallQbittorrent
-    # {
-    #     Name                    = 'qbittorrent'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallQbittorrent
+    {
+        Name                    = 'qbittorrent'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     # cChocoPackageInstaller InstallTorBrowser
     # {

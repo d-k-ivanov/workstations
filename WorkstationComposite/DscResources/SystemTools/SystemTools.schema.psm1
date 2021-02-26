@@ -177,14 +177,14 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallWarp
-    {
-        Name                    = 'warp'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallWarp
+    # {
+    #     Name                    = 'warp'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallWinDirStat
     {
