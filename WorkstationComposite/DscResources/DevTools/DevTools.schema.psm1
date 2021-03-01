@@ -94,6 +94,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    # cChocoPackageInstaller InstallEmscripten
+    # {
+    #     Name                    = 'emscripten'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
+    #     PsDscRunAsCredential    = $Credential
+    # }
+
     cChocoPackageInstaller InstallGhidra
     {
         Name                    = 'ghidra'
