@@ -1,7 +1,7 @@
 ##########
 # Win 10 / Server 2016 / Server 2019 Initial Setup Script - Default preset
 # Author: Disassembler <disassembler@dasm.cz>
-# Modified: Dmitriy Ivanov <d.k.ivanov@live.com>
+# Modified: Dmitry Ivanov <d.k.ivanov@live.com>
 # Version: v3.10.1, 2021-01-11
 # Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
 ##########
