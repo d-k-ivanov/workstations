@@ -51,14 +51,14 @@ Configuration DevOps
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 
-    cChocoPackageInstaller InstallOnePassword
-    {
-        Name                    = '1password'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallOnePassword
+    # {
+    #     Name                    = '1password'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallAWSCli
     {
