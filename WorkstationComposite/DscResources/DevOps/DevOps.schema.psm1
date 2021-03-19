@@ -484,6 +484,15 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallWinpcap
+    {
+        Name                    = 'winpcap'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallWireshark
     {
         Name                    = 'wireshark'
@@ -501,5 +510,4 @@ Configuration DevOps
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
-
 }
