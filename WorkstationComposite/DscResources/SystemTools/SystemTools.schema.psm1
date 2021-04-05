@@ -150,6 +150,15 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallRipgrep
+    {
+        Name                    = 'ripgrep'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallSwissFileKnife
     {
         Name                    = 'swissfileknife'
