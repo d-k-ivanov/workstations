@@ -115,7 +115,7 @@ EnableNTFSLongPaths             # DisableNTFSLongPaths
 DisableNTFSLastAccess           # EnableNTFSLastAccess
 SetBIOSTimeUTC                  # SetBIOSTimeLocal
 DisableHibernation              # EnableHibernation
-DisableSleepButton              # EnableSleepButton
+EnableSleepButton               # DisableSleepButton
 # DisableSleepTimeout           # EnableSleepTimeout
 DisableFastStartup              # EnableFastStartup
 # DisableAutoRebootOnCrash      # EnableAutoRebootOnCrash
