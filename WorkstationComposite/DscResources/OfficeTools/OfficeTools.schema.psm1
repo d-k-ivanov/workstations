@@ -72,6 +72,7 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallGhostscript
     {
         Name                    = 'Ghostscript.app'
+        Version                 = '9.53.3'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
