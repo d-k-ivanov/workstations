@@ -51,14 +51,14 @@ Configuration DevOps
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 
-    # cChocoPackageInstaller InstallOnePassword
-    # {
-    #     Name                    = '1password'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallOnePassword
+    {
+        Name                    = '1password'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallAWSCli
     {
@@ -162,32 +162,32 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallKeepass
-    # {
-    #     Name                    = 'keepass'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallKeepass
+    {
+        Name                    = 'keepass'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
-    # cChocoPackageInstaller InstallKeepassFavicon
-    # {
-    #     Name                    = 'keepass-yet-another-favicon-downloader'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallKeepassFavicon
+    {
+        Name                    = 'keepass-yet-another-favicon-downloader'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
-    # cChocoPackageInstaller InstallKeepassQRCode
-    # {
-    #     Name                    = 'keepass-plugin-qrcodegen'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallKeepassQRCode
+    {
+        Name                    = 'keepass-plugin-qrcodegen'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallKeystoreExplorer
     {
@@ -247,7 +247,7 @@ Configuration DevOps
     {
         Name                    = 'mremoteng'
         AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -279,14 +279,14 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallOpenConnect
-    # {
-    #     Name                    = 'openconnect-gui'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallOpenConnect
+    {
+        Name                    = 'openconnect-gui'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallOpenSSH
     {
@@ -310,7 +310,7 @@ Configuration DevOps
     {
         Name                    = 'openvpn'
         AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -324,14 +324,14 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallPgAdmin4
-    # {
-    #     Name                    = 'pgadmin4'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallPgAdmin4
+    {
+        Name                    = 'pgadmin4'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller Pulumi
     {
@@ -346,7 +346,7 @@ Configuration DevOps
     {
         Name                    = 'putty'
         AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -371,7 +371,7 @@ Configuration DevOps
     {
         Name                    = 'robo3t'
         AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -389,7 +389,7 @@ Configuration DevOps
     {
         Name                    = 'superputty'
         AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -416,7 +416,7 @@ Configuration DevOps
     {
         Name                    = 'tftpd32'
         AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -425,7 +425,7 @@ Configuration DevOps
     {
         Name                    = 'tightvnc'
         AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -443,7 +443,7 @@ Configuration DevOps
     {
         Name                    = 'vagrant-manager'
         AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }

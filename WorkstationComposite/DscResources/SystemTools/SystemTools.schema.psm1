@@ -78,14 +78,14 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallDoublecmd
-    # {
-    #     Name                    = 'doublecmd'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallDoublecmd
+    {
+        Name                    = 'doublecmd'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallDU
     {
@@ -100,7 +100,7 @@ Configuration SystemTools
     {
         Name                    = 'far'
         AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -132,14 +132,14 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallPowerToys
-    # {
-    #     Name                    = 'powertoys'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallPowerToys
+    {
+        Name                    = 'powertoys'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallRapidee
     {
@@ -186,14 +186,14 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallWarp
-    # {
-    #     Name                    = 'warp'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallWarp
+    {
+        Name                    = 'warp'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallWinDirStat
     {

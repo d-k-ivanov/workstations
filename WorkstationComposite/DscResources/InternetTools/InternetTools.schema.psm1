@@ -77,14 +77,14 @@ Configuration InternetTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallTorBrowser
-    # {
-    #     Name                    = 'top-browser'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallTorBrowser
+    {
+        Name                    = 'top-browser'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallYoutubeDl
     {

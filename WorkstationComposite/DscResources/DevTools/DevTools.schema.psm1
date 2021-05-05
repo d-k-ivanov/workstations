@@ -103,14 +103,14 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallEmscripten
-    # {
-    #     Name                    = 'emscripten'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallEmscripten
+    {
+        Name                    = 'emscripten'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallGhidra
     {
@@ -266,14 +266,14 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallMeshLab
-    # {
-    #     Name                    = 'meshlab'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallMeshLab
+    {
+        Name                    = 'meshlab'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallNinja
     {

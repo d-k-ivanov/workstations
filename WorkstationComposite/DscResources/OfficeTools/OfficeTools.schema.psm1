@@ -88,14 +88,14 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallLibrecad
-    # {
-    #     Name                    = 'librecad'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallLibrecad
+    {
+        Name                    = 'librecad'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallMiKTeX
     {
