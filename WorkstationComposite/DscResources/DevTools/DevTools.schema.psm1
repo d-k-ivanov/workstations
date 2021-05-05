@@ -194,6 +194,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallJDK11
+    {
+        Name                    = 'jdk11'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     # cChocoPackageInstaller InstallJetBrainsToolbox
     # {
     #     Name                    = 'jetbrainstoolbox'
@@ -330,7 +339,7 @@ Configuration DevTools
     }
 
 
-    cChocoPackageInstaller InstallOpenJDK #14
+    cChocoPackageInstaller InstallOpenJDK # Latest
     {
         Name                    = 'openjdk'
         AutoUpgrade             = $AutoUpgrade

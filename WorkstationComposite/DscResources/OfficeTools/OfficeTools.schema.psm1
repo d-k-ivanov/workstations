@@ -97,14 +97,16 @@ Configuration OfficeTools
     #     PsDscRunAsCredential    = $Credential
     # }
 
-    # cChocoPackageInstaller InstallMiktexInstall
-    # {
-    #     Name                    = 'miktex.install'
-    #     AutoUpgrade             = $AutoUpgrade
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallMiKTeX
+    {
+        Name                    = 'miktex.install'
+        # Params                  = '"/Set:complete /RepoPath:""c:\tools\MiKTeX-Repo"""'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
 
     cChocoPackageInstaller InstallMicrosoftTeams
     {
@@ -127,16 +129,6 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallPdfsam
     {
         Name                    = 'pdfsam'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
-    cChocoPackageInstaller InstallMiKTeX
-    {
-        Name                    = 'miktex.install'
-        # Params                  = '"/Set:complete /RepoPath:""c:\tools\MiKTeX-Repo"""'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
