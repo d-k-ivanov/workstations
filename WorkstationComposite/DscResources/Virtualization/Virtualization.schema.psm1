@@ -15,7 +15,9 @@ Configuration Virtualization
     (
         [Parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
-        [pscredential] $Credential
+        [pscredential] $Credential,
+
+        [switch] $NoUpgrade
     )
 
     Import-DscResource -ModuleName PSDesiredStateConfiguration
