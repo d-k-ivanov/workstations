@@ -80,7 +80,7 @@ Configuration VideoTools
 
     cChocoPackageInstaller InstallShotcut
     {
-        Name                    = 'shotcut'
+        Name                    = 'shotcut.install'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
