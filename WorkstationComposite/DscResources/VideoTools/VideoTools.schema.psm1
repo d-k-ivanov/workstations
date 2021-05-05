@@ -78,6 +78,15 @@ Configuration VideoTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallShotcut
+    {
+        Name                    = 'shotcut'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallVlc
     {
         Name                    = 'vlc'
