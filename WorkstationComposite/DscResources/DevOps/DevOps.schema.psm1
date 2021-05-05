@@ -8,7 +8,7 @@ Install DevOps and Admin tools.
 .PARAMETER Credential
 User credental.
 
-.PARAMETER NoUpgrate
+.PARAMETER NoUpgrade
 Do not upgrade installed packages to their latest versions.
 #>
 
@@ -20,10 +20,10 @@ Configuration DevOps
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrate
+        [switch] $NoUpgrade
     )
 
-    if ($NoUpgrate)
+    if ($NoUpgrade)
     {
         $AutoUpgrade = $false
     }
@@ -162,32 +162,32 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallKeepass
-    {
-        Name                    = 'keepass'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallKeepass
+    # {
+    #     Name                    = 'keepass'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
-    cChocoPackageInstaller InstallKeepassFavicon
-    {
-        Name                    = 'keepass-yet-another-favicon-downloader'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallKeepassFavicon
+    # {
+    #     Name                    = 'keepass-yet-another-favicon-downloader'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
-    cChocoPackageInstaller InstallKeepassQRCode
-    {
-        Name                    = 'keepass-plugin-qrcodegen'
-        AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallKeepassQRCode
+    # {
+    #     Name                    = 'keepass-plugin-qrcodegen'
+    #     AutoUpgrade             = $AutoUpgrade
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallKeystoreExplorer
     {

@@ -71,30 +71,30 @@ if ($MyInvocation.InvocationName -ne '.')
                 Credential          = $Credential
                 SetComputerName     = $false
                 DisableSearchEngine = $true
+                NoUpgrade           = $true
             }
 
             # System Software
-            SystemTools         SystemTools         { Credential = $Credential }
-            Virtualization      Virtualization      { Credential = $Credential }
+            SystemTools         SystemTools         { Credential = $Credential; NoUpgrade = $true }
+            Virtualization      Virtualization      { Credential = $Credential; NoUpgrade = $true }
 
             # Development Software
-            DevLangs            DevLangs            { Credential = $Credential }
-            DevOps              DevOps              { Credential = $Credential }
-            DevTools            DevTools            { Credential = $Credential }
-            DocTools            DocTools            { Credential = $Credential }
-            GameDev             GameDev             { Credential = $Credential }
-            # VisualStudio        VisualStudio        { Credential = $Credential }
+            DevLangs            DevLangs            { Credential = $Credential; NoUpgrade = $true }
+            DevOps              DevOps              { Credential = $Credential; NoUpgrade = $true }
+            DevTools            DevTools            { Credential = $Credential; NoUpgrade = $true }
+            DocTools            DocTools            { Credential = $Credential; NoUpgrade = $true }
+            GameDev             GameDev             { Credential = $Credential; NoUpgrade = $true }
+            # VisualStudio        VisualStudio        { Credential = $Credential; NoUpgrade = $true }
 
             # Desktop Software
-            AudioTools          AudioTools          { Credential = $Credential }
-            CommunicationTools  CommunicationTools  { Credential = $Credential }
-            ImagingTools        ImagingTools        { Credential = $Credential }
-            InternetTools       InternetTools       { Credential = $Credential }
-            OfficeTools         OfficeTools         { Credential = $Credential }
-            StorageTools        StorageTools        { Credential = $Credential }
-            VideoTools          VideoTools          { Credential = $Credential }
+            AudioTools          AudioTools          { Credential = $Credential; NoUpgrade = $true }
+            CommunicationTools  CommunicationTools  { Credential = $Credential; NoUpgrade = $true }
+            ImagingTools        ImagingTools        { Credential = $Credential; NoUpgrade = $true }
+            InternetTools       InternetTools       { Credential = $Credential; NoUpgrade = $true }
+            OfficeTools         OfficeTools         { Credential = $Credential; NoUpgrade = $true }
+            StorageTools        StorageTools        { Credential = $Credential; NoUpgrade = $true }
+            VideoTools          VideoTools          { Credential = $Credential; NoUpgrade = $true }
         }
-
     }
 
     WorkstationConfig -Role DSC -ConfigurationData $ConfiguraionData -OutputPath $PSScriptRoot | Out-Null

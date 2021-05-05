@@ -74,7 +74,7 @@ Configuration Virtualization
         InstallDir              = 'C:\ProgramData\chocolatey'
     }
 
-    if ($NoUpgrate)
+    if ($NoUpgrade)
     {
         $AutoUpgrade = $false
     }

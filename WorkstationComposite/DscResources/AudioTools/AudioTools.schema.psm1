@@ -8,7 +8,7 @@ Install audio tools.
 .PARAMETER Credential
 User credental.
 
-.PARAMETER NoUpgrate
+.PARAMETER NoUpgrade
 Do not upgrade installed packages to their latest versions.
 #>
 
@@ -21,10 +21,10 @@ Configuration AudioTools
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrate
+        [switch] $NoUpgrade
     )
 
-    if ($NoUpgrate)
+    if ($NoUpgrade)
     {
         $AutoUpgrade = $false
     }

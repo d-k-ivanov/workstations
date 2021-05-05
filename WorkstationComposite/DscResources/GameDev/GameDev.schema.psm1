@@ -8,7 +8,7 @@ Install various development tools.
 .PARAMETER Credential
 User credental.
 
-.PARAMETER NoUpgrate
+.PARAMETER NoUpgrade
 Do not upgrade installed packages to their latest versions.
 #>
 
@@ -20,10 +20,10 @@ Configuration GameDev
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrate
+        [switch] $NoUpgrade
     )
 
-    if ($NoUpgrate)
+    if ($NoUpgrade)
     {
         $AutoUpgrade = $false
     }
