@@ -283,7 +283,7 @@ Configuration DevOps
     {
         Name                    = 'openconnect-gui'
         AutoUpgrade             = $AutoUpgrade
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -309,6 +309,15 @@ Configuration DevOps
     cChocoPackageInstaller InstallOpenVPN
     {
         Name                    = 'openvpn'
+        AutoUpgrade             = $AutoUpgrade
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallTAPWindows
+    {
+        Name                    = 'tapwindows'
         AutoUpgrade             = $AutoUpgrade
         Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
