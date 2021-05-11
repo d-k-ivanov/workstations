@@ -156,7 +156,7 @@ Configuration DevOps
     cChocoPackageInstaller InstallGPG4Win
     {
         Name                    = 'gpg4win'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $false
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
