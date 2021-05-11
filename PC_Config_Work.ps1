@@ -74,26 +74,24 @@ if ($MyInvocation.InvocationName -ne '.')
                 NoUpgrade           = $true
             }
 
-            # System Software
-            SystemTools         SystemTools         { Credential = $Credential; NoUpgrade = $false }
-            Virtualization      Virtualization      { Credential = $Credential; NoUpgrade = $false }
 
-            # Development Software
-            DevLangs            DevLangs            { Credential = $Credential; NoUpgrade = $false }
-            DevOps              DevOps              { Credential = $Credential; NoUpgrade = $false }
-            DevTools            DevTools            { Credential = $Credential; NoUpgrade = $false }
-            DocTools            DocTools            { Credential = $Credential; NoUpgrade = $false }
-            GameDev             GameDev             { Credential = $Credential; NoUpgrade = $false }
-            # VisualStudio        VisualStudio        { Credential = $Credential; NoUpgrade = $false }
+            SystemTools         SystemTools         { Credential = $Credential; NoUpgrade = $true } # System Software
+            Virtualization      Virtualization      { Credential = $Credential; NoUpgrade = $true } # System Software
+            DevLangs            DevLangs            { Credential = $Credential; NoUpgrade = $true } # Development Software
+            DevOps              DevOps              { Credential = $Credential; NoUpgrade = $true } # Development Software
+            DevTools            DevTools            { Credential = $Credential; NoUpgrade = $true } # Development Software
+            DocTools            DocTools            { Credential = $Credential; NoUpgrade = $true } # Development Software
+            GameDev             GameDev             { Credential = $Credential; NoUpgrade = $true } # Development Software
+            AudioTools          AudioTools          { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            CommunicationTools  CommunicationTools  { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            ImagingTools        ImagingTools        { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            InternetTools       InternetTools       { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            OfficeTools         OfficeTools         { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            StorageTools        StorageTools        { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            VideoTools          VideoTools          { Credential = $Credential; NoUpgrade = $true } # Desktop Software
 
-            # Desktop Software
-            AudioTools          AudioTools          { Credential = $Credential; NoUpgrade = $false }
-            CommunicationTools  CommunicationTools  { Credential = $Credential; NoUpgrade = $false }
-            ImagingTools        ImagingTools        { Credential = $Credential; NoUpgrade = $false }
-            InternetTools       InternetTools       { Credential = $Credential; NoUpgrade = $false }
-            OfficeTools         OfficeTools         { Credential = $Credential; NoUpgrade = $false }
-            StorageTools        StorageTools        { Credential = $Credential; NoUpgrade = $false }
-            VideoTools          VideoTools          { Credential = $Credential; NoUpgrade = $false }
+            # Disabled
+            # VisualStudio        VisualStudio        { Credential = $Credential; NoUpgrade = $false } # Development Software
         }
     }
 

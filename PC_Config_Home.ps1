@@ -76,25 +76,23 @@ if ($MyInvocation.InvocationName -ne '.')
             }
 
             # System Software
-            SystemTools         SystemTools         { Credential = $Credential; NoUpgrade = $false }
-            Virtualization      Virtualization      { Credential = $Credential; NoUpgrade = $false }
+            SystemTools         SystemTools         { Credential = $Credential; NoUpgrade = $false } # System Software
+            Virtualization      Virtualization      { Credential = $Credential; NoUpgrade = $false } # System Software
+            DevLangs            DevLangs            { Credential = $Credential; NoUpgrade = $false } # Development Software
+            DevOps              DevOps              { Credential = $Credential; NoUpgrade = $false } # Development Software
+            DevTools            DevTools            { Credential = $Credential; NoUpgrade = $false } # Development Software
+            DocTools            DocTools            { Credential = $Credential; NoUpgrade = $false } # Development Software
+            GameDev             GameDev             { Credential = $Credential; NoUpgrade = $false } # Development Software
+            AudioTools          AudioTools          { Credential = $Credential; NoUpgrade = $false } # Desktop Software
+            CommunicationTools  CommunicationTools  { Credential = $Credential; NoUpgrade = $false } # Desktop Software
+            ImagingTools        ImagingTools        { Credential = $Credential; NoUpgrade = $false } # Desktop Software
+            InternetTools       InternetTools       { Credential = $Credential; NoUpgrade = $false } # Desktop Software
+            OfficeTools         OfficeTools         { Credential = $Credential; NoUpgrade = $false } # Desktop Software
+            StorageTools        StorageTools        { Credential = $Credential; NoUpgrade = $false } # Desktop Software
+            VideoTools          VideoTools          { Credential = $Credential; NoUpgrade = $false } # Desktop Software
 
-            # Development Software
-            DevLangs            DevLangs            { Credential = $Credential; NoUpgrade = $false }
-            DevOps              DevOps              { Credential = $Credential; NoUpgrade = $false }
-            DevTools            DevTools            { Credential = $Credential; NoUpgrade = $false }
-            DocTools            DocTools            { Credential = $Credential; NoUpgrade = $false }
-            GameDev             GameDev             { Credential = $Credential; NoUpgrade = $false }
-            # VisualStudio        VisualStudio        { Credential = $Credential; NoUpgrade = $false }
-
-            # Desktop Software
-            AudioTools          AudioTools          { Credential = $Credential; NoUpgrade = $false }
-            CommunicationTools  CommunicationTools  { Credential = $Credential; NoUpgrade = $false }
-            ImagingTools        ImagingTools        { Credential = $Credential; NoUpgrade = $false }
-            InternetTools       InternetTools       { Credential = $Credential; NoUpgrade = $false }
-            OfficeTools         OfficeTools         { Credential = $Credential; NoUpgrade = $false }
-            StorageTools        StorageTools        { Credential = $Credential; NoUpgrade = $false }
-            VideoTools          VideoTools          { Credential = $Credential; NoUpgrade = $false }
+            # Disabled
+            # VisualStudio        VisualStudio        { Credential = $Credential; NoUpgrade = $false } # Development Software
         }
     }
 
