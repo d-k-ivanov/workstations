@@ -6,7 +6,6 @@ Workstation Configuration.
 Workstation Configuration.
 #>
 
-
 # Check invocation
 if ($MyInvocation.InvocationName -ne '.')
 {
@@ -16,13 +15,11 @@ if ($MyInvocation.InvocationName -ne '.')
     Exit
 }
 
-
 # ------------------------------------------------------------
 # Base
 # ------------------------------------------------------------
 . "${PSScriptRoot}\Functions.ps1"
 . "${PSScriptRoot}\Secrets.Home.ps1"
-
 
 # ------------------------------------------------------------
 # Configuration Data
@@ -72,24 +69,24 @@ if ($MyInvocation.InvocationName -ne '.')
                 ComputerName        = 'divanov-dev'
                 SetComputerName     = $true
                 DisableSearchEngine = $true
-                NoUpgrade           = $false
+                NoUpgrade           = $true
             }
 
             # System Software
-            SystemTools         SystemTools         { Credential = $Credential; NoUpgrade = $false } # System Software
-            Virtualization      Virtualization      { Credential = $Credential; NoUpgrade = $false } # System Software
-            DevLangs            DevLangs            { Credential = $Credential; NoUpgrade = $false } # Development Software
-            DevOps              DevOps              { Credential = $Credential; NoUpgrade = $false } # Development Software
-            DevTools            DevTools            { Credential = $Credential; NoUpgrade = $false } # Development Software
-            DocTools            DocTools            { Credential = $Credential; NoUpgrade = $false } # Development Software
-            GameDev             GameDev             { Credential = $Credential; NoUpgrade = $false } # Development Software
-            AudioTools          AudioTools          { Credential = $Credential; NoUpgrade = $false } # Desktop Software
-            CommunicationTools  CommunicationTools  { Credential = $Credential; NoUpgrade = $false } # Desktop Software
-            ImagingTools        ImagingTools        { Credential = $Credential; NoUpgrade = $false } # Desktop Software
-            InternetTools       InternetTools       { Credential = $Credential; NoUpgrade = $false } # Desktop Software
-            OfficeTools         OfficeTools         { Credential = $Credential; NoUpgrade = $false } # Desktop Software
-            StorageTools        StorageTools        { Credential = $Credential; NoUpgrade = $false } # Desktop Software
-            VideoTools          VideoTools          { Credential = $Credential; NoUpgrade = $false } # Desktop Software
+            SystemTools         SystemTools         { Credential = $Credential; NoUpgrade = $true } # System Software
+            Virtualization      Virtualization      { Credential = $Credential; NoUpgrade = $true } # System Software
+            DevLangs            DevLangs            { Credential = $Credential; NoUpgrade = $true } # Development Software
+            DevOps              DevOps              { Credential = $Credential; NoUpgrade = $true } # Development Software
+            DevTools            DevTools            { Credential = $Credential; NoUpgrade = $true } # Development Software
+            DocTools            DocTools            { Credential = $Credential; NoUpgrade = $true } # Development Software
+            GameDev             GameDev             { Credential = $Credential; NoUpgrade = $true } # Development Software
+            AudioTools          AudioTools          { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            CommunicationTools  CommunicationTools  { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            ImagingTools        ImagingTools        { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            InternetTools       InternetTools       { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            OfficeTools         OfficeTools         { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            StorageTools        StorageTools        { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            VideoTools          VideoTools          { Credential = $Credential; NoUpgrade = $true } # Desktop Software
 
             # Disabled
             # VisualStudio        VisualStudio        { Credential = $Credential; NoUpgrade = $false } # Development Software

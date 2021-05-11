@@ -6,7 +6,6 @@ Workstation Configuration.
 Workstation Configuration.
 #>
 
-
 # Check invocation
 if ($MyInvocation.InvocationName -ne '.')
 {
@@ -16,13 +15,11 @@ if ($MyInvocation.InvocationName -ne '.')
     Exit
 }
 
-
 # ------------------------------------------------------------
 # Base
 # ------------------------------------------------------------
 . "${PSScriptRoot}\Functions.ps1"
 . "${PSScriptRoot}\Secrets.Work.ps1"
-
 
 # ------------------------------------------------------------
 # Configuration Data
@@ -73,7 +70,6 @@ if ($MyInvocation.InvocationName -ne '.')
                 DisableSearchEngine = $true
                 NoUpgrade           = $true
             }
-
 
             SystemTools         SystemTools         { Credential = $Credential; NoUpgrade = $true } # System Software
             Virtualization      Virtualization      { Credential = $Credential; NoUpgrade = $true } # System Software

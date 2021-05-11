@@ -43,7 +43,6 @@ Begin
 
 } # Begin block
 
-
 Process
 {
     # ------------------------------------------------------------
@@ -104,6 +103,10 @@ Process
     # ------------------------------------------------------------
     . "${PSScriptRoot}\W10Init.ps1"
 
+    # ------------------------------------------------------------
+    # Disable Windows Defender One More Time......................
+    # ------------------------------------------------------------
+    . "${PSScriptRoot}\DisableDefender.ps1"
 
     # ------------------------------------------------------------
     # Load LCM Config
@@ -117,27 +120,25 @@ Process
     # ------------------------------------------------------------
     switch ($WorkstationType)
     {
-        "Home" {
+        "Home"
+        {
             . "${PSScriptRoot}\PC_Config_Home.ps1"
             break
         }
-        "Work" {
+        "Work"
+        {
             . "${PSScriptRoot}\PC_Config_Work.ps1"
             break
         }
     }
     $WorkstationType
 
-
-
     # ------------------------------------------------------------
     # Execute Workstation Config
     # ------------------------------------------------------------
     Start-DscConfiguration -Path $PSScriptRoot -Wait -Verbose -Force
 
-
 } # Process block
-
 
 End
 {
