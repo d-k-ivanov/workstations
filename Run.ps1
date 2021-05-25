@@ -10,7 +10,8 @@ Run automated configuration of developer workstation.
 param
 (
     [Parameter(Mandatory = $true)]
-    [string] $WorkstationType
+    [string] $WorkstationType,
+    [switch] $Update
 )
 
 Begin
@@ -113,7 +114,6 @@ Process
     # ------------------------------------------------------------
     . "${PSScriptRoot}\LCMConfig.ps1"
     Set-DscLocalConfigurationManager -Path $PSScriptRoot -Force
-
 
     # ------------------------------------------------------------
     # Load Workstation DSC Composite Config

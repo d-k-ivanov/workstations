@@ -20,17 +20,8 @@ Configuration ImagingTools
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
-
-    if ($NoUpgrade)
-    {
-        $AutoUpgrade = $false
-    }
-    else
-    {
-        $AutoUpgrade = $true
-    }
 
     Import-DscResource -ModuleName cChoco
 
@@ -45,7 +36,7 @@ Configuration ImagingTools
     #     Name                    = 'PackageName'
     #     Version                 = ''
     #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
@@ -53,7 +44,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallDrawpile
     {
         Name                    = 'drawpile'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -63,7 +54,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallFsviewer
     {
         Name                    = 'fsviewer'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -72,7 +63,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallGimp
     {
         Name                    = 'gimp'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -81,7 +72,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallGraphviz
     {
         Name                    = 'graphviz'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -90,7 +81,7 @@ Configuration ImagingTools
     # cChocoPackageInstaller InstallImagemagick
     # {
     #     Name                    = 'imagemagick'
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential    = $Credential
@@ -99,7 +90,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallInkscape
     {
         Name                    = 'inkscape'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -108,7 +99,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallIrfanview
     {
         Name                    = 'irfanview'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -117,7 +108,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallIrfanviewPlugins
     {
         Name                    = 'irfanviewplugins'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -126,7 +117,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallKrita
     {
         Name                    = 'krita'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -135,7 +126,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallLunacy
     {
         Name                    = 'lunacy'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -144,7 +135,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallPaintNet
     {
         Name                    = 'paint.net'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -153,7 +144,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallPencil
     {
         Name                    = 'pencil'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -162,7 +153,7 @@ Configuration ImagingTools
     cChocoPackageInstaller InstallXnView
     {
         Name                    = 'XnView'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential

@@ -37,7 +37,7 @@ Configuration AddChocoPackages
     #     Name                    = 'PackageName'
     #     Version                 = ''
     #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
     # }
@@ -51,8 +51,3 @@ Configuration AddChocoPackages
         }
     }
 }
-
-
-
-
-

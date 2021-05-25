@@ -20,17 +20,8 @@ Configuration VideoTools
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
-
-    if ($NoUpgrade)
-    {
-        $AutoUpgrade = $false
-    }
-    else
-    {
-        $AutoUpgrade = $true
-    }
 
     Import-DscResource -ModuleName cChoco
 
@@ -45,7 +36,7 @@ Configuration VideoTools
     #     Name                    = 'PackageName'
     #     Version                 = ''
     #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential    = $Credential
@@ -54,7 +45,7 @@ Configuration VideoTools
     cChocoPackageInstaller InstallOBSStudio
     {
         Name                    = 'obs-studio'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -63,7 +54,7 @@ Configuration VideoTools
     cChocoPackageInstaller InstallOpenshot
     {
         Name                    = 'openshot'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -72,7 +63,7 @@ Configuration VideoTools
     cChocoPackageInstaller InstallScreentogif
     {
         Name                    = 'screentogif'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -81,7 +72,7 @@ Configuration VideoTools
     cChocoPackageInstaller InstallShotcut
     {
         Name                    = 'shotcut.install'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -90,7 +81,7 @@ Configuration VideoTools
     cChocoPackageInstaller InstallVlc
     {
         Name                    = 'vlc'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential

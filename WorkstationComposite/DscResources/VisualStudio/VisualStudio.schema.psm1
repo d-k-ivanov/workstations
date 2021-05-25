@@ -20,17 +20,8 @@ Configuration VisualStudio
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
-
-    if ($NoUpgrade)
-    {
-        $AutoUpgrade = $false
-    }
-    else
-    {
-        $AutoUpgrade = $true
-    }
 
     Import-DscResource –ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
@@ -45,7 +36,7 @@ Configuration VisualStudio
     #     Name                    = 'PackageName'
     #     Version                 = ''
     #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential    = $Credential
@@ -54,7 +45,7 @@ Configuration VisualStudio
     cChocoPackageInstaller InstallVCRedist2008
     {
         Name                    = 'vcredist2008'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -63,7 +54,7 @@ Configuration VisualStudio
     cChocoPackageInstaller InstallVCRedist2010
     {
         Name                    = 'vcredist2010'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -72,7 +63,7 @@ Configuration VisualStudio
     cChocoPackageInstaller InstallVCRedist2012
     {
         Name                    = 'vcredist2012'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -81,7 +72,7 @@ Configuration VisualStudio
     cChocoPackageInstaller InstallVCRedist2013
     {
         Name                    = 'vcredist2013'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -90,7 +81,7 @@ Configuration VisualStudio
     cChocoPackageInstaller InstallVCRedist2015
     {
         Name                    = 'vcredist2015'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -99,7 +90,7 @@ Configuration VisualStudio
     cChocoPackageInstaller InstallVCRedist2017
     {
         Name                    = 'vcredist2017'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -108,7 +99,7 @@ Configuration VisualStudio
     cChocoPackageInstaller InstallDotNet461
     {
         Name                    = 'dotnet4.6.1'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -117,7 +108,7 @@ Configuration VisualStudio
     cChocoPackageInstaller InstallVisualStudioCommunity2019
     {
         Name                    = 'visualstudio2019community'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential

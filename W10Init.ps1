@@ -17,9 +17,19 @@ PostInstall Configuration.
 
 $ScriptName         = [io.path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name)
 
-powershell.exe -NoProfile -ExecutionPolicy Bypass     `
-  -File "${PSScriptRoot}\Win10-Initial-Setup-Script\Win10.ps1"     `
-  -include "${PSScriptRoot}\Win10-Initial-Setup-Script\Win10.psm1" `
-  -preset "${PSScriptRoot}\${ScriptName}.preset"
+if($PSVersionTable.PSEdition -eq "Core")
+{
+    pwsh.exe -NoProfile -ExecutionPolicy Bypass                             `
+        -File "${PSScriptRoot}\Win10-Initial-Setup-Script\Win10.ps1"        `
+        -include "${PSScriptRoot}\Win10-Initial-Setup-Script\Win10.psm1"    `
+        -preset "${PSScriptRoot}\${ScriptName}.preset"
+}
+else
+{
+    powershell.exe -NoProfile -ExecutionPolicy Bypass                       `
+        -File "${PSScriptRoot}\Win10-Initial-Setup-Script\Win10.ps1"        `
+        -include "${PSScriptRoot}\Win10-Initial-Setup-Script\Win10.psm1"    `
+        -preset "${PSScriptRoot}\${ScriptName}.preset"
+}
 
 Set-Service "CDPUserSvc" -StartupType Automatic

@@ -20,17 +20,8 @@ Configuration SystemTools
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
-
-    if ($NoUpgrade)
-    {
-        $AutoUpgrade = $false
-    }
-    else
-    {
-        $AutoUpgrade = $true
-    }
 
     Import-DscResource -ModuleName cChoco
 
@@ -45,7 +36,7 @@ Configuration SystemTools
     #     Name                    = 'PackageName'
     #     Version                 = ''
     #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential    = $Credential
@@ -54,7 +45,7 @@ Configuration SystemTools
     cChocoPackageInstaller Install7zip
     {
         Name                    = '7zip.install'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -63,7 +54,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallCcleaner
     {
         Name                    = 'ccleaner'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -72,7 +63,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallChocoCleaner
     {
         Name                    = 'choco-cleaner'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -81,7 +72,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallDoublecmd
     {
         Name                    = 'doublecmd'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -90,7 +81,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallDU
     {
         Name                    = 'du'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -99,7 +90,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallFar
     {
         Name                    = 'far'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -108,7 +99,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallGreenshot
     {
         Name                    = 'greenshot'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -117,7 +108,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallImdiskToolkit
     {
         Name                    = 'imdisk-toolkit'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -126,7 +117,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallLockHunter
     {
         Name                    = 'lockhunter'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -135,7 +126,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallPowerToys
     {
         Name                    = 'powertoys'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -144,7 +135,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallRapidee
     {
         Name                    = 'rapidee'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -153,7 +144,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallRipgrep
     {
         Name                    = 'ripgrep'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -162,7 +153,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallSwissFileKnife
     {
         Name                    = 'swissfileknife'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -171,7 +162,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallSysInternals
     {
         Name                    = 'sysinternals'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -180,7 +171,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallTree
     {
         Name                    = 'tree'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -189,7 +180,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallWarp
     {
         Name                    = 'warp'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -198,7 +189,7 @@ Configuration SystemTools
     cChocoPackageInstaller InstallWinDirStat
     {
         Name                    = 'windirstat'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential

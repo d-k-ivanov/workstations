@@ -20,17 +20,8 @@ Configuration GameDev
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
-
-    if ($NoUpgrade)
-    {
-        $AutoUpgrade = $false
-    }
-    else
-    {
-        $AutoUpgrade = $true
-    }
 
     Import-DscResource -ModuleName cChoco
 
@@ -44,7 +35,7 @@ Configuration GameDev
     #     Name                    = 'PackageName'
     #     Version                 = ''
     #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
     # }
@@ -52,7 +43,7 @@ Configuration GameDev
     cChocoPackageInstaller InstallGodot
     {
         Name                    = 'godot-mono'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
@@ -61,7 +52,7 @@ Configuration GameDev
     cChocoPackageInstaller InstallGodotMono
     {
         Name                    = 'blender'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential

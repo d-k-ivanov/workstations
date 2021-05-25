@@ -28,7 +28,7 @@ Configuration SystemSettings
         [string] $ComputerWorkgroup = 'Workgroup',
         [switch] $SetComputerName,
         [switch] $DisableSearchEngine,
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
 
     Import-DscResource -ModuleName PSDesiredStateConfiguration

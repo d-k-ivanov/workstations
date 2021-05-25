@@ -20,17 +20,8 @@ Configuration DocTools
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
-
-    if ($NoUpgrade)
-    {
-        $AutoUpgrade = $false
-    }
-    else
-    {
-        $AutoUpgrade = $true
-    }
 
     Import-DscResource -ModuleName cChoco
 
@@ -43,7 +34,7 @@ Configuration DocTools
     cChocoPackageInstaller InstallDocFX
     {
         Name                    = 'docfx'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -52,7 +43,7 @@ Configuration DocTools
     cChocoPackageInstaller InstallPandoc
     {
         Name                    = 'pandoc'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential

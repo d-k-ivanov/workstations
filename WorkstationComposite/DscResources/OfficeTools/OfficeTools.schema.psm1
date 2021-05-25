@@ -20,17 +20,8 @@ Configuration OfficeTools
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
-
-    if ($NoUpgrade)
-    {
-        $AutoUpgrade = $false
-    }
-    else
-    {
-        $AutoUpgrade = $true
-    }
 
     Import-DscResource -ModuleName cChoco
 
@@ -45,7 +36,7 @@ Configuration OfficeTools
     #     Name                    = 'PackageName'
     #     Version                 = ''
     #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
@@ -53,7 +44,7 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallAdobereader
     {
         Name                    = 'adobereader'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         chocoParams             = '--ignore-checksums'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
@@ -63,7 +54,7 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallCalibre
     {
         Name                    = 'calibre'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -73,7 +64,7 @@ Configuration OfficeTools
     {
         Name                    = 'Ghostscript.app'
         Version                 = '9.53.3'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -82,7 +73,7 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallGrammarly
     {
         Name                    = 'grammarly'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -91,7 +82,7 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallLibrecad
     {
         Name                    = 'librecad'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -101,7 +92,7 @@ Configuration OfficeTools
     {
         Name                    = 'miktex.install'
         # Params                  = '"/Set:complete /RepoPath:""c:\tools\MiKTeX-Repo"""'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -111,7 +102,7 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallMicrosoftTeams
     {
         Name                    = 'microsoft-teams'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -120,7 +111,7 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallOffice365
     {
         Name                    = 'office365business'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -129,7 +120,7 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallPdfsam
     {
         Name                    = 'pdfsam'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -138,7 +129,7 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallWindjview
     {
         Name                    = 'windjview'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         chocoParams             = '--ignore-checksums'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
@@ -148,7 +139,7 @@ Configuration OfficeTools
     cChocoPackageInstaller InstallXpdfUtils
     {
         Name                    = 'xpdf-utils'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -158,7 +149,7 @@ Configuration OfficeTools
     {
         Name                    = 'yed'
         Params                  = '/Associate'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential

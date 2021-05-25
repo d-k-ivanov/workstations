@@ -21,17 +21,8 @@ Configuration CommunicationTools
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
-
-    if ($NoUpgrade)
-    {
-        $AutoUpgrade = $false
-    }
-    else
-    {
-        $AutoUpgrade = $true
-    }
 
     Import-DscResource -ModuleName cChoco
 
@@ -46,7 +37,7 @@ Configuration CommunicationTools
     #     Name                    = 'PackageName'
     #     Version                 = ''
     #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
@@ -54,7 +45,7 @@ Configuration CommunicationTools
     cChocoPackageInstaller InstallSlack
     {
         Name                    = 'slack'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -63,7 +54,7 @@ Configuration CommunicationTools
     cChocoPackageInstaller InstallTeams
     {
         Name                    = 'microsoft-teams.install'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -72,7 +63,7 @@ Configuration CommunicationTools
     # cChocoPackageInstaller InstallTelegram
     # {
     #     Name                    = 'telegram.install'
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential    = $Credential
@@ -81,7 +72,7 @@ Configuration CommunicationTools
     cChocoPackageInstaller InstallWhatsapp
     {
         Name                    = 'whatsapp'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -90,7 +81,7 @@ Configuration CommunicationTools
     cChocoPackageInstaller InstallSkype
     {
         Name                    = 'skype'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -99,7 +90,7 @@ Configuration CommunicationTools
     cChocoPackageInstaller InstallZoom
     {
         Name                    = 'zoom'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential

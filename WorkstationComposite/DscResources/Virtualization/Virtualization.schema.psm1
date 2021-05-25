@@ -17,7 +17,7 @@ Configuration Virtualization
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
 
     Import-DscResource -ModuleName PSDesiredStateConfiguration
@@ -76,22 +76,13 @@ Configuration Virtualization
         InstallDir              = 'C:\ProgramData\chocolatey'
     }
 
-    if ($NoUpgrade)
-    {
-        $AutoUpgrade = $false
-    }
-    else
-    {
-        $AutoUpgrade = $true
-    }
-
     ## Template
     # cChocoPackageInstaller InstallPackageName
     # {
     #     Name                    = 'PackageName'
     #     Version                 = ''
     #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential    = $Credential
@@ -100,11 +91,9 @@ Configuration Virtualization
     # cChocoPackageInstaller InstallDockerDesktop
     # {
     #     Name                    = 'docker-desktop'
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present'
     #     DependsOn               = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
     #     PsDscRunAsCredential    = $Credential
     # }
-
-
 }

@@ -20,17 +20,9 @@ Configuration DevLangs
         [ValidateNotNullOrEmpty()]
         [pscredential] $Credential,
 
-        [switch] $NoUpgrade
+        [switch] $AutoUpdate
     )
 
-    if ($NoUpgrade)
-    {
-        $AutoUpgrade = $false
-    }
-    else
-    {
-        $AutoUpgrade = $true
-    }
     Import-DscResource -ModuleName cChoco
 
     cChocoinstaller InstallChocolatey {
@@ -43,7 +35,7 @@ Configuration DevLangs
     #     Name                    = 'PackageName'
     #     Version                 = ''
     #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present | Absent'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
@@ -52,7 +44,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallNasm
     {
         Name                    = 'nasm'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -61,7 +53,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallYasm
     {
         Name                    = 'yasm'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -71,7 +63,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallLein
     {
         Name                    = 'lein'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -81,7 +73,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallGo
     {
         Name                    = 'golang'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -91,7 +83,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallGHC
     {
         Name                    = 'ghc'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -101,7 +93,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallJulia
     {
         Name                    = 'julia'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -111,7 +103,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallNodeJS
     {
         Name                    = 'nodejs-lts'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -121,7 +113,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallPerl
     {
         Name                    = 'strawberryperl'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -133,7 +125,7 @@ Configuration DevLangs
         Name                    = 'python'
         Params                  = '/InstallDir:C:\tools\python3'
         # Version                 = '3.9.2'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -143,7 +135,7 @@ Configuration DevLangs
     {
         Name                    = 'miniconda3'
         Params                  = '/InstallationType:AllUsers /AddToPath:0 /RegisterPython:0'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
@@ -152,7 +144,7 @@ Configuration DevLangs
     # cChocoPackageInstaller InstallPenvWin
     # {
     #     Name                    = 'pyenv-win'
-    #     AutoUpgrade             = $AutoUpgrade
+    #     AutoUpgrade             = $AutoUpdate
     #     Ensure                  = 'Present'
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential    = $Credential
@@ -162,7 +154,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallRProject
     {
         Name                    = 'r'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -171,7 +163,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallRStudio
     {
         Name                    = 'r.studio'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
@@ -181,7 +173,7 @@ Configuration DevLangs
     cChocoPackageInstaller InstallRuby
     {
         Name                    = 'ruby'
-        AutoUpgrade             = $AutoUpgrade
+        AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential

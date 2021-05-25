@@ -69,27 +69,26 @@ if ($MyInvocation.InvocationName -ne '.')
                 ComputerName        = 'divanov-dev'
                 SetComputerName     = $true
                 DisableSearchEngine = $true
-                NoUpgrade           = $true
+                AutoUpdate          = $Update
             }
 
-            # System Software
-            SystemTools         SystemTools         { Credential = $Credential; NoUpgrade = $true } # System Software
-            Virtualization      Virtualization      { Credential = $Credential; NoUpgrade = $true } # System Software
-            DevLangs            DevLangs            { Credential = $Credential; NoUpgrade = $true } # Development Software
-            DevOps              DevOps              { Credential = $Credential; NoUpgrade = $true } # Development Software
-            DevTools            DevTools            { Credential = $Credential; NoUpgrade = $true } # Development Software
-            DocTools            DocTools            { Credential = $Credential; NoUpgrade = $true } # Development Software
-            GameDev             GameDev             { Credential = $Credential; NoUpgrade = $true } # Development Software
-            AudioTools          AudioTools          { Credential = $Credential; NoUpgrade = $true } # Desktop Software
-            CommunicationTools  CommunicationTools  { Credential = $Credential; NoUpgrade = $true } # Desktop Software
-            ImagingTools        ImagingTools        { Credential = $Credential; NoUpgrade = $true } # Desktop Software
-            InternetTools       InternetTools       { Credential = $Credential; NoUpgrade = $true } # Desktop Software
-            OfficeTools         OfficeTools         { Credential = $Credential; NoUpgrade = $true } # Desktop Software
-            StorageTools        StorageTools        { Credential = $Credential; NoUpgrade = $true } # Desktop Software
-            VideoTools          VideoTools          { Credential = $Credential; NoUpgrade = $true } # Desktop Software
+            SystemTools         SystemTools         { Credential = $Credential; AutoUpdate = $Update } # System Software
+            Virtualization      Virtualization      { Credential = $Credential; AutoUpdate = $Update } # System Software
+            DevLangs            DevLangs            { Credential = $Credential; AutoUpdate = $Update } # Development Software
+            DevOps              DevOps              { Credential = $Credential; AutoUpdate = $Update } # Development Software
+            DevTools            DevTools            { Credential = $Credential; AutoUpdate = $Update } # Development Software
+            DocTools            DocTools            { Credential = $Credential; AutoUpdate = $Update } # Development Software
+            GameDev             GameDev             { Credential = $Credential; AutoUpdate = $Update } # Development Software
+            AudioTools          AudioTools          { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            CommunicationTools  CommunicationTools  { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            ImagingTools        ImagingTools        { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            InternetTools       InternetTools       { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            OfficeTools         OfficeTools         { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            StorageTools        StorageTools        { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            VideoTools          VideoTools          { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
 
             # Disabled
-            # VisualStudio        VisualStudio        { Credential = $Credential; NoUpgrade = $false } # Development Software
+            # VisualStudio        VisualStudio        { Credential = $Credential; AutoUpdate = $Update } # Development Software
         }
     }
 
