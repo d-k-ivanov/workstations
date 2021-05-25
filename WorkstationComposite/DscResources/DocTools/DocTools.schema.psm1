@@ -40,6 +40,15 @@ Configuration DocTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallDoxygen
+    {
+        Name                    = 'doxygen.install'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallPandoc
     {
         Name                    = 'pandoc'
