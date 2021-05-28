@@ -168,6 +168,15 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallTrayStatus
+    {
+        Name                    = 'traystatus.install'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallTree
     {
         Name                    = 'tree'
