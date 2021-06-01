@@ -216,6 +216,15 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallKubernetesK9S
+    {
+        Name                    = 'k9s'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallKubernetesKompose
     {
         Name                    = 'kubernetes-kompose'
@@ -225,11 +234,11 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallKubernetesK9S
+    cChocoPackageInstaller InstallKubernetesKops
     {
-        Name                    = 'k9s'
+        Name                    = 'kubernetes-kops'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -238,7 +247,7 @@ Configuration DevOps
     {
         Name                    = 'lens'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -398,7 +407,7 @@ Configuration DevOps
     {
         Name                    = 'robo3t'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -452,7 +461,7 @@ Configuration DevOps
     {
         Name                    = 'tftpd32'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
