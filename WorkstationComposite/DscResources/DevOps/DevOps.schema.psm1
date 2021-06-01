@@ -430,6 +430,15 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallSQServerManagementStudio
+    {
+        Name                    = 'sql-server-management-studio'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallTerraform
     {
         Name                    = 'terraform'
