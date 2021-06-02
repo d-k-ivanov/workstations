@@ -8,8 +8,8 @@ Install DevOps and Admin tools.
 .PARAMETER Credential
 User credental.
 
-.PARAMETER NoUpgrade
-Do not upgrade installed packages to their latest versions.
+.PARAMETER AutoUpdate
+Upgrade installed packages to their latest versions.
 #>
 
 Configuration DevOps
@@ -279,15 +279,6 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallMysqlWorkbench
-    {
-        Name                    = 'mysql.workbench'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
     cChocoPackageInstaller InstallNmap
     {
         Name                    = 'nmap'
@@ -360,15 +351,6 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallPgAdmin4
-    {
-        Name                    = 'pgadmin4'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
     cChocoPackageInstaller Pulumi
     {
         Name                    = 'pulumi'
@@ -403,15 +385,6 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallRobo3t
-    {
-        Name                    = 'robo3t'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
     cChocoPackageInstaller InstallRufus
     {
         Name                    = 'rufus'
@@ -426,24 +399,6 @@ Configuration DevOps
         Name                    = 'superputty'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
-    cChocoPackageInstaller InstallSQLiteBrowser
-    {
-        Name                    = 'sqlitebrowser.install'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
-    cChocoPackageInstaller InstallSQServerManagementStudio
-    {
-        Name                    = 'sql-server-management-studio'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }

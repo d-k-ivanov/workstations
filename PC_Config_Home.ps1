@@ -72,20 +72,21 @@ if ($MyInvocation.InvocationName -ne '.')
                 AutoUpdate          = $Update
             }
 
-            SystemTools         SystemTools         { Credential = $Credential; AutoUpdate = $Update } # System Software
-            Virtualization      Virtualization      { Credential = $Credential; AutoUpdate = $Update } # System Software
+            AudioTools          AudioTools          { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            CommunicationTools  CommunicationTools  { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            Databases           Databases           { Credential = $Credential; AutoUpdate = $Update } # Development Software
             DevLangs            DevLangs            { Credential = $Credential; AutoUpdate = $Update } # Development Software
             DevOps              DevOps              { Credential = $Credential; AutoUpdate = $Update } # Development Software
             DevTools            DevTools            { Credential = $Credential; AutoUpdate = $Update } # Development Software
             DocTools            DocTools            { Credential = $Credential; AutoUpdate = $Update } # Development Software
             GameDev             GameDev             { Credential = $Credential; AutoUpdate = $Update } # Development Software
-            AudioTools          AudioTools          { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
-            CommunicationTools  CommunicationTools  { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
             ImagingTools        ImagingTools        { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
             InternetTools       InternetTools       { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
             OfficeTools         OfficeTools         { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
             StorageTools        StorageTools        { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            SystemTools         SystemTools         { Credential = $Credential; AutoUpdate = $Update } # System Software
             VideoTools          VideoTools          { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            Virtualization      Virtualization      { Credential = $Credential; AutoUpdate = $Update } # System Software
 
             # Disabled
             # VisualStudio        VisualStudio        { Credential = $Credential; AutoUpdate = $Update } # Development Software

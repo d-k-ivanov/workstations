@@ -1,9 +1,9 @@
-﻿<#
+<#
 .SYNOPSIS
-Install communication tools.
+Install Database tools.
 
 .DESCRIPTION
-Install communication tools.
+Install Database tools.
 
 .PARAMETER Credential
 User credental.
@@ -13,7 +13,7 @@ Upgrade installed packages to their latest versions.
 #>
 
 
-Configuration CommunicationTools
+Configuration Databases
 {
     Param
     (
@@ -24,6 +24,7 @@ Configuration CommunicationTools
         [switch] $AutoUpdate
     )
 
+    Import-DscResource –ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
 
     cChocoinstaller InstallChocolatey
@@ -42,54 +43,45 @@ Configuration CommunicationTools
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 
-    cChocoPackageInstaller InstallSlack
+    cChocoPackageInstaller InstallMysqlWorkbench
     {
-        Name                    = 'slack'
+        Name                    = 'mysql.workbench'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallTeams
+    cChocoPackageInstaller InstallPgAdmin4
     {
-        Name                    = 'microsoft-teams.install'
+        Name                    = 'pgadmin4'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallRobo3t
+    {
+        Name                    = 'robo3t'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallTelegram
-    # {
-    #     Name                    = 'telegram.install'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
-
-    cChocoPackageInstaller InstallWhatsapp
+    cChocoPackageInstaller InstallSQLiteBrowser
     {
-        Name                    = 'whatsapp'
+        Name                    = 'sqlitebrowser.install'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallSkype
+    cChocoPackageInstaller InstallSQServerManagementStudio
     {
-        Name                    = 'skype'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
-    cChocoPackageInstaller InstallZoom
-    {
-        Name                    = 'zoom'
+        Name                    = 'sql-server-management-studio'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'

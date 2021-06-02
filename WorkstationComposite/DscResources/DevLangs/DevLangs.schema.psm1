@@ -8,8 +8,8 @@ Install various development tools.
 .PARAMETER Credential
 User credental.
 
-.PARAMETER NoUpgrade
-Do not upgrade installed packages to their latest versions.
+.PARAMETER AutoUpdate
+Upgrade installed packages to their latest versions.
 #>
 
 Configuration DevLangs
