@@ -51,6 +51,15 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallAnki
+    {
+        Name                    = 'anki'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallCalibre
     {
         Name                    = 'calibre'
