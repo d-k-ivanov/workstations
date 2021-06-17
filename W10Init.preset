@@ -56,9 +56,9 @@ DisableUWPBackgroundApps        # EnableUWPBackgroundApps
 SetUACLow                       # SetUACHigh
 # EnableSharingMappedDrives     # DisableSharingMappedDrives
 DisableAdminShares              # EnableAdminShares
-DisableFirewall                 # EnableFirewall
-HideDefenderTrayIcon            # ShowDefenderTrayIcon
-DisableDefender                 # EnableDefender
+EnableFirewall                  # DisableFirewall
+ShowDefenderTrayIcon            # HideDefenderTrayIcon
+EnableDefender                  # DisableDefender
 DisableDefenderCloud            # EnableDefenderCloud
 DisableCtrldFolderAccess        # EnableCtrldFolderAccess
 DisableCIMemoryIntegrity        # EnableCIMemoryIntegrity
