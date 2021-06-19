@@ -72,7 +72,6 @@ if ($MyInvocation.InvocationName -ne '.')
             }
 
             AudioTools          AudioTools          { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
-            CommunicationTools  CommunicationTools  { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
             Databases           Databases           { Credential = $Credential; AutoUpdate = $Update } # Development Software
             DevLangs            DevLangs            { Credential = $Credential; AutoUpdate = $Update } # Development Software
             DevOps              DevOps              { Credential = $Credential; AutoUpdate = $Update } # Development Software
@@ -80,14 +79,15 @@ if ($MyInvocation.InvocationName -ne '.')
             DocTools            DocTools            { Credential = $Credential; AutoUpdate = $Update } # Development Software
             GameDev             GameDev             { Credential = $Credential; AutoUpdate = $Update } # Development Software
             ImagingTools        ImagingTools        { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
-            InternetTools       InternetTools       { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
             OfficeTools         OfficeTools         { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
-            StorageTools        StorageTools        { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
             SystemTools         SystemTools         { Credential = $Credential; AutoUpdate = $Update } # System Software
             VideoTools          VideoTools          { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
             Virtualization      Virtualization      { Credential = $Credential; AutoUpdate = $Update } # System Software
 
             # Disabled
+            # CommunicationTools  CommunicationTools  { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            # InternetTools       InternetTools       { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
+            # StorageTools        StorageTools        { Credential = $Credential; AutoUpdate = $Update } # Desktop Software
             # VisualStudio        VisualStudio        { Credential = $Credential; AutoUpdate = $Update } # Development Software
         }
     }
