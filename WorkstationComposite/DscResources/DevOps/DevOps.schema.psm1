@@ -243,6 +243,34 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallKubernetesKubens
+    {
+        Name                    = 'kubectx'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallKubernetesKubens
+    {
+        Name                    = 'kubens'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallKubernetesKubeval
+    {
+        Name                    = 'kubeval'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+
     cChocoPackageInstaller InstallKubernetesLens
     {
         Name                    = 'lens'
