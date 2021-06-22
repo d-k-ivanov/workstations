@@ -11,6 +11,7 @@ param
 (
     [Parameter(Mandatory = $true)]
     [string] $WorkstationType,
+    [string] $Workgroup = 'Workgroup',
     [switch] $Update
 )
 
@@ -107,7 +108,7 @@ Process
     # ------------------------------------------------------------
     # Disable Windows Defender One More Time......................
     # ------------------------------------------------------------
-    # . "${PSScriptRoot}\DefenderDisable.ps1"
+    . "${PSScriptRoot}\DefenderDisable.ps1"
 
     # ------------------------------------------------------------
     # Load LCM Config
