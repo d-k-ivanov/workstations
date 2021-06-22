@@ -66,7 +66,7 @@ if ($MyInvocation.InvocationName -ne '.')
             SystemSettings      SystemSettings
             {
                 Credential          = $Credential
-                ComputerName        = 'divanov-dev'
+                ComputerName        = 'ES01N073'
                 SetComputerName     = $true
                 DisableSearchEngine = $true
                 AutoUpdate          = $Update
