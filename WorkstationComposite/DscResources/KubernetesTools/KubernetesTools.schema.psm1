@@ -42,6 +42,15 @@ Configuration KubernetesTools
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 
+    cChocoPackageInstaller InstallEKSctl
+    {
+        Name                    = 'eksctl'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallKubergrunt
     {
         Name                    = 'kubergrunt'
