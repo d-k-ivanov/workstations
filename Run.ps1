@@ -108,8 +108,8 @@ Process
     # ------------------------------------------------------------
     # Disable Windows Defender One More Time......................
     # ------------------------------------------------------------
-    # . "${PSScriptRoot}\DefenderDisable.ps1"
-    . "${PSScriptRoot}\DefenderEnable.ps1"
+    . "${PSScriptRoot}\DefenderDisable.ps1"
+    # . "${PSScriptRoot}\DefenderEnable.ps1"
 
     # ------------------------------------------------------------
     # Load LCM Config
