@@ -57,9 +57,9 @@ SetUACLow                       # SetUACHigh
 # EnableSharingMappedDrives     # DisableSharingMappedDrives
 DisableAdminShares              # EnableAdminShares
 EnableFirewall                  # DisableFirewall
-HideDefenderTrayIcon            # ShowDefenderTrayIcon
-DisableDefender                 # EnableDefender
-DisableDefenderCloud            # EnableDefenderCloud
+ShowDefenderTrayIcon            # HideDefenderTrayIcon
+EnableDefender                  # DisableDefender
+EnableDefenderCloud             # DisableDefenderCloud
 DisableCtrldFolderAccess        # EnableCtrldFolderAccess
 DisableCIMemoryIntegrity        # EnableCIMemoryIntegrity
 DisableDefenderAppGuard         # EnableDefenderAppGuard
