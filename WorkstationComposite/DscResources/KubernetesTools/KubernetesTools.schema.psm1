@@ -64,6 +64,7 @@ Configuration KubernetesTools
     {
         Name                    = 'kubernetes-cli'
         AutoUpgrade             = $AutoUpdate
+        Version                 = '1.19.5'
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
