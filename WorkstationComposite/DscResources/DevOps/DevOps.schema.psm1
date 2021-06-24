@@ -60,6 +60,15 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallAWSIAMAuthenticator
+    {
+        Name                    = 'aws-iam-authenticator'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallAzureCli
     {
         Name                    = 'azure-cli'
