@@ -101,17 +101,6 @@ Process
     Uninstall-DuplicatedModules
 
     # ------------------------------------------------------------
-    # Win10-Initial-Setup-Script
-    # ------------------------------------------------------------
-    . "${PSScriptRoot}\W10Init.ps1"
-
-    # ------------------------------------------------------------
-    # Disable Windows Defender One More Time......................
-    # ------------------------------------------------------------
-    . "${PSScriptRoot}\DefenderDisable.ps1"
-    # . "${PSScriptRoot}\DefenderEnable.ps1"
-
-    # ------------------------------------------------------------
     # Load LCM Config
     # ------------------------------------------------------------
     . "${PSScriptRoot}\LCMConfig.ps1"
@@ -124,6 +113,17 @@ Process
     {
         "Home"
         {
+            # ------------------------------------------------------------
+            # Win10-Initial-Setup-Script
+            # ------------------------------------------------------------
+            . "${PSScriptRoot}\W10Init.ps1"
+
+            # ------------------------------------------------------------
+            # Disable Windows Defender One More Time......................
+            # ------------------------------------------------------------
+            . "${PSScriptRoot}\DefenderDisable.ps1"
+            # . "${PSScriptRoot}\DefenderEnable.ps1"
+
             . "${PSScriptRoot}\PC_Config_Home.ps1"
             break
         }
