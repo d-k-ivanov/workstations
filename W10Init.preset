@@ -57,13 +57,13 @@ SetUACLow                       # SetUACHigh
 # EnableSharingMappedDrives     # DisableSharingMappedDrives
 DisableAdminShares              # EnableAdminShares
 EnableFirewall                  # DisableFirewall
-HideDefenderTrayIcon            # ShowDefenderTrayIcon
-DisableDefender                 # EnableDefender
-DisableDefenderCloud            # EnableDefenderCloud
-DisableCtrldFolderAccess        # EnableCtrldFolderAccess
-DisableCIMemoryIntegrity        # EnableCIMemoryIntegrity
-DisableDefenderAppGuard         # EnableDefenderAppGuard
-HideAccountProtectionWarn       # ShowAccountProtectionWarn
+ShowDefenderTrayIcon            # HideDefenderTrayIcon
+EnableDefender                  # DisableDefender
+EnableDefenderCloud             # DisableDefenderCloud
+EnableCtrldFolderAccess         # DisableCtrldFolderAccess
+EnableCIMemoryIntegrity         # DisableCIMemoryIntegrity
+EnableDefenderAppGuard          # DisableDefenderAppGuard
+ShowAccountProtectionWarn       # HideAccountProtectionWarn
 DisableDownloadBlocking         # EnableDownloadBlocking
 EnableScriptHost                # DisableScriptHost
 EnableDotNetStrongCrypto        # DisableDotNetStrongCrypto
