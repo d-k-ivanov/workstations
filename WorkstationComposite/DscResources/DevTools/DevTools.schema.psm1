@@ -386,9 +386,27 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallPostman
+    {
+        Name                    = 'postman'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallResourceHacker
     {
         Name                    = 'reshack'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallSoapUI
+    {
+        Name                    = 'soapui'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
