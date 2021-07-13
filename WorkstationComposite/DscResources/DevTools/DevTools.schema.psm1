@@ -231,6 +231,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallInsomniaRestApiClient
+    {
+        Name                    = 'insomnia-rest-api-client'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallKDiff3
     {
         Name                    = 'kdiff3'
