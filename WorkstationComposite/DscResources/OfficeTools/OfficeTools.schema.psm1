@@ -159,7 +159,7 @@ Configuration OfficeTools
         Name                    = 'yed'
         Params                  = '/Associate'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
