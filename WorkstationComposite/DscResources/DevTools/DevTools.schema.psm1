@@ -477,4 +477,13 @@ Configuration DevTools
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
     }
+
+    cChocoPackageInstaller InstallYQ
+    {
+        Name                    = 'yq'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
 }
