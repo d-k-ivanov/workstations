@@ -56,7 +56,7 @@ Configuration Databases
     {
         Name                    = 'pgadmin4'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
