@@ -123,6 +123,15 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallGNUCoreUtils
+    {
+        Name                    = 'gnuwin32-coreutils.install'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallGreenshot
     {
         Name                    = 'greenshot'
