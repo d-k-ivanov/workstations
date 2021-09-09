@@ -77,6 +77,15 @@ Configuration InternetTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallVivaldiBrowser
+    {
+        Name                    = 'vivaldi.install'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallYoutubeDl
     {
         Name                    = 'youtube-dl'
