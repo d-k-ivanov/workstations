@@ -218,8 +218,8 @@ DisableAutoFolderView           # EnableAutoFolderView
 # UninstallMsftBloat            # InstallMsftBloat
 UninstallThirdPartyBloat        # InstallThirdPartyBloat
 # UninstallWindowsStore         # InstallWindowsStore
-DisableXboxFeatures             # EnableXboxFeatures
-DisableFullscreenOptims         # EnableFullscreenOptims
+EnableXboxFeatures              # DisableXboxFeatures
+EnableFullscreenOptims          # DisableFullscreenOptims
 DisableAdobeFlash               # EnableAdobeFlash
 DisableEdgePreload              # EnableEdgePreload
 DisableEdgeShortcutCreation     # EnableEdgeShortcutCreation
