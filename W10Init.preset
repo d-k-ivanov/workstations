@@ -162,6 +162,12 @@ DisableF1HelpKey                # EnableF1HelpKey
 # DisableLanguageHotKey         # EnableLanguageHotKey
 EnableDifferentInputMethod      # DisableDifferentInputMethod
 
+### Explorer Gamer's Tweaks ###
+# DisableMouseAcceleration      # EnableMouseAcceleration
+# DisableSVHostSplitThreshold   # DisableSVHostSplitThreshold
+DisablePageFileEncryption       # EnablePageFileEncryption
+DisableTimeStampInterval        # EnableTimeStampInterval
+
 ### Explorer UI Tweaks ###
 ShowExplorerTitleFullPath       # HideExplorerTitleFullPath
 ShowKnownExtensions             # HideKnownExtensions
@@ -218,15 +224,15 @@ DisableAutoFolderView           # EnableAutoFolderView
 # UninstallMsftBloat            # InstallMsftBloat
 UninstallThirdPartyBloat        # InstallThirdPartyBloat
 # UninstallWindowsStore         # InstallWindowsStore
-EnableXboxFeatures              # DisableXboxFeatures
-EnableFullscreenOptims          # DisableFullscreenOptims
+DisableXboxFeatures             # EnableXboxFeatures
+DisableFullscreenOptims         # EnableFullscreenOptims
 DisableAdobeFlash               # EnableAdobeFlash
 DisableEdgePreload              # EnableEdgePreload
 DisableEdgeShortcutCreation     # EnableEdgeShortcutCreation
 DisableIEFirstRun               # EnableIEFirstRun
 DisableFirstLogonAnimation      # EnableFirstLogonAnimation
 DisableMediaSharing             # EnableMediaSharing
-# DisableMediaOnlineAccess      # EnableMediaOnlineAccess
+DisableMediaOnlineAccess        # EnableMediaOnlineAccess
 EnableDeveloperMode             # DisableDeveloperMode
 # UninstallMediaPlayer          # InstallMediaPlayer
 # UninstallInternetExplorer     # InstallInternetExplorer
