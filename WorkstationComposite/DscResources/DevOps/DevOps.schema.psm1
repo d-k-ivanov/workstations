@@ -135,6 +135,15 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallCodecov
+    {
+        Name                    = 'codecov'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallConEmu
     {
         Name                    = 'conemu'
@@ -255,6 +264,15 @@ Configuration DevOps
     cChocoPackageInstaller InstallNssm
     {
         Name                    = 'nssm'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallOpenCppCoverage
+    {
+        Name                    = 'opencppcoverage'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
