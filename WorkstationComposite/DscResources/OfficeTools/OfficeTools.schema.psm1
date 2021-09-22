@@ -108,23 +108,23 @@ Configuration OfficeTools
     }
 
 
-    cChocoPackageInstaller InstallMicrosoftTeams
-    {
-        Name                    = 'microsoft-teams'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallMicrosoftTeams
+    # {
+    #     Name                    = 'microsoft-teams'
+    #     AutoUpgrade             = $AutoUpdate
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
-    cChocoPackageInstaller InstallOffice365
-    {
-        Name                    = 'office365business'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallOffice365
+    # {
+    #     Name                    = 'office365business'
+    #     AutoUpgrade             = $AutoUpdate
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallPdfsam
     {
