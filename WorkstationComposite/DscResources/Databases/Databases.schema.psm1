@@ -43,6 +43,15 @@ Configuration Databases
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 
+    cChocoPackageInstaller InstallDBeaver
+    {
+        Name                    = 'dbeaver'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallMysqlWorkbench
     {
         Name                    = 'mysql.workbench'
