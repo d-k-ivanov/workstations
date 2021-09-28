@@ -79,7 +79,7 @@ if ($MyInvocation.InvocationName -ne '.')
             DocTools            DocTools            { Credential = $Credential; AutoUpdate = $Update }
             GameDev             GameDev             { Credential = $Credential; AutoUpdate = $Update }
             ImagingTools        ImagingTools        { Credential = $Credential; AutoUpdate = $Update }
-            KubernetesTools     KubernetesTools     { Credential = $Credential; AutoUpdate = $Update }
+            # KubernetesTools     KubernetesTools     { Credential = $Credential; AutoUpdate = $Update }
             OfficeTools         OfficeTools         { Credential = $Credential; AutoUpdate = $Update }
             SystemTools         SystemTools         { Credential = $Credential; AutoUpdate = $Update }
             VideoTools          VideoTools          { Credential = $Credential; AutoUpdate = $Update }
