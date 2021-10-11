@@ -446,6 +446,7 @@ Configuration DevTools
         Name                    = 'neovim'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
+        chocoParams             = "--pre --force"
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
     }
