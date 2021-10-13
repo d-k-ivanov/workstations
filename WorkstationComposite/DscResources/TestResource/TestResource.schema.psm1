@@ -9,7 +9,7 @@ Test DSC Resource.
 
 Configuration TestResource
 {
-    Import-DscResource –ModuleName PSDesiredStateConfiguration
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
 
     Script DownloadBindToolsConfig
     {

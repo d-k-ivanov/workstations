@@ -40,6 +40,15 @@ Configuration DevTools
     #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
     # }
 
+    cChocoPackageInstaller InstallBazel
+    {
+        Name                    = 'bazel'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallBuckaroo
     {
         Name                    = 'buckaroo'

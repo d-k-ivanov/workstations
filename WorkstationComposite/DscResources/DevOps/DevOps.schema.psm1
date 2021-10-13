@@ -23,7 +23,7 @@ Configuration DevOps
         [switch] $AutoUpdate
     )
 
-    Import-DscResource –ModuleName PSDesiredStateConfiguration
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
 
     cChocoinstaller InstallChocolatey

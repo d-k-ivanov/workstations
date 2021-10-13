@@ -85,7 +85,7 @@ if ($MyInvocation.InvocationName -ne '.')
             # DevOps
             DevOps              DevOps              { Credential = $Credential; AutoUpdate = $Update }
             KubernetesTools     KubernetesTools     { Credential = $Credential; AutoUpdate = $Update }
-            # DatabaseTools       DatabaseTools       { Credential = $Credential; AutoUpdate = $Update }
+            DatabaseTools       DatabaseTools       { Credential = $Credential; AutoUpdate = $Update }
 
             # Office
             AudioTools          AudioTools          { Credential = $Credential; AutoUpdate = $Update }
