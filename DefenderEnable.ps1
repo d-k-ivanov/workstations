@@ -39,5 +39,5 @@ cmd /c 'reg add "HKLM\Software\Policies\Microsoft\Windows Defender\SpyNet" /v "S
 
 # To prevent WD using too much CPU, add this file to the exclusion list:
 # C:\Program Files\Windows Defender\MsMpEng.exe
-# Write-Host 'Add MsMpEng.exeto the exclusion list'
+# Write-Host 'Add MsMpEng.exe to the exclusion list'
 # cmd /c 'reg add "HKLM\Software\Microsoft\Windows Defender\Exclusions\Paths" /v "C:\Program Files\Windows Defender\MsMpEng.exe" /t REG_DWORD /d "0" /f'

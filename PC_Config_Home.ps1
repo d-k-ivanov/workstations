@@ -73,22 +73,28 @@ if ($MyInvocation.InvocationName -ne '.')
                 AutoUpdate          = $Update
             }
 
+            SystemTools         SystemTools         { Credential = $Credential; AutoUpdate = $Update }
+            Virtualization      Virtualization      { Credential = $Credential; AutoUpdate = $Update }
+
+            # Dev
+            DevTools            DevTools            { Credential = $Credential; AutoUpdate = $Update }
+            DevLangs            DevLangs            { Credential = $Credential; AutoUpdate = $Update }
+            GameDev             GameDev             { Credential = $Credential; AutoUpdate = $Update }
+            DocTools            DocTools            { Credential = $Credential; AutoUpdate = $Update }
+
+            # DevOps
+            DevOps              DevOps              { Credential = $Credential; AutoUpdate = $Update }
+            KubernetesTools     KubernetesTools     { Credential = $Credential; AutoUpdate = $Update }
+            # DatabaseTools       DatabaseTools       { Credential = $Credential; AutoUpdate = $Update }
+
+            # Office
             AudioTools          AudioTools          { Credential = $Credential; AutoUpdate = $Update }
             CommunicationTools  CommunicationTools  { Credential = $Credential; AutoUpdate = $Update }
-            Databases           Databases           { Credential = $Credential; AutoUpdate = $Update }
-            DevLangs            DevLangs            { Credential = $Credential; AutoUpdate = $Update }
-            DevOps              DevOps              { Credential = $Credential; AutoUpdate = $Update }
-            DevTools            DevTools            { Credential = $Credential; AutoUpdate = $Update }
-            DocTools            DocTools            { Credential = $Credential; AutoUpdate = $Update }
-            GameDev             GameDev             { Credential = $Credential; AutoUpdate = $Update }
             ImagingTools        ImagingTools        { Credential = $Credential; AutoUpdate = $Update }
             InternetTools       InternetTools       { Credential = $Credential; AutoUpdate = $Update }
-            KubernetesTools     KubernetesTools     { Credential = $Credential; AutoUpdate = $Update }
             OfficeTools         OfficeTools         { Credential = $Credential; AutoUpdate = $Update }
             StorageTools        StorageTools        { Credential = $Credential; AutoUpdate = $Update }
-            SystemTools         SystemTools         { Credential = $Credential; AutoUpdate = $Update }
             VideoTools          VideoTools          { Credential = $Credential; AutoUpdate = $Update }
-            Virtualization      Virtualization      { Credential = $Credential; AutoUpdate = $Update }
 
             # Disabled
             # VisualStudio        VisualStudio        { Credential = $Credential; AutoUpdate = $Update }

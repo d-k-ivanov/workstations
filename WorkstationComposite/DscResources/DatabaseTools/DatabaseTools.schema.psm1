@@ -12,8 +12,7 @@ User credental.
 Upgrade installed packages to their latest versions.
 #>
 
-
-Configuration Databases
+Configuration DatabaseTools
 {
     Param
     (
