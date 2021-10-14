@@ -42,6 +42,15 @@ Configuration VideoTools
     #     PsDscRunAsCredential    = $Credential
     # }
 
+    cChocoPackageInstaller InstallFraps
+    {
+        Name                    = 'fraps'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallOBSStudio
     {
         Name                    = 'obs-studio'

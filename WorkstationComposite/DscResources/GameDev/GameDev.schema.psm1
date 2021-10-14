@@ -40,9 +40,9 @@ Configuration GameDev
     #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
     # }
 
-    cChocoPackageInstaller InstallGodot
+    cChocoPackageInstaller InstallBlender
     {
-        Name                    = 'godot-mono'
+        Name                    = 'blender'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
@@ -51,11 +51,20 @@ Configuration GameDev
 
     cChocoPackageInstaller InstallGodotMono
     {
-        Name                    = 'blender'
+        Name                    = 'godot-mono'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
     }
+
+    # cChocoPackageInstaller InstallUnity
+    # {
+    #     Name                    = 'unity'
+    #     AutoUpgrade             = $AutoUpdate
+    #     Ensure                  = 'Present'
+    #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
+    #     PsDscRunAsCredential    = $Credential
+    # }
 }
 

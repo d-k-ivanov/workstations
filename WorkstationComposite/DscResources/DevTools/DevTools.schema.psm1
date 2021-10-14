@@ -176,6 +176,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallGnuplot
+    {
+        Name                    = 'gnuplot'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallGradle
     {
         Name                    = 'gradle'
@@ -434,6 +443,15 @@ Configuration DevTools
     cChocoPackageInstaller InstallSVN
     {
         Name                    = 'svn'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallSwig
+    {
+        Name                    = 'swig'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
