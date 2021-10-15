@@ -422,6 +422,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallRadare2
+    {
+        Name                    = 'radare2'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallResourceHacker
     {
         Name                    = 'reshack'
