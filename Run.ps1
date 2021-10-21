@@ -98,7 +98,7 @@ Process
     # ------------------------------------------------------------
     # Clean up duplicates
     # ------------------------------------------------------------
-    # Uninstall-DuplicatedModules
+    Uninstall-DuplicatedModules
 
     # ------------------------------------------------------------
     # Load LCM Config
@@ -116,12 +116,12 @@ Process
             # ------------------------------------------------------------
             # Win10-Initial-Setup-Script
             # ------------------------------------------------------------
-            # . "${PSScriptRoot}\W10Init.ps1"
+            . "${PSScriptRoot}\W10Init.ps1"
 
             # ------------------------------------------------------------
             # Disable Windows Defender One More Time......................
             # ------------------------------------------------------------
-            # . "${PSScriptRoot}\DefenderDisable.ps1"
+            . "${PSScriptRoot}\DefenderDisable.ps1"
             # . "${PSScriptRoot}\DefenderEnable.ps1"
 
             . "${PSScriptRoot}\PC_Config_Home.ps1"
