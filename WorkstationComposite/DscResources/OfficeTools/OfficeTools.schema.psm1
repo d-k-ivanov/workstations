@@ -79,14 +79,14 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallFontCascadiaMono
-    # {
-    #     Name                    = 'cascadiamono'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallFontCascadiaMono
+    {
+        Name                    = 'cascadiamono'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     # cChocoPackageInstaller InstallFontCascadiaMonoPL
     # {
@@ -97,50 +97,50 @@ Configuration OfficeTools
     #     PsDscRunAsCredential    = $Credential
     # }.
 
-    # cChocoPackageInstaller InstallFontDejavu
-    # {
-    #     Name                    = 'dejavufonts'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallFontDejavu
+    {
+        Name                    = 'dejavufonts'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
-    # cChocoPackageInstaller InstallFontFiraCode
-    # {
-    #     Name                    = 'firacode'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallFontFiraCode
+    {
+        Name                    = 'firacode'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
-    # cChocoPackageInstaller InstallFontForge
-    # {
-    #     Name                    = 'fontforge'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallFontForge
+    {
+        Name                    = 'fontforge'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
-    # cChocoPackageInstaller InstallFontInconsolata
-    # {
-    #     Name                    = 'inconsolata'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallFontInconsolata
+    {
+        Name                    = 'inconsolata'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
-    # cChocoPackageInstaller InstallFontSourceCodePro
-    # {
-    #     Name                    = 'sourcecodepro'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallFontSourceCodePro
+    {
+        Name                    = 'sourcecodepro'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallGhostscript
     {
