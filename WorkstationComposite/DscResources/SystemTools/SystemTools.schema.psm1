@@ -141,6 +141,15 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallGrep
+    {
+        Name                    = 'grep'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallImdiskToolkit
     {
         Name                    = 'imdisk-toolkit'
