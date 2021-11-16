@@ -58,12 +58,12 @@ SetUACLow                       # SetUACHigh
 DisableAdminShares              # EnableAdminShares
 EnableFirewall                  # DisableFirewall
 ShowDefenderTrayIcon            # HideDefenderTrayIcon
-DisableDefender                 # EnableDefender
+EnableDefender                  # DisableDefender
 DisableDefenderCloud            # EnableDefenderCloud
 DisableCtrldFolderAccess        # EnableCtrldFolderAccess
 DisableCIMemoryIntegrity        # EnableCIMemoryIntegrity
 DisableDefenderAppGuard         # EnableDefenderAppGuard
-HideAccountProtectionWarn       # ShowAccountProtectionWarn
+ShowAccountProtectionWarn       # HideAccountProtectionWarn
 DisableDownloadBlocking         # EnableDownloadBlocking
 EnableScriptHost                # DisableScriptHost
 EnableDotNetStrongCrypto        # DisableDotNetStrongCrypto
