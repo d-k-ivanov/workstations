@@ -67,6 +67,16 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallCoq
+    {
+        Name                    = 'coq'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        chocoParams             = '--ignore-checksums'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallCutter
     {
         Name                    = 'cutter'
