@@ -208,6 +208,16 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallSumatraPDF
+    {
+        Name                    = 'sumatrapdf.install'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        chocoParams             = '--ignore-checksums'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallWindjview
     {
         Name                    = 'windjview'
