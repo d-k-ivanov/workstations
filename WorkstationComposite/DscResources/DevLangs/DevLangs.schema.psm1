@@ -100,7 +100,7 @@ Configuration DevLangs
     }
 
     # ========================= Lua ============================
-    cChocoPackageInstaller InstallJulia
+    cChocoPackageInstaller InstallLua
     {
         Name                    = 'lua'
         AutoUpgrade             = $AutoUpdate
