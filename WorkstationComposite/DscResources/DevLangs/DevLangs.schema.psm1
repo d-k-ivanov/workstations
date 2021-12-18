@@ -99,6 +99,16 @@ Configuration DevLangs
         PsDscRunAsCredential    = $Credential
     }
 
+    # ========================= Lua ============================
+    cChocoPackageInstaller InstallJulia
+    {
+        Name                    = 'lua'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     # ========================= NodeJS =========================
     cChocoPackageInstaller InstallNodeJS
     {
