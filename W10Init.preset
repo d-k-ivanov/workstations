@@ -56,14 +56,14 @@ DisableUWPBackgroundApps        # EnableUWPBackgroundApps
 SetUACLow                       # SetUACHigh
 # EnableSharingMappedDrives     # DisableSharingMappedDrives
 DisableAdminShares              # EnableAdminShares
-EnableFirewall                  # DisableFirewall
-ShowDefenderTrayIcon            # HideDefenderTrayIcon
-EnableDefender                  # DisableDefender
+DisableFirewall                 # EnableFirewall
+HideDefenderTrayIcon            # ShowDefenderTrayIcon
+DisableDefender                 # EnableDefender
 DisableDefenderCloud            # EnableDefenderCloud
 DisableCtrldFolderAccess        # EnableCtrldFolderAccess
 DisableCIMemoryIntegrity        # EnableCIMemoryIntegrity
 DisableDefenderAppGuard         # EnableDefenderAppGuard
-ShowAccountProtectionWarn       # HideAccountProtectionWarn
+HideAccountProtectionWarn       # ShowAccountProtectionWarn
 DisableDownloadBlocking         # EnableDownloadBlocking
 EnableScriptHost                # DisableScriptHost
 EnableDotNetStrongCrypto        # DisableDotNetStrongCrypto
