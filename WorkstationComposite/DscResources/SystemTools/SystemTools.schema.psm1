@@ -159,18 +159,18 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallLockHunter
+    cChocoPackageInstaller InstallLibreHardwareMonitor
     {
-        Name                    = 'lockhunter'
+        Name                    = 'libre-hardware-monitor'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallOpenHardwareMonitor
+    cChocoPackageInstaller InstallLockHunter
     {
-        Name                    = 'openhardwaremonitor'
+        Name                    = 'lockhunter'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
