@@ -141,6 +141,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallFiddler
+    {
+        Name                    = 'fiddler'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallEmscripten
     {
         Name                    = 'emscripten'
@@ -403,6 +412,14 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallOpenCppCoverage
+    {
+        Name                    = 'opencppcoverage'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallOpenJDK # Latest
     {
@@ -500,7 +517,7 @@ Configuration DevTools
     {
         Name                    = 'neovim'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         chocoParams             = "--pre --force"
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential

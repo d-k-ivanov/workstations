@@ -171,15 +171,6 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallFiddler
-    {
-        Name                    = 'fiddler'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
     cChocoPackageInstaller InstallFtpdmin
     {
         Name                    = 'ftpdmin'
@@ -264,15 +255,6 @@ Configuration DevOps
     cChocoPackageInstaller InstallNssm
     {
         Name                    = 'nssm'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
-    cChocoPackageInstaller InstallOpenCppCoverage
-    {
-        Name                    = 'opencppcoverage'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
