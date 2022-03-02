@@ -180,6 +180,15 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallNotion
+    {
+        Name                    = 'notion'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     # cChocoPackageInstaller InstallOffice365
     # {
     #     Name                    = 'office365business'
