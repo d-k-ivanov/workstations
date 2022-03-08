@@ -51,14 +51,14 @@ Configuration CommunicationTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallTeams
-    {
-        Name                    = 'microsoft-teams.install'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallTeams
+    # {
+    #     Name                    = 'microsoft-teams.install'
+    #     AutoUpgrade             = $AutoUpdate
+    #     Ensure                  = 'Absent'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     # cChocoPackageInstaller InstallTelegram
     # {

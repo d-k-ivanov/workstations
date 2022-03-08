@@ -1,9 +1,9 @@
 ﻿<#
 .SYNOPSIS
-Install internet tools.
+Install Browsers.
 
 .DESCRIPTION
-Install internet tools.
+Install Browsers.
 
 .PARAMETER Credential
 User credental.
@@ -12,7 +12,7 @@ User credental.
 Upgrade installed packages to their latest versions.
 #>
 
-Configuration InternetTools
+Configuration Browsers
 {
     Param
     (
@@ -41,27 +41,18 @@ Configuration InternetTools
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 
-    cChocoPackageInstaller InstallQbittorrent
+    cChocoPackageInstaller InstallGoogleChrome
     {
-        Name                    = 'qbittorrent'
+        Name                    = 'googlechrome'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallTorBrowser
+    cChocoPackageInstaller InstallFirefox
     {
-        Name                    = 'top-browser'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
-    cChocoPackageInstaller InstallYoutubeDl
-    {
-        Name                    = 'youtube-dl'
+        Name                    = 'firefox'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
