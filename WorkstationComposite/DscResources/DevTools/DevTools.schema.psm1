@@ -204,6 +204,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallGource
+    {
+        Name                    = 'gource'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallGradle
     {
         Name                    = 'gradle'
