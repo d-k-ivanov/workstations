@@ -211,7 +211,7 @@ Configuration OfficeTools
     {
         Name                    = 'sumatrapdf.install'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         chocoParams             = '--ignore-checksums'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
