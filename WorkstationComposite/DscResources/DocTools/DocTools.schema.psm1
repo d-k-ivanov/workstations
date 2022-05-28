@@ -57,5 +57,14 @@ Configuration DocTools
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
+
+    cChocoPackageInstaller InstallPlantuml
+    {
+        Name                    = 'plantuml'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 }
 
