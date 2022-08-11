@@ -207,6 +207,16 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
+    # Not working. Download from here: https://quest-app.appspot.com
+    # cChocoPackageInstaller InstallQtranslate
+    # {
+    #     Name                    = 'qtranslate'
+    #     AutoUpgrade             = $AutoUpdate
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
+
     cChocoPackageInstaller InstallSumatraPDF
     {
         Name                    = 'sumatrapdf.install'

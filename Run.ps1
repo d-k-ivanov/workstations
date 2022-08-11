@@ -121,8 +121,8 @@ Process
             # ------------------------------------------------------------
             # Disable Windows Defender One More Time......................
             # ------------------------------------------------------------
-            . "${PSScriptRoot}\DefenderDisable.ps1"
-            # . "${PSScriptRoot}\DefenderEnable.ps1"
+            # . "${PSScriptRoot}\DefenderDisable.ps1"
+            . "${PSScriptRoot}\DefenderEnable.ps1"
 
             . "${PSScriptRoot}\PC_Config_Home.ps1"
             break
