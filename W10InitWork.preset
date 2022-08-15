@@ -34,7 +34,7 @@ DisableWAPPush                  # EnableWAPPush
 # EnableClearRecentFiles        # DisableClearRecentFiles
 # DisableRecentFiles            # EnableRecentFiles
 
-### UWP Privacy Tweaks ###
+### Privacy Tweaks UWP ###
 DisableUWPBackgroundApps        # EnableUWPBackgroundApps
 # DisableUWPVoiceActivation     # EnableUWPVoiceActivation
 # DisableUWPNotifications       # EnableUWPNotifications
