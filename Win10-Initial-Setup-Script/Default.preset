@@ -120,6 +120,12 @@ EnableNTFSLongPaths             # DisableNTFSLongPaths
 # DisableFastStartup            # EnableFastStartup
 # DisableAutoRebootOnCrash      # EnableAutoRebootOnCrash
 
+### Gamer's Tweaks ###
+# DisableMouseAcceleration      # EnableMouseAcceleration
+# DisableSVHostSplitThreshold   # DisableSVHostSplitThreshold
+DisablePageFileEncryption       # EnablePageFileEncryption
+DisableTimeStampInterval        # EnableTimeStampInterval
+
 ### UI Tweaks ###
 DisableActionCenter             # EnableActionCenter
 DisableLockScreen               # EnableLockScreen

@@ -120,6 +120,12 @@ DisableSleepTimeout             # EnableSleepTimeout
 DisableFastStartup              # EnableFastStartup
 # DisableAutoRebootOnCrash      # EnableAutoRebootOnCrash
 
+### Gamer's Tweaks ###
+# DisableMouseAcceleration      # EnableMouseAcceleration
+# DisableSVHostSplitThreshold   # DisableSVHostSplitThreshold
+DisablePageFileEncryption       # EnablePageFileEncryption
+DisableTimeStampInterval        # EnableTimeStampInterval
+
 ### UI Tweaks ###
 EnableActionCenter              # DisableActionCenter
 # DisableLockScreen             # EnableLockScreen
@@ -161,12 +167,6 @@ EnableVerboseStatus             # DisableVerboseStatus
 DisableF1HelpKey                # EnableF1HelpKey
 # DisableLanguageHotKey         # EnableLanguageHotKey
 EnableDifferentInputMethod      # DisableDifferentInputMethod
-
-### Explorer Gamer's Tweaks ###
-# DisableMouseAcceleration      # EnableMouseAcceleration
-# DisableSVHostSplitThreshold   # DisableSVHostSplitThreshold
-DisablePageFileEncryption       # EnablePageFileEncryption
-DisableTimeStampInterval        # EnableTimeStampInterval
 
 ### Explorer UI Tweaks ###
 ShowExplorerTitleFullPath       # HideExplorerTitleFullPath
