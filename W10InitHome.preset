@@ -59,10 +59,10 @@ DisableAdminShares              # EnableAdminShares
 EnableFirewall                  # DisableFirewall
 ShowDefenderTrayIcon            # HideDefenderTrayIcon
 EnableDefender                  # DisableDefender
-# DisableDefenderCloud          # EnableDefenderCloud
-# DisableCtrldFolderAccess      # EnableCtrldFolderAccess
-# DisableCIMemoryIntegrity      # EnableCIMemoryIntegrity
-# DisableDefenderAppGuard       # EnableDefenderAppGuard
+DisableDefenderCloud            # EnableDefenderCloud
+DisableCtrldFolderAccess        # EnableCtrldFolderAccess
+DisableCIMemoryIntegrity        # EnableCIMemoryIntegrity
+DisableDefenderAppGuard         # EnableDefenderAppGuard
 HideAccountProtectionWarn       # ShowAccountProtectionWarn
 DisableDownloadBlocking         # EnableDownloadBlocking
 EnableScriptHost                # DisableScriptHost
