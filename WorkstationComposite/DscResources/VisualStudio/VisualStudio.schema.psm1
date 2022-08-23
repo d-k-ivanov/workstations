@@ -107,7 +107,7 @@ Configuration VisualStudio
 
     cChocoPackageInstaller InstallVisualStudioCommunity2019
     {
-        Name                    = 'visualstudio2019community'
+        Name                    = 'visualstudio2022community'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
