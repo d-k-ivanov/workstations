@@ -106,6 +106,15 @@ Configuration KubernetesTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallKubernetesKustomize
+    {
+        Name                    = 'kustomize'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallKubernetesKrew
     {
         Name                    = 'krew'
