@@ -259,15 +259,6 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallJDK8
-    {
-        Name                    = 'jdk11'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential    = $Credential
-    }
-
     # cChocoPackageInstaller InstallJetBrainsToolbox
     # {
     #     Name                    = 'jetbrainstoolbox'
