@@ -259,6 +259,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallJDK8
+    {
+        Name                    = 'jdk11'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     # cChocoPackageInstaller InstallJetBrainsToolbox
     # {
     #     Name                    = 'jetbrainstoolbox'
@@ -433,6 +442,15 @@ Configuration DevTools
     cChocoPackageInstaller InstallOpenJDK # Latest
     {
         Name                    = 'openjdk'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallOracleJDK # OracleJDK Latest
+    {
+        Name                    = 'oraclejdk'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
