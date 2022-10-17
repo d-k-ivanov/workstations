@@ -127,7 +127,7 @@ DisablePageFileEncryption       # EnablePageFileEncryption
 DisableTimeStampInterval        # EnableTimeStampInterval
 
 ### UI Tweaks ###
-EnableActionCenter              # DisableActionCenter
+DisableActionCenter             # EnableActionCenter
 # DisableLockScreen             # EnableLockScreen
 # DisableLockScreenRS1          # EnableLockScreenRS1
 # HideNetworkFromLockScreen     # ShowNetworkOnLockScreen
