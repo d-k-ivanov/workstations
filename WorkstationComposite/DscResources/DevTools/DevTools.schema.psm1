@@ -494,6 +494,16 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallSASS
+    {
+        Name                    = 'sass'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
+
     cChocoPackageInstaller InstallSoapUI
     {
         Name                    = 'soapui'
