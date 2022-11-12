@@ -175,7 +175,7 @@ Configuration OfficeTools
         Name                    = 'miktex.install'
         # Params                  = '"/Set:complete /RepoPath:""c:\tools\MiKTeX-Repo"""'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -223,6 +223,24 @@ Configuration OfficeTools
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         chocoParams             = '--ignore-checksums'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallTeXLive
+    {
+        Name                    = 'texlive'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallTeXStudio
+    {
+        Name                    = 'texstudio.install'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
