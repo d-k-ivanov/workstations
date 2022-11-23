@@ -107,11 +107,6 @@ Process
     Set-DscLocalConfigurationManager -Path $PSScriptRoot -Force
 
     # ------------------------------------------------------------
-    # Win10-Initial-Setup-Script
-    # ------------------------------------------------------------
-    . "${PSScriptRoot}\W10Init${WorkstationType}.ps1"
-
-    # ------------------------------------------------------------
     # Load Workstation DSC Composite Config
     # ------------------------------------------------------------
     switch ($WorkstationType)
@@ -119,7 +114,12 @@ Process
         "Home"
         {
             # ------------------------------------------------------------
-            # Disable Windows Defender One More Time......................
+            # Win10-Initial-Setup-Script
+            # ------------------------------------------------------------
+            . "${PSScriptRoot}\W10Init${WorkstationType}.ps1"
+
+            # ------------------------------------------------------------
+            # Disable Windows Defender One More Time
             # ------------------------------------------------------------
             . "${PSScriptRoot}\DefenderDisable.ps1"
             # . "${PSScriptRoot}\DefenderEnable.ps1"
