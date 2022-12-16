@@ -213,6 +213,15 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallShareX
+    {
+        Name                    = 'sharex'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallSwissFileKnife
     {
         Name                    = 'swissfileknife'
