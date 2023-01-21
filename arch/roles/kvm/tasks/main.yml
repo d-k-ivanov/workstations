@@ -1,0 +1,86 @@
+---
+
+- name: Uninstall KVM related packages
+  pacman:
+    name:
+      # - iptables # TODO: Need to fix...
+      - qemu-headless
+    state: absent
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+
+- name: Install KVM related packages
+  pacman:
+    name:
+      - bridge-utils
+      - dmidecode
+      - dnsmasq
+      - iptables-nft
+      - libvirt
+      - openbsd-netcat
+      - ovmf
+      - qemu
+      - spice-gtk
+      - swtpm
+      - virt-install
+      - virt-manager
+      - virt-viewer
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install KVM related packages (AUR)
+  aura:
+    name:
+      - quickemu
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Add user {{ user_name }} in libvirt group
+  user:
+    name: "{{ user_name }}"
+    groups: libvirt
+    append: yes
+
+- name: Enable libvirt hostname resolution
+  replace:
+    path: /etc/nsswitch.conf
+    regexp: '^hosts:\s+files\s+(?!libvirt)'
+    replace: 'hosts: files libvirt '
+
+- name: Enable nested KVM
+  lineinfile:
+    path: /etc/modprobe.d/kvm_intel.conf
+    create: yes
+    line: 'options kvm_intel nested=1'
+    state: present
+  notify:
+    - generate initramfs
+    - reload kvm_intel module
+
+- name: Add OVMF paths to libvirt QEMU configuration
+  blockinfile:
+    path: /etc/libvirt/qemu.conf
+    marker: '# {mark} Ansible-managed block: Add OVMF paths to libvirt QEMU configuration'
+    block: |
+      nvram = [
+          "/usr/share/ovmf/x64/OVMF_CODE.fd:/usr/share/ovmf/x64/OVMF_VARS.fd"
+      ]
+  notify: restart libvirtd service
+
+- meta: flush_handlers
+
+- name: Enable and start libvirt services
+  systemd:
+    name: '{{ item }}'
+    enabled: yes
+    state: started
+  with_items:
+    - libvirtd.service
+    - libvirt-guests.service

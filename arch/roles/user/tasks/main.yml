@@ -1,0 +1,51 @@
+---
+
+- name: Create group {{ user_name }}
+  group:
+    name: "{{ user_name }}"
+
+- name: Create user {{ user_name }} in wheel group
+  user:
+    name: "{{ user_name }}"
+    group: "{{ user_name }}"
+    groups: wheel
+    append: yes
+    password: "{{ user_encrypted_password }}"
+    update_password: on_create
+    createhome: yes
+
+- name: Install bash and bash-completion to be set as preferred shell.
+  pacman:
+    name:
+      - bash
+      - bash-completion
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Set preferred shell for {{ user_name }}
+  user:
+    name: "{{ user_name }}"
+    shell: /bin/bash
+
+- name: Create workspace folders
+  file:
+    path: /home/{{ user_name }}/{{ item }}
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: directory
+  with_items:
+     - "ws/backup"
+     - "ws/libs"
+     - "ws/misc"
+     - "ws/my"
+     - "ws/test"
+     - "ws/tmp"
+
+- name: Create data folder
+  file:
+    path: /data
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: directory

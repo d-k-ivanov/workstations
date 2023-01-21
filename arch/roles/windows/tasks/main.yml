@@ -1,0 +1,6 @@
+---
+
+- import_tasks: awesomewm.yml
+- import_tasks: fonts.yml
+- import_tasks: terminals.yml
+- import_tasks: tools.yml

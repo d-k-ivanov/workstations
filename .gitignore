@@ -1,8 +1,3 @@
-# IDE
-.idea
-.vs
-.vscode
-
 # Temporary modules directory
 .modules/
 
@@ -10,13 +5,18 @@
 .tmp/
 tmp/
 
+# Python
+__pycache__
+venv
+
+# Ansible
+*.retry
+
 # DSC
 *.mof
 
-# Log
-Run.log
-
-# Secrets
-Secrets.ps1
-Secrets.Home.ps1
-Secrets.Work.ps1
+# Windows
+windows/Run.log
+windows/Secrets.ps1
+windows/Secrets.Home.ps1
+windows/Secrets.Work.ps1

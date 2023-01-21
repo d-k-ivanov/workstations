@@ -1,0 +1,6 @@
+---
+
+dependencies:
+  - aur_tools
+  - user
+  - xorg

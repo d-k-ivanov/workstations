@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  become: true
+  roles:
+    - { role: dev_tools, tags: ['dev_tools', 'tools'] }
+
+  vars:

@@ -1,0 +1,5 @@
+---
+
+# user_name: vagrant
+# python -c "from passlib.hash import sha512_crypt; print(sha512_crypt.using(rounds=656000).hash('vagrant'))"
+user_encrypted_password: $6$rounds=656000$NvlrG1knr2iE4qUI$xioaLIa8qINbcgJqcCmwY4dzG9wWZe4jh5xSXhO8n/ERS6qtCmAfRJSfZHuiqTIls/2z4Pr5Em3qz7yffxMYi1

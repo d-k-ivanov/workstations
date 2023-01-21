@@ -1,0 +1,30 @@
+---
+
+- name: Install JavaScript runtime environment
+  pacman:
+    name:
+      - nodejs
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install JavaScript package managers
+  pacman:
+    name:
+      - npm
+      - yarn
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install JavaScript utilities
+  pacman:
+    name:
+      - typescript
+      - eslint
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

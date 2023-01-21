@@ -1,0 +1,6 @@
+---
+
+- name: Install pacman.conf
+  copy:
+    src: etc/pacman.conf
+    dest: /etc/pacman.conf

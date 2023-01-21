@@ -1,0 +1,29 @@
+---
+
+- name: Uninstall conflicting packages.
+  pacman:
+    name: ntfs-3g
+    state: absent
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install filesytem packages.
+  pacman:
+    name:
+      - parted
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install filesytem packages (AUR).
+  aura:
+    name:
+      - ntfs-3g-fuse # Allow normal users to mount NTFS Volumes
+    # user: "{{ user_name }}"
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

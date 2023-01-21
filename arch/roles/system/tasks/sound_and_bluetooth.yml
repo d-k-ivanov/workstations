@@ -1,0 +1,30 @@
+---
+
+- name: Install sound utilities
+  pacman:
+    name:
+      - alsa-firmware
+      - alsa-utils
+      - blueman
+      - bluez
+      - bluez-libs
+      - bluez-utils
+      - paprefs
+      - pasystray
+      - pavucontrol
+      - pulseaudio
+      - pulseaudio-alsa
+      - pulseaudio-bluetooth
+      - pulseaudio-equalizer
+      - pulsemixer
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Start bluetooth daemon
+  systemd:
+    name: bluetooth.service
+    state: started
+    daemon_reload: yes
+    enabled: yes

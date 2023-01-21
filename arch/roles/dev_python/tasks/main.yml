@@ -1,0 +1,33 @@
+---
+
+- name: Install Python 3 development utilities
+  pacman:
+    name:
+      - python
+      - pypy3
+      - python-pip
+      - python-pylint
+      - python-tox
+      - python-virtualenv
+      - ipython
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install Python Language Server and optional dependencies
+  pacman:
+    name:
+      - python-language-server
+      - python-mccabe
+      - python-rope
+      - python-pyflakes
+      - python-pycodestyle
+      - python-pylint
+      - autopep8
+      - yapf
+      - python-pydocstyle
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

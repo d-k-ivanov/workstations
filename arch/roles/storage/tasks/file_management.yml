@@ -1,0 +1,50 @@
+---
+
+- name: Install file managers
+  pacman:
+    name:
+      - doublecmd-qt5
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+# - name: Import Dropbox gpg key to pacman
+#   pacman_key:
+#     id: FC918B335044912E
+#     keyserver: pgp.mit.edu
+#     state: present
+
+- name: Import Dropbox gpg key (root)
+  command: gpg --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+  changed_when: False
+
+- name: Import Dropbox gpg key for ({{ user_name }})
+  command: gpg --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+  become: yes
+  become_user: "{{ user_name }}"
+  changed_when: False
+
+- name: Install cloud storages (AUR)
+  aura:
+    name:
+      - dropbox
+      - dropbox-cli
+      - onedrive-abraunegg
+      - onedrive_tray-git
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Enable and start dropbox services
+  systemd:
+    name: "dropbox@{{ user_name }}"
+    state: started
+    enabled: yes
+
+- name: Enable and start onedrive service
+  systemd:
+    name: "onedrive@{{ user_name }}"
+    state: started
+    enabled: yes

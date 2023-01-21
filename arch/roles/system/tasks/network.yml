@@ -1,0 +1,96 @@
+---
+
+# - name: Uninstall network tools
+#   pacman:
+#     name:
+#       - wireshark-qt
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Install network tools
+  pacman:
+    name:
+      - bridge-utils
+      - crda
+      - dhcpcd
+      - dnsmasq
+      - dnsutils
+      - ethtool
+      - inetutils
+      - net-tools
+      - netctl
+      - wpa_supplicant
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Set WRD to Spain
+  lineinfile:
+    dest: /etc/conf.d/wireless-regdom
+    state: present
+    regexp: '^#?WIRELESS_REGDOM="ES"'
+    line: 'WIRELESS_REGDOM="ES"'
+
+- name: Set hostname to {{ system_hostname }}
+  hostname:
+    name: "{{ system_hostname }}"
+  # hostnamectl doesn't work properly in a container (which is used for testing)
+  # See https://lists.freedesktop.org/archives/systemd-devel/2017-February/038291.html
+  when: lookup('env', 'container') != 'docker'
+
+- name: Enable dhcp service
+  service: name=dhcpcd state=started enabled=yes
+
+- name: Install openssh
+  pacman:
+    name: openssh
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Enable sshd service
+  service: name=sshd.service state=started enabled=yes
+
+- name: Install networkmanager
+  pacman:
+    name:
+      - network-manager-applet
+      - networkmanager
+      - networkmanager-openconnect
+      - networkmanager-openvpn
+      - nm-connection-editor
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Enable networkmanager service
+  service: name=NetworkManager.service state=started enabled=yes
+
+- name: Install VPNs
+  pacman:
+    name:
+      - openvpn
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install network management tools
+  pacman:
+    name:
+      - ngrep
+      - nmap
+      - openbsd-netcat
+      - tcpdump
+      - traceroute
+      - wireshark-qt
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

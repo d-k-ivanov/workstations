@@ -1,0 +1,16 @@
+- name: reload kvm_intel module
+  modprobe:
+    name: kvm_intel
+    state: '{{ item }}'
+  with_items:
+    - absent
+    - present
+
+- name: restart libvirtd service
+  systemd:
+    name: libvirtd.service
+    state: restarted
+
+- name: generate initramfs
+  command: mkinitcpio --allpresets
+  when: lookup('env', 'container') != 'docker'

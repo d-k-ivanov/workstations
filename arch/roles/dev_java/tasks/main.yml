@@ -1,0 +1,41 @@
+---
+
+- name: Install Java
+  pacman:
+    name:
+      - jdk-openjdk   # Latest 13
+      - jdk8-openjdk
+      - jdk11-openjdk
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install common Java build tools
+  pacman:
+    name:
+      - ant
+      - bazel
+      - gradle
+      - maven
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install Decompilers
+  aura:
+    name:
+      - jd-gui
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+# See https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
+- name: Set inotify watches limit to {{ inotify_max_user_watches }}
+  lineinfile:
+    path: /etc/sysctl.d/idea.conf
+    regexp: "^fs.inotify.max_user_watches.*"
+    line: "fs.inotify.max_user_watches = {{ inotify_max_user_watches }}"
+    create: yes

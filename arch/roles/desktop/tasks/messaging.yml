@@ -1,0 +1,22 @@
+---
+
+- name: Install instant messengers (AUR)
+  aura:
+    name:
+      - skypeforlinux-preview-bin
+      - slack-desktop
+      - telegram-desktop-bin
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Remove instant messengers
+  pacman:
+    name:
+      - teams
+    state: absent
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

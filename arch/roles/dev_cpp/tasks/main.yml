@@ -1,0 +1,28 @@
+---
+
+- name: Install C/C++ compiler tools
+  pacman:
+    name:
+      - ccache
+      - cmake
+      - clang
+      - clang-tools-extra
+      - distcc
+      - gcc
+      - gdb
+      - valgrind
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+# - name: Install C/C++ libraries
+#   pacman:
+#     name:
+#       - boost
+#       - boost-libs
+#       - gtest
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2

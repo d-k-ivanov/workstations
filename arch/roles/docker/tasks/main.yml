@@ -1,0 +1,59 @@
+---
+
+- name: Install docker
+  pacman:
+    name:
+      - docker
+      - docker-compose
+      - docker-machine
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Create 'docker' group if not already present
+  group:
+    name: docker
+    # docker group is root-equivalent
+    # Docker complains when it is not a system group
+    system: yes
+
+- name: Add '{{ user_name }}' to the 'docker' group
+  user:
+    name: '{{ user_name }}'
+    groups:
+      - docker
+    append: yes
+
+- name: Enable Docker socket on startup to start the daemon lazily
+  systemd:
+    name: docker.socket
+    enabled: yes
+  tags:
+    - notest
+
+- name: Enable and start docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Install Docker utilities
+  pacman:
+    name:
+      - container-diff
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install Docker utilities (AUR)
+  aura:
+    name:
+      - ctop-bin
+      - docker-credential-pass-bin
+      - hadolint-bin
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

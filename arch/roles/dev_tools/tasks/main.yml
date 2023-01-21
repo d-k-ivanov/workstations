@@ -1,0 +1,93 @@
+---
+
+- name: Remove conflicting packages
+  pacman:
+    name:
+      - vim
+      - gvim
+    state: absent
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install main editors and ide
+  pacman:
+    name:
+      - neovim
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install main editors and ide (AUR)
+  aura:
+    name:
+      - git-delta
+      - jetbrains-toolbox
+      - visual-studio-code-bin
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install development tools
+  pacman:
+    name:
+      - base-devel
+      - jq
+      - tmux
+      - yq
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install shells
+  pacman:
+    name:
+      - bash
+      - bash-completion
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+# - name: Install shells (AUR)
+#   pacman:
+#     name:
+#       - powershell
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+# - name: Install crypto utils
+#   pacman:
+#     name:
+#       - pass
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Install version control system utils
+  pacman:
+    name:
+      - git
+      - mercurial
+      - subversion
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install web utils
+  pacman:
+    name:
+      - curl
+      - wget
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

@@ -1,0 +1,33 @@
+---
+
+- name: Uninstall DevOps untilities.
+  pacman:
+    name: aws-cli
+    state: absent
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install DevOps untilities
+  pacman:
+    name:
+      - helm
+      - kubectl
+      - kubectx
+      - terraform
+      - vagrant
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install DevOps untilities (AUR)
+  aura:
+    name:
+      - aws-cli-v2-bin
+      # - awless
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

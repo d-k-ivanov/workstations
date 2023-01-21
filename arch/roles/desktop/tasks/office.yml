@@ -1,0 +1,26 @@
+---
+
+- name: Install office suite
+  pacman:
+    name:
+      - libreoffice-fresh
+      - libreoffice-extension-texmaths
+      - libreoffice-extension-writer2latex
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install office suite (AUR)
+  aura:
+    name:
+      - libreoffice-extension-cleandoc
+      # - libreoffice-extension-coooder
+      - libreoffice-extension-languagetool
+      - libreoffice-extension-pagination
+      - libreoffice-extension-vrt-network-equipment
+      - papirus-libreoffice-theme
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

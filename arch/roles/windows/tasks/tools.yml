@@ -1,0 +1,13 @@
+---
+
+- name: Install Desktop Enviromnet tools
+  pacman:
+    name:
+      - archlinux-xdg-menu
+      - gnome-keyring
+      - libsecret
+      - seahorse
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

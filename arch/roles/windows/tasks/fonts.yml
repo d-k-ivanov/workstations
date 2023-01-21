@@ -1,0 +1,57 @@
+---
+
+- name: Install font apps
+  pacman:
+    name:
+      - fontconfig
+      - fontforge
+      - freetype2
+      - sdl_ttf
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install fonts
+  pacman:
+    name:
+      - adobe-source-code-pro-fonts
+      - noto-fonts
+      - noto-fonts-emoji
+      - noto-fonts-cjk
+      - opendesktop-fonts
+      - otf-ipafont
+      - terminus-font
+      - ttf-arphic-uming
+      - ttf-arphic-ukai
+      - ttf-bitstream-vera
+      - ttf-dejavu
+      - ttf-droid
+      - ttf-font-awesome
+      - ttf-hack
+      - ttf-inconsolata
+      - ttf-liberation
+      - ttf-roboto
+      - ttf-roboto-mono
+      - ttf-ubuntu-font-family
+      - wqy-microhei-lite
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install fonts (AUR)
+  aura:
+    name:
+      - font-bh-ttf
+      - gohufont
+      - montserrat-ttf
+      - siji-git            # Cool iconic font
+      - ttf-mac-fonts
+      - ttf-ms-fonts
+      - ttf-vista-fonts
+    delmakedeps: yes
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

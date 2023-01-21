@@ -1,0 +1,23 @@
+---
+
+  - name: Install dictionaries
+    pacman:
+      name:
+        - hunspell
+        - hunspell-en_GB
+        - hunspell-en_US
+        - hunspell-es_any
+        - goldendict
+    register: task_result
+    until: task_result is success
+    retries: 10
+    delay: 2
+
+  - name: Install dictionaries (AUR)
+    aura:
+      name:
+        - hunspell-ru-aot
+    register: task_result
+    until: task_result is success
+    retries: 10
+    delay: 2

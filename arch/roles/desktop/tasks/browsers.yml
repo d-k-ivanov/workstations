@@ -1,0 +1,28 @@
+---
+
+- name: Install console browsers
+  pacman:
+    name:
+      - links
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install browsers
+  pacman:
+    name:
+      - firefox
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install browsers (AUR)
+  aura:
+    name:
+      - google-chrome
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

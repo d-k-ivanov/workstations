@@ -1,0 +1,17 @@
+---
+
+- name: Install base packages
+  pacman:
+    name:
+      - coreutils
+      - curl
+      - mlocate
+      - procps-ng
+      - util-linux
+      - which
+      - zsync
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+

@@ -1,0 +1,9 @@
+---
+
+- name: Set timezone to {{ system_timezone }}
+  timezone:
+    name: "{{ system_timezone }}"
+
+- name: Set locale to {{ system_locale }}
+  locale_gen:
+    name: "{{ system_locale }}"

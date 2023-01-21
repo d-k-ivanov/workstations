@@ -1,0 +1,22 @@
+---
+- name: remove aura archive
+  file:
+    path: /tmp/aura-bin.tar.gz
+    state: absent
+
+- name: remove aura build folder
+  file:
+    path: /tmp/aura-bin
+    state: absent
+
+- name: revert nobodys home
+  user:
+    name: nobody
+    home: /
+    createhome: no
+
+- name: remove nobody temporary home folder
+  file:
+    path: /tmp/nobody
+    state: absent
+    become: yes

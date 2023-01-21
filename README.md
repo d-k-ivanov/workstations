@@ -1,19 +1,6 @@
-# Windows Workstation: Desired State Configuration
+# Setups for my Workstations
 
-## Initialisation
-
-```ps1
-.\Init.cmd
-```
-
-## Usage
-
-```ps1
-.\Run.ps1
-```
-
-## Create new DSC Resource
-
-```ps1
-NewResource.ps1 Resource-Name [-Force]
-```
+- [ArchLinux](./arch/)
+- [Ubuntu](./ubuntu/)
+- [Windows](./windows/)
+- [WSL](./wsl/)

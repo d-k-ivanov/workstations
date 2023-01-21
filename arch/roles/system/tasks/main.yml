@@ -1,0 +1,15 @@
+---
+
+- import_tasks: sudo.yml
+- import_tasks: pacman.yml
+- import_tasks: update.yml
+- import_tasks: base_packages.yml
+- import_tasks: network.yml
+- import_tasks: locale.yml
+- import_tasks: kernel.yml
+- import_tasks: bootloader.yml
+- import_tasks: sound_and_bluetooth.yml
+- import_tasks: filesystems.yml
+- import_tasks: cron.yml
+- import_tasks: hardware.yml
+- import_tasks: gpu.yml

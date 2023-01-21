@@ -1,0 +1,33 @@
+---
+
+- name: Install Awesome WM and depencencies
+  pacman:
+    name:
+      - awesome
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install Awesome WM (AUR)
+  aura:
+    name:
+      - awesome-freedesktop-git
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install AwesomeVM Awful hotkeys popup widget (patched)
+  copy:
+    src: awful_hotkeys_popup_widget.lua
+    dest: "/usr/share/awesome/lib/awful/hotkeys_popup/widget.lua"
+    mode: '0644'
+
+- name: Install X init rc
+  copy:
+    src: .xinitrc
+    dest: "/home/{{ user_name }}/.xinitrc"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0644'

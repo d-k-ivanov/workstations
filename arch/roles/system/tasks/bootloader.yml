@@ -1,0 +1,23 @@
+---
+
+- name: Install grub and efiamanager
+  pacman:
+    name:
+      - grub
+      - efibootmgr
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install GRUB font for hi dpi
+  copy:
+    src: boot/grub/fonts/terminus32.pf2
+    dest: /boot/grub/fonts/terminus32.pf2
+
+- name: Install GRUB configuration
+  copy:
+    src: etc/default/grub
+    dest: /etc/default/grub
+  notify:
+    - build grub config
