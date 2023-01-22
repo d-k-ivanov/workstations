@@ -1,0 +1,43 @@
+---
+- name: Install main dependancies
+  pacman:
+    name:
+      - apt-transport-https
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: update apt cache if the last one is more than 3600 seconds ago
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Update all packages to their latest version
+  apt:
+    name: "*"
+    state: latest
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+# - name: Remove conflicting packages
+#   pacman:
+#     name:
+#       - vim
+#       - gvim
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+# - name: Install main editors and ide
+#   pacman:
+#     name:
+#       - code
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
