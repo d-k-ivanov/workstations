@@ -184,7 +184,7 @@ Configuration DevOps
     {
         Name                    = 'ftpdmin'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -238,7 +238,7 @@ Configuration DevOps
     {
         Name                    = 'ldapadmin'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -256,7 +256,7 @@ Configuration DevOps
     {
         Name                    = 'nmap'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -344,7 +344,7 @@ Configuration DevOps
 
     Script DownloadRDCMan
     {
-        SetScript               = { Invoke-WebRequest -Uri 'https://github.com/d-k-ivanov/dsc-windows-workstation/blob/master/Installers/rdcman.msi?raw=true' -OutFile 'C:\Windows\Temp\rdcman.msi' }
+        SetScript               = { Invoke-WebRequest -Uri 'https://github.com/d-k-ivanov/workstations/raw/main/windows/Installers/rdcman.msi' -OutFile 'C:\Windows\Temp\rdcman.msi' }
         GetScript               = { @{} }
         TestScript              = { Test-Path 'C:\Windows\Temp\rdcman.msi' }
     }
@@ -389,7 +389,7 @@ Configuration DevOps
     {
         Name                    = 'tftpd32'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -407,7 +407,7 @@ Configuration DevOps
     {
         Name                    = 'travis'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -452,7 +452,7 @@ Configuration DevOps
     {
         Name                    = 'wifiinfoview'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -461,7 +461,7 @@ Configuration DevOps
     {
         Name                    = 'winscp.install'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -470,7 +470,7 @@ Configuration DevOps
     {
         Name                    = 'winpcap'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -479,7 +479,7 @@ Configuration DevOps
     {
         Name                    = 'wireshark'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -488,7 +488,7 @@ Configuration DevOps
     {
         Name                    = 'wmiexplorer'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }

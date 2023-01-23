@@ -133,8 +133,6 @@ Configuration DevLangs
     cChocoPackageInstaller InstallPython
     {
         Name                    = 'python'
-        Params                  = '/InstallDir:C:\tools\python3'
-        # Version                 = '3.9.2'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
@@ -188,5 +186,4 @@ Configuration DevLangs
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
-
 }
