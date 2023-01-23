@@ -1,1 +1,22 @@
 ---
+# - name: Remove conflicting packages
+#   ansible.builtin.apt:
+#     name:
+#       - vim
+#       - gvim
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Install essential packages
+  ansible.builtin.apt:
+    name:
+      - libfuse2
+      - onedrive
+    install_recommends: false
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

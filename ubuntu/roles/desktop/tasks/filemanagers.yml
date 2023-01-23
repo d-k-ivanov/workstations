@@ -10,11 +10,11 @@
 #   retries: 10
 #   delay: 2
 
-- name: Install
+- name: Install Python 3 modules
   ansible.builtin.apt:
     name:
-      - dolphin-plugins
-      - gnome-keyring
+      - mc
+      - krusader
   register: task_result
   until: task_result is success
   retries: 10

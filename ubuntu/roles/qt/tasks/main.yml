@@ -1,11 +1,8 @@
 ---
-- name: update apt cache if the last one is more than 3600 seconds ago
-  apt:
-    update_cache: yes
-    cache_valid_time: 3600
+
 
 # - name: Remove conflicting packages
-#   apt:
+#   ansible.builtin.apt:
 #     name:
 #       - vim
 #       - gvim
@@ -16,7 +13,7 @@
 #   delay: 2
 
 - name: Install Qt5 and Qt5-Tools
-  apt:
+  ansible.builtin.apt:
     name:
       - qt5-qmake
   register: task_result

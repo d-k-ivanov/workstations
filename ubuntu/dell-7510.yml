@@ -13,11 +13,11 @@
 
     ## Development
     # - { role: dev_tools,      tags: ['dev_tools', 'tools']            }
-    - { role: dev_qt,         tags: ['dev_qt', 'qt']            }
+    - { role: qt,             tags: ['qt']                              }
     # - { role: dev_cpp,        tags: ['dev_cpp', 'cpp']                }
     # - { role: dev_javascript, tags: ['dev_javascript', 'javascript']  }
     # - { role: dev_java,       tags: ['dev_java', 'java']              }
-    # - { role: dev_python,     tags: ['dev_python', 'python']          }
+    - { role: python,         tags: ['python']                          }
     # - { role: dev_haskell,    tags: ['dev_haskell', 'haskell']        }
     # - { role: dev_go,         tags: ['dev_go', 'go']                  }
     # - { role: dev_dotnet,     tags: ['dev_dotnet', 'dotnet']          }
@@ -29,7 +29,7 @@
     # - { role: virtualbox,     tags: ['virtualbox']                    }
 
     # Office
-    # - { role: desktop,        tags: ['desktop', 'office']             }
+    - { role: desktop,        tags: ['desktop', 'office']               }
 
   vars:
     user_name:  divanov

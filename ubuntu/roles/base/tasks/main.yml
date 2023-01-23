@@ -1,6 +1,8 @@
 ---
+- import_tasks: apt.yml
+
 # - name: Remove conflicting packages
-#   apt:
+#   ansible.builtin.apt:
 #     name:
 #       - vim
 #       - gvim
@@ -10,13 +12,8 @@
 #   retries: 10
 #   delay: 2
 
-- name: Update apt cache if the last one is more than 3600 seconds ago
-  apt:
-    update_cache: yes
-    cache_valid_time: 3600
-
 - name: Update all packages to their latest version
-  apt:
+  ansible.builtin.apt:
     name: "*"
     state: latest
   register: task_result
@@ -25,7 +22,7 @@
   delay: 2
 
 - name: Install essential packages
-  apt:
+  ansible.builtin.apt:
     name:
       - apt-transport-https
       - vim
