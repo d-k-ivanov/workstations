@@ -20,7 +20,7 @@
   retries: 10
   delay: 2
 
-- name: Install essential packages
+- name: Install Essential Packages
   ansible.builtin.apt:
     name:
       - apt-transport-https

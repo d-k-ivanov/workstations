@@ -9,7 +9,7 @@
 #   retries: 10
 #   delay: 2
 
-- name: Install file managers
+- name: Install File Managers
   ansible.builtin.apt:
     name:
       - mc

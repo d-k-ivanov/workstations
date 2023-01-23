@@ -1,6 +1,4 @@
 ---
-
-
 # - name: Remove conflicting packages
 #   ansible.builtin.apt:
 #     name:

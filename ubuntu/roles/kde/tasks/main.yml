@@ -9,7 +9,7 @@
 #   retries: 10
 #   delay: 2
 
-- name: Install
+- name: Install KDE Stuff
   ansible.builtin.apt:
     name:
       - dolphin-plugins

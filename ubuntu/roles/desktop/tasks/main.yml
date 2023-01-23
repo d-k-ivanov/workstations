@@ -1,3 +1,4 @@
 ---
 - import_tasks: filemanagers.yml
 - import_tasks: office.yml
+- import_tasks: tools.yml

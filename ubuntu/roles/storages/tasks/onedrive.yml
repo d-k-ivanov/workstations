@@ -9,7 +9,7 @@
 #   retries: 10
 #   delay: 2
 
-- name: Install essential packages
+- name: Install Cloud Storages
   ansible.builtin.apt:
     name:
       - libfuse2

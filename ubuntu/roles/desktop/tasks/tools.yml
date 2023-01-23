@@ -9,11 +9,10 @@
 #   retries: 10
 #   delay: 2
 
-- name: Install Python Modules
+- name: Install Office Tools
   ansible.builtin.apt:
     name:
-      - python3-pip
-      - python3-virtualenv
+      - flameshot
   register: task_result
   until: task_result is success
   retries: 10
