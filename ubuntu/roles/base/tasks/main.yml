@@ -10,15 +10,6 @@
 #   retries: 10
 #   delay: 2
 
-- name: Install main dependancies
-  apt:
-    name:
-      - apt-transport-https
-  register: task_result
-  until: task_result is success
-  retries: 10
-  delay: 2
-
 - name: Update apt cache if the last one is more than 3600 seconds ago
   apt:
     update_cache: yes
@@ -28,6 +19,16 @@
   apt:
     name: "*"
     state: latest
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install essential packages
+  apt:
+    name:
+      - apt-transport-https
+      - vim
   register: task_result
   until: task_result is success
   retries: 10

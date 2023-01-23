@@ -3,8 +3,9 @@
   become: true
   roles:
     ## System
-    - { role: base,           tags: ['base']            }
-    # - { role: kde,            tags: ['kde', 'wm']       }
+    - { role: base,           tags: ['base']                            }
+    - { role: kde,            tags: ['kde', 'wm']                       }
+    - { role: storages,       tags: ['storages', 'onedrive', 'dropbox'] }
     # - { role: user,           tags: ['user']                          }
     # - { role: system,         tags: ['system']                        }
     # - { role: xorg,           tags: ['xorg']                          }

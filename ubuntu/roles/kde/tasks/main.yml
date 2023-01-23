@@ -15,11 +15,11 @@
 #   retries: 10
 #   delay: 2
 
-# - name: Install main editors and ide
-#   apt:
-#     name:
-#       - code
-#   register: task_result
-#   until: task_result is success
-#   retries: 10
-#   delay: 2
+- name: Install
+  apt:
+    name:
+      - dolphin-plugins
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
