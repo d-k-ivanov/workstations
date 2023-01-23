@@ -3,14 +3,16 @@
   become: true
   roles:
     ## System
-    # - { role: aur_tools,      tags: ['aur_tools','aura', 'aur' ]      }
+    - { role: base,           tags: ['base']            }
+    # - { role: kde,            tags: ['kde', 'wm']       }
     # - { role: user,           tags: ['user']                          }
     # - { role: system,         tags: ['system']                        }
     # - { role: xorg,           tags: ['xorg']                          }
     # - { role: windows,        tags: ['windows']                       }
 
     ## Development
-    - { role: dev_tools,      tags: ['dev_tools', 'tools']            }
+    # - { role: dev_tools,      tags: ['dev_tools', 'tools']            }
+    - { role: dev_qt,         tags: ['dev_qt', 'qt']            }
     # - { role: dev_cpp,        tags: ['dev_cpp', 'cpp']                }
     # - { role: dev_javascript, tags: ['dev_javascript', 'javascript']  }
     # - { role: dev_java,       tags: ['dev_java', 'java']              }
