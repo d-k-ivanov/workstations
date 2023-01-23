@@ -2,3 +2,4 @@
 - import_tasks: input.yml
 - import_tasks: network.yml
 - import_tasks: sddm.yml
+- import_tasks: security.yml
