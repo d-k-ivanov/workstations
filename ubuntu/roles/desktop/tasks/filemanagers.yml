@@ -2,15 +2,14 @@
 # - name: Remove conflicting packages
 #   ansible.builtin.apt:
 #     name:
-#       - vim
-#       - gvim
+#       - xxx
 #     state: absent
 #   register: task_result
 #   until: task_result is success
 #   retries: 10
 #   delay: 2
 
-- name: Install Python 3 modules
+- name: Install file managers
   ansible.builtin.apt:
     name:
       - mc
