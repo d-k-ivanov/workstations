@@ -232,6 +232,15 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallSophiApp
+    {
+        Name                    = 'sophiapp'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallSwissFileKnife
     {
         Name                    = 'swissfileknife'

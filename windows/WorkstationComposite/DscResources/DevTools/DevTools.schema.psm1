@@ -58,6 +58,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallConan
+    {
+        Name                    = 'conan'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallCmake
     {
         Name                    = 'cmake'
@@ -163,7 +172,7 @@ Configuration DevTools
     {
         Name                    = 'ghidra'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
     }
@@ -335,7 +344,7 @@ Configuration DevTools
     {
         Name                    = 'maxima'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
     }
@@ -570,15 +579,15 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallVSCode
-    {
-        Name                    = 'vscode'
-        Params                  = '/NoDesktopIcon'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential    = $Credential
-    }
+    # cChocoPackageInstaller InstallVSCode
+    # {
+    #     Name                    = 'vscode'
+    #     Params                  = '/NoDesktopIcon'
+    #     AutoUpgrade             = $AutoUpdate
+    #     Ensure                  = 'Absent'
+    #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallWinMerge
     {
