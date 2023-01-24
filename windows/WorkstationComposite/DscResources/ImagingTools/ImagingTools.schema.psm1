@@ -154,6 +154,7 @@ Configuration ImagingTools
     {
         Name                    = 'XnView'
         AutoUpgrade             = $AutoUpdate
+        chocoParams             = "--ignore-checksums"
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential

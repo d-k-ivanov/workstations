@@ -147,8 +147,8 @@ ShowTrayIcons                   # HideTrayIcons
 # ShowSecondsInTaskbar          # HideSecondsFromTaskbar
 DisableSearchAppInStore         # EnableSearchAppInStore
 DisableNewAppPrompt             # EnableNewAppPrompt
-# HideRecentlyAddedApps         # ShowRecentlyAddedApps
-# HideMostUsedApps              # ShowMostUsedApps
+HideRecentlyAddedApps           # ShowRecentlyAddedApps
+ShowMostUsedApps                # HideMostUsedApps
 SetWinXMenuPowerShell           # SetWinXMenuCmd
 SetControlPanelSmallIcons       # SetControlPanelLargeIcons     # SetControlPanelCategories
 DisableShortcutInName           # EnableShortcutInName

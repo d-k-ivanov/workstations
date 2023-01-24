@@ -131,8 +131,8 @@ DisableActionCenter             # EnableActionCenter
 # DisableLockScreen             # EnableLockScreen
 # DisableLockScreenRS1          # EnableLockScreenRS1
 # HideNetworkFromLockScreen     # ShowNetworkOnLockScreen
-HideShutdownFromLockScreen      # ShowShutdownOnLockScreen
-DisableLockScreenBlur           # EnableLockScreenBlur
+ShowShutdownOnLockScreen        # HideShutdownFromLockScreen
+EnableLockScreenBlur            # DisableLockScreenBlur
 DisableAeroShake                # EnableAeroShake
 DisableAccessibilityKeys        # EnableAccessibilityKeys
 ShowTaskManagerDetails          # HideTaskManagerDetails
@@ -140,23 +140,23 @@ ShowFileOperationsDetails       # HideFileOperationsDetails
 # EnableFileDeleteConfirm       # DisableFileDeleteConfirm
 HideTaskbarSearch               # ShowTaskbarSearchIcon         # ShowTaskbarSearchBox
 ShowTaskView                    # HideTaskView
-ShowSmallTaskbarIcons           # ShowLargeTaskbarIcons
-SetTaskbarCombineNever          # SetTaskbarCombineAlways       # SetTaskbarCombineWhenFull
+ShowLargeTaskbarIcons           # ShowSmallTaskbarIcons
+SetTaskbarCombineAlways         # SetTaskbarCombineNever       # SetTaskbarCombineWhenFull
 HideTaskbarPeopleIcon           # ShowTaskbarPeopleIcon
 ShowTrayIcons                   # HideTrayIcons
 # ShowSecondsInTaskbar          # HideSecondsFromTaskbar
 DisableSearchAppInStore         # EnableSearchAppInStore
 DisableNewAppPrompt             # EnableNewAppPrompt
-# HideRecentlyAddedApps         # ShowRecentlyAddedApps
-# HideMostUsedApps              # ShowMostUsedApps
+HideRecentlyAddedApps           # ShowRecentlyAddedApps
+ShowMostUsedApps                # HideMostUsedApps
 SetWinXMenuPowerShell           # SetWinXMenuCmd
 SetControlPanelSmallIcons       # SetControlPanelLargeIcons     # SetControlPanelCategories
 DisableShortcutInName           # EnableShortcutInName
 # HideShortcutArrow             # ShowShortcutArrow
 SetVisualFXPerformance          # SetVisualFXAppearance
 # EnableTitleBarColor           # DisableTitleBarColor
-# SetAppsDarkMode               # SetAppsLightMode
-# SetSystemLightMode            # SetSystemDarkMode
+SetAppsLightMode                # SetAppsDarkMode
+SetSystemLightMode              # SetSystemDarkMode
 # AddENKeyboard                 # RemoveENKeyboard
 EnableNumlock                   # DisableNumlock
 # DisableEnhPointerPrecision    # EnableEnhPointerPrecision
