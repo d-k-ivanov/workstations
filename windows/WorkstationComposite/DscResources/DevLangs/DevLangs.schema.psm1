@@ -129,6 +129,16 @@ Configuration DevLangs
         PsDscRunAsCredential    = $Credential
     }
 
+    # ========================= PowerShell =====================
+    cChocoPackageInstaller InstallPowerShellCore
+    {
+        Name                    = 'powershell-core'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     # ========================= Python =========================
     cChocoPackageInstaller InstallPython
     {
