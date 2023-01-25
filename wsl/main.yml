@@ -3,9 +3,10 @@
   become: true
   roles:
     - { role: base,         tags: ['base']        }
-    - { role: tools,        tags: ['tools']       }
-    - { role: python,       tags: ['python']      }
+    - { role: desktop,      tags: ['desktop']     }
     - { role: development,  tags: ['development'] }
+    - { role: python,       tags: ['python']      }
+    - { role: tools,        tags: ['tools']       }
     - { role: xorg,         tags: ['xorg']        }
 
   vars:
