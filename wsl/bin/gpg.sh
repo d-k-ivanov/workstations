@@ -1,7 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Encrypt or decrypt protected files.
 # Platform: Unix
 # Author:   Dmitry Ivanov
+
+gpg --list-keys
 
 f_usage() {
     local Y="\033[0;33m"    # Yellow
@@ -29,23 +31,23 @@ echo "Trusted persons: ${recipients}"
 [[ -z ${gpg_exe}    ]] && gpg_exe='gpg'
 
 case $1 in
-	e|encrypt )
-		shift
+    e|encrypt )
+        shift
         for file in "${secured_files[@]}"; do
             printf "\033[0;32mEncrypting $file\033[0m\n"
             ${gpg_exe} -e --yes --trust-model always "${recipients}" "${file}"
         done
-		;;
-	d|decrypt )
-		shift
+        ;;
+    d|decrypt )
+        shiftsudo
         for file in "${secured_files[@]}"; do
             printf "\033[0;32mDecrypting $file\033[0m\n"
             ${gpg_exe} --output ${file} --decrypt ${file}.gpg
         done
-		;;
-  * )
-		f_usage
-		;;
+        ;;
+    * )
+        f_usage
+        ;;
 esac
 
 echo

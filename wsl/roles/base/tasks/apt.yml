@@ -1,0 +1,29 @@
+---
+- name: Add Google Chrome repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+    filename: google-chrome
+    state: present
+
+- name: Add Microsoft VS Code repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
+    filename: vscode
+    state: present
+
+- name: Add Jonas Groeger unoficial JetBrains PPA repository
+  block:
+    - ansible.builtin.get_url:
+        url: https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc
+        dest: /etc/apt/trusted.gpg.d/jetbrains-ppa-jg.asc
+
+    - name: somerepo | apt source
+      ansible.builtin.apt_repository:
+        repo: "deb [[arch=amd64 signed-by=/etc/apt/trusted.gpg.d/jetbrains-ppa-jg.asc] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com any main"
+        filename: jetbrains-ppa-jg
+        state: present
+
+- name: Update apt cache if the last one is more than 3600 seconds ago
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 3600

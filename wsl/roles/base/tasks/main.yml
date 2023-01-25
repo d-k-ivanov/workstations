@@ -1,0 +1,41 @@
+---
+- import_tasks: apt.yml
+
+# - name: Remove conflicting packages
+#   ansible.builtin.apt:
+#     name:
+#       - xxx
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Update all packages to their latest version
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install Essential Packages
+  ansible.builtin.apt:
+    name:
+      - apt-transport-https
+      - apt-utils
+      - bash
+      - bash-completion
+      - ca-certificates
+      - curl
+      - dos2unix
+      - gnome-keyring
+      - p7zip-full
+      - texinfo
+      - wget
+      - zip
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
