@@ -342,21 +342,21 @@ Configuration DevOps
         PsDscRunAsCredential    = $Credential
     }
 
-    Script DownloadRDCMan
-    {
-        SetScript               = { Invoke-WebRequest -Uri 'https://github.com/d-k-ivanov/workstations/raw/main/windows/Installers/rdcman.msi' -OutFile 'C:\Windows\Temp\rdcman.msi' }
-        GetScript               = { @{} }
-        TestScript              = { Test-Path 'C:\Windows\Temp\rdcman.msi' }
-    }
+    # Script DownloadRDCMan
+    # {
+    #     SetScript               = { Invoke-WebRequest -Uri 'https://github.com/d-k-ivanov/workstations/raw/main/windows/Installers/rdcman.msi' -OutFile 'C:\Windows\Temp\rdcman.msi' }
+    #     GetScript               = { @{} }
+    #     TestScript              = { Test-Path 'C:\Windows\Temp\rdcman.msi' }
+    # }
 
-    Script InstallRDCMan
-    {
-        SetScript               = { Start-Process -FilePath "msiexec.exe" -ArgumentList "/i C:\Windows\Temp\rdcman.msi /qn" -Wait }
-        GetScript               = { @{} }
-        TestScript              = { Test-Path "${Env:ProgramFiles(x86)}\Remote Desktop Connection Manager" }
-        DependsOn               = '[Script]DownloadRDCMan'
-        PsDscRunAsCredential    = $Credential
-    }
+    # Script InstallRDCMan
+    # {
+    #     SetScript               = { Start-Process -FilePath "msiexec.exe" -ArgumentList "/i C:\Windows\Temp\rdcman.msi /qn" -Wait }
+    #     GetScript               = { @{} }
+    #     TestScript              = { Test-Path "${Env:ProgramFiles(x86)}\Remote Desktop Connection Manager" }
+    #     DependsOn               = '[Script]DownloadRDCMan'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallRufus
     {
