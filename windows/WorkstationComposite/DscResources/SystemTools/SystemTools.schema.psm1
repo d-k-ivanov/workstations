@@ -137,7 +137,7 @@ Configuration SystemTools
     {
         Name                    = 'flameshot'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -155,7 +155,7 @@ Configuration SystemTools
     {
         Name                    = 'greenshot'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }

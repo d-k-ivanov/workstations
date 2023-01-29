@@ -140,8 +140,8 @@ ShowFileOperationsDetails       # HideFileOperationsDetails
 # EnableFileDeleteConfirm       # DisableFileDeleteConfirm
 HideTaskbarSearch               # ShowTaskbarSearchIcon         # ShowTaskbarSearchBox
 ShowTaskView                    # HideTaskView
-ShowLargeTaskbarIcons           # ShowSmallTaskbarIcons
-SetTaskbarCombineAlways         # SetTaskbarCombineNever       # SetTaskbarCombineWhenFull
+ShowSmallTaskbarIcons           # ShowLargeTaskbarIcons
+SetTaskbarCombineNever          # SetTaskbarCombineAlways       # SetTaskbarCombineWhenFull
 HideTaskbarPeopleIcon           # ShowTaskbarPeopleIcon
 ShowTrayIcons                   # HideTrayIcons
 # ShowSecondsInTaskbar          # HideSecondsFromTaskbar
