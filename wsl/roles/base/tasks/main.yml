@@ -33,6 +33,7 @@
       - gnome-keyring
       - p7zip-full
       - texinfo
+      - unzip
       - wget
       - zip
   register: task_result
