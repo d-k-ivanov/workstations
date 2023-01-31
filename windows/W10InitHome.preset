@@ -127,7 +127,7 @@ DisablePageFileEncryption       # EnablePageFileEncryption
 DisableTimeStampInterval        # EnableTimeStampInterval
 
 ### UI Tweaks ###
-DisableActionCenter             # EnableActionCenter
+EnableActionCenter              # DisableActionCenter
 # DisableLockScreen             # EnableLockScreen
 # DisableLockScreenRS1          # EnableLockScreenRS1
 # HideNetworkFromLockScreen     # ShowNetworkOnLockScreen
@@ -247,8 +247,8 @@ EnableDeveloperMode             # DisableDeveloperMode
 # InstallSSHServer              # UninstallSSHServer
 # InstallTelnetClient           # UninstallTelnetClient
 # InstallNET23                  # UninstallNET23
-# SetPhotoViewerAssociation     # UnsetPhotoViewerAssociation
-AddPhotoViewerOpenWith          # RemovePhotoViewerOpenWith
+UnsetPhotoViewerAssociation # SetPhotoViewerAssociation     #
+RemovePhotoViewerOpenWith       # AddPhotoViewerOpenWith
 UninstallPDFPrinter             # InstallPDFPrinter
 UninstallXPSPrinter             # InstallXPSPrinter
 RemoveFaxPrinter                # AddFaxPrinter
