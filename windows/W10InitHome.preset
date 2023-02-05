@@ -247,7 +247,7 @@ EnableDeveloperMode             # DisableDeveloperMode
 # InstallSSHServer              # UninstallSSHServer
 # InstallTelnetClient           # UninstallTelnetClient
 # InstallNET23                  # UninstallNET23
-UnsetPhotoViewerAssociation # SetPhotoViewerAssociation     #
+UnsetPhotoViewerAssociation     # SetPhotoViewerAssociation
 RemovePhotoViewerOpenWith       # AddPhotoViewerOpenWith
 UninstallPDFPrinter             # InstallPDFPrinter
 UninstallXPSPrinter             # InstallXPSPrinter
