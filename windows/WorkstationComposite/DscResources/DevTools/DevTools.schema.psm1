@@ -467,6 +467,25 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallOpenJDK11
+    {
+        Name                    = 'openjdk11'
+        AutoUpgrade             = $AutoUpdate
+        Version                 = '11.0.16'
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallOpenJDK11-MS
+    {
+        Name                    = 'microsoft-openjdk11'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallOracleJDK # OracleJDK Latest
     {
         Name                    = 'oraclejdk'
