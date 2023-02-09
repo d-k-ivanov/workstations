@@ -1,9 +1,6 @@
 ﻿<#
 .SYNOPSIS
-Install virtualization tools.
-
-.DESCRIPTION
-Install virtualization tools.
+System Settings.
 
 .PARAMETER Credential
 User credental.
@@ -35,7 +32,7 @@ Configuration SystemSettings
     Import-DscResource -Module ComputerManagementDsc -Name Computer
 
 
-    # ============================== Computer ==============================
+    # ===== Computer ====
     if ($SetComputerName)
     {
         Computer SetName
@@ -46,7 +43,7 @@ Configuration SystemSettings
     }
 
 
-    # ============================== Internet Explorer =====================
+    # ===== Explorer ======================
     Registry DisableIEFirstRunCustomization
     {
         Ensure                  = "Present"
@@ -68,7 +65,7 @@ Configuration SystemSettings
     }
 
 
-    # ============================== Windows Features ======================
+    # ===== Features ================================
     WindowsOptionalFeature  EnableTelnetClientFeature
     {
         Name                 = 'TelnetClient'
@@ -136,5 +133,33 @@ Configuration SystemSettings
             Name                 = 'SearchEngine-Client-Package'
             Ensure               = 'Disable'
         }
+    }
+
+    # ===== Lockscreen =======================================================
+    New-Item 'C:\tools\wall' -ItemType Directory -ErrorAction SilentlyContinue
+    Script DownloadLockscreenWallpaper
+    {
+        SetScript = {
+            $lockPath = 'C:\tools\wall'
+            New-Item $lockPath -ItemType Directory -ErrorAction SilentlyContinue
+            $url = 'https://4kwallpapers.com/images/wallpapers/fushimi-inari-taisha-shrine-kyoto-japan-orange-4442x2514-5301.jpg'
+            Invoke-WebRequest -Uri $url -OutFile "${lockPath}\lock.jpg"
+        }
+        GetScript = { @{} }
+        TestScript = {
+            $lockPath = 'C:\tools\wall'
+            Test-Path "${lockPath}\lock.jpg"
+        }
+    }
+
+    Registry SetDefaultLockscreenWallpaper
+    {
+        Ensure                  = "Present"
+        Force                   = $true
+        Key                     = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization"
+        ValueName               = "LockScreenImage"
+        ValueData               = "C:\tools\wall\lock.jpg"
+        ValueType               = "String"
+        PsDscRunAsCredential    = $Credential
     }
 }
