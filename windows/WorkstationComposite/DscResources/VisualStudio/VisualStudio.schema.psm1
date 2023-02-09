@@ -128,5 +128,4 @@ Configuration VisualStudio
         TestScript              = { Test-Path "${Env:ProgramFiles(x86)}\Windows Kits\8.1" }
         DependsOn               = '[Script]DownloadWindows81Sdk'
     }
-
 }

@@ -227,7 +227,7 @@ Configuration SystemTools
     {
         Name                    = 'ripgrep'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
@@ -254,7 +254,7 @@ Configuration SystemTools
     {
         Name                    = 'swissfileknife'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
