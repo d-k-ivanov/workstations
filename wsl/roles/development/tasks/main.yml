@@ -12,6 +12,7 @@
 - name: Install Developmnet Tools
   ansible.builtin.apt:
     name:
+      - clang-format
       - clang-format-14
       - g++
       - gcc
