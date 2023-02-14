@@ -13,14 +13,28 @@
 
 - name: Add Jonas Groeger unoficial JetBrains PPA repository
   block:
-    - ansible.builtin.get_url:
+    - name: "Jetbrains APT Repo Key"
+      ansible.builtin.get_url:
         url: https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc
         dest: /etc/apt/trusted.gpg.d/jetbrains-ppa-jg.asc
 
-    - name: somerepo | apt source
+    - name: "Jetbrains APT Repo"
       ansible.builtin.apt_repository:
         repo: "deb [[arch=amd64 signed-by=/etc/apt/trusted.gpg.d/jetbrains-ppa-jg.asc] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com any main"
         filename: jetbrains-ppa-jg
+        state: present
+
+- name: Add Kitware repository
+  block:
+    - name: "Kitware APT Repo Key"
+      ansible.builtin.get_url:
+        url: https://apt.kitware.com/keys/kitware-archive-latest.asc
+        dest: /usr/share/keyrings/kitware-archive-latest.asc
+
+    - name: "Kitware APT Repo"
+      ansible.builtin.apt_repository:
+        repo: "deb [signed-by=/usr/share/keyrings/kitware-archive-latest.asc] https://apt.kitware.com/ubuntu/ {{ ansible_distribution_release }} main"
+        filename: kitware
         state: present
 
 - name: Update apt cache if the last one is more than 3600 seconds ago
