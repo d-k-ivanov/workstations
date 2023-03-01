@@ -56,13 +56,13 @@ DisableUWPBackgroundApps        # EnableUWPBackgroundApps
 SetUACLow                       # SetUACHigh
 # EnableSharingMappedDrives     # DisableSharingMappedDrives
 DisableAdminShares              # EnableAdminShares
-DisableFirewall                 # EnableFirewall
-HideDefenderTrayIcon            # ShowDefenderTrayIcon
-DisableDefender                 # EnableDefender
-DisableDefenderCloud            # EnableDefenderCloud
-DisableCtrldFolderAccess        # EnableCtrldFolderAccess
-DisableCIMemoryIntegrity        # EnableCIMemoryIntegrity
-DisableDefenderAppGuard         # EnableDefenderAppGuard
+# DisableFirewall               # EnableFirewall
+# ShowDefenderTrayIcon          # HideDefenderTrayIcon
+# EnableDefender                # DisableDefender
+# DisableDefenderCloud          # EnableDefenderCloud
+# DisableCtrldFolderAccess      # EnableCtrldFolderAccess
+# DisableCIMemoryIntegrity      # EnableCIMemoryIntegrity
+# DisableDefenderAppGuard       # EnableDefenderAppGuard
 HideAccountProtectionWarn       # ShowAccountProtectionWarn
 DisableDownloadBlocking         # EnableDownloadBlocking
 EnableScriptHost                # DisableScriptHost
@@ -147,7 +147,7 @@ ShowTrayIcons                   # HideTrayIcons
 # ShowSecondsInTaskbar          # HideSecondsFromTaskbar
 DisableSearchAppInStore         # EnableSearchAppInStore
 DisableNewAppPrompt             # EnableNewAppPrompt
-HideRecentlyAddedApps           # ShowRecentlyAddedApps
+ShowRecentlyAddedApps           # HideRecentlyAddedApps
 ShowMostUsedApps                # HideMostUsedApps
 SetWinXMenuPowerShell           # SetWinXMenuCmd
 SetControlPanelSmallIcons       # SetControlPanelLargeIcons     # SetControlPanelCategories
