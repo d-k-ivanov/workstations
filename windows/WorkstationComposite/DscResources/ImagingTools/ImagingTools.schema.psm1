@@ -78,14 +78,14 @@ Configuration ImagingTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallImagemagick
-    # {
-    #     Name                    = 'imagemagick'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallImagemagick
+    {
+        Name                    = 'imagemagick'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallInkscape
     {
