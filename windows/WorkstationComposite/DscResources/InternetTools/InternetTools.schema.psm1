@@ -59,9 +59,18 @@ Configuration InternetTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallYoutubeDl
+    cChocoPackageInstaller InstallYoutubeDl # Not working any more...
     {
         Name                    = 'youtube-dl'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallYtDlp
+    {
+        Name                    = 'yt-dlp'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
