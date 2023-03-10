@@ -12,8 +12,16 @@
 - name: Install Developmnet Tools
   ansible.builtin.apt:
     name:
+      - autoconf
+      - autoconf-archive
+      - autopoint
+      - build-essential
+      - bison
       - clang-format
       - clang-format-14
+      - clang-tidy
+      - coreutils
+      - cppcheck
       - cmake
       - g++
       - gcc
@@ -22,12 +30,31 @@
       - gperf
       - libtool
       - make
+      - mercurial
       - ninja-build
       - npm
       - openjdk-11-jdk
       - perl
       - pkg-config
       - qt5-qmake
+      - valgrind
+      - vera++
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install Libraries
+  ansible.builtin.apt:
+    name:
+      - libbz2-dev
+      - libc6-dev
+      - libffi-dev
+      - libgdbm-dev
+      - libncursesw5-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - libssl-dev
   register: task_result
   until: task_result is success
   retries: 10
