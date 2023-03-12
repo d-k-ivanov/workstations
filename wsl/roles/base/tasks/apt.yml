@@ -37,6 +37,11 @@
         filename: kitware
         state: present
 
+- name: Add KDE repository
+  ansible.builtin.apt_repository:
+    repo: ppa:kubuntu-ppa/backports
+    state: present
+
 - name: Update apt cache if the last one is more than 3600 seconds ago
   ansible.builtin.apt:
     update_cache: yes

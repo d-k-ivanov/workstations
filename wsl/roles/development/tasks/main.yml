@@ -15,14 +15,14 @@
       - autoconf
       - autoconf-archive
       - autopoint
-      - build-essential
       - bison
+      - build-essential
       - clang-format
       - clang-format-14
       - clang-tidy
+      - cmake
       - coreutils
       - cppcheck
-      - cmake
       - g++
       - gcc
       - gdb

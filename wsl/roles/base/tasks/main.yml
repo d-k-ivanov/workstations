@@ -30,6 +30,7 @@
       - ca-certificates
       - curl
       - dos2unix
+      - fuse
       - gnome-keyring
       - p7zip-full
       - seahorse
