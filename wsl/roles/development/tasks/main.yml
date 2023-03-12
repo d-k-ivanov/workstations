@@ -20,7 +20,10 @@
       - clang-format
       - clang-format-14
       - clang-tidy
+      - clazy
+      - clazy-tests
       - cmake
+      - codeblocks
       - coreutils
       - cppcheck
       - g++
