@@ -13,6 +13,7 @@
   apt:
     name:
       - code
+      - codeblocks
       - vim
   register: task_result
   until: task_result is success

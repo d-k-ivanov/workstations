@@ -23,7 +23,6 @@
       - clazy
       - clazy-tests
       - cmake
-      - codeblocks
       - coreutils
       - cppcheck
       - g++
@@ -31,6 +30,8 @@
       - gdb
       - git
       - gperf
+      - heaptrack
+      - heaptrack-gui
       - libtool
       - make
       - mercurial
