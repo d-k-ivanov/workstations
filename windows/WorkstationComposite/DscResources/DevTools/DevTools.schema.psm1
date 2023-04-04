@@ -62,6 +62,8 @@ Configuration DevTools
     {
         Name                    = 'conan'
         AutoUpgrade             = $AutoUpdate
+        Version                 = '1.58.0'
+        # Ensure                  = 'Absent'
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
