@@ -73,7 +73,7 @@ Configuration CommunicationTools
     {
         Name                    = 'whatsapp'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
