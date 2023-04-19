@@ -79,4 +79,13 @@ Configuration AudioTools
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
+
+    cChocoPackageInstaller InstallSpotify
+    {
+        Name                    = 'spotify'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 }
