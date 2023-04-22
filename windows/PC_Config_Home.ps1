@@ -80,6 +80,7 @@ if ($MyInvocation.InvocationName -ne '.')
             DevTools            DevTools            { Credential = $Credential; AutoUpdate = $Update }
             DevLangs            DevLangs            { Credential = $Credential; AutoUpdate = $Update }
             DocTools            DocTools            { Credential = $Credential; AutoUpdate = $Update }
+            Math                Math                { Credential = $Credential; AutoUpdate = $Update }
             GameDev             GameDev             { Credential = $Credential; AutoUpdate = $Update }
             # VisualStudio        VisualStudio        { Credential = $Credential; AutoUpdate = $Update }
 

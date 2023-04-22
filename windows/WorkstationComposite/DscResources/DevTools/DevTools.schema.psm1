@@ -78,16 +78,6 @@ Configuration DevTools
         PsDscRunAsCredential    = $Credential
     }
 
-    cChocoPackageInstaller InstallCoq
-    {
-        Name                    = 'coq'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = "[cChocoInstaller]InstallChocolatey"
-        chocoParams             = '--ignore-checksums'
-        PsDscRunAsCredential    = $Credential
-    }
-
     cChocoPackageInstaller InstallCutter
     {
         Name                    = 'cutter'
@@ -200,15 +190,6 @@ Configuration DevTools
     cChocoPackageInstaller InstallGitVersion
     {
         Name                    = 'gitversion.portable'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential    = $Credential
-    }
-
-    cChocoPackageInstaller InstallGnuplot
-    {
-        Name                    = 'gnuplot'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
@@ -336,15 +317,6 @@ Configuration DevTools
     cChocoPackageInstaller InstallMaven
     {
         Name                    = 'maven'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential    = $Credential
-    }
-
-    cChocoPackageInstaller InstallMaxima
-    {
-        Name                    = 'maxima'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
@@ -551,7 +523,6 @@ Configuration DevTools
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
     }
-
 
     cChocoPackageInstaller InstallSoapUI
     {
