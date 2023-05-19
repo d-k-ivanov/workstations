@@ -62,7 +62,7 @@ Configuration DevTools
     {
         Name                    = 'conan'
         AutoUpgrade             = $AutoUpdate
-        Version                 = '1.58.0'
+        # Version                 = '1.58.0'
         # Ensure                  = 'Absent'
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
@@ -500,6 +500,15 @@ Configuration DevTools
     cChocoPackageInstaller InstallRadare2
     {
         Name                    = 'radare2'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
+    cChocoPackageInstaller InstallReportGenerator
+    {
+        Name                    = 'reportgenerator.portable'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
