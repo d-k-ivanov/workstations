@@ -67,4 +67,13 @@ Configuration Browsers
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
+
+    cChocoPackageInstaller InstallPaleMoon
+    {
+        Name                    = 'palemoon'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 }
