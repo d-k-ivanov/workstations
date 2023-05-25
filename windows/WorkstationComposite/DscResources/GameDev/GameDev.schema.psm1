@@ -58,6 +58,15 @@ Configuration GameDev
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallMagicaVoxel
+    {
+        Name                    = 'magicavoxel'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     # cChocoPackageInstaller InstallUnity
     # {
     #     Name                    = 'unity'
