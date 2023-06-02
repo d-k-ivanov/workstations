@@ -154,7 +154,7 @@ Configuration DevLangs
         Name                    = 'miniconda3'
         Params                  = '/InstallationType:AllUsers /AddToPath:0 /RegisterPython:0'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
     }
