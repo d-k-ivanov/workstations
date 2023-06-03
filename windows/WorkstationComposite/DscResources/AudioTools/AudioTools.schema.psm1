@@ -84,7 +84,7 @@ Configuration AudioTools
     {
         Name                    = 'spotify'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         chocoParams             = "--ignore-checksums"
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
