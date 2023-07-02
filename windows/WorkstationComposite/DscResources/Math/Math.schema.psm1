@@ -95,4 +95,13 @@ Configuration Math
         DependsOn               = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential    = $Credential
     }
+
+    cChocoPackageInstaller InstallSpeedCrunch
+    {
+        Name                    = 'speedcrunch'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
 }
