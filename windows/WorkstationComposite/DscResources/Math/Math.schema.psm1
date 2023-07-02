@@ -50,6 +50,16 @@ Configuration Math
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallFree42
+    {
+        Name                    = 'free42'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        chocoParams             = '--ignore-checksums'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallGnuplot
     {
         Name                    = 'gnuplot'
