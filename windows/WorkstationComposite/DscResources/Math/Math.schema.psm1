@@ -87,6 +87,15 @@ Configuration Math
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallQalculate
+    {
+        Name                    = 'qalculate'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallSciLab
     {
         Name                    = 'scilab'
