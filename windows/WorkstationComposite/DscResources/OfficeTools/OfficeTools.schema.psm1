@@ -198,6 +198,15 @@ Configuration OfficeTools
     #     PsDscRunAsCredential    = $Credential
     # }
 
+    cChocoPackageInstaller InstallPdf24
+    {
+        Name                    = 'pdf24'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallPdfsam
     {
         Name                    = 'pdfsam'
