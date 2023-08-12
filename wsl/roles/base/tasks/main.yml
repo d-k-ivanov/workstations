@@ -32,6 +32,7 @@
       - dos2unix
       - fuse
       - gnome-keyring
+      - jq
       - p7zip-full
       - seahorse
       - texinfo
