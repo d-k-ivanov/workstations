@@ -258,7 +258,7 @@ Configuration OfficeTools
     {
         Name                    = 'windjview'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
+        Ensure                  = 'Absent'
         chocoParams             = '--ignore-checksums'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
