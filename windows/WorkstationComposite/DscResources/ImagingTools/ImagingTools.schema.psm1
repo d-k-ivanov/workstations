@@ -150,6 +150,15 @@ Configuration ImagingTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallProcessing
+    {
+        Name                    = 'processing'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallXnView
     {
         Name                    = 'XnView'
