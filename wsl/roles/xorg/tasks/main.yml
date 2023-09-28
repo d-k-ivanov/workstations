@@ -12,6 +12,8 @@
 - name: Install X Libs and Utils
   apt:
     name:
+      - libdrm-dev
+      - libegl1-mesa-dev
       - libgl-dev
       - libgl1-mesa-dev
       - libglu1-mesa-dev
