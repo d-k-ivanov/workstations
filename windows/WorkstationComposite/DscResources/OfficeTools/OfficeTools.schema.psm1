@@ -254,6 +254,15 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
+    # cChocoPackageInstaller InstallThunderbird
+    # {
+    #     Name                    = 'thunderbird'
+    #     AutoUpgrade             = $AutoUpdate
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
+
     cChocoPackageInstaller InstallWindjview
     {
         Name                    = 'windjview'
