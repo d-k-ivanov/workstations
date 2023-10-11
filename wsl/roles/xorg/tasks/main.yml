@@ -58,6 +58,7 @@
       - libxxf86vm-dev
       - mesa-common-dev
       - mesa-utils
+      - x11-apps
       - xvfb
   register: task_result
   until: task_result is success
