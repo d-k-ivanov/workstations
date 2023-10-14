@@ -80,6 +80,15 @@ Configuration AudioTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallMp3DirectCut
+    {
+        Name                    = 'mp3directcut'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallSpotify
     {
         Name                    = 'spotify'
