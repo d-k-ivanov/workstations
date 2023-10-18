@@ -41,6 +41,7 @@
       - mercurial
       - ninja-build
       - npm
+      - openjdk-8-jdk
       - openjdk-11-jdk
       - perl
       - pkg-config
