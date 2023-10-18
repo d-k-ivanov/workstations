@@ -33,6 +33,7 @@
       - fuse
       - gnome-keyring
       - jq
+      - mc
       - p7zip-full
       - seahorse
       - texinfo
