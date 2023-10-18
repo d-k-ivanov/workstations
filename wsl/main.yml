@@ -5,6 +5,7 @@
     - { role: base,         tags: ['base']        }
     - { role: desktop,      tags: ['desktop']     }
     - { role: development,  tags: ['development'] }
+    - { role: devops,       tags: ['devops']      }
     - { role: python,       tags: ['python']      }
     - { role: tools,        tags: ['tools']       }
     - { role: xorg,         tags: ['xorg']        }
