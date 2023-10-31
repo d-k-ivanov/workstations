@@ -71,6 +71,17 @@ Configuration AudioTools
         PsDscRunAsCredential    = $Credential
     }
 
+    # Download from here updated version:
+    # https://sourceforge.net/projects/equalizerapo/files/
+    # cChocoPackageInstaller InstallEqualizerAPO
+    # {
+    #     Name                    = 'equalizerapo'
+    #     AutoUpgrade             = $AutoUpdate
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
+
     cChocoPackageInstaller InstallFoobar2000
     {
         Name                    = 'foobar2000'
@@ -88,6 +99,18 @@ Configuration AudioTools
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
+
+    # Download from here updated version:
+    # https://www.roomeqwizard.com/
+    # cChocoPackageInstaller InstallRoomEqWizard
+    # {
+    #     Name                    = 'roomeqwizard'
+    #     AutoUpgrade             = $AutoUpdate
+    #     Ensure                  = 'Present'
+    #     chocoParams             = "--ignore-checksums"
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
 
     cChocoPackageInstaller InstallSpotify
     {
