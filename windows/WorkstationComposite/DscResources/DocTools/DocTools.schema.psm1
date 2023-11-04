@@ -66,5 +66,14 @@ Configuration DocTools
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
+
+    cChocoPackageInstaller InstallZotero
+    {
+        Name                    = 'zotero'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 }
 
