@@ -41,15 +41,6 @@ Configuration Browsers
     #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
     # }
 
-    cChocoPackageInstaller InstallBrave
-    {
-        Name                    = 'brave'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
-    }
-
     cChocoPackageInstaller InstallGoogleChrome
     {
         Name                    = 'googlechrome'
