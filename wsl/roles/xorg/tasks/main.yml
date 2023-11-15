@@ -52,13 +52,16 @@
       - libxcb-xv0-dev
       - libxcb-xvmc0-dev
       - libxcb1-dev
+      - libxcursor-dev
       - libxi-dev
+      - libxinerama-dev
       - libxkbcommon-x11-dev
       - libxrender-dev
       - libxxf86vm-dev
       - mesa-common-dev
       - mesa-utils
       - x11-apps
+      - xorg-dev
       - xvfb
   register: task_result
   until: task_result is success
