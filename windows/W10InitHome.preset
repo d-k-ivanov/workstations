@@ -78,13 +78,13 @@ SetCurrentNetworkPrivate        # SetCurrentNetworkPublic
 # SetUnknownNetworksPrivate     # SetUnknownNetworksPublic
 # DisableNetDevicesAutoInst     # EnableNetDevicesAutoInst
 DisableHomeGroups               # EnableHomeGroups
-DisableSMB1                     # EnableSMB1
-# DisableSMBServer              # EnableSMBServer
-# DisableNetBIOS                # EnableNetBIOS
+EnableSMB1                      # DisableSMB1
+EnableSMBServer                 # DisableSMBServer
+EnableNetBIOS                   # DisableNetBIOS
 # DisableLLMNR                  # EnableLLMNR
 # DisableLLDP                   # EnableLLDP
 # DisableLLTD                   # EnableLLTD
-# DisableMSNetClient            # EnableMSNetClient
+# EnableMSNetClient             # DisableMSNetClient
 # DisableQoS                    # EnableQoS
 # DisableIPv4                   # EnableIPv4
 # DisableIPv6                   # EnableIPv6
