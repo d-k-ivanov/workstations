@@ -18,6 +18,7 @@
       - libgl-dev
       - libgl1-mesa-dev
       - libglu1-mesa-dev
+      - libx11-dev
       - libx11-xcb-dev
       - libxcb-composite0-dev
       - libxcb-cursor-dev
@@ -54,6 +55,8 @@
       - libxcb-xvmc0-dev
       - libxcb1-dev
       - libxcursor-dev
+      - libxext-dev
+      - libxft-dev
       - libxi-dev
       - libxinerama-dev
       - libxkbcommon-x11-dev
