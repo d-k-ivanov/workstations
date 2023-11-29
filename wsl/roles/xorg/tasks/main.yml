@@ -24,6 +24,7 @@
       - libxcb-cursor-dev
       - libxcb-damage0-dev
       - libxcb-dpms0-dev
+      - libgles2-mesa-dev
       - libxcb-dri2-0-dev
       - libxcb-dri3-dev
       - libxcb-ewmh-dev
@@ -51,6 +52,8 @@
       - libxcb-xkb-dev
       - libxcb-xrm-dev
       - libxcb-xtest0-dev
+      - libxdamage-dev
+      - libxrandr-dev
       - libxcb-xv0-dev
       - libxcb-xvmc0-dev
       - libxcb1-dev
@@ -67,6 +70,7 @@
       - mesa-utils
       - x11-apps
       - xorg-dev
+      - xrandr
       - xvfb
   register: task_result
   until: task_result is success
