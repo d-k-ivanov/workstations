@@ -12,6 +12,7 @@
 - name: Install X Libs and Utils
   apt:
     name:
+      - libdbus-1-dev
       - libdrm-dev
       - libegl1-mesa-dev
       - libgl-dev
@@ -57,6 +58,7 @@
       - libxinerama-dev
       - libxkbcommon-x11-dev
       - libxrender-dev
+      - libxtst-dev
       - libxxf86vm-dev
       - mesa-common-dev
       - mesa-utils
