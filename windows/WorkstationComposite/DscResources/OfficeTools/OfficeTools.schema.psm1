@@ -170,6 +170,15 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallLibreOffice
+    {
+        Name                    = 'libreoffice-fresh'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallMiKTeX
     {
         Name                    = 'miktex.install'
@@ -254,14 +263,14 @@ Configuration OfficeTools
         PsDscRunAsCredential    = $Credential
     }
 
-    # cChocoPackageInstaller InstallThunderbird
-    # {
-    #     Name                    = 'thunderbird'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
-    # }
+    cChocoPackageInstaller InstallThunderbird
+    {
+        Name                    = 'thunderbird'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Absent'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
 
     cChocoPackageInstaller InstallWindjview
     {
