@@ -96,6 +96,15 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallChocoCPUZ
+    {
+        Name                    = 'cpu-z'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallDoublecmd
     {
         Name                    = 'doublecmd'
@@ -151,6 +160,15 @@ Configuration SystemTools
         PsDscRunAsCredential    = $Credential
     }
 
+    cChocoPackageInstaller InstallGPUZ
+    {
+        Name                    = 'gpu-z'
+        AutoUpgrade             = $AutoUpdate
+        Ensure                  = 'Present'
+        DependsOn               = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential    = $Credential
+    }
+
     cChocoPackageInstaller InstallGreenshot
     {
         Name                    = 'greenshot'
@@ -173,7 +191,7 @@ Configuration SystemTools
     {
         Name                    = 'hwinfo'
         AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
+        Ensure                  = 'Present'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
