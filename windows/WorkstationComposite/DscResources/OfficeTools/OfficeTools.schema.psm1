@@ -250,6 +250,7 @@ Configuration OfficeTools
         Name                    = 'texlive'
         AutoUpgrade             = $AutoUpdate
         Ensure                  = 'Present'
+        chocoParams             = '/scheme:full'
         DependsOn               = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential    = $Credential
     }
