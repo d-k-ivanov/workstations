@@ -69,6 +69,16 @@ Configuration VideoTools
         PsDscRunAsCredential    = $Credential
     }
 
+    # Install from GitHub.
+    # cChocoPackageInstaller InstallOpenToonz
+    # {
+    #     Name                    = 'opentoonz'
+    #     AutoUpgrade             = $AutoUpdate
+    #     Ensure                  = 'Present'
+    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential    = $Credential
+    # }
+
     cChocoPackageInstaller InstallScreentogif
     {
         Name                    = 'screentogif'
