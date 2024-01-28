@@ -47,6 +47,25 @@
         filename: kitware
         state: present
 
+- name: Add LunarG Vulkan repository
+  block:
+    - name: "LunarG Repo Key"
+      ansible.builtin.get_url:
+        url: https://packages.lunarg.com/lunarg-signing-key-pub.asc
+        dest: /etc/apt/trusted.gpg.d/lunarg.asc
+
+    - name: "Vulkan 1.3.275 Repo"
+      ansible.builtin.apt_repository:
+        repo: "deb [[arch=amd64 signed-by=/etc/apt/trusted.gpg.d/lunarg.asc] https://packages.lunarg.com/vulkan/1.3.275 jammy main"
+        filename: lunarg-vulkan-1.3.275-jammy-deb
+        state: present
+
+    - name: "Vulkan 1.3.275 Repo SRC"
+      ansible.builtin.apt_repository:
+        repo: "deb-src [[arch=amd64 signed-by=/etc/apt/trusted.gpg.d/lunarg.asc] https://packages.lunarg.com/vulkan/1.3.275 jammy main"
+        filename: lunarg-vulkan-1.3.275-jammy-deb-src
+        state: present
+
 - name: Add KDE repository
   ansible.builtin.apt_repository:
     repo: ppa:kubuntu-ppa/backports
