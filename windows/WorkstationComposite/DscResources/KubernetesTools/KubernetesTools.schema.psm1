@@ -23,149 +23,148 @@ Configuration KubernetesTools
         [switch] $AutoUpdate
     )
 
-    Import-DscResource -ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
 
     cChocoinstaller InstallChocolatey
     {
-        InstallDir              = 'C:\ProgramData\chocolatey'
+        InstallDir = 'C:\ProgramData\chocolatey'
     }
 
     ## Template
     # cChocoPackageInstaller InstallPackageName
     # {
-    #     Name                    = 'PackageName'
-    #     Version                 = ''
-    #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present | Absent'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     Name        = 'PackageName'
+    #     Version     = ''
+    #     Params      = ''
+    #     AutoUpgrade = $AutoUpdate
+    #     Ensure      = 'Present | Absent'
+    #     DependsOn   = '[cChocoInstaller]InstallChocolatey'
     # }
 
     cChocoPackageInstaller InstallEKSctl
     {
-        Name                    = 'eksctl'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'eksctl'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubergrunt
     {
-        Name                    = 'kubergrunt'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'kubergrunt'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesCli
     {
-        Name                    = 'kubernetes-cli'
-        AutoUpgrade             = $AutoUpdate
+        Name                 = 'kubernetes-cli'
+        AutoUpgrade          = $AutoUpdate
         # Version                 = '1.19.5'
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesHelm
     {
-        Name                    = 'kubernetes-helm'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'kubernetes-helm'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesK9S
     {
-        Name                    = 'k9s'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'k9s'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesKompose
     {
-        Name                    = 'kubernetes-kompose'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'kubernetes-kompose'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesKops
     {
-        Name                    = 'kubernetes-kops'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'kubernetes-kops'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesKustomize
     {
-        Name                    = 'kustomize'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'kustomize'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesKrew
     {
-        Name                    = 'krew'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'krew'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesKubectx
     {
-        Name                    = 'kubectx'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'kubectx'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesKubens
     {
-        Name                    = 'kubens'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'kubens'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesKubeval
     {
-        Name                    = 'kubeval'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'kubeval'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallKubernetesLens
     {
-        Name                    = 'lens'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'lens'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallMinikube
     {
-        Name                    = 'minikube'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'minikube'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 }

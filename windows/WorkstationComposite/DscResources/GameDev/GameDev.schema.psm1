@@ -1,9 +1,9 @@
 ﻿<#
 .SYNOPSIS
-Install various development tools.
+Install various game development tools.
 
 .DESCRIPTION
-Install various development tools.
+Install various game development tools.
 
 .PARAMETER Credential
 User credental.
@@ -25,55 +25,37 @@ Configuration GameDev
 
     Import-DscResource -ModuleName cChoco
 
-    cChocoinstaller InstallChocolatey {
-        InstallDir              = "C:\ProgramData\chocolatey"
+    cChocoinstaller InstallChocolatey
+    {
+        InstallDir = "C:\ProgramData\chocolatey"
     }
 
     ## Template
     # cChocoPackageInstaller InstallPackageName
     # {
-    #     Name                    = 'PackageName'
-    #     Version                 = ''
-    #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present | Absent'
-    #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
+    #     Name        = 'PackageName'
+    #     Version     = ''
+    #     Params      = ''
+    #     AutoUpgrade = $AutoUpdate
+    #     Ensure      = 'Present | Absent'
+    #     DependsOn   = "[cChocoInstaller]InstallChocolatey"
     # }
-
-    cChocoPackageInstaller InstallBlender
-    {
-        Name                    = 'blender'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential    = $Credential
-    }
 
     cChocoPackageInstaller InstallGodotMono
     {
-        Name                    = 'godot-mono'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential    = $Credential
-    }
-
-    cChocoPackageInstaller InstallMagicaVoxel
-    {
-        Name                    = 'magicavoxel'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'godot-mono'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
     }
 
     # cChocoPackageInstaller InstallUnity
     # {
-    #     Name                    = 'unity'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
-    #     PsDscRunAsCredential    = $Credential
+    #     Name                 = 'unity'
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Present'
+    #     DependsOn            = "[cChocoInstaller]InstallChocolatey"
+    #     PsDscRunAsCredential = $Credential
     # }
 }
-

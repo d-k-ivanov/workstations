@@ -12,7 +12,6 @@ Array of package names.
 User credental.
 #>
 
-
 Configuration AddChocoPackages
 {
     Param
@@ -27,27 +26,29 @@ Configuration AddChocoPackages
 
     Import-DscResource -ModuleName cChoco
 
-    cChocoinstaller InstallChocolatey {
+    cChocoinstaller InstallChocolatey
+    {
         InstallDir = "C:\ProgramData\chocolatey"
     }
 
     ## Template
     # cChocoPackageInstaller InstallPackageName
     # {
-    #     Name                    = 'PackageName'
-    #     Version                 = ''
-    #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present | Absent'
-    #     DependsOn               = "[cChocoInstaller]InstallChocolatey"
+    #     Name        = 'PackageName'
+    #     Version     = ''
+    #     Params      = ''
+    #     AutoUpgrade = $AutoUpdate
+    #     Ensure      = 'Present | Absent'
+    #     DependsOn   = "[cChocoInstaller]InstallChocolatey"
     # }
 
-    foreach ($p in $Packages) {
+    foreach ($p in $Packages)
+    {
         cChocoPackageInstaller $p
         {
-            Name                    = "$p"
-            DependsOn               = "[cChocoInstaller]InstallChocolatey"
-            PsDscRunAsCredential    = $Credential
+            Name                 = "$p"
+            DependsOn            = "[cChocoInstaller]InstallChocolatey"
+            PsDscRunAsCredential = $Credential
         }
     }
 }

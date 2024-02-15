@@ -7,4 +7,3 @@
     Copyright            = 'NA'
     DscResourcesToExport = @('ImagingTools')
 }
-

@@ -1,9 +1,9 @@
-﻿<#
+<#
 .SYNOPSIS
-Install various browsers.
+Install various modelling tools.
 
 .DESCRIPTION
-Install various browsers.
+Install various modelling tools.
 
 .PARAMETER Credential
 User credental.
@@ -12,7 +12,7 @@ User credental.
 Upgrade installed packages to their latest versions.
 #>
 
-Configuration Browsers
+Configuration Modelling
 {
     Param
     (
@@ -27,7 +27,7 @@ Configuration Browsers
 
     cChocoinstaller InstallChocolatey
     {
-        InstallDir = 'C:\ProgramData\chocolatey'
+        InstallDir = "C:\ProgramData\chocolatey"
     }
 
     ## Template
@@ -38,33 +38,42 @@ Configuration Browsers
     #     Params      = ''
     #     AutoUpgrade = $AutoUpdate
     #     Ensure      = 'Present | Absent'
-    #     DependsOn   = '[cChocoInstaller]InstallChocolatey'
+    #     DependsOn   = "[cChocoInstaller]InstallChocolatey"
     # }
 
-    cChocoPackageInstaller InstallGoogleChrome
+    cChocoPackageInstaller InstallBlender
     {
-        Name                 = 'googlechrome'
+        Name                 = 'blender'
         AutoUpgrade          = $AutoUpdate
         Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallLibrecad
+    {
+        Name                 = 'librecad'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
 
-    cChocoPackageInstaller InstallFirefox
+    cChocoPackageInstaller InstallMagicaVoxel
     {
-        Name                 = 'firefox'
+        Name                 = 'magicavoxel'
         AutoUpgrade          = $AutoUpdate
         Ensure               = 'Present'
-        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
 
-    cChocoPackageInstaller InstallPaleMoon
+    cChocoPackageInstaller InstallOpenSCAD
     {
-        Name                 = 'palemoon'
+        Name                 = 'openscad.install'
         AutoUpgrade          = $AutoUpdate
         Ensure               = 'Present'
-        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
 }

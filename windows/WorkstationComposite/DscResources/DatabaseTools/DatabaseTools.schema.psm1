@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-Install Database tools.
+Install various database tools.
 
 .DESCRIPTION
-Install Database tools.
+Install various database tools.
 
 .PARAMETER Credential
 User credental.
@@ -23,76 +23,75 @@ Configuration DatabaseTools
         [switch] $AutoUpdate
     )
 
-    Import-DscResource -ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
 
     cChocoinstaller InstallChocolatey
     {
-        InstallDir              = 'C:\ProgramData\chocolatey'
+        InstallDir = 'C:\ProgramData\chocolatey'
     }
 
     ## Template
     # cChocoPackageInstaller InstallPackageName
     # {
-    #     Name                    = 'PackageName'
-    #     Version                 = ''
-    #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present | Absent'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
+    #     Name        = 'PackageName'
+    #     Version     = ''
+    #     Params      = ''
+    #     AutoUpgrade = $AutoUpdate
+    #     Ensure      = 'Present | Absent'
+    #     DependsOn   = '[cChocoInstaller]InstallChocolatey'
     # }
 
     cChocoPackageInstaller InstallDBeaver
     {
-        Name                    = 'dbeaver'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'dbeaver'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallMysqlWorkbench
     {
-        Name                    = 'mysql.workbench'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'mysql.workbench'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallPgAdmin4
     {
-        Name                    = 'pgadmin4'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'pgadmin4'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallRobo3t
     {
-        Name                    = 'robo3t'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'robo3t'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallSQLiteBrowser
     {
-        Name                    = 'sqlitebrowser.install'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'sqlitebrowser.install'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallSQServerManagementStudio
     {
-        Name                    = 'sql-server-management-studio'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'sql-server-management-studio'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 }

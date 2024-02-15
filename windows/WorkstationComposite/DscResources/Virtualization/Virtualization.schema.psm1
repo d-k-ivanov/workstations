@@ -1,9 +1,9 @@
 ﻿<#
 .SYNOPSIS
-Install virtualization tools.
+Install various virtualization tools.
 
 .DESCRIPTION
-Install virtualization tools.
+Install various virtualization tools.
 
 .PARAMETER Credential
 User credental.
@@ -20,80 +20,79 @@ Configuration Virtualization
         [switch] $AutoUpdate
     )
 
-    Import-DscResource -ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName cChoco
 
     WindowsOptionalFeature  EnableHyperVFeature
     {
-        Name                 = 'Microsoft-Hyper-V'
-        Ensure               = 'Enable'
+        Name   = 'Microsoft-Hyper-V'
+        Ensure = 'Enable'
     }
 
     WindowsOptionalFeature  EnableHyperVAllFeature
     {
-        Name                 = 'Microsoft-Hyper-V-All'
-        Ensure               = 'Enable'
+        Name   = 'Microsoft-Hyper-V-All'
+        Ensure = 'Enable'
     }
 
     WindowsOptionalFeature  EnableHyperVToolsAllFeature
     {
-        Name                 = 'Microsoft-Hyper-V-Tools-All'
-        Ensure               = 'Enable'
+        Name   = 'Microsoft-Hyper-V-Tools-All'
+        Ensure = 'Enable'
     }
 
     WindowsOptionalFeature  EnableVirtualMachineFeature
     {
-        Name                 = 'VirtualMachinePlatform'
-        Ensure               = 'Enable'
+        Name   = 'VirtualMachinePlatform'
+        Ensure = 'Enable'
     }
 
     WindowsOptionalFeature  EnableHypervisorPlatformFeature
     {
-        Name                 = 'HypervisorPlatform'
-        Ensure               = 'Enable'
+        Name   = 'HypervisorPlatform'
+        Ensure = 'Enable'
     }
 
     WindowsOptionalFeature  EnableWindowsSubsystemForLinuxFeature
     {
-        Name                 = 'Microsoft-Windows-Subsystem-Linux'
-        Ensure               = 'Enable'
+        Name   = 'Microsoft-Windows-Subsystem-Linux'
+        Ensure = 'Enable'
     }
 
     WindowsOptionalFeature  EnableContainersFeature
     {
-        Name                 = 'Containers'
-        Ensure               = 'Enable'
+        Name   = 'Containers'
+        Ensure = 'Enable'
     }
 
     WindowsOptionalFeature  EnableSandboxFeature
     {
-        Name                 = 'Containers-DisposableClientVM'
-        Ensure               = 'Enable'
+        Name   = 'Containers-DisposableClientVM'
+        Ensure = 'Enable'
     }
 
     cChocoinstaller InstallChocolatey
     {
-        InstallDir              = 'C:\ProgramData\chocolatey'
+        InstallDir = 'C:\ProgramData\chocolatey'
     }
 
     ## Template
     # cChocoPackageInstaller InstallPackageName
     # {
-    #     Name                    = 'PackageName'
-    #     Version                 = ''
-    #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present | Absent'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
+    #     Name                 = 'PackageName'
+    #     Version              = ''
+    #     Params               = ''
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Present | Absent'
+    #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential = $Credential
     # }
 
     # cChocoPackageInstaller InstallDockerDesktop
     # {
-    #     Name                    = 'docker-desktop'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
-    #     PsDscRunAsCredential    = $Credential
+    #     Name                 = 'docker-desktop'
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Present'
+    #     DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
+    #     PsDscRunAsCredential = $Credential
     # }
 }

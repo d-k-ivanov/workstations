@@ -1,9 +1,9 @@
 ﻿<#
 .SYNOPSIS
-Install system tools.
+Install varous system tools.
 
 .DESCRIPTION
-Install system tools.
+Install varous system tools.
 
 .PARAMETER Credential
 User credental.
@@ -27,307 +27,307 @@ Configuration SystemTools
 
     cChocoinstaller InstallChocolatey
     {
-        InstallDir              = 'C:\ProgramData\chocolatey'
+        InstallDir = 'C:\ProgramData\chocolatey'
     }
 
     ## Template
     # cChocoPackageInstaller InstallPackageName
     # {
-    #     Name                    = 'PackageName'
-    #     Version                 = ''
-    #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present | Absent'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
+    #     Name                 = 'PackageName'
+    #     Version              = ''
+    #     Params               = ''
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Present | Absent'
+    #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential = $Credential
     # }
 
     cChocoPackageInstaller Install7zip
     {
-        Name                    = '7zip.install'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = '7zip.install'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallBusybox
     {
-        Name                    = 'busybox'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'busybox'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallCcleaner
     {
-        Name                    = 'ccleaner'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'ccleaner'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallCrystalDiskInfo
     {
-        Name                    = 'crystaldiskinfo.install'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'crystaldiskinfo.install'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallCrystalDiskMark
     {
-        Name                    = 'crystaldiskmark'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'crystaldiskmark'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallChocoCleaner
     {
-        Name                    = 'choco-cleaner'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'choco-cleaner'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallChocoCPUZ
     {
-        Name                    = 'cpu-z'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'cpu-z'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallDoublecmd
     {
-        Name                    = 'doublecmd'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'doublecmd'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallDU
     {
-        Name                    = 'du'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'du'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallEncfs4Win
     {
-        Name                    = 'encfs4win'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'encfs4win'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallFar
     {
-        Name                    = 'far'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'far'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
 
     cChocoPackageInstaller InstallFlameshot
     {
-        Name                    = 'flameshot'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'flameshot'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallGNUCoreUtils
     {
-        Name                    = 'gnuwin32-coreutils.install'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'gnuwin32-coreutils.install'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallGPUZ
     {
-        Name                    = 'gpu-z'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'gpu-z'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallGreenshot
     {
-        Name                    = 'greenshot'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'greenshot'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallGrep
     {
-        Name                    = 'grep'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'grep'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallHwinfo
     {
-        Name                    = 'hwinfo'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'hwinfo'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallImdiskToolkit
     {
-        Name                    = 'imdisk-toolkit'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'imdisk-toolkit'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallLibreHardwareMonitor
     {
-        Name                    = 'libre-hardware-monitor'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'libre-hardware-monitor'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallLockHunter
     {
-        Name                    = 'lockhunter'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'lockhunter'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallPowerToys
     {
-        Name                    = 'powertoys'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'powertoys'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallRapidee
     {
-        Name                    = 'rapidee'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'rapidee'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallRipgrep
     {
-        Name                    = 'ripgrep'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'ripgrep'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallShareX
     {
-        Name                    = 'sharex'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'sharex'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallSophiApp
     {
-        Name                    = 'sophiapp'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'sophiapp'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallSwissFileKnife
     {
-        Name                    = 'swissfileknife'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'swissfileknife'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallSysInternals
     {
-        Name                    = 'sysinternals'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'sysinternals'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallTrayStatus
     {
-        Name                    = 'traystatus.install'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'traystatus.install'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallTree
     {
-        Name                    = 'tree'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'tree'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallWarp
     {
-        Name                    = 'warp'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Absent'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'warp'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallWinDirStat
     {
-        Name                    = 'windirstat'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'windirstat'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallWinFSP
     {
-        Name                    = 'winfsp'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'winfsp'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 }

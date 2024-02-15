@@ -1,9 +1,9 @@
 ﻿<#
 .SYNOPSIS
-Install office tools.
+Install various video tools.
 
 .DESCRIPTION
-Install office tools.
+Install various video tools.
 
 .PARAMETER Credential
 User credental.
@@ -27,91 +27,91 @@ Configuration VideoTools
 
     cChocoinstaller InstallChocolatey
     {
-        InstallDir              = 'C:\ProgramData\chocolatey'
+        InstallDir = 'C:\ProgramData\chocolatey'
     }
 
     ## Template
     # cChocoPackageInstaller InstallPackageName
     # {
-    #     Name                    = 'PackageName'
-    #     Version                 = ''
-    #     Params                  = ''
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present | Absent'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
+    #     Name                 = 'PackageName'
+    #     Version              = ''
+    #     Params               = ''
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Present | Absent'
+    #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential = $Credential
     # }
 
     cChocoPackageInstaller InstallFraps
     {
-        Name                    = 'fraps'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'fraps'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallNatron
     {
-        Name                    = 'natron'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'natron'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallOBSStudio
     {
-        Name                    = 'obs-studio'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'obs-studio'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallOpenshot
     {
-        Name                    = 'openshot'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'openshot'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     # Install from GitHub.
     # cChocoPackageInstaller InstallOpenToonz
     # {
-    #     Name                    = 'opentoonz'
-    #     AutoUpgrade             = $AutoUpdate
-    #     Ensure                  = 'Present'
-    #     DependsOn               = '[cChocoInstaller]InstallChocolatey'
-    #     PsDscRunAsCredential    = $Credential
+    #     Name                 = 'opentoonz'
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Present'
+    #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential = $Credential
     # }
 
     cChocoPackageInstaller InstallScreentogif
     {
-        Name                    = 'screentogif'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'screentogif'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallShotcut
     {
-        Name                    = 'shotcut.install'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'shotcut.install'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 
     cChocoPackageInstaller InstallVlc
     {
-        Name                    = 'vlc'
-        AutoUpgrade             = $AutoUpdate
-        Ensure                  = 'Present'
-        DependsOn               = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential    = $Credential
+        Name                 = 'vlc'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
     }
 }
