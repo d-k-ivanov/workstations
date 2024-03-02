@@ -59,11 +59,12 @@ Configuration Modelling
         PsDscRunAsCredential = $Credential
     }
 
+    # Install from here: hhttps://ephtracy.github.io/index.html?page=mv_main
     cChocoPackageInstaller InstallMagicaVoxel
     {
         Name                 = 'magicavoxel'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
