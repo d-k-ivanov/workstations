@@ -9,7 +9,7 @@
 #   retries: 10
 #   delay: 2
 
-- name: Install Developmnet Tools
+- name: Install DevOps Tools
   ansible.builtin.apt:
     name:
       - awscli

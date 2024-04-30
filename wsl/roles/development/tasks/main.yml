@@ -19,7 +19,6 @@
       - build-essential
       - clang
       - clang-format
-      - clang-format-14
       - clang-tidy
       - clazy
       - clazy-tests
@@ -43,12 +42,14 @@
       - npm
       - openjdk-8-jdk
       - openjdk-11-jdk
+      - openjdk-17-jdk
+      - openjdk-21-jdk
       - perl
       - pkg-config
       - qt5-qmake
       - valgrind
       - vera++
-      - vulkan-sdk
+      # - vulkan-sdk
   register: task_result
   until: task_result is success
   retries: 10
