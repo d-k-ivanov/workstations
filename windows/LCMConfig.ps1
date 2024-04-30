@@ -35,10 +35,10 @@ LCM Configuration.
             {
                 ActionAfterReboot              = 'ContinueConfiguration'
                 ConfigurationMode              = 'ApplyAndAutoCorrect'
-                ConfigurationModeFrequencyMins = 15
+                ConfigurationModeFrequencyMins = 1440    # Check for updates once a day
                 RebootNodeIfNeeded             = $false
+                # RefreshFrequencyMins         = 30
                 RefreshMode                    = 'Push'
-                RefreshFrequencyMins           = 30
             }
         }
     }
