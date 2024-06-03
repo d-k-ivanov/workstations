@@ -116,7 +116,7 @@ Process
             # ------------------------------------------------------------
             # Win10-Initial-Setup-Script
             # ------------------------------------------------------------
-            . "${PSScriptRoot}\W10Init${WorkstationType}.ps1"
+            # . "${PSScriptRoot}\W10Init${WorkstationType}.ps1"
 
             # ------------------------------------------------------------
             # Disable Windows Defender One More Time
