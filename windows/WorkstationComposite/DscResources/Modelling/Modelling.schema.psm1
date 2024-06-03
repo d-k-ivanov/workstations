@@ -69,6 +69,25 @@ Configuration Modelling
         PsDscRunAsCredential = $Credential
     }
 
+    cChocoPackageInstaller InstallMeshLab
+    {
+        Name                 = 'meshlab'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        chocoParams          = "--force"
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallMeshMixer
+    {
+        Name                 = 'meshmixer'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallOpenSCAD
     {
         Name                 = 'openscad.install'

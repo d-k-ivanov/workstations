@@ -88,6 +88,15 @@ Configuration AudioTools
         PsDscRunAsCredential = $Credential
     }
 
+    cChocoPackageInstaller InstallFoobar2000EncoderPack
+    {
+        Name                 = 'freeencoderpack'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallMp3DirectCut
     {
         Name                 = 'mp3directcut'
