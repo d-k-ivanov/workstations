@@ -1166,6 +1166,28 @@
         "UpdatesIgnored": false,
         "IgnoredVersion": ""
       }
+    },
+    {
+      "Id": "Nvidia.CUDA",
+      "Name": "NVIDIA CUDA Toolkit",
+      "Version": "12.4.1",
+      "Source": "winget",
+      "ManagerName": "Winget",
+      "InstallationOptions": {
+        "SkipHashCheck": false,
+        "InteractiveInstallation": false,
+        "RunAsAdministrator": false,
+        "Architecture": "",
+        "InstallationScope": "",
+        "CustomParameters": [],
+        "PreRelease": false,
+        "CustomInstallLocation": "",
+        "Version": ""
+      },
+      "Updates": {
+        "UpdatesIgnored": false,
+        "IgnoredVersion": ""
+      }
     }
   ],
   "incompatible_packages_info": "Incompatible packages cannot be installed from WingetUI, but they have been listed here for logging purposes.",

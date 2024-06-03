@@ -2,9 +2,9 @@
   "export_version": 2,
   "packages": [
     {
-      "Id": "Dropbox.Dropbox",
-      "Name": "Dropbox",
-      "Version": "200.4.7134",
+      "Id": "Coq.CoqPlatform",
+      "Name": "Coq",
+      "Version": "8.14.1",
       "Source": "winget",
       "ManagerName": "Winget",
       "InstallationOptions": {
@@ -24,9 +24,31 @@
       }
     },
     {
-      "Id": "qBittorrent.qBittorrent",
-      "Name": "qBittorrent",
-      "Version": "4.6.5",
+      "Id": "free42",
+      "Name": "Free42",
+      "Version": "3.1.8",
+      "Source": "community",
+      "ManagerName": "Chocolatey",
+      "InstallationOptions": {
+        "SkipHashCheck": false,
+        "InteractiveInstallation": false,
+        "RunAsAdministrator": false,
+        "Architecture": "",
+        "InstallationScope": "",
+        "CustomParameters": [],
+        "PreRelease": false,
+        "CustomInstallLocation": "",
+        "Version": ""
+      },
+      "Updates": {
+        "UpdatesIgnored": false,
+        "IgnoredVersion": ""
+      }
+    },
+    {
+      "Id": "gnuplot.gnuplot",
+      "Name": "gnuplot",
+      "Version": "5.4",
       "Source": "winget",
       "ManagerName": "Winget",
       "InstallationOptions": {
@@ -46,9 +68,9 @@
       }
     },
     {
-      "Id": "TorProject.TorBrowser",
-      "Name": "Tor Browser",
-      "Version": "13.0.15",
+      "Id": "MaximaTeam.Maxima",
+      "Name": "Maxima computer algebra system",
+      "Version": "5.47.0",
       "Source": "winget",
       "ManagerName": "Winget",
       "InstallationOptions": {
@@ -68,9 +90,9 @@
       }
     },
     {
-      "Id": "yt-dlp.yt-dlp",
-      "Name": "yt-dlp",
-      "Version": "2024.05.27",
+      "Id": "GNU.Octave",
+      "Name": "Octave",
+      "Version": "9.1.0",
       "Source": "winget",
       "ManagerName": "Winget",
       "InstallationOptions": {
@@ -90,9 +112,31 @@
       }
     },
     {
-      "Id": "Google.Chrome",
-      "Name": "Google Chrome",
-      "Version": "125.0.6422.142",
+      "Id": "qalculate",
+      "Name": "Qalculate",
+      "Version": "5.1.1",
+      "Source": "community",
+      "ManagerName": "Chocolatey",
+      "InstallationOptions": {
+        "SkipHashCheck": false,
+        "InteractiveInstallation": false,
+        "RunAsAdministrator": false,
+        "Architecture": "",
+        "InstallationScope": "",
+        "CustomParameters": [],
+        "PreRelease": false,
+        "CustomInstallLocation": "",
+        "Version": ""
+      },
+      "Updates": {
+        "UpdatesIgnored": false,
+        "IgnoredVersion": ""
+      }
+    },
+    {
+      "Id": "Scilab.Scilab",
+      "Name": "scilab",
+      "Version": "2024.0.0",
       "Source": "winget",
       "ManagerName": "Winget",
       "InstallationOptions": {
@@ -112,9 +156,9 @@
       }
     },
     {
-      "Id": "Mozilla.Firefox",
-      "Name": "Mozilla Firefox",
-      "Version": "126.0.1",
+      "Id": "SpeedCrunch.SpeedCrunch",
+      "Name": "SpeedCrunch",
+      "Version": "0.12",
       "Source": "winget",
       "ManagerName": "Winget",
       "InstallationOptions": {
@@ -134,31 +178,9 @@
       }
     },
     {
-      "Id": "MoonchildProductions.PaleMoon",
-      "Name": "Pale Moon",
-      "Version": "33.1.0",
-      "Source": "winget",
-      "ManagerName": "Winget",
-      "InstallationOptions": {
-        "SkipHashCheck": false,
-        "InteractiveInstallation": false,
-        "RunAsAdministrator": false,
-        "Architecture": "",
-        "InstallationScope": "",
-        "CustomParameters": [],
-        "PreRelease": false,
-        "CustomInstallLocation": "",
-        "Version": ""
-      },
-      "Updates": {
-        "UpdatesIgnored": false,
-        "IgnoredVersion": ""
-      }
-    },
-    {
-      "Id": "Microsoft.Skype",
-      "Name": "Skype",
-      "Version": "8.120",
+      "Id": "GeoGebra.CalculatorSuite",
+      "Name": "GeoGebra Calculator Suite",
+      "Version": "6.0.843",
       "Source": "winget",
       "ManagerName": "Winget",
       "InstallationOptions": {
