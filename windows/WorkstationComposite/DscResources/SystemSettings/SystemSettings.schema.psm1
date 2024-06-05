@@ -115,11 +115,11 @@ Configuration SystemSettings
         Ensure = 'Disable'
     }
 
-    WindowsOptionalFeature  DisableWindowsMediaPlayerFeature
-    {
-        Name   = 'WindowsMediaPlayer'
-        Ensure = 'Disable'
-    }
+    # WindowsOptionalFeature  DisableWindowsMediaPlayerFeature
+    # {
+    #     Name   = 'WindowsMediaPlayer'
+    #     Ensure = 'Disable'
+    # }
 
     If ($DisableSearchEngine)
     {

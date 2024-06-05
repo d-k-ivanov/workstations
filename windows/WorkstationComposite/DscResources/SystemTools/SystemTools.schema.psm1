@@ -218,6 +218,7 @@ Configuration SystemTools
     {
         Name                 = 'lockhunter'
         AutoUpgrade          = $AutoUpdate
+        chocoParams          = "--ignore-checksums"
         Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
