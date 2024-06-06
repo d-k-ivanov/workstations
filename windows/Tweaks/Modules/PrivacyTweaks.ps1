@@ -6,7 +6,6 @@
 # Note: This tweak also disables the possibility to join Windows Insider Program and breaks Microsoft Intune enrollment/deployment, as these feaures require Telemetry data.
 # Windows Update control panel may show message "Your device is at risk because it's out of date and missing important security and quality updates. Let's get you back on track so Windows can run more securely. Select this button to get going".
 # In such case, enable telemetry, run Windows update and then disable telemetry again.
-# See also https://github.com/Disassembler0/Win10-Initial-Setup-Script/issues/57 and https://github.com/Disassembler0/Win10-Initial-Setup-Script/issues/92
 Function DisableTelemetry
 {
     Write-Output "Disabling Telemetry..."
@@ -562,7 +561,7 @@ Function SetP2PUpdateInternet
 }
 
 # Disable Windows Update P2P delivery optimization completely
-# Warning: Completely disabling delivery optimization can break Windows Store downloads - see https://github.com/Disassembler0/Win10-Initial-Setup-Script/issues/281
+# Warning: Completely disabling delivery optimization can break Windows Store downloads
 Function SetP2PUpdateDisable
 {
     Write-Output "Disabling Windows Update P2P optimization..."

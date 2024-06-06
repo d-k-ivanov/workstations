@@ -143,7 +143,7 @@ Function EnableAutoRestartSignOn
 }
 
 # Disable Shared Experiences - Applicable since 1703. Not applicable to Server
-# This setting can be set also via GPO, however doing so causes reset of Start Menu cache. See https://github.com/Disassembler0/Win10-Initial-Setup-Script/issues/145 for details
+# This setting can be set also via GPO, however doing so causes reset of Start Menu cache.
 Function DisableSharedExperiences
 {
     Write-Output "Disabling Shared Experiences..."

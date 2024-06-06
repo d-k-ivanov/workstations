@@ -92,7 +92,7 @@ Function EnableSMB1
 }
 
 # Disable SMB Server - Completely disables file and printer sharing, but leaves the system able to connect to another SMB server as a client
-# Note: Do not run this if you plan to use Docker and Shared Drives (as it uses SMB internally), see https://github.com/Disassembler0/Win10-Initial-Setup-Script/issues/216
+# Note: Do not run this if you plan to use Docker and Shared Drives (as it uses SMB internally)
 Function DisableSMBServer
 {
     Write-Output "Disabling SMB Server..."
@@ -229,7 +229,6 @@ Function EnableIPv6
 
 # Disable Network Connectivity Status Indicator active test
 # Note: This may reduce the ability of OS and other components to determine internet access, however protects against a specific type of zero-click attack.
-# See https://github.com/Disassembler0/Win10-Initial-Setup-Script/pull/111 for details
 Function DisableNCSIProbe
 {
     Write-Output "Disabling Network Connectivity Status Indicator (NCSI) active test..."

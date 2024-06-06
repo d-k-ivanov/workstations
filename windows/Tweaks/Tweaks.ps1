@@ -1,11 +1,3 @@
-##########
-# Win 10 / Server 2016 / Server 2019 Initial Setup Script - Main execution loop
-# Author: Disassembler <disassembler@dasm.cz>
-# Modified: Dmitry Ivanov <d.k.ivanov@live.com>
-# Version: v3.10.1, 2021-01-11
-# Source (Archived): https://github.com/Disassembler0/Win10-Initial-Setup-Script
-##########
-
 # Relaunch the script with administrator privileges
 Function RequireAdmin
 {
