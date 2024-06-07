@@ -54,7 +54,7 @@ Configuration KubernetesTools
     {
         Name                 = 'kubergrunt'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -82,7 +82,7 @@ Configuration KubernetesTools
     {
         Name                 = 'k9s'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -91,7 +91,7 @@ Configuration KubernetesTools
     {
         Name                 = 'kubernetes-kompose'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -109,7 +109,7 @@ Configuration KubernetesTools
     {
         Name                 = 'kustomize'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -118,7 +118,7 @@ Configuration KubernetesTools
     {
         Name                 = 'krew'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -127,7 +127,7 @@ Configuration KubernetesTools
     {
         Name                 = 'kubectx'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -136,7 +136,7 @@ Configuration KubernetesTools
     {
         Name                 = 'kubens'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -145,7 +145,7 @@ Configuration KubernetesTools
     {
         Name                 = 'kubeval'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -163,7 +163,7 @@ Configuration KubernetesTools
     {
         Name                 = 'minikube'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }

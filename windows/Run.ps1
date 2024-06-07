@@ -116,7 +116,7 @@ Process
             # ------------------------------------------------------------
             # Tweaks
             # ------------------------------------------------------------
-            # . "${PSScriptRoot}\Tweaks${WorkstationType}.ps1"
+            . "${PSScriptRoot}\Tweaks${WorkstationType}.ps1"
 
             # ------------------------------------------------------------
             # Disable Windows Defender One More Time

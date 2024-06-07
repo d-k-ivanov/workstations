@@ -182,7 +182,7 @@ Configuration OfficeTools
     # {
     #     Name                 = 'office365business'
     #     AutoUpgrade          = $AutoUpdate
-    #     Ensure               = 'Present'
+    #     Ensure               = 'Absent'
     #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential = $Credential
     # }
@@ -248,7 +248,7 @@ Configuration OfficeTools
     {
         Name                 = 'xpdf-utils'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }

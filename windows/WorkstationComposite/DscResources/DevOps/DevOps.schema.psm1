@@ -54,7 +54,7 @@ Configuration DevOps
     {
         Name                 = 'act-cli'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -111,7 +111,7 @@ Configuration DevOps
     {
         Name                 = 'bitwarden'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -120,7 +120,7 @@ Configuration DevOps
     # {
     #     Name                 = 'bitwarden-cli'
     #     AutoUpgrade          = $AutoUpdate
-    #     Ensure               = 'Present'
+    #     Ensure               = 'Absent'
     #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential = $Credential
     # }
@@ -147,7 +147,7 @@ Configuration DevOps
     {
         Name                 = 'codecov'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -397,7 +397,7 @@ Configuration DevOps
     {
         Name                 = 'tightvnc'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -433,7 +433,7 @@ Configuration DevOps
     {
         Name                 = 'vcxsrv'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }

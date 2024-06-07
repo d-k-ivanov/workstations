@@ -164,7 +164,7 @@ Configuration DevLangs
     # {
     #     Name                 = 'pyenv-win'
     #     AutoUpgrade          = $AutoUpdate
-    #     Ensure               = 'Present'
+    #     Ensure               = 'Absent'
     #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential = $Credential
     # }
@@ -193,7 +193,7 @@ Configuration DevLangs
     {
         Name                 = 'ruby'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }

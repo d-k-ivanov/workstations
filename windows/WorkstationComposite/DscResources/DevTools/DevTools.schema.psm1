@@ -45,7 +45,7 @@ Configuration DevTools
     {
         Name                 = 'bazel'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -54,7 +54,7 @@ Configuration DevTools
     {
         Name                 = 'buckaroo'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -83,7 +83,7 @@ Configuration DevTools
     {
         Name                 = 'cutter'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -165,7 +165,7 @@ Configuration DevTools
     {
         Name                 = 'ghidra'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -219,7 +219,7 @@ Configuration DevTools
     {
         Name                 = 'hg'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -247,7 +247,7 @@ Configuration DevTools
     # {
     #     Name                 = 'jetbrainstoolbox'
     #     AutoUpgrade          = $AutoUpdate
-    #     Ensure               = 'Present'
+    #     Ensure               = 'Absent'
     #     DependsOn            = "[cChocoInstaller]InstallChocolatey"
     #     PsDscRunAsCredential = $Credential
     # }
@@ -265,7 +265,7 @@ Configuration DevTools
     {
         Name                 = 'ida-free'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -391,7 +391,7 @@ Configuration DevTools
     {
         Name                 = 'ollydbg'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -474,7 +474,7 @@ Configuration DevTools
     {
         Name                 = 'pmd'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -483,7 +483,7 @@ Configuration DevTools
     {
         Name                 = 'postman'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -492,7 +492,7 @@ Configuration DevTools
     {
         Name                 = 'radare2'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -501,7 +501,7 @@ Configuration DevTools
     {
         Name                 = 'reportgenerator.portable'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -594,7 +594,7 @@ Configuration DevTools
     {
         Name                 = 'wixtoolset'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -603,7 +603,7 @@ Configuration DevTools
     {
         Name                 = 'x64dbg.portable'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -612,7 +612,7 @@ Configuration DevTools
     {
         Name                 = 'xml-notepad'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -621,7 +621,7 @@ Configuration DevTools
     {
         Name                 = 'yarn'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }

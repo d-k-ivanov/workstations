@@ -74,7 +74,7 @@ Configuration AudioTools
     # {
     #     Name                 = 'equalizerapo'
     #     AutoUpgrade          = $AutoUpdate
-    #     Ensure               = 'Present'
+    #     Ensure               = 'Absent'
     #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential = $Credential
     # }
@@ -101,7 +101,7 @@ Configuration AudioTools
     {
         Name                 = 'mp3directcut'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -112,7 +112,7 @@ Configuration AudioTools
     # {
     #     Name                 = 'roomeqwizard'
     #     AutoUpgrade          = $AutoUpdate
-    #     Ensure               = 'Present'
+    #     Ensure               = 'Absent'
     #     chocoParams          = "--ignore-checksums"
     #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential = $Credential

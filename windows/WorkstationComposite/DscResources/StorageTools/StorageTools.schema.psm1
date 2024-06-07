@@ -55,7 +55,7 @@ Configuration StorageTools
     # {
     #     Name                 = 'ext2fsd'
     #     AutoUpgrade          = $AutoUpdate
-    #     Ensure               = 'Present'
+    #     Ensure               = 'Absent'
     #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
     #     PsDscRunAsCredential = $Credential
     # }

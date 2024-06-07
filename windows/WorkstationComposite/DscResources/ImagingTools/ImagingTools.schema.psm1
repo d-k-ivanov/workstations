@@ -45,7 +45,7 @@ Configuration ImagingTools
     {
         Name                 = 'drawpile'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -55,7 +55,7 @@ Configuration ImagingTools
     {
         Name                 = 'fsviewer'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -154,7 +154,7 @@ Configuration ImagingTools
     {
         Name                 = 'processing'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -164,7 +164,7 @@ Configuration ImagingTools
         Name                 = 'XnView'
         AutoUpgrade          = $AutoUpdate
         chocoParams          = "--ignore-checksums"
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
