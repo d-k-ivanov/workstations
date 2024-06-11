@@ -19,7 +19,7 @@ if ($MyInvocation.InvocationName -ne '.')
 # Base
 # ------------------------------------------------------------
 . "${PSScriptRoot}\Functions.ps1"
-. "${PSScriptRoot}\Secrets.Home.ps1"
+. "${PSScriptRoot}\Secrets.DNEO17.ps1"
 
 # ------------------------------------------------------------
 # Configuration Data
@@ -66,7 +66,7 @@ if ($MyInvocation.InvocationName -ne '.')
             SystemSettings      SystemSettings
             {
                 Credential          = $Credential
-                ComputerName        = 'divanov-dev'
+                ComputerName        = 'DNEO17'
                 ComputerWorkgroup   = $Workgroup
                 SetComputerName     = $true
                 DisableSearchEngine = $true

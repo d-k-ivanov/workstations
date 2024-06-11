@@ -1,4 +1,5 @@
 <#
+<#
 .SYNOPSIS
 Workstation Configuration.
 
@@ -19,7 +20,7 @@ if ($MyInvocation.InvocationName -ne '.')
 # Base
 # ------------------------------------------------------------
 . "${PSScriptRoot}\Functions.ps1"
-. "${PSScriptRoot}\Secrets.ES01N112.ps1"
+. "${PSScriptRoot}\Secrets.D7510.ps1"
 
 # ------------------------------------------------------------
 # Configuration Data
@@ -66,7 +67,9 @@ if ($MyInvocation.InvocationName -ne '.')
             SystemSettings      SystemSettings
             {
                 Credential          = $Credential
-                SetComputerName     = $false
+                ComputerName        = 'D7510'
+                ComputerWorkgroup   = $Workgroup
+                SetComputerName     = $true
                 DisableSearchEngine = $true
                 AutoUpdate          = $Update
             }
@@ -93,9 +96,9 @@ if ($MyInvocation.InvocationName -ne '.')
             Browsers            Browsers            { Credential = $Credential; AutoUpdate = $Update }
             CommunicationTools  CommunicationTools  { Credential = $Credential; AutoUpdate = $Update }
             ImagingTools        ImagingTools        { Credential = $Credential; AutoUpdate = $Update }
-            # InternetTools       InternetTools       { Credential = $Credential; AutoUpdate = $Update }
+            InternetTools       InternetTools       { Credential = $Credential; AutoUpdate = $Update }
             OfficeTools         OfficeTools         { Credential = $Credential; AutoUpdate = $Update }
-            # StorageTools        StorageTools        { Credential = $Credential; AutoUpdate = $Update }
+            StorageTools        StorageTools        { Credential = $Credential; AutoUpdate = $Update }
             VideoTools          VideoTools          { Credential = $Credential; AutoUpdate = $Update }
         }
     }

@@ -241,7 +241,7 @@ EnableDeveloperMode             # DisableDeveloperMode
 # InstallNET23                  # UninstallNET23
 UnsetPhotoViewerAssociation     # SetPhotoViewerAssociation
 RemovePhotoViewerOpenWith       # AddPhotoViewerOpenWith
-InstallPDFPrinter               # UninstallPDFPrinter
+UninstallPDFPrinter             # InstallPDFPrinter
 UninstallXPSPrinter             # InstallXPSPrinter
 RemoveFaxPrinter                # AddFaxPrinter
 # UninstallFaxAndScan            InstallFaxAndScan

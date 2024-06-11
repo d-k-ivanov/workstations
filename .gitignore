@@ -18,5 +18,6 @@ venv
 # Windows
 windows/Run.log
 windows/Secrets.ps1
-windows/Secrets.Home.ps1
+windows/Secrets.D7510.ps1
+windows/Secrets.DNEO17.ps1
 windows/Secrets.Work.ps1

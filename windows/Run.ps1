@@ -111,7 +111,7 @@ Process
     # ------------------------------------------------------------
     switch ($WorkstationType)
     {
-        "Home"
+        "D7510"
         {
             # ------------------------------------------------------------
             # Tweaks
@@ -124,7 +124,23 @@ Process
             # . "${PSScriptRoot}\DefenderDisable.ps1"
             # . "${PSScriptRoot}\DefenderEnable.ps1"
 
-            . "${PSScriptRoot}\PC_Config_Home.ps1"
+            . "${PSScriptRoot}\PC_Config_D7510.ps1"
+            break
+        }
+        "DNEO17"
+        {
+            # ------------------------------------------------------------
+            # Tweaks
+            # ------------------------------------------------------------
+            . "${PSScriptRoot}\Tweaks${WorkstationType}.ps1"
+
+            # ------------------------------------------------------------
+            # Disable Windows Defender One More Time
+            # ------------------------------------------------------------
+            # . "${PSScriptRoot}\DefenderDisable.ps1"
+            # . "${PSScriptRoot}\DefenderEnable.ps1"
+
+            . "${PSScriptRoot}\PC_Config_DNEO17.ps1"
             break
         }
         "Work"
