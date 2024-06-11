@@ -137,7 +137,7 @@ Configuration SystemSettings
         SetScript  = {
             $lockPath = 'C:\tools\wall'
             New-Item $lockPath -ItemType Directory -ErrorAction SilentlyContinue
-            $url = 'https://4kwallpapers.com/images/wallpapers/greebles-render-cgi-3d-background-cyan-background-glowing-3840x2160-2196.jpg'
+            $url = 'https://4kwallpapers.com/images/wallpapers/hot-spring-autumn-dusk-illuminated-traditional-outdoor-3840x2160-6961.jpg'
             Invoke-WebRequest -Uri $url -OutFile "${lockPath}\lock.jpg"
         }
         GetScript  = { @{} }
