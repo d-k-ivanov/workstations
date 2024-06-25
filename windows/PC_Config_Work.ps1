@@ -19,7 +19,7 @@ if ($MyInvocation.InvocationName -ne '.')
 # Base
 # ------------------------------------------------------------
 . "${PSScriptRoot}\Functions.ps1"
-. "${PSScriptRoot}\Secrets.ES01N112.ps1"
+. "${PSScriptRoot}\Secrets.Work.ps1"
 
 # ------------------------------------------------------------
 # Configuration Data
