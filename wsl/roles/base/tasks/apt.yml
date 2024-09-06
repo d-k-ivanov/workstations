@@ -69,6 +69,19 @@
         filename: lunarg-vulkan-1.3.275-jammy-deb-src
         state: present
 
+- name: Add HashiCorp repository
+  block:
+    - name: "HashiCorp APT Repo Key"
+      ansible.builtin.get_url:
+        url: https://apt.releases.hashicorp.com/gpg
+        dest: /etc/apt/keyrings/hashicorp-archive-keyring.asc
+
+    - name: "HashiCorp APT Repo"
+      ansible.builtin.apt_repository:
+        repo: "deb [signed-by=/etc/apt/keyrings/hashicorp-archive-keyring.asc] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+        filename: hashicorp
+        state: present
+
 - name: Add KDE repository
   ansible.builtin.apt_repository:
     repo: ppa:kubuntu-ppa/backports
