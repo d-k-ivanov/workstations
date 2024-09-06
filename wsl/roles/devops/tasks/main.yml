@@ -1,20 +1,36 @@
 ---
-# - name: Remove conflicting packages
-#   ansible.builtin.apt:
-#     name:
-#       - xxx
-#     state: absent
-#   register: task_result
-#   until: task_result is success
-#   retries: 10
-#   delay: 2
+- name: Remove conflicting packages
+  ansible.builtin.apt:
+    name:
+      - awscli
+    state: absent
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
 
 - name: Install DevOps Tools
   ansible.builtin.apt:
     name:
-      - awscli
       - terraform
   register: task_result
   until: task_result is success
   retries: 10
   delay: 2
+
+- name: Install AWS CLI
+  block:
+    - name: "Download awscliv2 installer"
+      unarchive:
+        src: "https://awscli.amazonaws.com/awscli-exe-linux-{{ ansible_architecture }}.zip"
+        dest: "/tmp"
+        remote_src: true
+        creates: '/tmp/aws'
+        mode: 0755
+
+    - name: Run the installer.
+      command:
+      args:
+        cmd: "/tmp/aws/install"
+        creates: /usr/local/bin/aws
+      become: true
