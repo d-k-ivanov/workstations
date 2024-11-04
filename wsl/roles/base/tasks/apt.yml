@@ -1,14 +1,16 @@
 ---
-- name: Add Google Chrome repository Apt Key
-  ansible.builtin.apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: 4EB27DB2A3B88B8B
-
 - name: Add Google Chrome repository
-  ansible.builtin.apt_repository:
-    repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
-    filename: google-chrome
-    state: present
+  block:
+    - name: "Add Google Chrome repository Apt Key"
+      ansible.builtin.apt_key:
+        url: "https://dl.google.com/linux/linux_signing_key.pub"
+        state: present
+
+    - name: "Add Google Chrome repository"
+      ansible.builtin.apt_repository:
+        repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+        filename: google-chrome
+        state: present
 
 - name: Add Microsoft VS Code repository Apt Key
   ansible.builtin.apt_key:
