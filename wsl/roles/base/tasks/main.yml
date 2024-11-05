@@ -35,6 +35,7 @@
       - jq
       - mc
       - p7zip-full
+      - pciutils
       - seahorse
       - texinfo
       - unzip
