@@ -9,12 +9,24 @@
 #   retries: 10
 #   delay: 2
 
-- name: Install Cloud Storages
+- name: Remove old OneDrive repository
+  ansible.builtin.apt_repository:
+    repo: ppa:yann1ck/onedrive
+    state: absent
+
+- name: Add OpenSUSE OneDrive repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by=/usr/share/keyrings/obs-onedrive.gpg] https://download.opensuse.org/repositories/home:/npreining:/debian-ubuntu-onedrive/xUbuntu_24.04/ ./"
+    filename: onedrive.list
+    state: present
+
+- name: Install OneDrive and Related Packages
   ansible.builtin.apt:
     name:
       - libfuse2
       - onedrive
     install_recommends: false
+    update_cache: yes
   register: task_result
   until: task_result is success
   retries: 10

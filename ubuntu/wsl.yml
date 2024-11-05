@@ -3,7 +3,7 @@
   become: true
   roles:
     - { role: base,         tags: ['base']        }
-    - { role: desktop,      tags: ['desktop']     }
+    - { role: browsers,     tags: ['browsers']    }
     - { role: development,  tags: ['development'] }
     - { role: devops,       tags: ['devops']      }
     - { role: python,       tags: ['python']      }

@@ -161,7 +161,7 @@ def symbol(key, color=None):  # type: (str, str) -> str
             :const:`~beautiful_output._symbol`.
         color (:obj:`str`, optional): a string representing the color that
             should be used to diplay the given symbol
-
+    
     Returns:
         :obj:`str`: A unicode character representing a symbol for the given
         ``key``.
@@ -175,10 +175,10 @@ def symbol(key, color=None):  # type: (str, str) -> str
 def iscollection(obj):
     """Helper method to check if a given object is not only a Squence, but also
     **not** any kind of string.
-
+    
     Args:
         obj (object): The object used on the validation.
-
+    
     Returns:
         bool: True if the object is a collection and False otherwise.
     """
@@ -195,7 +195,7 @@ def stringtruncate(
 ):
     """Truncates a giving string using the configuration passed as arguments to
     this function.
-
+    
     Args:
         value (:obj:`str` or int): A value to be truncated if it has more
             characters than is allowed.
@@ -211,7 +211,7 @@ def stringtruncate(
             " ".
         truncate_placeholder (:obj:`str`, optional): The text used to represents
             the truncation. Defaults to "[...]".
-
+    
     Returns:
         The original string truncated to ``width`` and aligned according to
         ``justfn``.
@@ -250,7 +250,7 @@ def dictsum(totals, values):
     Note:
         The type of the keys in the dictionaries are irrelevant, and this
         method will re-use anything that is used there.
-
+    
     Args:
         totals (:obj:`dict` of :obj:`object` to int): The total cached
             from previous calls of this functions.
@@ -287,7 +287,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     :data:`~ansible.constants.DISPLAY_ARGS_TO_STDOUT` and
     :data:`~ansible.constants.DISPLAY_SKIPPED_HOSTS`, and it wraps lines at
     column ``80`` to make it possible to read the output on any monitor.
-
+    
     In addition to that, the ``beautiful_output`` plugin implements a crud
     version of a Bus to allow other plugins to flush the output when necessary.
 
@@ -345,7 +345,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
 
 
     .. _Ansible Callback documentation:
-        https://docs.ansible.com/ansible/latest/plugins/callback.html
+        https://docs.ansible.com/ansible/latest/plugins/callback.html    
     .. _Ansible developping plugins documentation:
         https://docs.ansible.com/ansible/latest/dev_guide/developing_plugins.html#callback-plugins
     .. _Ansible Callback plugins from Ansible Core:
@@ -375,7 +375,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
         Any ``msg`` that is displayed with this method, will be displayed
         without any changes on the screen, and will have all the ANSI escape
         sequences stripped before displaying it on the logs.
-
+        
         Args:
             msg (:obj:`str`): The message to be displayed.
             color (:obj:`str`, optional): A string representing a color on the
@@ -406,7 +406,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
         It will display a tag line, only if the CLI arguments are **not**
         displayed, since the tags used to filters which tasks to run are passed
         in the command line as arguments
-
+        
         Args:
             playbook (:obj:`~ansible.playbook.Playbook`): The running playbook.
 
@@ -479,7 +479,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
         fact, we short-circuit the method to not do anything if the play used
         to display the banner is the same as the one used on the last time the
         method was called.
-
+        
         Args:
             play (:obj:`~ansible.playbook.play.Play`): the current play being
                 executed on this playbook.
@@ -510,7 +510,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
 
     def v2_playbook_on_task_start(self, task, is_conditional):
         """Displays a title for the giving ``task`.
-
+        
         Args:
             task (:obj:`~ansible.playbook.task.Task`): The task to have its
                 title printed in the console.
@@ -530,7 +530,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     def v2_playbook_on_handler_task_start(self, task):
         """Displays a title for the giving ``task`, marking it as a handler
         task.
-
+        
         Args:
             task (:obj:`~ansible.playbook.task.Task`): The task to have its
                 title printed in the console.
@@ -549,7 +549,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     def v2_runner_retry(self, result):
         """Displays the retrying steps Ansible is doing to make the task run
         on the host.
-
+        
         Args:
             result (:obj:`~ansible.executor.task_result.TaskResult`): The result
                 object representing the previous attempt to run the task.
@@ -602,7 +602,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
 
         This method will also be called every time an **item**, on a loop task,
         is processed.
-
+        
         Args:
             result (:obj:`~ansible.executor.task_result.TaskResult`): The result
                 object representing the execution of a task.
@@ -840,7 +840,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     def _handle_exception(self, result, use_stderr=False):
         """When an exception happen during the execution of a playbook, this
         method is called to display information about the crash.
-
+        
         Args:
             result (:obj:`~ansible.executor.task_result.TaskResult`): The result
                 object representing the execution of a task.
@@ -865,14 +865,14 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     def _is_run_verbose(self, result=None, verbosity=0):
         """Verify if the current run is verbose (should display information)
         respecting the given ``verbosity``.
-
+        
         Args:
             result (:obj:`~ansible.executor.task_result.TaskResult, optional):
                 The task result to be considered when checking verbosity.
                 Defaults to None.
             verbosity (int, optional): The verbosity level that this method
                 will check against. Defaults to 0.
-
+        
         Returns:
             bool: True if the display verbosity cresses the treshold defined by
                 the argument ``verbosity``, False otherwise.
@@ -884,7 +884,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
 
     def _display_cli_arguments(self, indent=2):
         """Display all arguments passed to Ansible in the command line.
-
+        
         Args:
             indent (int, optional): Number of spaces to indent the whole
                 arguments block. Defaults to 2.
@@ -920,11 +920,11 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
         This means that it will collect all the tags available in the giving
         ``playbook``, and filter against the tags passed to Ansible in the
         command line.
-
+        
         Args:
             playbook (:obj:`~ansible.playbook.Playbook`): The playbook where to
                 look for tags.
-
+        
         Returns:
             :obj:`list` of :obj:`str`: A sorted list of all tags used in this
             run.
@@ -953,7 +953,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
 
         To make the tag line be more aesthetic pleasant, it will be displayed
         with a blank line before and after each line used.
-
+        
         Args:
             playbook (:obj:`~ansible.playbook.Playbook`): The playbook where to
                 look for tags.
@@ -988,7 +988,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
 
     def _get_task_display_name(self, task):
         """Caches the giving ``task`` name if it is not an include task.
-
+        
         Args:
             task (:obj:`~ansible.playbook.task.Task`): The task object that
                 will be analyzed.
@@ -1005,7 +1005,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     def _preprocess_result(self, result):
         """Check the result object for errors or warning. It also make sure
         that the task title buffer is flushed and displayed to the user.
-
+        
         Args:
             result (:obj:`~ansible.executor.task_result.TaskResult`): The result
                 object representing the execution of a task.
@@ -1022,13 +1022,13 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
 
     def _get_host_string(self, result, prefix=""):
         """Retrieve the host from the giving ``result``.
-
+        
         Args:
             result (:obj:`~ansible.executor.task_result.TaskResult`): The result
                 object representing the execution of a task.
             prefix (:obj:`str`, optional): A prefix added to the host name.
                 Defaults to "".
-
+        
         Returns:
             A formatted version of the host that generated the ``result``.
         """
@@ -1052,7 +1052,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
         This method also converts all session titles that are present in the
         :const:`` dictionary, to their string representation. The rest of the
         titles are simply capitalized for aestetics purpose.
-
+        
         Args:
             result (:obj:`~ansible.executor.task_result.TaskResult`): The result
                 object representing the execution of a task.
@@ -1062,7 +1062,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
                 a symbol_char in the beginning of the output. Defaults to "".
             indent (int, optional): How many character the text generated from
                 the ``result`` should be indended to. Defaults to 2.
-
+        
         Returns:
             :obj:`str`: A formated version of the giving ``result``.
         """
@@ -1100,7 +1100,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
 
         This method is a simplified version of the
         :meth:`_process_result_output` method where no sessions are printed.
-
+        
         Args:
             result (:obj:`~ansible.executor.task_result.TaskResult`): The result
                 object representing the execution of a task.
@@ -1110,7 +1110,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
                 a symbol_char in the beginning of the output. Defaults to "".
             indent (int, optional): How many character the text generated from
                 the ``result`` should be indended to. Defaults to 2.
-
+        
         Returns:
             :obj:`str`: A formated version of the giving ``result``.
         """
@@ -1139,7 +1139,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     def _display_summary_table_separator(self, symbol_char):
         """Displays a line separating header or footer from content on the
         summary table.
-
+        
         Args:
             symbol_char (:obj:`str`): The character to be used as the separator.
         """
@@ -1166,7 +1166,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
         - The text;
         - The color;
         - The width;
-
+        
         Args:
             host (:obj:`tuple` of :obj:`str`, :obj:`str`, int): Which host this
                 row is representing.
@@ -1199,11 +1199,11 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     def _display_task_decision_score(self, task):
         """Calculate the probability for the giving ``task`` to be displayed
         based on configurations and the task ``when`` clause.
-
+        
         Args:
             task (:obj:`~ansible.playbook.task.Task`): The task object that
                 will be analyzed.
-
+        
         Returns:
             :obj:`Number`: A number between 0 and 1 representing the
             probability to show the giving ``task``. Currently this method
@@ -1269,7 +1269,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
 
         Otherwise, this method will *cache* the ``task`` title until the
         :meth:`_flush_display_buffer` is called.
-
+        
         Args:
             task (:obj:`~ansible.playbook.task.Task`): The task object that
                 will be displayed in the console.
@@ -1309,11 +1309,11 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
         """This method will try to parse the giving ``text`` using a JSON and
         a YAML parser in order to return a dictionary representing this parsed
         structure.
-
+        
         Args:
             text (:obj:`str`): A text that may or may not be a JSON or YAML
                 content.
-
+        
         Returns:
             Returns the parser object from ``text``. If the giving ``text`` was
             not a JSON or YAML content, ``None`` will be returned.
@@ -1334,10 +1334,10 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     def dump_value(value):
         """Given a string, this method will parse the giving string and return
         the parsed object converted to a YAML representation.
-
+        
         Args:
             value (:obj:`str`): A string to be parsed.
-
+        
         Returns:
             :obj:`str`: The YAML representation of the object parsed from the
             giving ``value``.
@@ -1352,7 +1352,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     def reindent_session(title, text, indent=2, width=80):
         """This method returns a text formatted with the giving ``indent`` and
         wrapped at the giving ``width``.
-
+        
         Args:
             title (:obj:`str`): The left most indented text.
             text (:obj:`str`): The rest of the text that will be indented two
@@ -1361,7 +1361,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
                 Defaults to 2.
             width (int, optional): How many characters are allowed to be used
                 on a single line for this text block. Defaults to 80.
-
+        
         Returns:
             :obj:`str`: The formatted text.
         """
@@ -1392,7 +1392,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
     def changed_artifacts(result, status, display_color):
         """Detect if the given ``result`` did change anything during its
         execution and return the proper status and display color for it.
-
+        
         Args:
             result (:obj:`~ansible.executor.task_result.TaskResult`): The result
                 object representing the execution of a task.
@@ -1400,7 +1400,7 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
                 the giving ``result``.
             display_color (:obj:`str`): A string representing the current status
                 color of the giving ``result``.
-
+        
         Returns:
             :obj:`tuple` of :obj:`str`, :obj:`str`: The return value depends on
             the giving ``result`` object. If this method detects the ``changed``
@@ -1437,13 +1437,13 @@ class CallbackModule(CallbackBase, FileSystemEventHandler):
             ... }
             >>> CallbackModule.get_chainned_value(crazy_dict, "dict_key", "other_dict_key", "target_value")
             'Found It!'
-
+        
         Args:
             mapping (:obj:`dict`): The dictionary used to fetch a value using
                 chainned calls.
             *args: A list of keys to use to retrieve the deep value in the
                 giving dictionary.
-
+        
         Returns:
             Returns any value that matches the chain of keys passed in the
             ``args`` argument. If this value is a dictionary of some sort, the

@@ -31,13 +31,21 @@ chmod 600 ${VAULT_PASS_FILE_TMP}
 
 # Script
 f_usage() {
-    echo "Usage: $0 <COMMAND>"
+    echo "Usage: $0 <COMMAND> <pc_type>"
     echo "
     COMMAND:
         a  - to run ansible ad-hoc commands
         ap - to rub ansibpe-playbooks
     "
 }
+
+case $2 not in
+    wsl | dell7510 | neo17 )
+        echo ">>> Error: Please specify PC type"
+        f_usage
+        exit 1
+        ;;
+esac
 
 case $1 in
     a )
@@ -53,8 +61,15 @@ case $1 in
         ansible-playbook                                    \
             -i ${ANSIBLE_HOME}/inventory                    \
             --vault-password-file=${VAULT_PASS_FILE_TMP}    \
-            ${ANSIBLE_HOME}/dell-7510.yml                   \
+            ${ANSIBLE_HOME}/${2}.yml                        \
             $@
+        ;;
+    inv )
+        shift
+        ansible-inventory                                   \
+            -i ${ANSIBLE_HOME}/inventory                    \
+            --vault-password-file=${VAULT_PASS_FILE_TMP}    \
+            --graph -y
         ;;
   * )
         f_usage

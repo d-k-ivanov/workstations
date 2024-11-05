@@ -16,9 +16,6 @@
 
 .OUTPUTS
     None
-
-.NOTES
-    Written by: Dmitry Ivanov
 #>
 param (
     [Parameter(Mandatory=$true)]

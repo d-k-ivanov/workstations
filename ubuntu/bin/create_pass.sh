@@ -1,10 +1,4 @@
-#!/bin/bash
-#
-# Ansible Password Creator
-# Platform: Unix
-#
-# Author:   Dmitry Ivanov
-#
+#!/usr/bin/env bash
 
 echo "=== Welcome to Ansible Password Creator ==="
 echo

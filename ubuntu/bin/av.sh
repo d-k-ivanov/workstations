@@ -1,10 +1,4 @@
-#!/bin/bash
-#
-# Wrapper to Ansible-Vault
-# Platform: Unix
-#
-# Author:   Dmitry Ivanov
-#
+#!/usr/bin/env bash
 
 # Environment
 ANSIBLE_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"

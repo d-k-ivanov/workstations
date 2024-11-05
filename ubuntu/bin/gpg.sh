@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-# Encrypt or decrypt protected files.
-# Platform: Unix
-# Author:   Dmitry Ivanov
-
-gpg --list-keys
 
 f_usage() {
     local Y="\033[0;33m"    # Yellow

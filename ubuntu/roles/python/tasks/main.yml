@@ -12,6 +12,7 @@
 - name: Install Python Modules
   ansible.builtin.apt:
     name:
+      - python3-dev
       - python3-pip
       - python3-virtualenv
   register: task_result
