@@ -34,7 +34,7 @@ case $1 in
         done
         ;;
     d|decrypt )
-        shiftsudo
+        shift
         for file in "${secured_files[@]}"; do
             printf "\033[0;32mDecrypting $file\033[0m\n"
             ${gpg_exe} --output ${file} --decrypt ${file}.gpg

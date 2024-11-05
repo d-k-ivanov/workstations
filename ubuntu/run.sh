@@ -1,10 +1,4 @@
-#!/bin/bash
-#
-# Wrapper to run Ansible in playbook mode
-# Platform: Unix
-#
-# Author:   Dmitry Ivanov
-#
+#!/usr/bin/env bash
 
 echo "=== Welcome to Ansible runner ==="
 echo
@@ -31,17 +25,23 @@ chmod 600 ${VAULT_PASS_FILE_TMP}
 
 # Script
 f_usage() {
-    echo "Usage: $0 <COMMAND> <pc_type>"
+    echo "Usage: $0 <COMMAND> <PC_TYPE>"
     echo "
     COMMAND:
         a  - to run ansible ad-hoc commands
         ap - to rub ansibpe-playbooks
+
+    PC_TYPE
+        wsl      - Windows Subsystem for Linux
+        dell7510 - Dell Precision 7510
+        neo17    - XMG Neo 17
     "
 }
 
-case $2 not in
+case $2 in
     wsl | dell7510 | neo17 )
-        echo ">>> Error: Please specify PC type"
+        ;;
+    * )
         f_usage
         exit 1
         ;;
