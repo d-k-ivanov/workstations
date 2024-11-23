@@ -14,7 +14,7 @@
     name:
       - python3-dev
       - python3-pip
-      - python3-virtualenv
+      - python3-venv
   register: task_result
   until: task_result is success
   retries: 10
