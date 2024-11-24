@@ -39,6 +39,7 @@
       - seahorse
       - texinfo
       - unzip
+      - util-linux
       - wget
       - zip
   register: task_result
