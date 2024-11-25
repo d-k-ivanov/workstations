@@ -2,6 +2,7 @@
 - hosts: localhost
   become: true
   roles:
+    # Packages
     - { role: base,         tags: ['base']        }
     - { role: browsers,     tags: ['browsers']    }
     - { role: development,  tags: ['development'] }
@@ -9,5 +10,8 @@
     - { role: python,       tags: ['python']      }
     - { role: tools,        tags: ['tools']       }
     - { role: xorg,         tags: ['xorg']        }
+
+    # Configuration
+    - { role: system,       tags: ['system']      }
 
   vars:

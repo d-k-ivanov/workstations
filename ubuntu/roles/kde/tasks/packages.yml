@@ -1,0 +1,22 @@
+---
+# - name: Remove conflicting kde packages
+#   ansible.builtin.apt:
+#     name:
+#       - xxx
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+
+- name: Install KDE Tools
+  ansible.builtin.apt:
+    name:
+      - dolphin
+      - dolphin-dev
+      - dolphin-plugins
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
