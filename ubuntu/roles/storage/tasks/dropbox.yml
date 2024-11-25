@@ -1,0 +1,37 @@
+---
+# - name: Remove conflicting dropbox packages
+#   ansible.builtin.apt:
+#     name:
+#       - dropbox
+#       - python3-gpg
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Add Dropbox repository
+  block:
+    - name: "Dropbox APT Repo Key"
+      ansible.builtin.apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+
+    - name: "Dropbox APT Repo"
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64] http://linux.dropbox.com/ubuntu {{ ansible_distribution_release }} main"
+        filename: dropbox
+        state: present
+
+- name: Install Dropbox and Related Packages
+  ansible.builtin.apt:
+    name:
+      - dropbox
+      - libfuse2
+      - python3-gpg
+    install_recommends: false
+    update_cache: yes
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

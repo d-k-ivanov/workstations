@@ -1,5 +1,5 @@
 ---
-# - name: Remove conflicting packages
+# - name: Remove conflicting desktop tools
 #   ansible.builtin.apt:
 #     name:
 #       - xxx

@@ -1,5 +1,5 @@
 ---
-# - name: Remove conflicting packages
+# - name: Remove conflicting xorg packages
 #   pacman:
 #     name:
 #       - xxx

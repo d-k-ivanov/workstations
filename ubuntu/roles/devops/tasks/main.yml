@@ -1,5 +1,5 @@
 ---
-- name: Remove conflicting packages
+- name: Remove conflicting devops tools
   ansible.builtin.apt:
     name:
       - awscli

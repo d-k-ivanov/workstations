@@ -61,6 +61,13 @@ options:
         required: false
         default: no
         choices: ['yes', 'no']
+
+    clean:
+        description:
+            - Whether or not to delete packages' build directories after building
+        required: false
+        default: no
+        choices: ['yes', 'no']
 '''
 
 EXAMPLES = '''
@@ -85,7 +92,8 @@ def main():
             upgrade     = dict(aliases=['sysupgrade'], default=False, type='bool'),
             buildpath   = dict(aliases=['build', 'buildpath'], type='path'),
             builduser   = dict(aliases=['builduser'], default='nobody'),
-            delmakedeps = dict(default=False, type='bool')),
+            delmakedeps = dict(default=False, type='bool'),
+            clean       = dict(default=False, type='bool')),
         required_one_of=[['name', 'upgrade']],
         supports_check_mode=True)
 
@@ -116,7 +124,8 @@ def main():
                                   state=params['state'],
                                   buildpath=params['buildpath'],
                                   builduser=params['builduser'],
-                                  delmakedeps=params['delmakedeps'])
+                                  delmakedeps=params['delmakedeps'],
+                                  clean=params['clean'])
 
 class Aura(object):
     """A class used to execute Aura commands."""
@@ -186,13 +195,14 @@ class Aura(object):
 
     def install_packages(self, packages, state,
                          buildpath, builduser,
-                         delmakedeps):
+                         delmakedeps, clean):
         """
         :type packages: list[str]
         :type state: str
         :type buildpath: Optional[str]
         :type builduser: str
         :type delmakedeps: bool
+        :type clean: bool
         """
         successful_installs = 0
         packages_to_install = (package
@@ -206,6 +216,9 @@ class Aura(object):
 
             if delmakedeps:
                 params += " --delmakedeps"
+
+            if clean:
+                params += " --clean"
 
             command = "/usr/bin/sudo %s %s --noconfirm" % (self._aura_path, params)
             rc, stdout, stderr = self._module.run_command(command, check_rc=False)

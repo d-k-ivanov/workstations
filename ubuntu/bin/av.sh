@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Environment
-ANSIBLE_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
+ANSIBLE_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
 VAULT_PASS_FILE=${ANSIBLE_HOME}/secrets/ansible_password
 VAULT_PASS_FILE_NEW=/tmp/ansible_password.new
 VAULT_PASS_FILE_TMP=/tmp/ansible_password.tmp
@@ -18,7 +18,7 @@ fi
 
 # Temporary password files with autodeletion
 trap "{ rm -f ${VAULT_PASS_FILE_TMP}; rm -f ${VAULT_PASS_FILE_NEW}; }" EXIT
-cat ${VAULT_PASS_FILE} > ${VAULT_PASS_FILE_TMP}
+cat ${VAULT_PASS_FILE} >${VAULT_PASS_FILE_TMP}
 chmod 600 ${VAULT_PASS_FILE_TMP}
 
 # Script
@@ -43,26 +43,25 @@ if [[ -z "$1" ]] && [[ ! -f "$2" ]]; then
 fi
 
 case $1 in
-    create|decrypt|edit|encrypt|view )
-        ansible-vault ${1} --vault-password-file=${VAULT_PASS_FILE_TMP} ${2}
-        ;;
+create | decrypt | edit | encrypt | view)
+    ansible-vault ${1} --vault-password-file=${VAULT_PASS_FILE_TMP} ${2}
+    ;;
 
-    rekey )
-        read -s -p "Enter new Ansible vault password: " NEW_VAULT_PASS
-        echo
-        echo ${NEW_VAULT_PASS} > ${VAULT_PASS_FILE_NEW}
-        chmod 600 ${VAULT_PASS_FILE_NEW}
-        while read -u 5 line; do
-            ansible-vault - --vault-password-file=${VAULT_PASS_FILE_TMP} --new-vault-password-file=${VAULT_PASS_FILE_NEW} ${1} ${line} || exit
-        done 5<${2}
-        mv -f ${VAULT_PASS_FILE_NEW} ${VAULT_PASS_FILE}
-        ;;
+rekey)
+    read -s -p "Enter new Ansible vault password: " NEW_VAULT_PASS
+    echo
+    echo ${NEW_VAULT_PASS} >${VAULT_PASS_FILE_NEW}
+    chmod 600 ${VAULT_PASS_FILE_NEW}
+    while read -u 5 line; do
+        ansible-vault - --vault-password-file=${VAULT_PASS_FILE_TMP} --new-vault-password-file=${VAULT_PASS_FILE_NEW} ${1} ${line} || exit
+    done 5<${2}
+    mv -f ${VAULT_PASS_FILE_NEW} ${VAULT_PASS_FILE}
+    ;;
 
-    * )
-        f_usage
-        ;;
+*)
+    f_usage
+    ;;
 
 esac
 
 exit 0
-

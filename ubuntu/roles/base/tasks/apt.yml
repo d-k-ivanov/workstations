@@ -12,16 +12,18 @@
         filename: google-chrome
         state: present
 
-- name: Add Microsoft VS Code repository Apt Key
-  ansible.builtin.apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: EB3E94ADBE1229CF
-
 - name: Add Microsoft VS Code repository
-  ansible.builtin.apt_repository:
-    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
-    filename: vscode
-    state: present
+  block:
+  - name: "Add Microsoft VS Code repository Apt Key"
+    ansible.builtin.apt_key:
+      keyserver: keyserver.ubuntu.com
+      id: EB3E94ADBE1229CF
+
+  - name: "Add Microsoft VS Code repository"
+    ansible.builtin.apt_repository:
+      repo: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
+      filename: vscode
+      state: present
 
 - name: Add Jonas Groeger unoficial JetBrains PPA repository
   block:
@@ -81,11 +83,6 @@
         repo: "deb [signed-by=/etc/apt/keyrings/hashicorp-archive-keyring.asc] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
         filename: hashicorp
         state: present
-
-- name: Add KDE repository
-  ansible.builtin.apt_repository:
-    repo: ppa:kubuntu-ppa/backports
-    state: present
 
 - name: Update apt cache if the last one is more than 3600 seconds ago
   ansible.builtin.apt:

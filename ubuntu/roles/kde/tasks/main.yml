@@ -1,5 +1,5 @@
 ---
-# - name: Remove conflicting packages
+# - name: Remove conflicting kde packages
 #   ansible.builtin.apt:
 #     name:
 #       - xxx
@@ -8,6 +8,11 @@
 #   until: task_result is success
 #   retries: 10
 #   delay: 2
+
+- name: Add KDE repository
+  ansible.builtin.apt_repository:
+    repo: ppa:kubuntu-ppa/backports
+    state: present
 
 - name: Install KDE Tools
   ansible.builtin.apt:

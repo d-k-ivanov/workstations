@@ -8,9 +8,9 @@ read -n 1 -p "    Do you want to proceed? (y/[Any key to cancel]): " WANT_PROCEE
 echo
 
 # Environment
-ANSIBLE_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
-VAULT_PASS_FILE="${ANSIBLE_HOME}/secrets/ansible_password"
-VAULT_PASS_FILE_GPG="${ANSIBLE_HOME}/secrets/ansible_password.gpg"
+PROJECT_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
+VAULT_PASS_FILE="${PROJECT_HOME}/secrets/ansible_password"
+VAULT_PASS_FILE_GPG="${PROJECT_HOME}/secrets/ansible_password.gpg"
 VAULT_PASS_FILE_TMP="/tmp/ansible_password.tmp"
 
 if [ -f ${VAULT_PASS_FILE} ]; then
@@ -31,8 +31,7 @@ echo
 
 # Script
 touch $VAULT_PASS_FILE
-echo "$VAULT_PASS" > $VAULT_PASS_FILE
+echo "$VAULT_PASS" >$VAULT_PASS_FILE
 
 echo
 exit 0
-

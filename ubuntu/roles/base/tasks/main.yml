@@ -1,7 +1,7 @@
 ---
 - import_tasks: apt.yml
 
-# - name: Remove conflicting packages
+# - name: Remove conflicting base packages
 #   ansible.builtin.apt:
 #     name:
 #       - xxx
