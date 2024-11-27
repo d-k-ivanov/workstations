@@ -39,6 +39,7 @@
       - pciutils
       - seahorse
       - texinfo
+      - tree
       - unzip
       - util-linux
       - wget
