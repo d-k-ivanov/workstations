@@ -378,6 +378,15 @@ Configuration DevTools
         PsDscRunAsCredential = $Credential
     }
 
+    cChocoPackageInstaller InstallNVM
+    {
+        Name                 = 'nvm.install'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallOctopusTools
     {
         Name                 = 'octopustools'
