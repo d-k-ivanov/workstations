@@ -22,24 +22,25 @@
   retries: 10
   delay: 2
 
-- name: Install Security Tools
-  apt:
-    name:
-      - gocryptfs
-      # - kleopatra
-      # - scdaemon
-  register: task_result
-  until: task_result is success
-  retries: 10
-  delay: 2
-
-# - name: Remove packages
+# - name: Install Security Tools
 #   apt:
 #     name:
-#       - clion
-#       - intellij-idea-ultimate
-#     state: absent
+#       - gocryptfs
+#       # - kleopatra
+#       # - scdaemon
 #   register: task_result
 #   until: task_result is success
 #   retries: 10
 #   delay: 2
+
+- name: Remove packages
+  apt:
+    name:
+      # - clion
+      # - intellij-idea-ultimate
+      - gocryptfs
+    state: absent
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
