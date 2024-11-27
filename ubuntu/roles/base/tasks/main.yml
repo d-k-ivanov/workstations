@@ -30,7 +30,6 @@
       - ca-certificates
       - curl
       - dos2unix
-      - encfs
       - fuse
       - gnome-keyring
       - jq
