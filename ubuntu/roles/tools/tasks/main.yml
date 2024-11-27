@@ -33,14 +33,14 @@
 #   retries: 10
 #   delay: 2
 
-- name: Remove packages
-  apt:
-    name:
-      # - clion
-      # - intellij-idea-ultimate
-      - gocryptfs
-    state: absent
-  register: task_result
-  until: task_result is success
-  retries: 10
-  delay: 2
+# - name: Remove packages
+#   apt:
+#     name:
+#       # - clion
+#       # - intellij-idea-ultimate
+#       - gocryptfs
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
