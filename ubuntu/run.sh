@@ -11,7 +11,7 @@ VAULT_PASS_FILE_TMP="/tmp/ansible_password.tmp"
 
 if [ ! -f ${VAULT_PASS_FILE} ]; then
     echo ">>> Error: Ansible password is missing!"
-    echo "Please run ${PROJECT_HOME}/bin/create_pass.sh to configure your ansible password"
+    echo "Please run ${PROJECT_HOME}/ubuntu/bin/create_pass.sh to configure your ansible password"
     read -n 1 -p "Do you want to do it right now? (y/[Any key to cancel]): " WANT_INIT
     [ "${WANT_INIT}" = "y" ] || exit 1
     echo
