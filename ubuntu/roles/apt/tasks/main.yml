@@ -1,10 +1,12 @@
 ---
 - name: Add Google Chrome repository
   block:
-    - name: "Add Google Chrome repository Apt Key"
-      ansible.builtin.apt_key:
+    - name: "Add Google repository key"
+      ansible.builtin.get_url:
         url: "https://dl.google.com/linux/linux_signing_key.pub"
-        state: present
+        dest: /etc/apt/trusted.gpg.d/google.asc
+        mode: '0644'
+        force: true
 
     - name: "Add Google Chrome repository"
       ansible.builtin.apt_repository:
@@ -14,24 +16,27 @@
 
 - name: Add Microsoft VS Code repository
   block:
-  - name: "Add Microsoft VS Code repository Apt Key"
-    ansible.builtin.apt_key:
-      keyserver: keyserver.ubuntu.com
-      id: EB3E94ADBE1229CF
-      state: present
+    - name: "Add Microsoft repository key"
+      ansible.builtin.get_url:
+        url: "https://packages.microsoft.com/keys/microsoft.asc"
+        dest: /etc/apt/trusted.gpg.d/microsoft.asc
+        mode: '0644'
+        force: true
 
-  - name: "Add Microsoft VS Code repository"
-    ansible.builtin.apt_repository:
-      repo: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
-      filename: vscode
-      state: present
+    - name: "Add Microsoft VS Code repository"
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
+        filename: vscode
+        state: present
 
 - name: Add Jonas Groeger unoficial JetBrains PPA repository
   block:
     - name: "Jetbrains APT Repo Key"
-      ansible.builtin.apt_key:
-        url: https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc
-        state: present
+      ansible.builtin.get_url:
+        url: "https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc"
+        dest: /etc/apt/trusted.gpg.d/jetbrains-ppa-jg.asc
+        mode: '0644'
+        force: true
 
     - name: "Jetbrains APT Repo"
       ansible.builtin.apt_repository:
@@ -42,9 +47,11 @@
 - name: Add Kitware repository
   block:
     - name: "Kitware APT Repo Key"
-      ansible.builtin.apt_key:
-        url: https://apt.kitware.com/keys/kitware-archive-latest.asc
-        state: present
+      ansible.builtin.get_url:
+        url: " https://apt.kitware.com/keys/kitware-archive-latest.asc"
+        dest: /etc/apt/trusted.gpg.d/kitware.asc
+        mode: '0644'
+        force: true
 
     - name: "Kitware APT Repo"
       ansible.builtin.apt_repository:
@@ -55,28 +62,32 @@
 - name: Add LunarG Vulkan repository
   block:
     - name: "LunarG Repo Key"
-      ansible.builtin.apt_key:
-        url: https://packages.lunarg.com/lunarg-signing-key-pub.asc
-        state: present
+      ansible.builtin.get_url:
+        url: "https://packages.lunarg.com/lunarg-signing-key-pub.asc"
+        dest: /etc/apt/trusted.gpg.d/lunarg.asc
+        mode: '0644'
+        force: true
 
     - name: "Vulkan Repo"
       ansible.builtin.apt_repository:
         repo: "deb [arch=amd64] https://packages.lunarg.com/vulkan/ {{ ansible_distribution_release }} main"
-        filename: lunarg-vulkan-deb
+        filename: lunarg-vulkan
         state: present
 
     - name: "Vulkan Repo SRC"
       ansible.builtin.apt_repository:
         repo: "deb-src [arch=amd64] https://packages.lunarg.com/vulkan/ {{ ansible_distribution_release }} main"
-        filename: lunarg-vulkan-deb-src
+        filename: lunarg-vulkan-src
         state: present
 
 - name: Add HashiCorp repository
   block:
     - name: "HashiCorp APT Repo Key"
-      ansible.builtin.apt_key:
-        url: https://apt.releases.hashicorp.com/gpg
-        state: present
+      ansible.builtin.get_url:
+        url: "https://apt.releases.hashicorp.com/gpg"
+        dest: /etc/apt/trusted.gpg.d/hashicorp.asc
+        mode: '0644'
+        force: true
 
     - name: "HashiCorp APT Repo"
       ansible.builtin.apt_repository:

@@ -2,6 +2,9 @@
 - hosts: localhost
   become: true
   roles:
+    ## Initialization
+    - { role: apt,            tags: ['repos']                           }
+
     ## System
     - { role: base,           tags: ['base']                            }
     - { role: browsers,       tags: ['browsers']                        }
