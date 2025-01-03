@@ -75,27 +75,26 @@ if ($MyInvocation.InvocationName -ne '.')
             Virtualization      Virtualization      { Credential = $Credential; AutoUpdate = $Update }
 
             # Dev
-            DevTools            DevTools            { Credential = $Credential; AutoUpdate = $Update }
             DevLangs            DevLangs            { Credential = $Credential; AutoUpdate = $Update }
+            DevTools            DevTools            { Credential = $Credential; AutoUpdate = $Update }
             DocTools            DocTools            { Credential = $Credential; AutoUpdate = $Update }
-            Math                Math                { Credential = $Credential; AutoUpdate = $Update }
+            Engineering         Engineering         { Credential = $Credential; AutoUpdate = $Update }
             GameDev             GameDev             { Credential = $Credential; AutoUpdate = $Update }
+            Math                Math                { Credential = $Credential; AutoUpdate = $Update }
             Modelling           Modelling           { Credential = $Credential; AutoUpdate = $Update }
             # VisualStudio        VisualStudio        { Credential = $Credential; AutoUpdate = $Update }
 
             # DevOps
+            DatabaseTools       DatabaseTools       { Credential = $Credential; AutoUpdate = $Update }
             DevOps              DevOps              { Credential = $Credential; AutoUpdate = $Update }
             KubernetesTools     KubernetesTools     { Credential = $Credential; AutoUpdate = $Update }
-            DatabaseTools       DatabaseTools       { Credential = $Credential; AutoUpdate = $Update }
 
             # Office
             AudioTools          AudioTools          { Credential = $Credential; AutoUpdate = $Update }
             Browsers            Browsers            { Credential = $Credential; AutoUpdate = $Update }
             CommunicationTools  CommunicationTools  { Credential = $Credential; AutoUpdate = $Update }
             ImagingTools        ImagingTools        { Credential = $Credential; AutoUpdate = $Update }
-            # InternetTools       InternetTools       { Credential = $Credential; AutoUpdate = $Update }
             OfficeTools         OfficeTools         { Credential = $Credential; AutoUpdate = $Update }
-            # StorageTools        StorageTools        { Credential = $Credential; AutoUpdate = $Update }
             VideoTools          VideoTools          { Credential = $Credential; AutoUpdate = $Update }
         }
     }
