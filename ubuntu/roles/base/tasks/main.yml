@@ -31,7 +31,6 @@
       - fuse
       - gnome-keyring
       - jq
-      - linux-tools-common
       - mc
       - p7zip-full
       - pciutils
