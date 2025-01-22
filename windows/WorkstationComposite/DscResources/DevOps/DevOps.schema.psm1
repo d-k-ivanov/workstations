@@ -188,6 +188,15 @@ Configuration DevOps
         PsDscRunAsCredential = $Credential
     }
 
+    cChocoPackageInstaller InstallGitHubCli
+    {
+        Name                 = 'gpg4win'
+        AutoUpgrade          = $false
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallGPG4Win
     {
         Name                 = 'gpg4win'
