@@ -190,7 +190,7 @@ Configuration DevOps
 
     cChocoPackageInstaller InstallGitHubCli
     {
-        Name                 = 'gpg4win'
+        Name                 = 'gh'
         AutoUpgrade          = $false
         Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
