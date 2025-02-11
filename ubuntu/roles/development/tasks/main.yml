@@ -39,6 +39,7 @@
       - llvm
       - make
       - mercurial
+      - mono-complete
       - ninja-build
       - npm
       - openjdk-11-jdk

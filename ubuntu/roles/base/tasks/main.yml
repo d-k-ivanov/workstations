@@ -25,16 +25,19 @@
       - apt-utils
       - bash
       - bash-completion
+      - dirmngr
       - ca-certificates
       - curl
       - dos2unix
       - fuse
       - gnome-keyring
+      - gnupg
       - jq
       - mc
       - p7zip-full
       - pciutils
       - seahorse
+      - software-properties-common
       - texinfo
       - tree
       - unzip
