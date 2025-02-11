@@ -55,6 +55,7 @@
       - libxcb-xv0-dev
       - libxcb-xvmc0-dev
       - libxcb1-dev
+      - libxcomposite-dev
       - libxcursor-dev
       - libxdamage-dev
       - libxext-dev
