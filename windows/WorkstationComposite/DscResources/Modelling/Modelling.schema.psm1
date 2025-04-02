@@ -84,6 +84,7 @@ Configuration Modelling
         Name                 = 'meshmixer'
         AutoUpgrade          = $AutoUpdate
         Ensure               = 'Present'
+        chocoParams          = "--ignore-checksums"
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }

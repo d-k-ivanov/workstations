@@ -18,6 +18,11 @@ If (-not $isAdmin)
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 
+# Set Execution Policy:
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted -Force
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted -Force
+Set-ExecutionPolicy -Scope LocalMachine -ExecutionPolicy Unrestricted -Force
+
 # Install Nuget package provide if needed
 if (-Not (Get-packageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue))
 {

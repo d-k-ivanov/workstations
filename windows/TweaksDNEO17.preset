@@ -106,7 +106,7 @@ DisableIndexing                 # EnableIndexing
 EnableNTFSLongPaths             # DisableNTFSLongPaths
 DisableNTFSLastAccess           # EnableNTFSLastAccess
 SetBIOSTimeUTC                  # SetBIOSTimeLocal
-EnableHibernation               # DisableHibernation
+DisableHibernation              # EnableHibernation
 DisableSleepButton              # EnableSleepButton
 DisableSleepTimeout             # EnableSleepTimeout
 DisableFastStartup              # EnableFastStartup
