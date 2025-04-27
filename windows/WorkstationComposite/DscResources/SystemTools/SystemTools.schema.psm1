@@ -287,6 +287,16 @@ Configuration SystemTools
         PsDscRunAsCredential = $Credential
     }
 
+    Registry InstallSysInternalsEulaAccepted
+    {
+        Ensure               = "Present"
+        Key                  = "HKCU:\Software\Sysinternals"
+        ValueName            = "EulaAccepted"
+        ValueData            = "1"
+        ValueType            = "Dword"
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallTrayStatus
     {
         Name                 = 'traystatus.install'
