@@ -191,7 +191,7 @@ Configuration OfficeTools
     {
         Name                 = 'pdf24'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
+        Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
@@ -248,7 +248,7 @@ Configuration OfficeTools
     {
         Name                 = 'xpdf-utils'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
+        Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }

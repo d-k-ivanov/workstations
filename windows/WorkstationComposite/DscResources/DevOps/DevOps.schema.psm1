@@ -255,7 +255,7 @@ Configuration DevOps
     {
         Name                 = 'mremoteng'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
+        Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
