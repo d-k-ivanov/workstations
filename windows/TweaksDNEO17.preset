@@ -104,10 +104,10 @@ DisableIndexing                 # EnableIndexing
 EnableNTFSLongPaths             # DisableNTFSLongPaths
 DisableNTFSLastAccess           # EnableNTFSLastAccess
 SetBIOSTimeUTC                  # SetBIOSTimeLocal
-DisableHibernation              # EnableHibernation
-DisableSleepButton              # EnableSleepButton
-DisableSleepTimeout             # EnableSleepTimeout
-DisableFastStartup              # EnableFastStartup
+EnableHibernation               # DisableHibernation
+# DisableSleepButton              # EnableSleepButton
+# DisableSleepTimeout             # EnableSleepTimeout
+# DisableFastStartup              # EnableFastStartup
 # DisableAutoRebootOnCrash      # EnableAutoRebootOnCrash
 
 ### Gamer's Tweaks ###
