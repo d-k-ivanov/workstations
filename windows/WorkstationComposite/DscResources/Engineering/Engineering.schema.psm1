@@ -49,4 +49,13 @@ Configuration Engineering
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
+
+    cChocoPackageInstaller InstallLogisimEvolution
+    {
+        Name                 = 'logisim-evolution'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
+    }
 }
