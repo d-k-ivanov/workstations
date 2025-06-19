@@ -30,6 +30,7 @@
       - gcc
       - gdb
       - git
+      - git-lfs
       - gperf
       - heaptrack
       - heaptrack-gui
