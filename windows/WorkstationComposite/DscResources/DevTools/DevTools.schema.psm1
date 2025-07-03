@@ -414,61 +414,6 @@ Configuration DevTools
         PsDscRunAsCredential = $Credential
     }
 
-    cChocoPackageInstaller InstallOpenJDK11
-    {
-        Name                 = 'openjdk11'
-        AutoUpgrade          = $AutoUpdate
-        Version              = '11.0.16'
-        Ensure               = 'Present'
-        DependsOn            = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential = $Credential
-    }
-
-    cChocoPackageInstaller InstallOpenJDK11-MS
-    {
-        Name                 = 'microsoft-openjdk11'
-        AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
-        DependsOn            = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential = $Credential
-    }
-
-    cChocoPackageInstaller InstallOpenJDKLatest
-    {
-        Name                 = 'openjdk'
-        AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
-        DependsOn            = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential = $Credential
-    }
-
-    cChocoPackageInstaller InstallOracleJDK8
-    {
-        Name                 = 'jdk8'
-        AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
-        DependsOn            = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential = $Credential
-    }
-
-    cChocoPackageInstaller InstallOracleJDK17
-    {
-        Name                 = 'oracle17jdk'
-        AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
-        DependsOn            = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential = $Credential
-    }
-
-    cChocoPackageInstaller InstallOracleJDKLatest
-    {
-        Name                 = 'oraclejdk'
-        AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
-        DependsOn            = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential = $Credential
-    }
-
     cChocoPackageInstaller InstallPacketPowershell
     {
         Name                 = 'paket.powershell'
