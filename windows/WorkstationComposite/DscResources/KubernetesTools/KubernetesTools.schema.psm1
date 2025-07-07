@@ -50,6 +50,15 @@ Configuration KubernetesTools
         PsDscRunAsCredential = $Credential
     }
 
+    cChocoPackageInstaller InstallHeadLamp
+    {
+        Name                 = 'headlamp'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallKubergrunt
     {
         Name                 = 'kubergrunt'
