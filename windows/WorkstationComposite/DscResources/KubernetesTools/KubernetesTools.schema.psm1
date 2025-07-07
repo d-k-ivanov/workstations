@@ -82,7 +82,7 @@ Configuration KubernetesTools
     {
         Name                 = 'k9s'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
+        Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
