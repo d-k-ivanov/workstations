@@ -29,6 +29,7 @@
       - ca-certificates
       - curl
       - dos2unix
+      - duf
       - fuse
       - gnome-keyring
       - gnupg
