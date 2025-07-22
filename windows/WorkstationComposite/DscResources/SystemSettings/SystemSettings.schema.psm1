@@ -42,21 +42,21 @@ Configuration SystemSettings
     # ===== Explorer ======================
     Registry DisableIEFirstRunCustomization
     {
-        Ensure               = "Present"
-        Key                  = "HKLM:\SOFTWARE\Microsoft\Internet Explorer\Main"
-        ValueName            = "DisableFirstRunCustomize"
-        ValueData            = "2"
-        ValueType            = "Dword"
+        Ensure               = 'Present'
+        Key                  = 'HKLM:\SOFTWARE\Microsoft\Internet Explorer\Main'
+        ValueName            = 'DisableFirstRunCustomize'
+        ValueData            = '2'
+        ValueType            = 'Dword'
         PsDscRunAsCredential = $Credential
     }
 
     Registry ShowFileExtensions
     {
-        Ensure               = "Present"
-        Key                  = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
-        ValueName            = "HideFileExt"
-        ValueData            = "0"
-        ValueType            = "Dword"
+        Ensure               = 'Present'
+        Key                  = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+        ValueName            = 'HideFileExt'
+        ValueData            = '0'
+        ValueType            = 'Dword'
         PsDscRunAsCredential = $Credential
     }
 
@@ -149,12 +149,12 @@ Configuration SystemSettings
 
     Registry SetDefaultLockscreenWallpaper
     {
-        Ensure               = "Present"
+        Ensure               = 'Present'
         Force                = $true
-        Key                  = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization"
-        ValueName            = "LockScreenImage"
-        ValueData            = "C:\tools\wall\lock.jpg"
-        ValueType            = "String"
+        Key                  = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization'
+        ValueName            = 'LockScreenImage'
+        ValueData            = 'C:\tools\wall\lock.jpg'
+        ValueType            = 'String'
         PsDscRunAsCredential = $Credential
     }
 }
