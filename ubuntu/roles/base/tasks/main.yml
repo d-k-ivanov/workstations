@@ -42,6 +42,7 @@
       - texinfo
       - tree
       - unzip
+      - upower
       - util-linux
       - wget
       - zip
