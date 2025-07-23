@@ -79,15 +79,15 @@ Configuration Modelling
         PsDscRunAsCredential = $Credential
     }
 
-    cChocoPackageInstaller InstallMeshMixer
-    {
-        Name                 = 'meshmixer'
-        AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
-        chocoParams          = "--ignore-checksums"
-        DependsOn            = "[cChocoInstaller]InstallChocolatey"
-        PsDscRunAsCredential = $Credential
-    }
+    # cChocoPackageInstaller InstallMeshMixer
+    # {
+    #     Name                 = 'meshmixer'
+    #     AutoUpgrade          = $AutoUpdate
+    #     chocoParams          = "--ignore-checksums"
+    #     Ensure               = 'Absent'
+    #     DependsOn            = "[cChocoInstaller]InstallChocolatey"
+    #     PsDscRunAsCredential = $Credential
+    # }
 
     cChocoPackageInstaller InstallOpenSCAD
     {

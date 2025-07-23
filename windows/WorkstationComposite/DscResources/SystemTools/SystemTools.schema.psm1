@@ -282,6 +282,7 @@ Configuration SystemTools
     {
         Name                 = 'sysinternals'
         AutoUpgrade          = $AutoUpdate
+        chocoParams          = '--ignore-checksums'
         Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential

@@ -118,12 +118,6 @@ Process
             # ------------------------------------------------------------
             # . "${PSScriptRoot}\Tweaks${WorkstationType}.ps1"
 
-            # ------------------------------------------------------------
-            # Disable Windows Defender One More Time
-            # ------------------------------------------------------------
-            # . "${PSScriptRoot}\DefenderDisable.ps1"
-            # . "${PSScriptRoot}\DefenderEnable.ps1"
-
             . "${PSScriptRoot}\PC_Config_D7510.ps1"
             break
         }
@@ -133,12 +127,6 @@ Process
             # Tweaks
             # ------------------------------------------------------------
             # . "${PSScriptRoot}\Tweaks${WorkstationType}.ps1"
-
-            # ------------------------------------------------------------
-            # Disable Windows Defender One More Time
-            # ------------------------------------------------------------
-            # . "${PSScriptRoot}\DefenderDisable.ps1"
-            # . "${PSScriptRoot}\DefenderEnable.ps1"
 
             . "${PSScriptRoot}\PC_Config_DNEO17.ps1"
             break
