@@ -132,6 +132,24 @@ Configuration OfficeTools
         PsDscRunAsCredential = $Credential
     }
 
+    cChocoPackageInstaller InstallFontNerdSourceCodePro
+    {
+        Name                 = 'nerd-fonts-hack'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallFontNerdSourceCodePro
+    {
+        Name                 = 'nerd-fonts-sourcecodepro'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallFontSourceCodePro
     {
         Name                 = 'sourcecodepro'

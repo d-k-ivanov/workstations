@@ -251,6 +251,15 @@ Configuration DevOps
         PsDscRunAsCredential = $Credential
     }
 
+    cChocoPackageInstaller InstallMicrosoftWindowsTerminal
+    {
+        Name                 = 'microsoft-windows-terminal'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallMremoteng
     {
         Name                 = 'mremoteng'
