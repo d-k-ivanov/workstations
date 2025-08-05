@@ -14,6 +14,8 @@
     name:
       - mc
       - krusader
+      - doublecmd-gtk
+      # - doublecmd-qt
   register: task_result
   until: task_result is success
   retries: 10
