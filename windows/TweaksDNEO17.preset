@@ -9,9 +9,9 @@ DisableSmartScreen              # EnableSmartScreen
 DisableWebSearch                # EnableWebSearch
 DisableAppSuggestions           # EnableAppSuggestions
 DisableActivityHistory          # EnableActivityHistory
-# DisableSensors                # EnableSensors
-EnableLocation                  # DisableLocation
-EnableMapUpdates                # DisableMapUpdates
+DisableSensors                  # EnableSensors
+# EnableLocation                # DisableLocation
+# EnableMapUpdates              # DisableMapUpdates
 DisableFeedback                 # EnableFeedback
 DisableTailoredExperiences      # EnableTailoredExperiences
 DisableAdvertisingID            # EnableAdvertisingID
@@ -84,7 +84,7 @@ DisableRemoteAssistance         # EnableRemoteAssistance
 # EnableRemoteDesktop           # DisableRemoteDesktop
 
 ### Service Tweaks ###
-EnableUpdateMSRT                # DisableUpdateMSRT
+# EnableUpdateMSRT              # DisableUpdateMSRT
 EnableUpdateDriver              # DisableUpdateDriver
 EnableUpdateMSProducts          # DisableUpdateMSProducts
 # DisableUpdateAutoDownload     # EnableUpdateAutoDownload
@@ -99,15 +99,15 @@ DisableRestorePoints            # EnableRestorePoints
 # EnableStorageSense            # DisableStorageSense
 DisableDefragmentation          # EnableDefragmentation
 DisableSuperfetch               # EnableSuperfetch
-DisableIndexing                 # EnableIndexing
+# DisableIndexing               # EnableIndexing
 # DisableRecycleBin             # EnableRecycleBin
 EnableNTFSLongPaths             # DisableNTFSLongPaths
 DisableNTFSLastAccess           # EnableNTFSLastAccess
 SetBIOSTimeUTC                  # SetBIOSTimeLocal
-EnableHibernation               # DisableHibernation
-# DisableSleepButton              # EnableSleepButton
-# DisableSleepTimeout             # EnableSleepTimeout
-# DisableFastStartup              # EnableFastStartup
+DisableHibernation              # EnableHibernation
+# DisableSleepButton            # EnableSleepButton
+# DisableSleepTimeout           # EnableSleepTimeout
+# DisableFastStartup            # EnableFastStartup
 # DisableAutoRebootOnCrash      # EnableAutoRebootOnCrash
 
 ### Gamer's Tweaks ###
@@ -129,7 +129,7 @@ ShowTaskManagerDetails          # HideTaskManagerDetails
 ShowFileOperationsDetails       # HideFileOperationsDetails
 # EnableFileDeleteConfirm       # DisableFileDeleteConfirm
 HideTaskbarSearch               # ShowTaskbarSearchIcon         # ShowTaskbarSearchBox
-ShowTaskView                    # HideTaskView
+HideTaskView                    # ShowTaskView
 ShowSmallTaskbarIcons           # ShowLargeTaskbarIcons
 SetTaskbarCombineNever          # SetTaskbarCombineAlways       # SetTaskbarCombineWhenFull
 HideTaskbarPeopleIcon           # ShowTaskbarPeopleIcon

@@ -126,7 +126,7 @@ Process
             # ------------------------------------------------------------
             # Tweaks
             # ------------------------------------------------------------
-            # . "${PSScriptRoot}\Tweaks${WorkstationType}.ps1"
+            . "${PSScriptRoot}\Tweaks${WorkstationType}.ps1"
 
             . "${PSScriptRoot}\PC_Config_DNEO17.ps1"
             break

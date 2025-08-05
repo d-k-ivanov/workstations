@@ -132,7 +132,7 @@ Configuration OfficeTools
         PsDscRunAsCredential = $Credential
     }
 
-    cChocoPackageInstaller InstallFontNerdSourceCodePro
+    cChocoPackageInstaller InstallFontNerdHack
     {
         Name                 = 'nerd-fonts-hack'
         AutoUpgrade          = $AutoUpdate
