@@ -91,6 +91,7 @@ Configuration DevLangs
     }
 
     # ========================= Java ===========================
+    # ---- Corretto JDK ----
     cChocoPackageInstaller InstallCorrettoJDKLatest
     {
         Name                 = 'correttojdk'
@@ -100,20 +101,22 @@ Configuration DevLangs
         PsDscRunAsCredential = $Credential
     }
 
-    cChocoPackageInstaller InstallOpenJDK11
+    # ---- Microsoft OpenJDK ----
+    cChocoPackageInstaller InstallMicrosoftOpenJDK11
     {
-        Name                 = 'openjdk11'
+        Name                 = 'microsoft-openjdk11'
         AutoUpgrade          = $AutoUpdate
-        Version              = '11.0.16'
         Ensure               = 'Present'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
 
-    cChocoPackageInstaller InstallOpenJDK11-MS
+    # ---- OpenJDK ----
+    cChocoPackageInstaller InstallOpenJDK11
     {
-        Name                 = 'microsoft-openjdk11'
+        Name                 = 'openjdk11'
         AutoUpgrade          = $AutoUpdate
+        Version              = '11.0.16'
         Ensure               = 'Present'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
@@ -128,6 +131,7 @@ Configuration DevLangs
         PsDscRunAsCredential = $Credential
     }
 
+    # ---- Oracle JDK ----
     cChocoPackageInstaller InstallOracleJDK8
     {
         Name                 = 'jdk8'
@@ -149,6 +153,43 @@ Configuration DevLangs
     cChocoPackageInstaller InstallOracleJDKLatest
     {
         Name                 = 'oraclejdk'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
+    # ---- Temurin JDK ----
+    cChocoPackageInstaller InstallTemurinJDK8
+    {
+        Name                 = 'temurin8'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallTemurinJDK11
+    {
+        Name                 = 'temurin11'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallTemurinJDK17
+    {
+        Name                 = 'temurin17'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallTemurinJDK21
+    {
+        Name                 = 'temurin21'
         AutoUpgrade          = $AutoUpdate
         Ensure               = 'Present'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
