@@ -535,6 +535,15 @@ Configuration DevTools
     #     PsDscRunAsCredential = $Credential
     # }
 
+    cChocoPackageInstaller InstallWinAppDriver
+    {
+        Name                 = 'winappdriver'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallWinMerge
     {
         Name                 = 'winmerge'
