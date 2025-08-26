@@ -451,7 +451,7 @@ Configuration DevOps
     {
         Name                 = 'vcxsrv'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
+        Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
