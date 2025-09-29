@@ -92,6 +92,33 @@ Configuration DevLangs
 
     # ========================= Java ===========================
     # ---- Corretto JDK ----
+    cChocoPackageInstaller InstallCorrettoJDK11
+    {
+        Name                 = 'corretto11jdk'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallCorrettoJDK17
+    {
+        Name                 = 'corretto17jdk'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallCorrettoJDK21
+    {
+        Name                 = 'corretto21jdk'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallCorrettoJDKLatest
     {
         Name                 = 'correttojdk'
@@ -111,12 +138,29 @@ Configuration DevLangs
         PsDscRunAsCredential = $Credential
     }
 
+    cChocoPackageInstaller InstallMicrosoftOpenJDK17
+    {
+        Name                 = 'microsoft-openjdk17'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallMicrosoftOpenJDKLatest
+    {
+        Name                 = 'microsoft-openjdk'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = "[cChocoInstaller]InstallChocolatey"
+        PsDscRunAsCredential = $Credential
+    }
+
     # ---- OpenJDK ----
     cChocoPackageInstaller InstallOpenJDK11
     {
         Name                 = 'openjdk11'
         AutoUpgrade          = $AutoUpdate
-        Version              = '11.0.16'
         Ensure               = 'Present'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
