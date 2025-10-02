@@ -52,9 +52,9 @@ Configuration InternetTools
 
     cChocoPackageInstaller InstallTorBrowser
     {
-        Name                 = 'top-browser'
+        Name                 = 'tor-browser'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
+        Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
