@@ -48,6 +48,7 @@
       - openjdk-17-jdk    # OpenJDK Development Kit (JDK) version 17
       - openjdk-21-jdk    # OpenJDK Development Kit (JDK) version 21
       - openjdk-8-jdk     # OpenJDK Development Kit (JDK) version 8
+      - patchelf          # A small utility to modify the dynamic linker and RPATH of ELF executables
       - perl              # Practical Extraction and Report Language
       - pkg-config        # Manage compile and link flags for libraries
       - qt5-qmake         # Qt 5 qmake Makefile generator tool
