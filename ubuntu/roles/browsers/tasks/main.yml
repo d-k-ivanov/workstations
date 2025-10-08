@@ -12,7 +12,7 @@
 - name: Install Desktop Tools
   ansible.builtin.apt:
     name:
-      - google-chrome-stable
+      - google-chrome-stable      # Fast, secure, and free web browser built for the modern web
   register: task_result
   until: task_result is success
   retries: 10

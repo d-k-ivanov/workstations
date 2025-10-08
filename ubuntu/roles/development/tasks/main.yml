@@ -12,47 +12,48 @@
 - name: Install Developmnet Tools
   ansible.builtin.apt:
     name:
-      - autoconf
-      - autoconf-archive
-      - autopoint
-      - binutils-dev
-      - bison
-      - build-essential
-      - clang
-      - clang-format
-      - clang-tidy
-      - clazy
-      - clazy-tests
-      - cmake
-      - coreutils
-      - cppcheck
-      - g++
-      - gcc
-      - gdb
-      - git
-      - git-lfs
-      - gperf
-      - heaptrack
-      - heaptrack-gui
-      - libtool
-      - libxml2-utils
-      - lldb
-      - llvm
-      - make
-      - mercurial
-      - mono-complete
-      - ninja-build
-      - npm
-      - openjdk-11-jdk
-      - openjdk-17-jdk
-      - openjdk-21-jdk
-      - openjdk-8-jdk
-      - perl
-      - pkg-config
-      - qt5-qmake
-      - valgrind
-      - vera++
-      - vulkan-sdk
+      - autoconf          # GNU Autoconf is a tool for producing shell scripts that automatically configure software source code packages
+      - autoconf-archive  # Collection of GNU Autoconf macros
+      - autopoint         # Tool for internationalizing GNU packages
+      - binutils-dev      # Development files for the GNU assembler, linker and binary utilities
+      - bison             # General-purpose parser generator that converts an annotated context-free grammar into a deterministic LR or generalized LR (GLR) parser
+      - build-essential   # Informational list of build-essential packages
+      - clang             # C, C++ and Objective-C compiler (LLVM based)
+      - clang-format      # Clang-based C/C++ code formatter
+      - clang-tidy        # Clang-based C/C++ linter tool
+      - clazy             # Static analysis tool for Qt/C++
+      - clazy-tests       # Static analysis tool for Qt/C++
+      - cmake             # cross-platform, open-source build system
+      - coreutils         # GNU core utilities
+      - cppcheck          # Static analysis tool for C/C++
+      - flex              # fast lexical analyzer generator
+      - g++               # GNU C++ compiler
+      - gcc               # GNU C compiler
+      - gdb               # GNU Debugger
+      - git               # Fast, scalable, distributed revision control system
+      - git-lfs           # Git extension for versioning large files
+      - gperf             # Perfect hash function generator
+      - heaptrack         # Heap memory profiler
+      - heaptrack-gui     # GUI for heaptrack
+      - libtool           # Generic library support script
+      - libxml2-utils     # XML utilities (xmllint, xmlcatalog)
+      - lldb              # Next generation, high-performance debugger
+      - llvm              # Modular compiler and toolchain technologies
+      - make              # Utility for directing compilation
+      - mercurial         # Scalable distributed version control system
+      - mono-complete     # Mono runtime (C#, DotNet), development tools and all libraries
+      - ninja-build       # Small build system with a focus on speed
+      - npm               # Node.js package manager
+      - openjdk-11-jdk    # OpenJDK Development Kit (JDK) version 11
+      - openjdk-17-jdk    # OpenJDK Development Kit (JDK) version 17
+      - openjdk-21-jdk    # OpenJDK Development Kit (JDK) version 21
+      - openjdk-8-jdk     # OpenJDK Development Kit (JDK) version 8
+      - perl              # Practical Extraction and Report Language
+      - pkg-config        # Manage compile and link flags for libraries
+      - qt5-qmake         # Qt 5 qmake Makefile generator tool
+      - valgrind          # Dynamic analysis tool for programs
+      - vera++            # Programmable tool for verification, analysis and transformation of C++ source code
+      - vulkan-sdk        # Vulkan SDK for Linux
   register: task_result
   until: task_result is success
   retries: 10
@@ -61,20 +62,20 @@
 - name: Install Libraries
   ansible.builtin.apt:
     name:
-      - libbz2-dev
-      - libc6-dev
-      - libcurl4-openssl-dev
-      - libdw-dev
-      - libffi-dev
-      - libgdbm-dev
-      - libiberty-dev
-      - libncursesw5-dev
-      - libreadline-dev
-      - libsqlite3-dev
-      - libssl-dev
-      - linux-libc-dev
-      - tk-dev
-      - zlib1g-dev
+      - libbz2-dev              # Development files for the bzip2 compression library
+      - libc6-dev               # GNU C Library: Development Libraries and Header Files
+      - libcurl4-openssl-dev    # Development files and documentation for libcurl (OpenSSL flavour)
+      - libdw-dev               # Development files for libdw, a library to read DWARF debug information
+      - libffi-dev              # Foreign Function Interface library (development files)
+      - libgdbm-dev             # GNU dbm database routines (development files)
+      - libiberty-dev           # Utility functions for C programs (development files)
+      - libncursesw5-dev        # Developer's libraries for ncursesw
+      - libreadline-dev         # GNU readline and history libraries, development files
+      - libsqlite3-dev          # SQLite 3 development files
+      - libssl-dev              # Secure Sockets Layer toolkit - development files
+      - linux-libc-dev          # Linux kernel headers for development
+      - tk-dev                  # Tkinter - Writing Tk applications with Python 3.x
+      - zlib1g-dev              # Compression library - development files
   register: task_result
   until: task_result is success
   retries: 10

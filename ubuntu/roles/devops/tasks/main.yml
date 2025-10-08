@@ -2,7 +2,7 @@
 - name: Remove conflicting devops tools
   ansible.builtin.apt:
     name:
-      - awscli
+      - awscli        # Amazon Web Services Command Line Interface
     state: absent
   register: task_result
   until: task_result is success
@@ -12,9 +12,9 @@
 - name: Install DevOps Tools
   ansible.builtin.apt:
     name:
-      - kubectx
-      - kubectl
-      - terraform
+      - kubectx       # Utility to switch between clusters and namespaces in kubectl
+      - kubectl       # Command-line tool for controlling Kubernetes clusters
+      - terraform     # Infrastructure as Code software tool
   register: task_result
   until: task_result is success
   retries: 10

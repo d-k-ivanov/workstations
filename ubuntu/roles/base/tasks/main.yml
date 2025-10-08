@@ -21,31 +21,31 @@
 - name: Install Essential Packages
   ansible.builtin.apt:
     name:
-      - apt-transport-https
-      - apt-utils
-      - bash
-      - bash-completion
-      - dirmngr
-      - ca-certificates
-      - curl
-      - dos2unix
-      - duf
-      - fuse
-      - gnome-keyring
-      - gnupg
-      - jq
-      - mc
-      - p7zip-full
-      - pciutils
-      - seahorse
-      - software-properties-common
-      - texinfo
-      - tree
-      - unzip
-      - upower
-      - util-linux
-      - wget
-      - zip
+      - apt-transport-https           # Enable the use of repositories accessed via the HTTP Secure protocol (HTTPS)
+      - apt-utils                     # APT utility programs
+      - bash                          # GNU Bourne Again SHell
+      - bash-completion               # Programmable completion for the bash shell
+      - dirmngr                       # GNU privacy guard - network certificate management service
+      - ca-certificates               # Common CA certificates
+      - curl                          # Command line tool for transferring data with URL syntax
+      - dos2unix                      # Convert text files with DOS or Mac line endings to Unix line endings
+      - duf                           # Disk Usage/Free Utility
+      - fuse                          # Filesystem in Userspace
+      - gnome-keyring                 # GNOME keyring services (daemon and tools)
+      - gnupg                         # GNU privacy guard - a free PGP replacement
+      - jq                            # Command-line JSON processor
+      - mc                            # Midnight Commander - a powerful file manager
+      - p7zip-full                    # 7zip file archiver with high compression ratio
+      - pciutils                      # PCI bus utilities
+      - seahorse                      # GNOME application for managing encryption keys
+      - software-properties-common    # Manage the repositories that you install software from (add-apt-repository)
+      - texinfo                       # Documentation system for on-line information and printed output
+      - tree                          # Displays an indented directory tree, in color
+      - unzip                         # De-archiver for .zip files
+      - upower                        # Abstraction for power management
+      - util-linux                    # Miscellaneous system utilities
+      - wget                          # Network downloader
+      - zip                           # Archiver for .zip files
   register: task_result
   until: task_result is success
   retries: 10

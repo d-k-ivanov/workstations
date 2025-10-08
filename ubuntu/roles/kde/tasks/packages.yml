@@ -13,9 +13,9 @@
 - name: Install KDE Tools
   ansible.builtin.apt:
     name:
-      - dolphin
-      - dolphin-dev
-      - dolphin-plugins
+      - dolphin             # KDE file manager
+      - dolphin-dev         # Development files for the Dolphin file manager
+      - dolphin-plugins     # Plugins for the Dolphin file manager
   register: task_result
   until: task_result is success
   retries: 10

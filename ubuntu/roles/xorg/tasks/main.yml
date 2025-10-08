@@ -12,67 +12,67 @@
 - name: Install X Libs and Utils
   apt:
     name:
-      - libdbus-1-dev
-      - libdrm-dev
-      - libegl1-mesa-dev
-      - libgl-dev
-      - libgl1-mesa-dev
-      - libgles2-mesa-dev
-      - libglu1-mesa-dev
-      - libx11-dev
-      - libx11-xcb-dev
-      - libxcb-composite0-dev
-      - libxcb-cursor-dev
-      - libxcb-damage0-dev
-      - libxcb-dpms0-dev
-      - libxcb-dri2-0-dev
-      - libxcb-dri3-dev
-      - libxcb-ewmh-dev
-      - libxcb-glx0-dev
-      - libxcb-icccm4-dev
-      - libxcb-image0-dev
-      - libxcb-imdkit-dev
-      - libxcb-keysyms1-dev
-      - libxcb-present-dev
-      - libxcb-randr0-dev
-      - libxcb-record0-dev
-      - libxcb-render-util0-dev
-      - libxcb-render0-dev
-      - libxcb-res0-dev
-      - libxcb-screensaver0-dev
-      - libxcb-shape0-dev
-      - libxcb-shm0-dev
-      - libxcb-sync-dev
-      - libxcb-util-dev
-      - libxcb-util0-dev
-      - libxcb-xf86dri0-dev
-      - libxcb-xfixes0-dev
-      - libxcb-xinerama0-dev
-      - libxcb-xinput-dev
-      - libxcb-xkb-dev
-      - libxcb-xrm-dev
-      - libxcb-xtest0-dev
-      - libxcb-xv0-dev
-      - libxcb-xvmc0-dev
-      - libxcb1-dev
-      - libxcomposite-dev
-      - libxcursor-dev
-      - libxdamage-dev
-      - libxext-dev
-      - libxft-dev
-      - libxi-dev
-      - libxinerama-dev
-      - libxkbcommon-x11-dev
-      - libxrandr-dev
-      - libxrender-dev
-      - libxtst-dev
-      - libxxf86vm-dev
-      - mesa-common-dev
-      - mesa-utils
-      - x11-apps
-      - x11-xserver-utils
-      - xorg-dev
-      - xvfb
+      - libdbus-1-dev             # Simple interprocess messaging system (development files)
+      - libdrm-dev                # Userspace interface to kernel DRM services (development files)
+      - libegl1-mesa-dev          # Vendor-neutral GL dispatch library (development files)
+      - libgl-dev                 # Vendor-neutral GL dispatch library (development files)
+      - libgl1-mesa-dev           # Vendor-neutral GL dispatch library (development files)
+      - libgles2-mesa-dev         # Mesa OpenGL ES 2 development files
+      - libglu1-mesa-dev          # Mesa OpenGL utility library (development files)
+      - libx11-dev                # X11 client-side library (development headers)
+      - libx11-xcb-dev            # Xlib/XCB interface library (development headers)
+      - libxcb-composite0-dev     # X C Binding, composite extension, development files
+      - libxcb-cursor-dev         # X C Binding, cursor extension, development files
+      - libxcb-damage0-dev        # X C Binding, damage extension, development files
+      - libxcb-dpms0-dev          # X C Binding, DPMS extension, development files
+      - libxcb-dri2-0-dev         # X C Binding, dri2 extension, development files
+      - libxcb-dri3-dev           # X C Binding, dri3 extension, development files
+      - libxcb-ewmh-dev           # X C Binding, EWMH extension, development files
+      - libxcb-glx0-dev           # X C Binding, glx extension, development files
+      - libxcb-icccm4-dev         # X C Binding, icccm4 extension, development files
+      - libxcb-image0-dev         # X C Binding, image extension, development files
+      - libxcb-imdkit-dev         # X C Binding, imdkit extension, development files
+      - libxcb-keysyms1-dev       # X C Binding, keysyms extension, development files
+      - libxcb-present-dev        # X C Binding, present extension, development files
+      - libxcb-randr0-dev         # X C Binding, randr extension, development files
+      - libxcb-record0-dev        # X C Binding, record extension, development files
+      - libxcb-render-util0-dev   # X C Binding, render-util extension, development files
+      - libxcb-render0-dev        # X C Binding, render extension, development files
+      - libxcb-res0-dev           # X C Binding, res extension, development files
+      - libxcb-screensaver0-dev   # X C Binding, screensaver extension, development files
+      - libxcb-shape0-dev         # X C Binding, shape extension, development files
+      - libxcb-shm0-dev           # X C Binding, shm extension, development files
+      - libxcb-sync-dev           # X C Binding, sync extension, development files
+      - libxcb-util-dev           # X C Binding, utility library, development files
+      - libxcb-util0-dev          # X C Binding, utility library, development files
+      - libxcb-xf86dri0-dev       # X C Binding, xf86dri extension, development files
+      - libxcb-xfixes0-dev        # X C Binding, xfixes extension, development files
+      - libxcb-xinerama0-dev      # X C Binding, xinerama extension, development files
+      - libxcb-xinput-dev         # X C Binding, xinput extension, development files
+      - libxcb-xkb-dev            # X C Binding, xkb extension, development files
+      - libxcb-xrm-dev            # X C Binding, X resource manager extension, development files
+      - libxcb-xtest0-dev         # X C Binding, xtest extension, development files
+      - libxcb-xv0-dev            # X C Binding, xv extension, development files
+      - libxcb-xvmc0-dev          # X C Binding, xvmc extension, development files
+      - libxcb1-dev               # X C Binding, development files
+      - libxcomposite-dev         # X Composite extension library (development headers)
+      - libxcursor-dev            # X cursor management library (development headers)
+      - libxdamage-dev            # X damage extension library (development headers)
+      - libxext-dev               # X11 miscellaneous extensions library (development headers)
+      - libxft-dev                # FreeType-based font drawing library for X (development headers)
+      - libxi-dev                 # X11 Input extension library (development headers)
+      - libxinerama-dev           # Xinerama extension library (development headers)
+      - libxkbcommon-x11-dev      # XKB keyboard handling library (X11 support) (development files)
+      - libxrandr-dev             # X11 RandR extension library (development headers)
+      - libxrender-dev            # X Rendering Extension client library (development headers)
+      - libxtst-dev               # X11 Testing -- Record extension library (development headers)
+      - libxxf86vm-dev            # X11 XFree86 video mode extension library (development headers)
+      - mesa-common-dev           # Developer documentation for Mesa
+      - mesa-utils                # Miscellaneous Mesa GL utilities
+      - x11-apps                  # X applications (xclock, xeyes, xterm, etc.)
+      - x11-xserver-utils         # X server utilities
+      - xorg-dev                  # X.Org X Window System development libraries
+      - xvfb                      # Virtual Framebuffer 'fake' X server
   register: task_result
   until: task_result is success
   retries: 10

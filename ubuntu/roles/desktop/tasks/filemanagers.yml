@@ -12,9 +12,9 @@
 - name: Install File Managers
   ansible.builtin.apt:
     name:
-      - mc
-      - krusader
-      - doublecmd-gtk
+      - mc              # Midnight Commander - a powerful file manager
+      - krusader        # Advanced twin-panel (commander-style) file manager for KDE
+      - doublecmd-gtk   # Double Commander with GTK+ interface
       # - doublecmd-qt
   register: task_result
   until: task_result is success

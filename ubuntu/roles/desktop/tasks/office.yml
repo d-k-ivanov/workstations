@@ -12,8 +12,8 @@
 - name: Install Office Tools
   ansible.builtin.apt:
     name:
-      - libreoffice
-      - libreoffice-plasma
+      - libreoffice           # Free and open-source office suite
+      - libreoffice-plasma    # Integration of LibreOffice with the Plasma desktop
   register: task_result
   until: task_result is success
   retries: 10

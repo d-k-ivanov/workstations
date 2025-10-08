@@ -23,8 +23,8 @@
 - name: Install OneDrive and Related Packages
   ansible.builtin.apt:
     name:
-      - libfuse2
-      - onedrive
+      - libfuse2    # Filesystem in Userspace (FUSE) library
+      - onedrive    # OneDrive client for Linux
     install_recommends: false
     update_cache: yes
   register: task_result
