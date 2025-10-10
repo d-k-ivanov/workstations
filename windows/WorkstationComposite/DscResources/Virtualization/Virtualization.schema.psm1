@@ -95,4 +95,22 @@ Configuration Virtualization
     #     DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
     #     PsDscRunAsCredential = $Credential
     # }
+
+    cChocoPackageInstaller InstallPodmanCli
+    {
+        Name                 = 'podman-cli'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallPodmanDesktop
+    {
+        Name                 = 'podman-desktop'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
+        PsDscRunAsCredential = $Credential
+    }
 }
