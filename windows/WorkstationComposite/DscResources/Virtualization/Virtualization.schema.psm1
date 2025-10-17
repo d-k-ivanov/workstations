@@ -100,7 +100,7 @@ Configuration Virtualization
     {
         Name                 = 'podman-cli'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
         PsDscRunAsCredential = $Credential
     }
@@ -109,7 +109,7 @@ Configuration Virtualization
     {
         Name                 = 'podman-desktop'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
+        Ensure               = 'Absent'
         DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
         PsDscRunAsCredential = $Credential
     }
