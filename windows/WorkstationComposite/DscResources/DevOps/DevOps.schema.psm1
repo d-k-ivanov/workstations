@@ -191,7 +191,7 @@ Configuration DevOps
     cChocoPackageInstaller InstallGitHubCli
     {
         Name                 = 'gh'
-        AutoUpgrade          = $false
+        AutoUpgrade          = $AutoUpdate
         Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
