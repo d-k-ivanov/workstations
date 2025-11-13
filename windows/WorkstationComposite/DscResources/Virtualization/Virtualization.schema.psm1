@@ -113,4 +113,13 @@ Configuration Virtualization
         DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
         PsDscRunAsCredential = $Credential
     }
+
+    cChocoPackageInstaller InstallRancherDesktop
+    {
+        Name                 = 'rancher-desktop'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Absent'
+        DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
+        PsDscRunAsCredential = $Credential
+    }
 }
