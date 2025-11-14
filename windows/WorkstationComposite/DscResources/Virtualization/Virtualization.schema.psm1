@@ -96,30 +96,30 @@ Configuration Virtualization
     #     PsDscRunAsCredential = $Credential
     # }
 
-    cChocoPackageInstaller InstallPodmanCli
-    {
-        Name                 = 'podman-cli'
-        AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
-        DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
-        PsDscRunAsCredential = $Credential
-    }
+    # cChocoPackageInstaller InstallPodmanCli
+    # {
+    #     Name                 = 'podman-cli'
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Absent'
+    #     DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
+    #     PsDscRunAsCredential = $Credential
+    # }
 
-    cChocoPackageInstaller InstallPodmanDesktop
-    {
-        Name                 = 'podman-desktop'
-        AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
-        DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
-        PsDscRunAsCredential = $Credential
-    }
+    # cChocoPackageInstaller InstallPodmanDesktop
+    # {
+    #     Name                 = 'podman-desktop'
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Absent'
+    #     DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
+    #     PsDscRunAsCredential = $Credential
+    # }
 
-    cChocoPackageInstaller InstallRancherDesktop
-    {
-        Name                 = 'rancher-desktop'
-        AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
-        DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
-        PsDscRunAsCredential = $Credential
-    }
+    # cChocoPackageInstaller InstallRancherDesktop
+    # {
+    #     Name                 = 'rancher-desktop'
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Absent'
+    #     DependsOn            = ("[WindowsOptionalFeature]EnableHyperVAllFeature", '[cChocoInstaller]InstallChocolatey')
+    #     PsDscRunAsCredential = $Credential
+    # }
 }
