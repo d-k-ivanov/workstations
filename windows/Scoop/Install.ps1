@@ -11,6 +11,7 @@ else
     scoop bucket add nerd-fonts
 
     Write-Host "Installing Software with Scoop..."`
+    scoop install main/deno
     scoop install main/docker
     scoop install main/docker-compose
     scoop install main/nmap
