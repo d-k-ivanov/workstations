@@ -81,7 +81,7 @@ Configuration DocTools
         Name                 = 'texlive'
         AutoUpgrade          = $AutoUpdate
         Ensure               = 'Present'
-        chocoParams          = '/scheme:full'
+        # chocoParams          = '/scheme:full'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
