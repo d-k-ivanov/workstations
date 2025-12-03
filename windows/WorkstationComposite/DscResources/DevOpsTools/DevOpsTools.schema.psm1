@@ -12,7 +12,7 @@ User credental.
 Upgrade installed packages to their latest versions.
 #>
 
-Configuration DevOps
+Configuration DevOpsTools
 {
     Param
     (
@@ -332,7 +332,7 @@ Configuration DevOps
         PsDscRunAsCredential = $Credential
     }
 
-    cChocoPackageInstaller Pulumi
+    cChocoPackageInstaller InstallPulumi
     {
         Name                 = 'pulumi'
         AutoUpgrade          = $AutoUpdate

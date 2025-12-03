@@ -42,6 +42,24 @@ Configuration VisualStudio
     #     PsDscRunAsCredential = $Credential
     # }
 
+    cChocoPackageInstaller InstallVCRedist140
+    {
+        Name                 = 'vcredist140'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
+    }
+
+    cChocoPackageInstaller InstallVCRedist2005
+    {
+        Name                 = 'vcredist2005'
+        AutoUpgrade          = $AutoUpdate
+        Ensure               = 'Present'
+        DependsOn            = '[cChocoInstaller]InstallChocolatey'
+        PsDscRunAsCredential = $Credential
+    }
+
     cChocoPackageInstaller InstallVCRedist2008
     {
         Name                 = 'vcredist2008'
@@ -105,27 +123,45 @@ Configuration VisualStudio
         PsDscRunAsCredential = $Credential
     }
 
-    cChocoPackageInstaller InstallVisualStudioCommunity2019
+    # cChocoPackageInstaller InstallVisualStudioBuildTools2026
+    # {
+    #     Name                 = 'visualstudio2026buildtools'
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Present'
+    #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential = $Credential
+    # }
+
+    # cChocoPackageInstaller InstallVisualStudioCommunity2026
+    # {
+    #     Name                 = 'visualstudio2026community'
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Present'
+    #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential = $Credential
+    # }
+
+    cChocoPackageInstaller InstallVisualStudioProfessional2026
     {
-        Name                 = 'visualstudio2022community'
+        Name                 = 'visualstudio2026professional'
         AutoUpgrade          = $AutoUpdate
         Ensure               = 'Present'
         DependsOn            = '[cChocoInstaller]InstallChocolatey'
         PsDscRunAsCredential = $Credential
     }
 
-    Script DownloadWindows81Sdk
-    {
-        SetScript  = { Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/p/?LinkId=323507' -OutFile 'C:\Windows\Temp\sdksetup.exe' }
-        GetScript  = { @{} }
-        TestScript = { Test-Path 'C:\Windows\Temp\sdksetup.exe' }
-    }
+    # Script DownloadWindows81Sdk
+    # {
+    #     SetScript  = { Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/p/?LinkId=323507' -OutFile 'C:\Windows\Temp\sdksetup.exe' }
+    #     GetScript  = { @{} }
+    #     TestScript = { Test-Path 'C:\Windows\Temp\sdksetup.exe' }
+    # }
 
-    Script InstallWindows81Sdk
-    {
-        SetScript  = { cmd /c 'C:\Windows\Temp\sdksetup.exe /features + /q' }
-        GetScript  = { @{} }
-        TestScript = { Test-Path "${Env:ProgramFiles(x86)}\Windows Kits\8.1" }
-        DependsOn  = '[Script]DownloadWindows81Sdk'
-    }
+    # Script InstallWindows81Sdk
+    # {
+    #     SetScript  = { cmd /c 'C:\Windows\Temp\sdksetup.exe /features + /q' }
+    #     GetScript  = { @{} }
+    #     TestScript = { Test-Path "${Env:ProgramFiles(x86)}\Windows Kits\8.1" }
+    #     DependsOn  = '[Script]DownloadWindows81Sdk'
+    # }
 }
