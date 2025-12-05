@@ -76,15 +76,15 @@ Configuration DocTools
         PsDscRunAsCredential = $Credential
     }
 
-    cChocoPackageInstaller InstallTeXLive
-    {
-        Name                 = 'texlive'
-        AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Present'
-        # chocoParams          = '/scheme:full'
-        DependsOn            = '[cChocoInstaller]InstallChocolatey'
-        PsDscRunAsCredential = $Credential
-    }
+    # cChocoPackageInstaller InstallTeXLive
+    # {
+    #     Name                 = 'texlive'
+    #     AutoUpgrade          = $AutoUpdate
+    #     Ensure               = 'Present'
+    #     # chocoParams          = '/scheme:full'
+    #     DependsOn            = '[cChocoInstaller]InstallChocolatey'
+    #     PsDscRunAsCredential = $Credential
+    # }
 
     cChocoPackageInstaller InstallTeXStudio
     {
