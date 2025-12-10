@@ -165,7 +165,7 @@ Configuration DevTools
     {
         Name                 = 'ghidra'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
+        Ensure               = 'Present'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
@@ -265,7 +265,7 @@ Configuration DevTools
     {
         Name                 = 'ida-free'
         AutoUpgrade          = $AutoUpdate
-        Ensure               = 'Absent'
+        Ensure               = 'Present'
         DependsOn            = "[cChocoInstaller]InstallChocolatey"
         PsDscRunAsCredential = $Credential
     }
