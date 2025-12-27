@@ -9,7 +9,7 @@ DisableSmartScreen              # EnableSmartScreen
 DisableWebSearch                # EnableWebSearch
 DisableAppSuggestions           # EnableAppSuggestions
 DisableActivityHistory          # EnableActivityHistory
-DisableSensors                  # EnableSensors
+# DisableSensors                # EnableSensors
 # EnableLocation                # DisableLocation
 # EnableMapUpdates              # DisableMapUpdates
 DisableFeedback                 # EnableFeedback
@@ -131,7 +131,7 @@ ShowFileOperationsDetails       # HideFileOperationsDetails
 HideTaskbarSearch               # ShowTaskbarSearchIcon         # ShowTaskbarSearchBox
 HideTaskView                    # ShowTaskView
 ShowSmallTaskbarIcons           # ShowLargeTaskbarIcons
-SetTaskbarCombineAlways         # SetTaskbarCombineWhenFull     # SetTaskbarCombineNever
+SetTaskbarCombineNever          # SetTaskbarCombineAlways       # SetTaskbarCombineWhenFull
 HideTaskbarPeopleIcon           # ShowTaskbarPeopleIcon
 ShowTrayIcons                   # HideTrayIcons
 # ShowSecondsInTaskbar          # HideSecondsFromTaskbar
