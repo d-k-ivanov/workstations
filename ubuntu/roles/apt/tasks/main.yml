@@ -25,7 +25,7 @@
 
     - name: "Add Microsoft VS Code repository"
       ansible.builtin.apt:
-        deb: "https://packages.microsoft.com/config/ubuntu/{{ ansible_distribution_version }}/packages-microsoft-prod.deb"
+        deb: "https://packages.microsoft.com/config/ubuntu/{{ ansible_facts['distribution_version'] }}/packages-microsoft-prod.deb"
 
 - name: Add Jonas Groeger unoficial JetBrains PPA repository
   block:
@@ -53,7 +53,7 @@
 
     - name: "Kitware APT Repo"
       ansible.builtin.apt_repository:
-        repo: "deb https://apt.kitware.com/ubuntu/ {{ ansible_distribution_release }} main"
+        repo: "deb https://apt.kitware.com/ubuntu/ {{ ansible_facts['distribution_release'] }} main"
         filename: kitware
         state: present
 
@@ -68,13 +68,13 @@
 
     - name: "Vulkan Repo"
       ansible.builtin.apt_repository:
-        repo: "deb [arch=amd64] https://packages.lunarg.com/vulkan/ {{ ansible_distribution_release }} main"
+        repo: "deb [arch=amd64] https://packages.lunarg.com/vulkan/ {{ ansible_facts['distribution_release'] }} main"
         filename: lunarg-vulkan
         state: present
 
     - name: "Vulkan Repo SRC"
       ansible.builtin.apt_repository:
-        repo: "deb-src [arch=amd64] https://packages.lunarg.com/vulkan/ {{ ansible_distribution_release }} main"
+        repo: "deb-src [arch=amd64] https://packages.lunarg.com/vulkan/ {{ ansible_facts['distribution_release'] }} main"
         filename: lunarg-vulkan-src
         state: present
 
@@ -89,7 +89,7 @@
 
     - name: "HashiCorp APT Repo"
       ansible.builtin.apt_repository:
-        repo: "deb https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+        repo: "deb https://apt.releases.hashicorp.com {{ ansible_facts['distribution_release'] }} main"
         filename: hashicorp
         state: present
 

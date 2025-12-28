@@ -1,16 +1,16 @@
 ---
 # fs.file-max=2147483584
 - name: Set fs.file-max
-  sysctl:
+  ansible.posix.sysctl:
     name: fs.file-max
-    value: 2147483584
+    value: '2147483584'
     state: present
 
 #fs.nr_open=2147483584
 - name: Set fs.nr_open
-  sysctl:
+  ansible.posix.sysctl:
     name: fs.nr_open
-    value: 2147483584
+    value: '2147483584'
     state: present
 
 - name: Add or modify hard nofile limits for wildcard domain
@@ -18,11 +18,11 @@
     domain: '*'
     limit_type: 'hard'
     limit_item: 'nofile'
-    value: 1048576
+    value: '1048576'
 
 - name: Add or modify soft nofile limits for wildcard domain
   community.general.pam_limits:
     domain: '*'
     limit_type: 'soft'
     limit_item: 'nofile'
-    value: 1048576
+    value: '1048576'
