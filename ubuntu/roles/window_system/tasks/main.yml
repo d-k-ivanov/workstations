@@ -9,7 +9,7 @@
 #   retries: 10
 #   delay: 2
 
-- name: Install X Libs and Utils
+- name: Install Xorg and Wayland development packages
   apt:
     name:
       - libdbus-1-dev             # Simple interprocess messaging system (development files)
@@ -21,6 +21,7 @@
       - libglu1-mesa-dev          # Mesa OpenGL utility library (development files)
       - libx11-dev                # X11 client-side library (development headers)
       - libx11-xcb-dev            # Xlib/XCB interface library (development headers)
+      - libwayland-dev            # Wayland libraries and headers
       - libxcb-composite0-dev     # X C Binding, composite extension, development files
       - libxcb-cursor-dev         # X C Binding, cursor extension, development files
       - libxcb-damage0-dev        # X C Binding, damage extension, development files
@@ -69,6 +70,7 @@
       - libxxf86vm-dev            # X11 XFree86 video mode extension library (development headers)
       - mesa-common-dev           # Developer documentation for Mesa
       - mesa-utils                # Miscellaneous Mesa GL utilities
+      - wayland-protocols         # Wayland protocols
       - x11-apps                  # X applications (xclock, xeyes, xterm, etc.)
       - x11-xserver-utils         # X server utilities
       - xorg-dev                  # X.Org X Window System development libraries
