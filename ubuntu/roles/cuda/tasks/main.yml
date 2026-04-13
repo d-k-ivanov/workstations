@@ -1,0 +1,15 @@
+---
+- name: Install CUDA network repository and packages
+  block:
+    - name: "Install CUDA keyring package"
+      ansible.builtin.apt:
+        deb: "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu{{ ansible_facts['distribution_version'] | replace('.', '') }}/{{ ansible_facts['architecture'] }}/cuda-keyring_{{ cuda_keyring_version }}_all.deb"
+
+    - name: "Update apt cache"
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: "Install CUDA {{ cuda_version }} packages"
+      ansible.builtin.apt:
+        name: "{{ cuda_packages }}"
+        state: present

@@ -3,18 +3,20 @@
   become: true
   roles:
     # Initialization
-    - { role: apt,            tags: ['repos']                     }
+    - { role: apt,            tags: ['repos']                       }
 
     # Packages
-    - { role: base,           tags: ['base']                      }
-    - { role: browsers,       tags: ['browsers']                  }
-    - { role: development,    tags: ['development']               }
-    - { role: devops,         tags: ['devops']                    }
-    - { role: python,         tags: ['python']                    }
-    - { role: tools,          tags: ['tools']                     }
-    - { role: window_system,  tags: ['wayland', 'window', 'xorg'] }
+    - { role: base,           tags: ['base']                        }
+    - { role: browsers,       tags: ['browsers']                    }
+    - { role: development,    tags: ['development']                 }
+    - { role: devops,         tags: ['devops']                      }
+    - { role: python,         tags: ['python']                      }
+    - { role: tools,          tags: ['tools']                       }
+    - { role: window_system,  tags: ['wayland', 'window', 'xorg']   }
+
+    - { role: cuda,           tags: ['cuda'], cuda_version: "13.0"  }
 
     # Configuration
-    - { role: system,       tags: ['system']                      }
+    - { role: system,       tags: ['system']                        }
 
   vars:
