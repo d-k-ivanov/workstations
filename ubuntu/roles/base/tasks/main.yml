@@ -46,6 +46,7 @@
       - util-linux                    # Miscellaneous system utilities
       - wget                          # Network downloader
       - zip                           # Archiver for .zip files
+      - zstd                          # Fast compression algorithm
   register: task_result
   until: task_result is success
   retries: 10
