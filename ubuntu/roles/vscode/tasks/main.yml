@@ -1,0 +1,46 @@
+---
+# - name: Remove conflicting tools
+#   ansible.builtin.apt:
+#     name:
+#       - xxx
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Add Microsoft VS Code repository and install VS Code
+  block:
+    - name: "Add Microsoft repository key"
+      ansible.builtin.get_url:
+        url: "https://packages.microsoft.com/keys/microsoft-2025.asc"
+        dest: /etc/apt/trusted.gpg.d/microsoft.asc
+        mode: "0644"
+        force: true
+
+    - name: "Add Microsoft VS Code repository"
+      ansible.builtin.apt:
+        deb: "https://packages.microsoft.com/config/ubuntu/{{ ansible_facts['distribution_version'] }}/packages-microsoft-prod.deb"
+
+    - name: "Update apt cache"
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Packages
+      ansible.builtin.apt:
+        name:
+          - code                          # Visual Studio Code
+      register: task_result
+      until: task_result is success
+      retries: 10
+      delay: 2
+
+# - name: Remove packages
+#   ansible.builtin.apt:
+#     name:
+#       - code
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2

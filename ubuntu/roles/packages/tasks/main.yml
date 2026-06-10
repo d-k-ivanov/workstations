@@ -1,0 +1,243 @@
+---
+# - name: Remove conflicting base packages
+#   ansible.builtin.apt:
+#     name:
+#       - xxx
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Update apt cache if the last one is more than 3600 seconds ago
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Update all packages to their latest version
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install Essential Packages
+  ansible.builtin.apt:
+    name:
+      - apt-transport-https           # Enable the use of repositories accessed via the HTTP Secure protocol (HTTPS)
+      - apt-utils                     # APT utility programs
+      - bash                          # GNU Bourne Again SHell
+      - bash-completion               # Programmable completion for the bash shell
+      - ca-certificates               # Common CA certificates
+      - curl                          # Command line tool for transferring data with URL syntax
+      - dos2unix                      # Convert text files with DOS or Mac line endings to Unix line endings
+      - duf                           # Disk Usage/Free Utility
+      - jq                            # Command-line JSON processor
+      - p7zip-full                    # 7zip file archiver with high compression ratio
+      - software-properties-common    # Manage the repositories that you install software from (add-apt-repository)
+      - texinfo                       # Documentation system for on-line information and printed output
+      - unzip                         # De-archiver for .zip files
+      - wget                          # Network downloader
+      - zip                           # Archiver for .zip files
+      - zstd                          # Fast compression algorithm
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install File Tools
+  ansible.builtin.apt:
+    name:
+      - fuse                          # Filesystem in Userspace
+      - mc                            # Midnight Commander - a powerful file manager
+      - tree                          # Displays an indented directory tree, in color
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install Security Tools
+  ansible.builtin.apt:
+    name:
+      - dirmngr                       # Server for managing and downloading OpenPGP and X.509 certificates
+      - encfs                         # Encrypted filesystem in user-space
+      - gnome-keyring                 # GNOME keyring services (daemon and tools)
+      - gnupg                         # GNU privacy guard - a free PGP replacement
+      - gocryptfs                     # Encrypted overlay filesystem written in Go
+      - seahorse                      # GNOME application for managing encryption keys
+      # - kleopatra                   # Certificate manager and GUI for GnuPG
+      # - scdaemon                    # Smartcard daemon for GnuPG
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install System Tools
+  ansible.builtin.apt:
+    name:
+      - pciutils                      # PCI bus utilities
+      - upower                        # Abstraction for power management
+      - util-linux                    # Miscellaneous system utilities
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install X11 and Wayland development packages
+  apt:
+    name:
+      - mesa-common-dev               # Developer documentation for Mesa
+      - mesa-utils                    # Miscellaneous Mesa GL utilities
+      - wayland-protocols             # Wayland protocols
+      - x11-apps                      # X applications (xclock, xeyes, xterm, etc.)
+      - x11-xserver-utils             # X server utilities
+      - xorg-dev                      # X.Org X Window System development libraries
+      - xvfb                          # Virtual Framebuffer 'fake' X server
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install Developmnet Tools
+  ansible.builtin.apt:
+    name:
+      - autoconf                      # GNU Autoconf is a tool for producing shell scripts that automatically configure software source code packages
+      - autoconf-archive              # Collection of GNU Autoconf macros
+      - autopoint                     # Tool for internationalizing GNU packages
+      - binutils-dev                  # Development files for the GNU assembler, linker and binary utilities
+      - bison                         # General-purpose parser generator that converts an annotated context-free grammar into a deterministic LR or generalized LR (GLR) parser
+      - build-essential               # Informational list of build-essential packages
+      - clang                         # C, C++ and Objective-C compiler (LLVM based)
+      - clang-format                  # Clang-based C/C++ code formatter
+      - clang-tidy                    # Clang-based C/C++ linter tool
+      - clazy                         # Static analysis tool for Qt/C++
+      - clazy-tests                   # Static analysis tool for Qt/C++
+      # - cmake                         # cross-platform, open-source build system
+      - coreutils                     # GNU core utilities
+      - cppcheck                      # Static analysis tool for C/C++
+      - flex                          # fast lexical analyzer generator
+      - g++                           # GNU C++ compiler
+      - gcc                           # GNU C compiler
+      - gdb                           # GNU Debugger
+      - git                           # Fast, scalable, distributed revision control system
+      - git-lfs                       # Git extension for versioning large files
+      - gperf                         # Perfect hash function generator
+      - heaptrack                     # Heap memory profiler
+      - heaptrack-gui                 # GUI for heaptrack
+      - libtool                       # Generic library support script
+      - libxml2-utils                 # XML utilities (xmllint, xmlcatalog)
+      - linux-libc-dev                # Linux kernel headers for development
+      - linux-tools-generic           # Linux kernel tools for performance monitoring and debugging
+      - lldb                          # Next generation, high-performance debugger
+      - llvm                          # Modular compiler and toolchain technologies
+      - make                          # Utility for directing compilation
+      - mercurial                     # Scalable distributed version control system
+      - mono-complete                 # Mono runtime (C#, DotNet), development tools and all libraries
+      - ninja-build                   # Small build system with a focus on speed
+      - npm                           # Node.js package manager
+      - openjdk-11-jdk                # OpenJDK Development Kit (JDK) version 11
+      - openjdk-17-jdk                # OpenJDK Development Kit (JDK) version 17
+      - openjdk-21-jdk                # OpenJDK Development Kit (JDK) version 21
+      - openjdk-8-jdk                 # OpenJDK Development Kit (JDK) version 8
+      - patchelf                      # A small utility to modify the dynamic linker and RPATH of ELF executables
+      - perl                          # Practical Extraction and Report Language
+      - pkg-config                    # Manage compile and link flags for libraries
+      - python3-dev                   # Header files and a static library for Python (default)
+      - python3-pip                   # Python package installer
+      - qmake6                        # Qt 6 qmake Makefile generator tool
+      - qt5-qmake                     # Qt 5 qmake Makefile generator tool
+      - tk-dev                        # Tkinter - Writing Tk applications with Python 3.x
+      - valgrind                      # Dynamic analysis tool for programs
+      - vera++                        # Programmable tool for verification, analysis and transformation of C++ source code
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install IDE and Editors
+  ansible.builtin.apt:
+    name:
+      - codeblocks                   # C, C++, and Fortran IDE
+      - vim                          # Vi IMproved - enhanced vi editor
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install Libraries
+  ansible.builtin.apt:
+    name:
+      - libbz2-dev                    # Development files for the bzip2 compression library
+      - libc6-dev                     # GNU C Library: Development Libraries and Header Files
+      - libcurl4-openssl-dev          # Development files and documentation for libcurl (OpenSSL flavour)
+      - libdbus-1-dev                 # Simple interprocess messaging system (development files)
+      - libdrm-dev                    # Userspace interface to kernel DRM services (development files)
+      - libdw-dev                     # Development files for libdw, a library to read DWARF debug information
+      - libegl1-mesa-dev              # Vendor-neutral GL dispatch library (development files)
+      - libffi-dev                    # Foreign Function Interface library (development files)
+      - libgdbm-dev                   # GNU dbm database routines (development files)
+      - libgl-dev                     # Vendor-neutral GL dispatch library (development files)
+      - libgl1-mesa-dev               # Vendor-neutral GL dispatch library (development files)
+      - libgles2-mesa-dev             # Mesa OpenGL ES 2 development files
+      - libglu1-mesa-dev              # Mesa OpenGL utility library (development files)
+      - libiberty-dev                 # Utility functions for C programs (development files)
+      - libncursesw5-dev              # Developer's libraries for ncursesw
+      - libreadline-dev               # GNU readline and history libraries, development files
+      - libsqlite3-dev                # SQLite 3 development files
+      - libssl-dev                    # Secure Sockets Layer toolkit - development files
+      - libwayland-dev                # Wayland libraries and headers
+      - libx11-dev                    # X11 client-side library (development headers)
+      - libx11-xcb-dev                # Xlib/XCB interface library (development headers)
+      - libxcb-composite0-dev         # X C Binding, composite extension, development files
+      - libxcb-cursor-dev             # X C Binding, cursor extension, development files
+      - libxcb-damage0-dev            # X C Binding, damage extension, development files
+      - libxcb-dpms0-dev              # X C Binding, DPMS extension, development files
+      - libxcb-dri2-0-dev             # X C Binding, dri2 extension, development files
+      - libxcb-dri3-dev               # X C Binding, dri3 extension, development files
+      - libxcb-ewmh-dev               # X C Binding, EWMH extension, development files
+      - libxcb-glx0-dev               # X C Binding, glx extension, development files
+      - libxcb-icccm4-dev             # X C Binding, icccm4 extension, development files
+      - libxcb-image0-dev             # X C Binding, image extension, development files
+      - libxcb-imdkit-dev             # X C Binding, imdkit extension, development files
+      - libxcb-keysyms1-dev           # X C Binding, keysyms extension, development files
+      - libxcb-present-dev            # X C Binding, present extension, development files
+      - libxcb-randr0-dev             # X C Binding, randr extension, development files
+      - libxcb-record0-dev            # X C Binding, record extension, development files
+      - libxcb-render-util0-dev       # X C Binding, render-util extension, development files
+      - libxcb-render0-dev            # X C Binding, render extension, development files
+      - libxcb-res0-dev               # X C Binding, res extension, development files
+      - libxcb-screensaver0-dev       # X C Binding, screensaver extension, development files
+      - libxcb-shape0-dev             # X C Binding, shape extension, development files
+      - libxcb-shm0-dev               # X C Binding, shm extension, development files
+      - libxcb-sync-dev               # X C Binding, sync extension, development files
+      - libxcb-util-dev               # X C Binding, utility library, development files
+      - libxcb-util0-dev              # X C Binding, utility library, development files
+      - libxcb-xf86dri0-dev           # X C Binding, xf86dri extension, development files
+      - libxcb-xfixes0-dev            # X C Binding, xfixes extension, development files
+      - libxcb-xinerama0-dev          # X C Binding, xinerama extension, development files
+      - libxcb-xinput-dev             # X C Binding, xinput extension, development files
+      - libxcb-xkb-dev                # X C Binding, xkb extension, development files
+      - libxcb-xrm-dev                # X C Binding, X resource manager extension, development files
+      - libxcb-xtest0-dev             # X C Binding, xtest extension, development files
+      - libxcb-xv0-dev                # X C Binding, xv extension, development files
+      - libxcb-xvmc0-dev              # X C Binding, xvmc extension, development files
+      - libxcb1-dev                   # X C Binding, development files
+      - libxcomposite-dev             # X Composite extension library (development headers)
+      - libxcursor-dev                # X cursor management library (development headers)
+      - libxdamage-dev                # X damage extension library (development headers)
+      - libxext-dev                   # X11 miscellaneous extensions library (development headers)
+      - libxft-dev                    # FreeType-based font drawing library for X (development headers)
+      - libxi-dev                     # X11 Input extension library (development headers)
+      - libxinerama-dev               # Xinerama extension library (development headers)
+      - libxkbcommon-x11-dev          # XKB keyboard handling library (X11 support) (development files)
+      - libxrandr-dev                 # X11 RandR extension library (development headers)
+      - libxrender-dev                # X Rendering Extension client library (development headers)
+      - libxtst-dev                   # X11 Testing -- Record extension library (development headers)
+      - libxxf86vm-dev                # X11 XFree86 video mode extension library (development headers)
+      - zlib1g-dev                    # Compression library - development files
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2

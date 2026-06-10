@@ -1,0 +1,56 @@
+---
+# - name: Remove conflicting tools
+#   ansible.builtin.apt:
+#     name:
+#       - xxx
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Add HashiCorp repository and install Terraform
+  block:
+    - name: "HashiCorp APT Repo Key"
+      ansible.builtin.get_url:
+        url: "https://apt.releases.hashicorp.com/gpg"
+        dest: /etc/apt/trusted.gpg.d/hashicorp.asc
+        mode: "0644"
+        force: true
+
+    - name: "HashiCorp APT Repo"
+      ansible.builtin.deb822_repository:
+        name: hashicorp
+        types:
+          - deb
+        uris:
+          - https://apt.releases.hashicorp.com
+        suites:
+          - "{{ ansible_facts['distribution_release'] }}"
+        components:
+          - main
+        signed_by: /etc/apt/trusted.gpg.d/hashicorp.asc
+        state: present
+
+    - name: "Update apt cache"
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Packages
+      ansible.builtin.apt:
+        name:
+          - terraform # Infrastructure as Code software tool
+      register: task_result
+      until: task_result is success
+      retries: 10
+      delay: 2
+
+# - name: Remove packages
+#   ansible.builtin.apt:
+#     name:
+#       - terraform
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2

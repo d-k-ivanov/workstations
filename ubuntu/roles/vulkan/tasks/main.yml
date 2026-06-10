@@ -1,0 +1,59 @@
+---
+# - name: Remove conflicting tools
+#   ansible.builtin.apt:
+#     name:
+#       - xxx
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Add LunarG Vulkan repository and install Vulkan SDK
+  block:
+    - name: "LunarG Repo Key"
+      ansible.builtin.get_url:
+        url: "https://packages.lunarg.com/lunarg-signing-key-pub.asc"
+        dest: /etc/apt/trusted.gpg.d/lunarg.asc
+        mode: "0644"
+        force: true
+
+    - name: "Vulkan Repo"
+      ansible.builtin.deb822_repository:
+        name: lunarg-vulkan
+        types:
+          - deb
+          - deb-src
+        uris:
+          - https://packages.lunarg.com/vulkan/
+        suites:
+          - "{{ ansible_facts['distribution_release'] }}"
+        components:
+          - main
+        architectures:
+          - amd64
+        signed_by: /etc/apt/trusted.gpg.d/lunarg.asc
+        state: present
+
+    - name: "Update apt cache"
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Packages
+      ansible.builtin.apt:
+        name:
+          - vulkan-sdk                    # Vulkan Software Development Kit
+      register: task_result
+      until: task_result is success
+      retries: 10
+      delay: 2
+
+# - name: Remove packages
+#   ansible.builtin.apt:
+#     name:
+#       - vulkan-sdk
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2

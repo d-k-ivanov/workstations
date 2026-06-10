@@ -1,0 +1,56 @@
+---
+# - name: Remove conflicting tools
+#   ansible.builtin.apt:
+#     name:
+#       - cmake
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Add Kitware repository and install CMake
+  block:
+    - name: "Kitware APT Repo Key"
+      ansible.builtin.get_url:
+        url: "https://apt.kitware.com/keys/kitware-archive-latest.asc"
+        dest: /etc/apt/trusted.gpg.d/kitware.asc
+        mode: "0644"
+        force: true
+
+    - name: "Kitware APT Repo"
+      ansible.builtin.deb822_repository:
+        name: kitware
+        types:
+          - deb
+        uris:
+          - https://apt.kitware.com/ubuntu/
+        suites:
+          - "{{ ansible_facts['distribution_release'] }}"
+        components:
+          - main
+        signed_by: /etc/apt/trusted.gpg.d/kitware.asc
+        state: present
+
+    - name: "Update apt cache"
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Packages
+      ansible.builtin.apt:
+        name:
+          - cmake                         # cross-platform, open-source build system
+      register: task_result
+      until: task_result is success
+      retries: 10
+      delay: 2
+
+# - name: Remove packages
+#   ansible.builtin.apt:
+#     name:
+#       - cmake
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2

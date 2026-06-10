@@ -1,0 +1,53 @@
+---
+# - name: Remove conflicting tools
+#   ansible.builtin.apt:
+#     name:
+#       - xxx
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Add Jonas Groeger unoficial JetBrains PPA repository and install IDEs
+  block:
+    - name: "Jetbrains APT Repo"
+      ansible.builtin.deb822_repository:
+        name: jetbrains-ppa-jg
+        types:
+          - deb
+        uris:
+          - http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com
+        suites:
+          - any
+        components:
+          - main
+        architectures:
+          - amd64
+        signed_by: https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc
+        state: present
+
+    - name: "Update apt cache"
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Packages
+      ansible.builtin.apt:
+        name:
+          - clion                         # Cross-platform IDE for C and C++
+          - intellij-idea-ultimate        # Capable and Ergonomic IDE for JVM
+      register: task_result
+      until: task_result is success
+      retries: 10
+      delay: 2
+
+# - name: Remove packages
+#   ansible.builtin.apt:
+#     name:
+#       - clion
+#       - intellij-idea-ultimate
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2

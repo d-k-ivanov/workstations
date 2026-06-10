@@ -1,0 +1,51 @@
+---
+# - name: Remove conflicting tools
+#   ansible.builtin.apt:
+#     name:
+#       - xxx
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
+
+- name: Add Kubernetes repository and install kubectl and kubectx
+  block:
+    - name: K8s | Adding kubernetes apt repo
+      ansible.builtin.deb822_repository:
+        name: pkgs_k8s_io_core_stable_deb
+        types:
+          - deb
+        uris:
+          - "https://pkgs.k8s.io/core:/stable:/{{ k8s.repo.version }}/deb/"
+        suites:
+          - /
+        mode: "0644"
+        signed_by: "https://pkgs.k8s.io/core:/stable:/{{ k8s.repo.version }}/deb/Release.key"
+        state: present
+      become: true
+
+    - name: "Update apt cache"
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Packages
+      ansible.builtin.apt:
+        name:
+          - kubectx                       # Utility to switch between clusters and namespaces in kubectl
+          - kubectl                       # Command-line tool for controlling Kubernetes clusters
+      register: task_result
+      until: task_result is success
+      retries: 10
+      delay: 2
+
+# - name: Remove packages
+#   ansible.builtin.apt:
+#     name:
+#       - kubectx
+#       - kubectl
+#     state: absent
+#   register: task_result
+#   until: task_result is success
+#   retries: 10
+#   delay: 2
