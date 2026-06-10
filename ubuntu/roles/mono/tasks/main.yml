@@ -1,0 +1,32 @@
+---
+- name: Install mono package
+  ansible.builtin.apt:
+    name:
+      - mono-complete                 # Mono runtime (C#, DotNet), development tools and all libraries
+    state: present
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Check whether ca-certificates-mono is installed
+  ansible.builtin.command: dpkg-query -W -f='${Status}' ca-certificates-mono
+  register: ca_certificates_mono_check
+  changed_when: false
+  failed_when: false
+
+- name: Download ca-certificates-mono package
+  ansible.builtin.get_url:
+    url: https://snapshot.debian.org/archive/debian/20250813T203053Z/pool/main/m/mono/ca-certificates-mono_6.14.1%2Bds-2_all.deb
+    dest: /tmp/ca-certificates-mono_6.14.1+ds-2_all.deb
+    mode: "0644"
+  when: ca_certificates_mono_check.rc != 0
+
+- name: Install ca-certificates-mono package
+  ansible.builtin.apt:
+    deb: /tmp/ca-certificates-mono_6.14.1+ds-2_all.deb
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+  when: ca_certificates_mono_check.rc != 0

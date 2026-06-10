@@ -134,7 +134,6 @@
       - llvm                          # Modular compiler and toolchain technologies
       - make                          # Utility for directing compilation
       - mercurial                     # Scalable distributed version control system
-      - mono-complete                 # Mono runtime (C#, DotNet), development tools and all libraries
       - ninja-build                   # Small build system with a focus on speed
       - npm                           # Node.js package manager
       - openjdk-11-jdk                # OpenJDK Development Kit (JDK) version 11

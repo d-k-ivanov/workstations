@@ -11,6 +11,7 @@
     - { role: cuda,             tags: ['cuda'], cuda_version: "13.3"        }
     - { role: hashicorp,        tags: ['hashicorp', 'terraform']            }
     - { role: jetbrains,        tags: ['jetbrains', 'ide']                  }
+    - { role: mono,             tags: ['mono', 'certificates']              }
     - { role: kitware,          tags: ['kitware', 'cmake']                  }
     - { role: kubernetes-tools, tags: ['kubernetes', 'kubectl', 'kubectx']  }
 
