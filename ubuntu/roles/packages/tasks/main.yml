@@ -34,6 +34,7 @@
       - curl                          # Command line tool for transferring data with URL syntax
       - dos2unix                      # Convert text files with DOS or Mac line endings to Unix line endings
       - duf                           # Disk Usage/Free Utility
+      - fontconfig                    # Font configuration and customization library
       - jq                            # Command-line JSON processor
       - p7zip-full                    # 7zip file archiver with high compression ratio
       - software-properties-common    # Manage the repositories that you install software from (add-apt-repository)
@@ -134,6 +135,7 @@
       - llvm                          # Modular compiler and toolchain technologies
       - make                          # Utility for directing compilation
       - mercurial                     # Scalable distributed version control system
+      - nasm                          # Netwide Assembler - an 80x86 assembler designed for portability and modularity
       - ninja-build                   # Small build system with a focus on speed
       - npm                           # Node.js package manager
       - openjdk-11-jdk                # OpenJDK Development Kit (JDK) version 11
