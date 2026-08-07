@@ -5,10 +5,11 @@
     # Base
     - { role: packages,         tags: ['packages']                          }
     - { role: system,           tags: ['system']                            }
- 
-    # Speicial 
+
+    # Speicial
     - { role: aws,              tags: ['aws', 'awscli']                     }
     - { role: cuda,             tags: ['cuda'], cuda_version: "13.3"        }
+    - { role: gcc-16,           tags: ['gcc-16']                            }
     - { role: hashicorp,        tags: ['hashicorp', 'terraform']            }
     - { role: jetbrains,        tags: ['jetbrains', 'ide']                  }
     - { role: mono,             tags: ['mono', 'certificates']              }

@@ -1,0 +1,40 @@
+---
+- name: Install software-properties-common
+  apt:
+    name: software-properties-common
+    state: present
+    update_cache: yes
+
+- name: Add Ubuntu Toolchain PPA
+  deb822_repository:
+    name: ubuntu-toolchain-r-test
+    types: [deb]
+    uris: [https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu]
+    suites: ["{{ ansible_facts['distribution_release'] }}"]
+    components: [main]
+    trusted: true
+    enabled: true
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install GCC 16 and G++ 16
+  apt:
+    name:
+      - gcc-16
+      - g++-16
+    state: present
+
+- name: Set GCC 16 as the default compiler
+  alternatives:
+    name: gcc
+    link: /usr/bin/gcc
+    path: /usr/bin/gcc-16
+    priority: 100
+- name: Set G++ 16 as the default compiler
+  alternatives:
+    name: g++
+    link: /usr/bin/g++
+    path: /usr/bin/g++-16
+    priority: 100
