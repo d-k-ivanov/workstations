@@ -12,7 +12,7 @@
     uris: [https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu]
     suites: ["{{ ansible_facts['distribution_release'] }}"]
     components: [main]
-    trusted: true
+    signed_by: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xC8EC952E2A0E1FBDC5090F6A2C277A0A352154E5"
     enabled: true
 
 - name: Update apt cache
