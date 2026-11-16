@@ -1,10 +1,10 @@
 # Ubuntu-based Desktop Environment (and WSL)
 
-## Python virtual Environment
+## Python Virtual Environment
 
 ```bash
-pyhton3 -m pip install virtualenv
-pyhton3 -m virtualenv -p $(which python)
+python -m venv venv
+python -m venv -p $(which python)
 source ./venv/bin/activate
-pyhton3 -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
